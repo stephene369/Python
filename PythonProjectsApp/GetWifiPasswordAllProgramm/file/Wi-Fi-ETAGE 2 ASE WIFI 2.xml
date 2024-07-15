@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<WLANProfile xmlns="http://www.microsoft.com/networking/WLAN/profile/v1">
+	<name>ETAGE 2 ASE WIFI 2</name>
+	<SSIDConfig>
+		<SSID>
+			<hex>455441474520322041534520574946492032</hex>
+			<name>ETAGE 2 ASE WIFI 2</name>
+		</SSID>
+	</SSIDConfig>
+	<connectionType>ESS</connectionType>
+	<connectionMode>auto</connectionMode>
+	<MSM>
+		<security>
+			<authEncryption>
+				<authentication>WPA2PSK</authentication>
+				<encryption>AES</encryption>
+				<useOneX>false</useOneX>
+			</authEncryption>
+			<sharedKey>
+				<keyType>passPhrase</keyType>
+				<protected>true</protected>
+				<keyMaterial>01000000D08C9DDF0115D1118C7A00C04FC297EB010000002069DFFED186864B93926B2AC7A3707A000000000200000000001066000000010000200000008758A6BCCED72623BADDE41C7832C111E3A29CF984D79790F923D586023BA2F5000000000E8000000002000020000000CDDC227D43D0889F33C6FB267B23FB07053D0C1DC78DAC8DD0C10BBA3CD38B6810000000F72E60C55B94694A39D9E6526F032EE940000000D7B78495162D853A2DFB5E5E24752056458674673DDB4D2E0E0EB03D05EFA54DFEE1025D049DCC837FFF9E109C3DC333BBFC61678C2A959BC8A00A44E3B77EBB</keyMaterial>
+			</sharedKey>
+		</security>
+	</MSM>
+	<MacRandomization xmlns="http://www.microsoft.com/networking/WLAN/profile/v3">
+		<enableRandomization>false</enableRandomization>
+		<randomizationSeed>2257166950</randomizationSeed>
+	</MacRandomization>
+</WLANProfile>

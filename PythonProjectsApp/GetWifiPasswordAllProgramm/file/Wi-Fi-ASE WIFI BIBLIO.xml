@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<WLANProfile xmlns="http://www.microsoft.com/networking/WLAN/profile/v1">
+	<name>ASE WIFI BIBLIO</name>
+	<SSIDConfig>
+		<SSID>
+			<hex>4153452057494649204249424C494F</hex>
+			<name>ASE WIFI BIBLIO</name>
+		</SSID>
+	</SSIDConfig>
+	<connectionType>ESS</connectionType>
+	<connectionMode>manual</connectionMode>
+	<MSM>
+		<security>
+			<authEncryption>
+				<authentication>WPA2PSK</authentication>
+				<encryption>AES</encryption>
+				<useOneX>false</useOneX>
+			</authEncryption>
+			<sharedKey>
+				<keyType>passPhrase</keyType>
+				<protected>true</protected>
+				<keyMaterial>01000000D08C9DDF0115D1118C7A00C04FC297EB010000002069DFFED186864B93926B2AC7A3707A00000000020000000000106600000001000020000000B917119E78E69B0A3DAFF1698089309C6B08620AC549280551F0180AE399381C000000000E80000000020000200000000E64A470EA60016BD68F9550562B12D9650F0B242F739443B1214A2B53A716F010000000F20ED00C8FDD52DE10161676DD762AA9400000005C888E6D5D3F129940B76C0F39E4C687358CD20A87337F5D1A22FE94F675102F0C516994EFE6475A57B1DF965B0CC372D1C740B09673DAE26CB7049D3B653022</keyMaterial>
+			</sharedKey>
+		</security>
+	</MSM>
+	<MacRandomization xmlns="http://www.microsoft.com/networking/WLAN/profile/v3">
+		<enableRandomization>true</enableRandomization>
+		<randomizationSeed>686973047</randomizationSeed>
+	</MacRandomization>
+</WLANProfile>

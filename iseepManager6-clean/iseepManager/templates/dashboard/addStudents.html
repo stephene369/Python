@@ -1,0 +1,83 @@
+<!-- dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <title>Dashboard - Ajouter </title>
+
+</head>
+
+<body>
+    {% include 'menu.html' %}
+    
+    <div class="card">
+        <!-- Contenu spécifique à la page du tableau de bord -->
+        
+        <h1>Ajouter un Etudiant</h1>
+        <form method="POST" action="/addStudents">
+            {{ form.hidden_tag() }}
+            
+            <label for="first_name">Prénom :</label>
+            {{ form.first_name(class="form-control") }}
+            {% for error in form.first_name.errors %}
+                <div class="alert alert-danger">{{ error }}</div>
+            {% endfor %}
+    
+            <label for="last_name">Nom :</label>
+            {{ form.last_name(class="form-control") }}
+            {% for error in form.last_name.errors %}
+                <div class="alert alert-danger">{{ error }}</div>
+            {% endfor %}
+    
+            <label for="email">Email :</label>
+            {{ form.email(class="form-control") }}
+            {% for error in form.email.errors %}
+                <div class="alert alert-danger">{{ error }}</div>
+            {% endfor %}
+
+            <label for="class">Classe :</label>
+            {{ form.classe(class="form-control") }}
+            {% for error in form.classe.errors %}
+                <div class="alert alert-danger">{{ error }}</div>
+            {% endfor %}
+    
+            {{ form.submit }}
+        
+        </form>
+    </div>
+
+
+    <div class="card">
+        <h5>Liste des Étudiants</h5>
+
+        <table border="1">
+            <tr>
+                <th>#</th>
+                <th>ID Étudiant</th>
+                <th>Prénom</th>
+                <th>Nom de famille</th>
+                <th>Classe</th>
+                <th>Email</th>
+
+            </tr>
+            
+            {% for student in students %}
+            <tr>
+                <td>{{ index }}</td>
+                <td>{{ student[0] }}</td>
+                <td>{{ student[1] }}</td>
+                <td>{{ student[2] }}</td>
+                <td>{{ student[3] }}</td>
+                <td>{{ student[4] }}</td>
+
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+
+</body>
+</html>

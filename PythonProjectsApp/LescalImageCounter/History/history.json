@@ -1,0 +1,28 @@
+[
+    {
+        "TOTAL": 1
+    },
+    [
+        {
+            "image": "C:\\Users\\steph\\OneDrive\\Documents\\PythonProjectsApp\\LescalImageCounter\\History\\Images\\20230910202342.588760.png",
+            "image-infos": {
+                "wh": [
+                    640,
+                    360
+                ],
+                "size": 103301
+            },
+            "image-counted": "C:\\Users\\steph\\OneDrive\\Documents\\PythonProjectsApp\\LescalImageCounter\\History\\Images\\20230910202342.588760--counted.png",
+            "image-counted-infos": {
+                "wh": [
+                    640,
+                    360
+                ],
+                "size": 10620
+            },
+            "count": 8,
+            "time": "2023-09-10 20:23:55.085054",
+            "diff": "0:00:10.296876"
+        }
+    ]
+]

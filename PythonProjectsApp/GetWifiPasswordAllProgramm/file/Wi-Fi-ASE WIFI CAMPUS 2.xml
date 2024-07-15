@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<WLANProfile xmlns="http://www.microsoft.com/networking/WLAN/profile/v1">
+	<name>ASE WIFI CAMPUS 2</name>
+	<SSIDConfig>
+		<SSID>
+			<hex>41534520574946492043414D5055532032</hex>
+			<name>ASE WIFI CAMPUS 2</name>
+		</SSID>
+	</SSIDConfig>
+	<connectionType>ESS</connectionType>
+	<connectionMode>auto</connectionMode>
+	<MSM>
+		<security>
+			<authEncryption>
+				<authentication>WPAPSK</authentication>
+				<encryption>AES</encryption>
+				<useOneX>false</useOneX>
+			</authEncryption>
+			<sharedKey>
+				<keyType>passPhrase</keyType>
+				<protected>true</protected>
+				<keyMaterial>01000000D08C9DDF0115D1118C7A00C04FC297EB01000000C3195CEF1E9F4442A906581A87043B7800000000020000000000106600000001000020000000746CB7F1D512777D280D976ADC90654050855CE4B8A7F8B17DE817CDADF3F994000000000E8000000002000020000000BED10543CD439AA16CD5E043452EC552E16D704DA3372A93BC466B3FEB97DB2C10000000829A544158A35C9B0A71C2EE640F91A2400000007A0F70C553978EC256C1F844A9089DE1B7095A2627FF077D879E857F8D7D7A7FFF3D1338E1786EE6F54260E7767802876D0F84FCAFD1E07B0A9FE6A469590DF3</keyMaterial>
+			</sharedKey>
+		</security>
+	</MSM>
+	<MacRandomization xmlns="http://www.microsoft.com/networking/WLAN/profile/v3">
+		<enableRandomization>true</enableRandomization>
+		<randomizationSeed>1649069489</randomizationSeed>
+	</MacRandomization>
+</WLANProfile>

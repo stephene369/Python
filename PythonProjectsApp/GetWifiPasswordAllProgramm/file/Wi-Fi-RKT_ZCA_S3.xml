@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<WLANProfile xmlns="http://www.microsoft.com/networking/WLAN/profile/v1">
+	<name>RKT_ZCA_S3</name>
+	<SSIDConfig>
+		<SSID>
+			<hex>524B545F5A43415F5333</hex>
+			<name>RKT_ZCA_S3</name>
+		</SSID>
+	</SSIDConfig>
+	<connectionType>ESS</connectionType>
+	<connectionMode>manual</connectionMode>
+	<MSM>
+		<security>
+			<authEncryption>
+				<authentication>WPA2PSK</authentication>
+				<encryption>AES</encryption>
+				<useOneX>false</useOneX>
+			</authEncryption>
+			<sharedKey>
+				<keyType>passPhrase</keyType>
+				<protected>true</protected>
+				<keyMaterial>01000000D08C9DDF0115D1118C7A00C04FC297EB01000000C3195CEF1E9F4442A906581A87043B780000000002000000000010660000000100002000000077A7238911312E35C289812110E8C4CAEFA45BA5C8D3A27417D69DB8C18AF203000000000E8000000002000020000000BD8BF9F248542362608C2877CE7305740BB5122D0BB18ED4AEACB57401B55E42100000009170F4A84C7284CFAA641BC0FB6016924000000053EEC1DF3F392D9DD761660050A2E9518CF8B61F74FF084E88117EB5FBB2D80271ADA612ACA68C36372D08D1BAC658E637F11EAD183CCFA4706E3E31CB6C974A</keyMaterial>
+			</sharedKey>
+		</security>
+	</MSM>
+	<MacRandomization xmlns="http://www.microsoft.com/networking/WLAN/profile/v3">
+		<enableRandomization>true</enableRandomization>
+		<randomizationSeed>1584344778</randomizationSeed>
+	</MacRandomization>
+</WLANProfile>

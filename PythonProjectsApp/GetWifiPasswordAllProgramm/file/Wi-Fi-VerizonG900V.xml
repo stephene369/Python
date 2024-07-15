@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<WLANProfile xmlns="http://www.microsoft.com/networking/WLAN/profile/v1">
+	<name>VerizonG900V</name>
+	<SSIDConfig>
+		<SSID>
+			<hex>566572697A6F6E4739303056</hex>
+			<name>VerizonG900V</name>
+		</SSID>
+		<nonBroadcast>true</nonBroadcast>
+	</SSIDConfig>
+	<connectionType>ESS</connectionType>
+	<connectionMode>auto</connectionMode>
+	<MSM>
+		<security>
+			<authEncryption>
+				<authentication>WPA2PSK</authentication>
+				<encryption>AES</encryption>
+				<useOneX>false</useOneX>
+			</authEncryption>
+			<sharedKey>
+				<keyType>passPhrase</keyType>
+				<protected>true</protected>
+				<keyMaterial>01000000D08C9DDF0115D1118C7A00C04FC297EB010000002069DFFED186864B93926B2AC7A3707A0000000002000000000010660000000100002000000058C2669178E209EDD02EA34B7EB6F4612BFAD51486D95E56C8FED929D914FB5C000000000E8000000002000020000000875DA86D9E561B901A2C88B045D60F36D7FD1A39911CE11E66F1AA81A2EA4C89100000000E00A93670097235773FD84060F2BEEA40000000DCDAB43C251C6A9DFE2F389C0EA8FF12BD087AFEC868BAA91D5CB5E4C86CD682A0D272CA7BF60583001FC99305130733C3670E358E19BBDE2716FE2BEDE455CA</keyMaterial>
+			</sharedKey>
+		</security>
+	</MSM>
+	<MacRandomization xmlns="http://www.microsoft.com/networking/WLAN/profile/v3">
+		<enableRandomization>false</enableRandomization>
+		<randomizationSeed>2341147005</randomizationSeed>
+	</MacRandomization>
+</WLANProfile>

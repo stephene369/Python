@@ -1,0 +1,29 @@
+{
+    "root": [],
+    "filesnames": {
+        "clien.py": 606,
+        "Client.py": 2846,
+        "exemple.py": 455,
+        "httpServer.py": 673,
+        "main.py": 406,
+        "README.md": 9,
+        "serv.py": 2226,
+        "Server.py": 6213,
+        "Server.spec": 941,
+        "setting.json": 373,
+        "update.sh": 128
+    },
+    "origin": [
+        "/home/kaneki/Documents/PythonProject/DesktopApp/Zender/clien.py",
+        "/home/kaneki/Documents/PythonProject/DesktopApp/Zender/Client.py",
+        "/home/kaneki/Documents/PythonProject/DesktopApp/Zender/exemple.py",
+        "/home/kaneki/Documents/PythonProject/DesktopApp/Zender/httpServer.py",
+        "/home/kaneki/Documents/PythonProject/DesktopApp/Zender/main.py",
+        "/home/kaneki/Documents/PythonProject/DesktopApp/Zender/README.md",
+        "/home/kaneki/Documents/PythonProject/DesktopApp/Zender/serv.py",
+        "/home/kaneki/Documents/PythonProject/DesktopApp/Zender/Server.py",
+        "/home/kaneki/Documents/PythonProject/DesktopApp/Zender/Server.spec",
+        "/home/kaneki/Documents/PythonProject/DesktopApp/Zender/setting.json",
+        "/home/kaneki/Documents/PythonProject/DesktopApp/Zender/update.sh"
+    ]
+}

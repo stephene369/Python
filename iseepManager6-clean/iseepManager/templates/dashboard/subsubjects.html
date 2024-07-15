@@ -1,0 +1,92 @@
+<!-- dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>Dashboard - Accueil</title>
+</head>
+<body>
+
+    {% include 'menu.html' %}
+    <form method="POST" action="/subsubjects" class="content">
+        <h4> {{ sub_form.label }} </h4>
+
+
+        <label for="options">Module disponible</label>
+        <select name="options" id="options">
+            {% for module in modules %}
+                <option value="{{ option }}">{{ module }}</option>
+            {% endfor %}
+        </select>
+
+        {{ sub_form.module_name.label }}
+        {{ sub_form.module_name }}
+        {% for error in sub_form.module_name.errors %}
+            <p class="error-message">{{ error }}</p>
+        {% endfor %}
+
+
+        {{ sub_form.sub_module.label }}
+        {{ sub_form.sub_module }}
+        {% for error in sub_form.sub_module.errors %}
+            <p class="error-message">{{ error }}</p>
+        {% endfor %}
+
+
+        {{ sub_form.sub_module_id.label }}
+        {{ sub_form.sub_module_id }}
+        {% for error in sub_form.sub_module_id.errors %}
+            <p class="error-message">{{ error }}</p>
+        {% endfor %}
+
+        {{ sub_form.sub_module_coef.label }}
+        {{ sub_form.sub_module_coef }}
+        {% for error in sub_form.sub_module_coef.errors %}
+            <p class="error-message">{{ error }}</p>
+        {% endfor %}
+
+        {{ sub_form.level.label }}
+        {{ sub_form.level }}
+        {% for error in sub_form.level.errors %}
+            <p class="error-message">{{ error }}</p>
+        {% endfor %}
+
+
+        {{ sub_form.submit }}
+    </form>
+
+    {% if message_succes %}
+    <div style="color: green; margin-top: 10px;">
+        {{ message_succes }}
+    </div>
+    {% endif %}
+
+<div class="card">
+    <h4>Liste des SubModules</h4>
+    <table border="1">
+        <tr>
+            <th>ID SubModule</th>
+            <th>Nom SubModule</th>
+            <th>Nom Module</th>
+            <th>Coefficient</th>
+            <th>Class </th>
+        </tr>
+        
+        {% for submodule in submodules %}
+        <tr>
+            <td>{{ submodule[0] }}</td>
+            <td>{{ submodule[1] }}</td>
+            <td>{{ submodule[2] }}</td>
+            <td>{{ submodule[3] }}</td>
+            <td>{{ submodule[4] }}</td>
+
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!-- dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <title>Dashboard - Accueil</title>
+    </head>
+    <body>
+        {% include 'menu.html' %}
+
+        <form method="POST" action="/subjects" class="content">
+            <h3>{{ module_form.label }}</h3>
+
+            {{ module_form.hidden_tag() }}
+
+            {{ module_form.module_name.label }}
+            {{ module_form.module_name }}
+            {% for error in module_form.module_name.errors %}
+            <p class="error-message">{{ error }}</p>
+            {% endfor %}
+
+            {{ module_form.module_id.label }}
+            {{ module_form.module_id }}
+            {% for error in module_form.module_id.errors %}
+            <p class="error-message">{{ error }}</p>
+            {% endfor %}
+
+            {{ module_form.submit }}
+        </form>
+
+        
+        <div class="card">
+            <h4>Liste des Modules</h4>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>ID Module</th>
+                        <th>Nom du Module</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for module in modules %}
+                    <tr>
+                        <td>{{ module[0] }}</td>
+                        <td>{{ module[1] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    </body>
+</html>

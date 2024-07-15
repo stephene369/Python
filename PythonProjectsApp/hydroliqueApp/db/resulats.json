@@ -1,0 +1,55 @@
+{
+    "circuit 1": {
+        "Perte de charefge total": -0.04467629344758257,
+        "Dimensionnement conduite montante": 18.169094159889728,
+        "Vitesse Reel de Circulation 'Vrm'": 0.9360566614109801,
+        "Verification 'Vrm'": true,
+        "Perte de charge conduite montante 'Jm'": 0.18939875494157543,
+        "Perte de charge 'Jr'": 2.101055410169164e-05,
+        "charge hydrolique": 6.000021010554102,
+        "hauteur de chute minimal": 4.000021010554102,
+        "troncon 1": {
+            "Debit de Base 'Qbt'": 0.55,
+            "Nombre total d'appareil 'Nt'": 3,
+            "Coefficient de simultaneite 'Kt'": 0.7071067811865475,
+            "Debit necessaire 'Qnt'": 0.38890872965260115,
+            "Vitesse de circulation de l'eau 'Vt'": 1.5,
+            "Diametre de conduite 'Dt'": 18.169094159889728,
+            "Diametre reel 'Db'": 30,
+            "Vitesse reel de circulation 'Vrt'": 0.5501933043182315,
+            "Verification 'Vrt'": false,
+            "Perte de charge unitaire 'jt'": -0.012949650274661615,
+            "Perte de charge total 'Jt'": -0.04467629344758257
+        }
+    },
+    "circuit 2": {
+        "Perte de charefge total": -0.4583492091489867,
+        "Dimensionnement conduite montante": 28.98784621894664,
+        "Vitesse Reel de Circulation 'Vrm'": 0.622440909935777,
+        "Verification 'Vrm'": true,
+        "Perte de charge conduite montante 'Jm'": 0.040078758137214815,
+        "Perte de charge 'Jr'": 1.0287988963197923e-05,
+        "charge hydrolique": 6.000010287988963,
+        "hauteur de chute minimal": 4.000010287988963,
+        "troncon 1": {
+            "Debit de Base 'Qbt'": 1.4,
+            "Nombre total d'appareil 'Nt'": 3,
+            "Coefficient de simultaneite 'Kt'": 0.7071067811865475,
+            "Debit necessaire 'Qnt'": 0.9899494936611664,
+            "Vitesse de circulation de l'eau 'Vt'": 2,
+            "Diametre de conduite 'Dt'": 25.104211226604477,
+            "Diametre reel 'Db'": 30,
+            "Vitesse reel de circulation 'Vrt'": 1.4004920473554983,
+            "Verification 'Vrt'": true,
+            "Perte de charge unitaire 'jt'": -0.13285484323159036,
+            "Perte de charge total 'Jt'": -0.4583492091489867
+        },
+        "troncon 2": {
+            "Coefficient de simultaneite": "Value Error",
+            "Nombre d'apparel": 0
+        },
+        "troncon 3": {
+            "Coefficient de simultaneite": "ZeroDivisionError"
+        }
+    }
+}

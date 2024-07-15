@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<WLANProfile xmlns="http://www.microsoft.com/networking/WLAN/profile/v1">
+	<name>TECNO Pouvoir 2 Pro</name>
+	<SSIDConfig>
+		<SSID>
+			<hex>5445434E4F20506F75766F697220322050726F</hex>
+			<name>TECNO Pouvoir 2 Pro</name>
+		</SSID>
+	</SSIDConfig>
+	<connectionType>ESS</connectionType>
+	<connectionMode>auto</connectionMode>
+	<MSM>
+		<security>
+			<authEncryption>
+				<authentication>WPA2PSK</authentication>
+				<encryption>AES</encryption>
+				<useOneX>false</useOneX>
+			</authEncryption>
+			<sharedKey>
+				<keyType>passPhrase</keyType>
+				<protected>true</protected>
+				<keyMaterial>01000000D08C9DDF0115D1118C7A00C04FC297EB010000002069DFFED186864B93926B2AC7A3707A00000000020000000000106600000001000020000000A610865DD9E5D658FBBAD946D7E1DB5FFBEC260DC283DE53AD53475B53D2B23B000000000E80000000020000200000000F5066C64DE45BCBE5FFB14C7621636941FC487C9C6ED6628778E1F9E7DFB9FB100000000E866E1B185365DC857111A9F92B3EFC4000000027C2DF3817F8ADB0EA84D8D832E2AD46CAB036998474ED1F1FABA448B4C00946D46FF7EDB1A591D7E2084D64966B6233DEC477863DA4E8343BCE3296FFF077AE</keyMaterial>
+			</sharedKey>
+		</security>
+	</MSM>
+	<MacRandomization xmlns="http://www.microsoft.com/networking/WLAN/profile/v3">
+		<enableRandomization>false</enableRandomization>
+		<randomizationSeed>1318410237</randomizationSeed>
+	</MacRandomization>
+</WLANProfile>

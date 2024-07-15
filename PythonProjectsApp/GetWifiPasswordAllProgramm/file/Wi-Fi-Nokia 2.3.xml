@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<WLANProfile xmlns="http://www.microsoft.com/networking/WLAN/profile/v1">
+	<name>Nokia 2.3</name>
+	<SSIDConfig>
+		<SSID>
+			<hex>4E6F6B696120322E33</hex>
+			<name>Nokia 2.3</name>
+		</SSID>
+	</SSIDConfig>
+	<connectionType>ESS</connectionType>
+	<connectionMode>auto</connectionMode>
+	<MSM>
+		<security>
+			<authEncryption>
+				<authentication>WPA2PSK</authentication>
+				<encryption>AES</encryption>
+				<useOneX>false</useOneX>
+			</authEncryption>
+			<sharedKey>
+				<keyType>passPhrase</keyType>
+				<protected>true</protected>
+				<keyMaterial>01000000D08C9DDF0115D1118C7A00C04FC297EB01000000F6E2ABD6974DE549B929313B7280AD2E000000000200000000001066000000010000200000009AE76BAB206EC73ADD04E796656FF1CCAD1AFCB05C59D2A6A5B383F7FA0F9BA4000000000E80000000020000200000005A8A2A005113B73DDA216DF045C5708CFA03408D1B6468681DC0B32A70B7929F10000000809748E88A9118E0D28C54247068CE394000000026955647FA8F0593E7D7D4235BAC6531FE188F3134941CDEAE2CEF72F98EC19E92D920849AA48E49138B16B341D39658FD18041885A362BA03D098A2184A6EAC</keyMaterial>
+			</sharedKey>
+		</security>
+	</MSM>
+	<MacRandomization xmlns="http://www.microsoft.com/networking/WLAN/profile/v3">
+		<enableRandomization>false</enableRandomization>
+		<randomizationSeed>2118159715</randomizationSeed>
+	</MacRandomization>
+</WLANProfile>

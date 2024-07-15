@@ -1,0 +1,26 @@
+<RCC>
+  <qresource prefix="icons">
+    <file>icons/arrow-left.svg</file>
+    <file>icons/arrow-left-alt.svg</file>
+    <file>icons/arrow-left-alt2.svg</file>
+    <file>icons/arrow-right.svg</file>
+    <file>icons/arrow-right-alt.svg</file>
+    <file>icons/arrow-right-alt2.svg</file>
+    <file>icons/close.svg</file>
+    <file>icons/keyboard-backspace.svg</file>
+    <file>icons/keyboard-tab.svg</file>
+    <file>icons/refresh.svg</file>
+    <file>icons/refresh-circle.svg</file>
+    <file>icons/wall-sconce-flat.svg</file>
+    <file>icons/window-close.svg</file>
+    <file>icons/window-closed.svg</file>
+    <file>icons/window-closed-variant.svg</file>
+    <file>icons/window-maximize.svg</file>
+    <file>icons/window-minimize.svg</file>
+    <file>icons/window-open.svg</file>
+    <file>icons/window-open-variant.svg</file>
+    <file>icons/window-restore.svg</file>
+    <file>icons/windows.svg</file>
+    <file>icons/windows-classic.svg</file>
+  </qresource>
+</RCC>

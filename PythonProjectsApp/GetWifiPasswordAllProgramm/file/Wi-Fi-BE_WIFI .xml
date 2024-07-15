@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<WLANProfile xmlns="http://www.microsoft.com/networking/WLAN/profile/v1">
+	<name><![CDATA[BE_WIFI ]]></name>
+	<SSIDConfig>
+		<SSID>
+			<hex>42455F5749464920</hex>
+			<name>BE_WIFI </name>
+		</SSID>
+	</SSIDConfig>
+	<connectionType>ESS</connectionType>
+	<connectionMode>auto</connectionMode>
+	<MSM>
+		<security>
+			<authEncryption>
+				<authentication>WPA2PSK</authentication>
+				<encryption>AES</encryption>
+				<useOneX>false</useOneX>
+			</authEncryption>
+			<sharedKey>
+				<keyType>passPhrase</keyType>
+				<protected>true</protected>
+				<keyMaterial>01000000D08C9DDF0115D1118C7A00C04FC297EB0100000016C8828EB15CAF44BFC60A2A176D92FF000000000200000000001066000000010000200000000A3C3A696DA7E09E328F361A1F6818B86EDB90793E03EA1A5252A9F0A61C7951000000000E80000000020000200000006F390F3613C995949D83B27E5C523127C4922DF866D934FB7A875FBBB84C9DFA1000000022C39885D179191BA2CFCFA6033369FB40000000CF243E472CF605E2404035BE6AEE2742922D305601740875DD05994C8EBF8DF7313EA9BA5187BF5967894924D3BD5ADFE024B14389D3ABABBB7ED95C73EC07A8</keyMaterial>
+			</sharedKey>
+		</security>
+	</MSM>
+	<MacRandomization xmlns="http://www.microsoft.com/networking/WLAN/profile/v3">
+		<enableRandomization>true</enableRandomization>
+		<randomizationSeed>4181048127</randomizationSeed>
+	</MacRandomization>
+</WLANProfile>

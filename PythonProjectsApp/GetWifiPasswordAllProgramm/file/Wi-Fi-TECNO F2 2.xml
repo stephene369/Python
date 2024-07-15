@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<WLANProfile xmlns="http://www.microsoft.com/networking/WLAN/profile/v1">
+	<name>TECNO F2 2</name>
+	<SSIDConfig>
+		<SSID>
+			<hex>5445434E4F204632</hex>
+			<name>TECNO F2</name>
+		</SSID>
+	</SSIDConfig>
+	<connectionType>ESS</connectionType>
+	<connectionMode>auto</connectionMode>
+	<MSM>
+		<security>
+			<authEncryption>
+				<authentication>WPA2PSK</authentication>
+				<encryption>AES</encryption>
+				<useOneX>false</useOneX>
+			</authEncryption>
+			<sharedKey>
+				<keyType>passPhrase</keyType>
+				<protected>true</protected>
+				<keyMaterial>01000000D08C9DDF0115D1118C7A00C04FC297EB01000000C3195CEF1E9F4442A906581A87043B780000000002000000000010660000000100002000000082058BEF4DE063358CEB9567C75DFBAA1A6690A0C6391336847C0E375057E4B7000000000E80000000020000200000007E38F65C49D7C295CAF7B7F45A0EC117914B69B5415F9456BC1D4FDA4620AE45100000008B7CEB3806D7C8ECCEA48F2D0C057B0640000000175B02E8048C7BA7D674B94134AEE51D5F8DF8962A24F723D76F6546420396C3275C05FF8F896ED5CA716B3B7C8D765EB92422E649DA36662C25A50858F82BAB</keyMaterial>
+			</sharedKey>
+		</security>
+	</MSM>
+	<MacRandomization xmlns="http://www.microsoft.com/networking/WLAN/profile/v3">
+		<enableRandomization>true</enableRandomization>
+		<randomizationSeed>2095862463</randomizationSeed>
+	</MacRandomization>
+</WLANProfile>

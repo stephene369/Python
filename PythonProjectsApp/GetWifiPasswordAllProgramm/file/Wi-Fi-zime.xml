@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<WLANProfile xmlns="http://www.microsoft.com/networking/WLAN/profile/v1">
+	<name>zime</name>
+	<SSIDConfig>
+		<SSID>
+			<hex>7A696D65</hex>
+			<name>zime</name>
+		</SSID>
+	</SSIDConfig>
+	<connectionType>ESS</connectionType>
+	<connectionMode>manual</connectionMode>
+	<MSM>
+		<security>
+			<authEncryption>
+				<authentication>WPA2PSK</authentication>
+				<encryption>AES</encryption>
+				<useOneX>false</useOneX>
+			</authEncryption>
+			<sharedKey>
+				<keyType>passPhrase</keyType>
+				<protected>true</protected>
+				<keyMaterial>01000000D08C9DDF0115D1118C7A00C04FC297EB01000000C3195CEF1E9F4442A906581A87043B78000000000200000000001066000000010000200000005B137B36CD9DF09E91BABC6EE9FD848B40932E439DE9B14D06B935FC51663DE6000000000E800000000200002000000040C7DAB1DB01E3F710B7546F9DBAD86BE85EBE77CA927B848BE6F8E7D0219AE810000000FC39C70120279EE018D1C3D13760DB654000000014398E426A425E2DFF034830A680671918E324B226653B654BBCA210DEBB96DC132B31045B187054C00758D0CDEA612E1F71D88741B2FDBDC58248E48BF1D111</keyMaterial>
+			</sharedKey>
+		</security>
+	</MSM>
+	<MacRandomization xmlns="http://www.microsoft.com/networking/WLAN/profile/v3">
+		<enableRandomization>true</enableRandomization>
+		<randomizationSeed>2970653227</randomizationSeed>
+	</MacRandomization>
+</WLANProfile>

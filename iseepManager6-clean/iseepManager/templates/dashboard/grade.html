@@ -1,0 +1,66 @@
+<!-- dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<!-- Inclure la bibliothèque Bootstrap CSS (par exemple, depuis un CDN) -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+WyDEZ/DomUlrHQ9BRZd1gF93ir2Jaq6G1B" crossorigin="anonymous">
+
+    <title>Dashboard - Ajouter </title>
+
+</head>
+
+<body>
+    {% include 'menu.html' %}
+
+<div class="card">
+    <!-- Contenu spécifique à la page du tableau de bord -->
+
+    <h1>Ajouter une Note</h1>
+    <form method="POST" action="/grade">
+        {{ form.hidden_tag() }}
+
+        <label for="id_">Id Etudiant :</label>
+        {{ form.id_(class="form-control") }}
+        {% for error in form.id_.errors %}
+            <div class="alert alert-danger">{{ error }}</div>
+        {% endfor %}
+
+        <label for="classe">Classe :</label>
+        {{ form.classe(class="form-control") }}
+        {% for error in form.classe.errors %}
+            <div class="alert alert-danger">{{ error }}</div>
+        {% endfor %}
+
+        <label for="module">Module :</label>
+        {{ form.module(class="form-control") }}
+        {% for error in form.module.errors %}
+            <div class="alert alert-danger">{{ error }}</div>
+        {% endfor %}
+
+        <label for="sub_module">Sous-Module :</label>
+        {{ form.sub_module(class="form-control") }}
+        {% for error in form.sub_module.errors %}
+            <div class="alert alert-danger">{{ error }}</div>
+        {% endfor %}
+
+        <label for="note">Note :</label>
+        {{ form.note(class="form-control") }}
+        {% for error in form.note.errors %}
+            <div class="alert alert-danger">{{ error }}</div>
+        {% endfor %}
+
+        {{ form.submit }}
+
+    </form>
+    {% if success_message %}
+        <div class="alert alert-success" role="alert">
+            {{ success_message }}
+        </div>
+    {% endif %}     
+</div>
+
+
+</body>

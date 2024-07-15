@@ -1,0 +1,45 @@
+Root : 
+AKIAVNEMEULAV4FYREKX
+nGjnS93VJ+wT6qIgwzw83WQQVrH2O24EHQoXPIf7
+
+
+Umabel 
+AKIAVNEMEULA5LR44JQV
+fNdGtiGcl4IQ96CMbH9AOHykfq7jYDS9XSBCdR1I
+
+https://sylvanus.signin.aws.amazon.com/console
+Umabel
+ebjrF8K_
+
+
+{
+  "Comment": "A simple AWS Step Functions state machine that automates a call center support session.",
+  "StartAt": "ProcessTransaction",
+  "States": {
+    "ProcessTransaction": {
+        "Type" : "Choice",
+        "Choices": [ 
+          {
+            "Variable": "$.TransactionType",
+            "StringEquals": "PURCHASE",
+            "Next": "ProcessPurchase"
+          },
+          {
+            "Variable": "$.TransactionType",
+            "StringEquals": "REFUND",
+            "Next": "ProcessRefund"
+          }
+      ]
+    },
+     "ProcessRefund": {
+      "Type": "Task",
+      "Resource": "arn:aws:lambda:REGION:ACCOUNT_ID:function:FUNCTION_NAME",
+      "End": true
+    },
+    "ProcessPurchase": {
+      "Type": "Task",
+      "Resource": "arn:aws:lambda:REGION:ACCOUNT_ID:function:FUNCTION_NAME",
+      "End": true
+    }
+  }
+}

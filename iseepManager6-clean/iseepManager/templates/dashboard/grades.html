@@ -1,0 +1,32 @@
+<!-- dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>Dashboard - Accueil</title>
+</head>
+<body>
+
+    {% include 'menu.html' %}
+
+<div class="container mt-5">
+    
+<form method="POST" action="/grades">
+<div class="card" >
+    <div class="card-body">
+        <div class="form-row">
+            <div class="card-title">{{ form.classe.label }}</div>
+            <div class="form-group col-md-3">{{ form.classe }}</div>
+            {% for error in form.classe.errors %}
+            <div class="alert alert-danger">{{ error }}</div>
+            {% endfor %}
+            <div class="form-group col-md-3"> {{ form.submit }}</div>
+        </div>
+    </div>
+</div>
+</form>
+
+</body>
+</html>

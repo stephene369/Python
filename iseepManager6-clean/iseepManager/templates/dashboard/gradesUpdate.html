@@ -1,0 +1,52 @@
+<!-- dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">  
+    <title>Dashboard - Accueil</title>
+</head>
+
+<body>
+
+    {% include 'menu.html' %}
+
+<form method="POST" action="/gradesUpdate">
+
+
+<table class="table">
+    {{ form.submit }}
+            <thead>
+                <tr>
+                    <th>Étudiant</th>
+                    <th>ID</th>
+                    <th>Prénom</th>
+                    <th>Nom</th>
+                    <th>Email</th>
+                    {% for matiere_module in matieres_modules %}
+                        <th>{{ matiere_module }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for student_form in form.students %}
+                    <tr>
+                        <td>{{ loop.index }}</td>
+                        <td>{{ student_form.student_id(class="form-control-long") }}</td>
+                        <td>{{ student_form.first_name(class="form-control-long") }}</td>
+                        <td>{{ student_form.last_name(class="form-control-long") }}</td>
+                        <td>{{ student_form.email(class="form-control-long") }}</td>
+                        {% for note in student_form.notes %}
+                            <td>{{ note }}</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+</table>
+
+
+</form>
+
+</body>
+</html>

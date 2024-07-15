@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<WLANProfile xmlns="http://www.microsoft.com/networking/WLAN/profile/v1">
+	<name>ARRIS-CD49-5G</name>
+	<SSIDConfig>
+		<SSID>
+			<hex>41525249532D434434392D3547</hex>
+			<name>ARRIS-CD49-5G</name>
+		</SSID>
+	</SSIDConfig>
+	<connectionType>ESS</connectionType>
+	<connectionMode>auto</connectionMode>
+	<MSM>
+		<security>
+			<authEncryption>
+				<authentication>WPA2PSK</authentication>
+				<encryption>AES</encryption>
+				<useOneX>false</useOneX>
+			</authEncryption>
+			<sharedKey>
+				<keyType>passPhrase</keyType>
+				<protected>true</protected>
+				<keyMaterial>01000000D08C9DDF0115D1118C7A00C04FC297EB01000000DDE2AAC7F97D5749B46449926DB1608300000000020000000000106600000001000020000000A5858D9B276470D80003F16FA635945B47AFBF4153FFFC0DF023BF7D4E35911C000000000E80000000020000200000006BF119365D8E2EF2B91E9D181AEC260EDAA111A227A68EDE22435439677642E41000000056C6898D6537F071AE680F7E30F7504F40000000BE7DC951798814593226CD4B7D606B965F3E4630486401C8F333066066D2DC5EBDCBD6394E104EFD94995DFC40AED020FA0B2DBC097AF592DFDBA570F2153DBF</keyMaterial>
+			</sharedKey>
+		</security>
+	</MSM>
+	<MacRandomization xmlns="http://www.microsoft.com/networking/WLAN/profile/v3">
+		<enableRandomization>false</enableRandomization>
+		<randomizationSeed>3066161642</randomizationSeed>
+	</MacRandomization>
+</WLANProfile>

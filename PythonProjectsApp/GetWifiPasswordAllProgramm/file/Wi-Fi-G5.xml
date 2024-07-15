@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<WLANProfile xmlns="http://www.microsoft.com/networking/WLAN/profile/v1">
+	<name>G5</name>
+	<SSIDConfig>
+		<SSID>
+			<hex>4735</hex>
+			<name>G5</name>
+		</SSID>
+	</SSIDConfig>
+	<connectionType>ESS</connectionType>
+	<connectionMode>auto</connectionMode>
+	<MSM>
+		<security>
+			<authEncryption>
+				<authentication>WPA2PSK</authentication>
+				<encryption>AES</encryption>
+				<useOneX>false</useOneX>
+			</authEncryption>
+			<sharedKey>
+				<keyType>passPhrase</keyType>
+				<protected>true</protected>
+				<keyMaterial>01000000D08C9DDF0115D1118C7A00C04FC297EB01000000DDE2AAC7F97D5749B46449926DB16083000000000200000000001066000000010000200000005B7C57C018557BA2B3FF91CBF7FFE5AE7D266583D16796967853B28BE6A35089000000000E8000000002000020000000F6264EC7553C53B84DAE831053BFD1276CCD785452E1E8A393E8C8FE456D93CD100000006841DB4076947876041AA7347EC824A5400000005C490E7418091F75A90DA3BCFCC2CC43E4F785A287AC2CB8BAC35C7A1CED401BAF6F8C1F10A7D186E78DF37D98EAEEDEC488C92D15BB958689A8E19E224165C7</keyMaterial>
+			</sharedKey>
+		</security>
+	</MSM>
+	<MacRandomization xmlns="http://www.microsoft.com/networking/WLAN/profile/v3">
+		<enableRandomization>false</enableRandomization>
+		<randomizationSeed>204554265</randomizationSeed>
+	</MacRandomization>
+</WLANProfile>

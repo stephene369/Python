@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Form</title>
+    
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4; /* Choisir une couleur de fond selon vos préférences */
+        }
+    
+        .login-container {
+            width: 300px;
+            padding: 20px;
+            background-color: #fff; /* Couleur de fond du formulaire */
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ombre légère autour du formulaire */
+        }
+    
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+    
+        label {
+            margin-bottom: 5px;
+        }
+    
+        input {
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+    
+        .btn-primary {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>{{ form.label }}</h1>
+
+    <div class="login-container">
+
+    
+        <!-- Formulaire pour la connexion Admin -->
+        <form method="POST" action="/admin" >
+            {{ form.hidden_tag() }}
+            <label for="{{ form.username.id }}">{{ form.username.label }}</label>
+            {{ form.username(class="form-control") }}
+    
+            <label for="{{ form.password.id }}">{{ form.password.label }}</label>
+            {{ form.password(class="form-control") }}
+    
+            {{ form.submit(class="btn btn-primary") }}
+        </form>
+
+        <!-- Boutons pour basculer entre la connexion Admin et la connexion Étudiant -->
+        <div style="margin-top: 20px;">
+            <button onclick="showForm('student')">Connexion Étudiant</button>
+        </div>
+    </div>
+    
+
+    <script>
+        function showForm(type) {
+            if (type === 'admin') {
+                document.querySelector('[action="/admin"]').style.display = 'block';
+                document.querySelector('[action="/student"]').style.display = 'none';
+            } else if (type === 'student') {
+                document.querySelector('[action="/admin"]').style.display = 'none';
+                document.querySelector('[action="/student"]').style.display = 'block';
+            }
+        }
+    </script>
+
+</body>
+</html>

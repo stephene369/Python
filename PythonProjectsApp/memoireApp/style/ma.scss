@@ -1,0 +1,58 @@
+QLabel#labMaTitle{
+    color: rgb(0, 0, 0);
+    font-size: 25px;
+    background-color: none;
+}
+
+QLabel#maProfilTitle,QLabel#maParaTitle{
+    font-size: 20px;
+}
+
+QFrame#profilFrame:hover {
+    padding:10px ; 
+    border-right: 1px solid rgb(194, 194, 194);  
+    border-radius:0px ; 
+} 
+
+QFrame#parameterFrame:hover{
+    padding:10px ; 
+    border-left: 1px solid rgb(194, 194, 194);  
+    border-radius:0px ;
+}
+
+QFrame#Frame1{
+    border-top: 1px solid rgb(126, 124, 124) ;
+}
+
+QFrame {
+    border-radius:0px ; 
+} 
+
+QLabel#MaProfilLabel,QLabel#MaParametreLab{
+    font-size: 15px;
+}
+QComboBox#MaProfilCombo,QSpinBox#MaParametreSpin{
+    font-size: 13px;
+    border-left: 1px solid rgb(87, 87, 87) ; 
+
+}
+
+QLabel#infoLab{
+    font-size: 12px;
+}
+
+QPushButton{
+    font-size: 16px;
+    background-color: none;
+    border-radius:3px;
+    color: rgb(0, 0, 0);
+}
+
+QPushButton:hover{
+    background-color: rgb(191, 191, 230);
+    border-radius: 4px;
+    border: solid 2px #111010;
+    
+
+}
+

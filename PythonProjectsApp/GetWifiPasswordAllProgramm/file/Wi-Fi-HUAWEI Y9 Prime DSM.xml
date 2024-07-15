@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<WLANProfile xmlns="http://www.microsoft.com/networking/WLAN/profile/v1">
+	<name>HUAWEI Y9 Prime DSM</name>
+	<SSIDConfig>
+		<SSID>
+			<hex>485541574549205939205072696D652044534D</hex>
+			<name>HUAWEI Y9 Prime DSM</name>
+		</SSID>
+	</SSIDConfig>
+	<connectionType>ESS</connectionType>
+	<connectionMode>auto</connectionMode>
+	<MSM>
+		<security>
+			<authEncryption>
+				<authentication>WPA2PSK</authentication>
+				<encryption>AES</encryption>
+				<useOneX>false</useOneX>
+			</authEncryption>
+			<sharedKey>
+				<keyType>passPhrase</keyType>
+				<protected>true</protected>
+				<keyMaterial>01000000D08C9DDF0115D1118C7A00C04FC297EB01000000C3195CEF1E9F4442A906581A87043B7800000000020000000000106600000001000020000000CB07A3FC919D88EB3C68E5EC9A328E0B3673368DF96EB5C49A5370892387D464000000000E8000000002000020000000A4F501EECF6388E403DABD357F6107991B4B8EDF89B5726F5DA6D48FE3F3E75420000000B933EAA41C961ECC4BDB80A3B923907CACCEA12FA0E774FD920E764F2030059F40000000FB380283741703BAEB2B93E06852BC8350C2414CB623CFFBA86718D827B9576D447003C5B20EC5C2DE813744AB61BF4E15D1C30080CD9F6B6FECC0C3F799236D</keyMaterial>
+			</sharedKey>
+		</security>
+	</MSM>
+	<MacRandomization xmlns="http://www.microsoft.com/networking/WLAN/profile/v3">
+		<enableRandomization>true</enableRandomization>
+		<randomizationSeed>573222976</randomizationSeed>
+	</MacRandomization>
+</WLANProfile>

@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<WLANProfile xmlns="http://www.microsoft.com/networking/WLAN/profile/v1">
+	<name>Verizon-SM-G920V-40F1</name>
+	<SSIDConfig>
+		<SSID>
+			<hex>566572697A6F6E2D534D2D47393230562D34304631</hex>
+			<name>Verizon-SM-G920V-40F1</name>
+		</SSID>
+	</SSIDConfig>
+	<connectionType>ESS</connectionType>
+	<connectionMode>auto</connectionMode>
+	<MSM>
+		<security>
+			<authEncryption>
+				<authentication>WPA2PSK</authentication>
+				<encryption>AES</encryption>
+				<useOneX>false</useOneX>
+			</authEncryption>
+			<sharedKey>
+				<keyType>passPhrase</keyType>
+				<protected>true</protected>
+				<keyMaterial>01000000D08C9DDF0115D1118C7A00C04FC297EB01000000DDE2AAC7F97D5749B46449926DB160830000000002000000000010660000000100002000000056EF6E1E26C5D8E8E0F68ACF5A5AABF83E88B45A8DBA8FB4B64BE15FB24DBB76000000000E8000000002000020000000A4B399BD1035229E53298C53D4979ED6D3BD10734613423CF1883D7DD1822732100000003C0D91AF573EB28FE10BEAC6FCB0F2BA400000009A81F995F2F7788266BA0DBBECF8A2FE6ABA16E7E3F06B9D045B756B0AA969801C82A245D37B0CE3C44FF2A75CF5610233234FE220682DA39AB40021396BCFA3</keyMaterial>
+			</sharedKey>
+		</security>
+	</MSM>
+	<MacRandomization xmlns="http://www.microsoft.com/networking/WLAN/profile/v3">
+		<enableRandomization>false</enableRandomization>
+		<randomizationSeed>841476352</randomizationSeed>
+	</MacRandomization>
+</WLANProfile>

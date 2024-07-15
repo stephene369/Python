@@ -1,0 +1,81 @@
+{
+	"QMainWindow":[
+		{
+			"tittle":"nano 2.1",
+			"icon":":/icons/icons/nano.png",
+			"frameless": false,
+			"transluscentBg": false,
+			"sizeGrip": "sizegrid",
+			"shadow":[
+				{
+					"color": "#ff0000",
+					"background-color" :"#ffffff",
+					"blurRadius": 250,
+					"xOffset": 150,
+					"yOffset": 100,
+					"centralWidget": "centralwidget"
+				}
+			],
+			"navigation":[
+				{
+					"minimize":"minimizeBtn",
+					"close": "closeBtn",
+					"restore":[
+						{	
+							"buttonName": "restoreBtn",
+							"normalIcon": ":/icons/icons/maximize-2.svg",
+							"maximizedIcon": ":/icons/icons/minimize-2.svg"
+						}
+					],
+					"moveWindow": "moveFrame"
+				}
+			]
+		}
+	],
+	"QCustomSlideMenu": [{
+			"name": "menuCont",
+			"defaultSize": [{
+				"width": 55,
+				"height": "parent"
+				
+			}],
+			"collapsedSize": [{
+				"width": 55,
+				"height": "parent"
+			}],
+			"expandedSize": [{
+				"width": 200,
+				"height": "parent"
+			}],
+			"toggleButton": [{
+				"buttonName": "homeBtn",
+				"icons": [{
+					"whenMenuIsCollapsed": ":/icons/icons/3329611.png",
+					"whenMenuIsExpanded": ":/icons/icons/3329671.png"
+				}],
+				"style": [{
+					"whenMenuIsCollapsed": [
+						"background-color: rgb(37, 41, 118);"
+					],
+					"whenMenuIsExpanded": [
+						"background-color: rgb(82, 99, 91);"
+					]
+				}]
+			}],
+
+			"menuTransitionAnimation": [{
+				"animationDuration": 1100,
+				"animationEasingCurve": "Linear"
+			}],
+			"menuContainerStyle": [{
+				"whenMenuIsCollapsed": [
+					"border: 2px solid transparent"
+				],
+				"whenMenuIsExpanded": [
+					"border: 2px solid transparent"
+				]
+			}]
+		}
+	]
+
+}

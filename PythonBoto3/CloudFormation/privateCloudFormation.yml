@@ -1,0 +1,128 @@
+
+#########################################
+#########################################
+#       Checks for Weekend Start        #
+## 
+
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Determines if resources are set to start on the weekend
+Resources:
+  WeekendTagCheck:
+      Type: AWS::Lambda::Function
+      DependsOn: TagAlertTopic
+      DeletionPolicy: Delete
+      Properties:
+        Environment:
+          Variables:
+            SNS_TOPIC: !Ref TagAlertTopic
+        Code:
+          ZipFile: >
+            def handler(event, context):
+                import json
+                import boto3
+                region = "us-gov-west-1"
+                import os
+                SNS_TOPIC = os.environ['SNS_TOPIC']
+                message = {
+                    "ASG": "None",
+                    "EC2": "None",
+                    "RDS": "None"
+                }
+
+                # Checks Auto Scaling Groups for Weekend Start
+                autoscaling_master = boto3.client('autoscaling', region_name=region)
+                response=autoscaling_master.describe_auto_scaling_groups()
+                asg = response['AutoScalingGroups']
+                print(asg[0])
+                asg_list = []
+                for i in range(len(asg)):
+                  all_tags = asg[i]['Tags']
+                  for j in range(len(all_tags)):
+                      if all_tags[j]['Key'] == 'SaturdayStart' and all_tags[j]['Value'] == 'True' or all_tags[j]['Key'] == 'SundayStart' and all_tags[j]['Value'] == 'True':
+                          asg_list.append(all_tags[j]['ResourceId'])
+                print("these auto scaling groups are set to start on the weekend")
+                print(asg_list)
+                message.update({"ASG": ' '.join(asg_list)})
+
+
+                # Checks EC2 for Weekend Start
+                ec2master = boto3.client('ec2', region_name=region)
+                ec2master = boto3.client('ec2', region_name=region)
+                ec2 = boto3.resource('ec2')
+                ec2_list = []
+                for server in ec2.instances.all():
+                    for tag in server.tags:
+                        if tag['Key'] == 'SaturdayStart' and tag['Value'] == 'True' or tag['Key'] == 'SundayStart' and tag['Value'] == 'True' :
+                            ec2_list.append(str(server.id))
+                print("These instances will be started")
+                print(ec2_list)
+                message.update({"EC2": ' '.join(ec2_list)})
+
+                # Checks RDS for Weekend Start
+                rdsmaster = boto3.client('rds', region_name=region)
+                rds = rdsmaster.describe_db_instances()
+                rds_list = []
+                for server in rds["DBInstances"]:
+                    rds_id = rdsmaster.describe_db_instances(DBInstanceIdentifier=server["DBInstanceIdentifier"])
+                    status = rds_id['DBInstances'][0]['DBInstanceStatus']
+                    for tag in server["TagList"]:
+                        if tag['Key'] == 'SaturdayStart' and tag['Value'] == 'True' or tag['Key'] == 'SundayStart' and tag['Value'] == 'True' :
+                            rds_list.append(server["DBInstanceIdentifier"])
+                print("these RDS instances are set to start on the weekend")
+                print(rds_list)
+                message.update({"ASG": ' '.join(rds_list)})
+
+                if message['ASG'] == None and message['EC2'] == None and message['RDS'] == None:
+                    print ("no items are set to start this weekend")
+                else:
+
+                    client = boto3.client('sns')
+                    response = client.publish(
+                    TargetArn="arn:aws-us-gov:sns:us-gov-west-1:021166715797:Tag-Check",
+                    Message=f"""The following Resources are set to start this weekend.
+                        
+                        Auto Scaling Groups: 
+                            {message['ASG']}
+                            
+                        EC2 instances: 
+                            {message['EC2']}
+                            
+                        RDS Instances
+                            {message['RDS']}
+                            
+                            
+                        Please adjust if needed.""",
+                    Subject="ALERT! Resources set to start this weekend!!!",
+                    )
+
+
+
+        Handler: index.handler
+        Role: !Sub 'arn:${AWS::Partition}:iam::${AWS::AccountId}:role/EPAS-Lambda-Role'
+        Runtime: python3.9
+        Timeout: 60
+
+  WeekendTagCheckRule:
+    Type: AWS::Events::Rule
+    DeletionPolicy: Delete
+    Properties: 
+      Description: Rule to check if resources are set to start on the weekend
+      Name: WeekendTagCheckRule
+      ScheduleExpression: "cron(0 10 * * 1-5)" # Make a variable? 
+      State: "ENABLED" 
+      Targets: 
+        - 
+          Arn: 
+            Fn::GetAtt: [ WeekendTagCheck , "Arn" ]
+          Id: "TargetFunctionV1"
+
+
+  WeekendTagInvokePermissions:
+    Type: AWS::Lambda::Permission
+    DependsOn: WeekendTagCheck
+    Properties:
+      FunctionName: !GetAtt WeekendTagCheck.Arn
+      Action: lambda:InvokeFunction
+      Principal: events.amazonaws.com
+      SourceArn: !GetAtt WeekendTagCheckRule.Arn
+      

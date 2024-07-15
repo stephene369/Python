@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <title>Connexion</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 90vh;
+            margin: 0;
+            background-color: #d2d8df; /* Choisir une couleur de fond selon vos préférences */
+        }
+    
+        .login-container {
+            width: 400px;
+            padding: 40px;
+            background-color: #fff; /* Couleur de fond du formulaire */
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ombre légère autour du formulaire */
+        }
+    
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+    
+        label {
+            margin-bottom: 5px;
+        }
+    
+        input {
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+    
+        .btn-primary {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .btn-nav{
+            background-color: #454b50;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+    </style>
+    
+</head>
+<body>
+
+<div class="login-container">
+    
+
+    <!-- Formulaire pour la connexion Admin -->
+    <form method="POST" action="/admin" {% if form_type == 'admin' %}style="display:block ;"{% else %}style="display: none;"{% endif %}>
+        <h1>{{ form.label }}</h1>
+        
+        {{ form.hidden_tag() }}
+        
+        <label for="{{ form.username.id }}" style="display: block;">{{ form.username.label }}</label>
+        {{ form.username(class="form-control") }}
+        
+        {% for error in form.username.errors %}
+            <p style="color: red;">{{ error }}</p>
+        {% endfor %}
+
+        <label for="{{ form.password.id }}" style="display: block;">{{ form.password.label }}</label>
+        {{ form.password(class="form-control") }}
+
+        {{ form.submit(class="btn btn-primary") }}
+    </form>
+
+    <!-- Formulaire pour la connexion Étudiant -->
+    <form method="POST" action="/student" {% if form_type == 'student' %}style="display: block;"{% else %}style="display: none;"{% endif %}>
+        <h1>{{ student_form.label }}</h1>
+        
+        {{ student_form.hidden_tag() }}
+        
+        <label for="{{ student_form.student_id.id }}" style="display: block;">{{ student_form.student_id.label }}</label>
+        {{ student_form.student_id(class="form-control") }}
+
+        {% for error in student_form.student_id.errors %}
+            <p style="color: red;">{{ error }}</p>
+        {% endfor %}
+
+        {{ student_form.submit(class="btn btn-primary") }}
+    </form>
+
+    <!-- Boutons pour basculer entre la connexion Admin et la connexion Étudiant -->
+    <div style="margin-top: 20px;">
+        <button onclick="showForm('admin')" class="btn btn-nav" >Connexion Admin</button>
+        <button onclick="showForm('student')" class="btn btn-nav" >Connexion Étudiant</button>
+    </div>
+</div>
+
+<script>
+    function showForm(type) {
+        if (type === 'admin') {
+            document.querySelector('[action="/admin"]').style.display = 'block';
+            document.querySelector('[action="/student"]').style.display = 'none';
+        } else if (type === 'student') {
+            document.querySelector('[action="/admin"]').style.display = 'none';
+            document.querySelector('[action="/student"]').style.display = 'block';
+        }
+    }
+</script>
+
+</body>
+</html>

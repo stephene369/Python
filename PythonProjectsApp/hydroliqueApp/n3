@@ -1,0 +1,22 @@
+from PySide2 import QtWidgets
+
+class MyWidget(QtWidgets.QWidget):
+    def __init__(self):
+        super().__init__()
+
+        self.button = QtWidgets.QPushButton("Mon bouton", self)
+        self.button.setGeometry(50, 50, 100, 30)
+
+        self.button.mousePressEvent = self.onButtonEntered
+
+    def onButtonEntered(self):
+        print("Bouton survolé")
+
+    def onButtonExited(self):
+        print("Bouton quitté")
+
+if __name__ == "__main__":
+    app = QtWidgets.QApplication([])
+    widget = MyWidget()
+    widget.show()
+    app.exec_()

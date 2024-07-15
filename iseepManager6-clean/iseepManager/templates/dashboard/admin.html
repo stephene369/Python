@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Ajoutez vos styles personnalisés ici */
+
+        .card {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 50px;
+            width: 100%; /* Utilise toute la largeur disponible */
+            transition: box-shadow 0.3s ease-in-out;
+            padding: 20px;
+        }
+
+        .card-students {
+            box-shadow: 0 4px 8px rgba(50, 50, 50, 0.729);
+            margin: 10px;
+            width: 100%; /* Utilise toute la largeur disponible */
+            transition: box-shadow 0.3s ease-in-out;
+            padding: 10px;
+            margin-left: 60px;
+            margin-right: 10px;
+        }
+
+        .element-oui{
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(46, 46, 47, 0.269);
+            margin-left: 40px;
+            margin-right: 40px;
+            display: flex;
+
+        }
+
+        .element-non{
+            display: flex;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(46, 46, 47, 0.269);
+            margin-left: 40px;
+            margin-right: 40px;
+
+        }
+
+
+        .element-oui:hover{
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(102, 102, 238, 0.315);
+        }
+
+        .element-non:hover{
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(210, 41, 41, 0.161);
+
+        }
+        .card:hover {
+            box-shadow: 0 8px 16px rgba(3, 1, 1, 0.503);
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .card h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+        .element {
+            margin-right: 20px; /* Espace entre les éléments, ajustez selon vos besoins */
+            margin-left: 20px;
+        }
+
+    </style>
+    <title>Exemple de Cartes</title>
+</head>
+<body>
+
+    {% include 'menu.html' %}
+
+
+    {% for classe in data.keys() %}
+    <div class="card">
+    <h3> Classe : {{ classe }} </h3>
+
+    {% for ids in  data[classe].keys() %}
+    
+    <div class="card-students">
+        <h5> Id : {{ ids }} </h4>
+ 
+        {% for infos in data[classe][ids].keys() %}
+            {% if infos != 'Modules' %} 
+
+                <h5> {{ infos }}: {{ data[classe][ids][infos] }} </h4>
+            
+            {% else %}
+                {% for modules in data[classe][ids][infos].keys() %}
+                
+                <div class="{% if data[classe][ids][infos][modules]['Module Valide'] =='oui' %} element-oui {% else %} element-non {% endif %}">
+                    <h5>Module : {{ modules }} </h5> 
+                    <span class="element" > Moyenne : {{ data[classe][ids][infos][modules]['Moyenne'] }} </span>
+                    <span class="element"> Rattrapages : {{ data[classe][ids][infos][modules]['Non valider'] }}</span>
+                    <span class="element"> Valide : {{ data[classe][ids][infos][modules]['Module Valide'] }}</span>
+                </div>
+                
+                {% endfor %}
+            {% endif %}
+        {% endfor %}
+    </div>
+    {% endfor %}
+    
+    </div>
+    {% endfor %}
+
+
+</body>
+</html>

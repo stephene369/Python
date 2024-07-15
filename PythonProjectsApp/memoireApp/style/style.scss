@@ -1,0 +1,31 @@
+
+QLabel{
+    font-size: 12px;
+}
+
+QLabel#AccLab:hover{
+    padding:10px ; 
+    border: 1px solid rgb(194, 194, 194);  
+    border-radius:0px ;
+}
+
+QPushButton{
+    text-align: center; 
+    background-color: transparent; 
+}
+
+QPushButton#AccBtn:hover{
+    background-color: #cdd2e4;  
+}
+
+QPushButton#maBtn:hover, QPushButton#macdBtn:hover{
+    padding:2px ; 
+    border: 1px solid rgb(194, 194, 194);  
+    border-radius:0px ;
+}
+
+QPushButton#backBtn:hover{
+    background-color: #0026aebb ;
+}
+
+

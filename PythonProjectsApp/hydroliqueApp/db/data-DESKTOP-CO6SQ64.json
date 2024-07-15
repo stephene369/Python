@@ -1,0 +1,171 @@
+{
+    "immeuble": {
+        "usage": "Hotels de s\u00e9jour",
+        "altitude": 20.0,
+        "hauteur total": 20.0,
+        "categorie": "Plastique",
+        "longueur defini": 0.0,
+        "longueur aspiration": 0.0,
+        "longueur canalisation": 0.0,
+        "longueur total": 0.0,
+        "vitesse minimal": 0.0,
+        "pression reel": 0.0,
+        "pression residuelle": 10.0,
+        "pression au sol": 2.0
+    },
+    "circuit 1": {
+        "altitude": {
+            "hauteur": 3.0
+        },
+        "troncon 1": {
+            "type": "Colonne montante",
+            "longueur": 0.0,
+            "1": [
+                "01. Evier,timbre d'office",
+                0
+            ],
+            "2": [
+                "01. Evier,timbre d'office",
+                0
+            ],
+            "3": [
+                "01. Evier,timbre d'office",
+                0
+            ],
+            "4": [
+                "01. Evier,timbre d'office",
+                0
+            ],
+            "5": [
+                "15. Machine \u00e0 laver la verselle",
+                0
+            ],
+            "6": [
+                "01. Evier,timbre d'office",
+                0
+            ]
+        },
+        "troncon 2": {
+            "type": "Canalisation en sous-sol",
+            "longueur": 0.0,
+            "1": [
+                "01. Evier,timbre d'office",
+                0
+            ],
+            "2": [
+                "01. Evier,timbre d'office",
+                0
+            ],
+            "3": [
+                "01. Evier,timbre d'office",
+                0
+            ],
+            "4": [
+                "01. Evier,timbre d'office",
+                0
+            ],
+            "5": [
+                "01. Evier,timbre d'office",
+                0
+            ],
+            "6": [
+                "01. Evier,timbre d'office",
+                0
+            ]
+        }
+    },
+    "circuit 2": {
+        "altitude": {
+            "hauteur": 4.0
+        },
+        "troncon 1": {
+            "type": "Canalisation en sous-sol",
+            "longueur": 0.0,
+            "1": [
+                "01. Evier,timbre d'office",
+                0
+            ],
+            "2": [
+                "01. Evier,timbre d'office",
+                0
+            ],
+            "3": [
+                "01. Evier,timbre d'office",
+                0
+            ],
+            "4": [
+                "01. Evier,timbre d'office",
+                0
+            ],
+            "5": [
+                "01. Evier,timbre d'office",
+                0
+            ],
+            "6": [
+                "01. Evier,timbre d'office",
+                0
+            ]
+        }
+    },
+    "circuit 3": {
+        "altitude": {
+            "hauteur": 3.0
+        },
+        "troncon 1": {
+            "type": "Canalisation en sous-sol",
+            "longueur": 0.0,
+            "1": [
+                "01. Evier,timbre d'office",
+                0
+            ],
+            "2": [
+                "01. Evier,timbre d'office",
+                0
+            ],
+            "3": [
+                "01. Evier,timbre d'office",
+                0
+            ],
+            "4": [
+                "01. Evier,timbre d'office",
+                0
+            ],
+            "5": [
+                "01. Evier,timbre d'office",
+                0
+            ],
+            "6": [
+                "01. Evier,timbre d'office",
+                0
+            ]
+        },
+        "troncon 2": {
+            "type": "Canalisation en sous-sol",
+            "longueur": 0.0,
+            "1": [
+                "01. Evier,timbre d'office",
+                0
+            ],
+            "2": [
+                "01. Evier,timbre d'office",
+                0
+            ],
+            "3": [
+                "01. Evier,timbre d'office",
+                0
+            ],
+            "4": [
+                "01. Evier,timbre d'office",
+                0
+            ],
+            "5": [
+                "01. Evier,timbre d'office",
+                0
+            ],
+            "6": [
+                "01. Evier,timbre d'office",
+                0
+            ]
+        }
+    }
+}
