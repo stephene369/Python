@@ -1,0 +1,35 @@
+<!-- filemanager/templates/filemanager/index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Transferer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <style>
+*{
+    border: 0;
+    padding: 0;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+body{
+    background-color: rgba(30, 63, 248, 0.295);
+}
+
+    </style>
+    <h1>Available Files</h1>
+    <ul>
+        {% for file in files %}
+            <div class="item">
+                
+            </div>
+            <li><a href="{% url 'download' file %}">{{ file }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+

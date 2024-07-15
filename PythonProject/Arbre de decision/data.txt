@@ -1,0 +1,15 @@
+Journée Ciel Température Humidité Vent JouerTennis
+J1 Ensoleillé Chaude Élevée Faible Non
+J2 Ensoleillé Chaude Élevée Fort Non
+J3 Nuageux Chaude Élevée Faible Oui
+J4 Pluvieux Tempérée Élevée Faible Oui
+J5 Pluvieux Froide Normal Faible Oui
+J6 Pluvieux Froide Normal Fort Non
+J7 Nuageux Froide Normal Fort Oui
+J8 Ensoleillé Tempérée Élevée Faible Non
+J9 Ensoleillé Froide Normal Faible Oui
+J10 Pluvieux Tempérée Normal Faible Oui
+J11 Ensoleillé Tempérée Normal Fort Oui
+J12 Nuageux Tempérée Élevée Fort Oui
+J13 Nuageux Chaude Normal Faible Oui
+J14 Pluvieux Tempérée Élevée Fort Non
