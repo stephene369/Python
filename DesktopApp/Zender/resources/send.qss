@@ -1,0 +1,13 @@
+QFrame {
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+QScrollArea {
+    border: none;
+} 
+
+#MainFrame {
+    background-color: rgba(255, 255, 255, 0);
+
+}

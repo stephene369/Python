@@ -1,0 +1,20 @@
+{
+    "root": [
+        "resources",
+        "resources/images"
+    ],
+    "filenames": {
+        "resources/receive.qss": 113,
+        "resources/send.qss": 174,
+        "resources/home.qss": 111,
+        "resources/settings.qss": 112,
+        "resources/images/logo.png": 130464
+    },
+    "origin": [
+        "/home/kaneki/Documents/PythonProject/DesktopApp/Zender/resources/receive.qss",
+        "/home/kaneki/Documents/PythonProject/DesktopApp/Zender/resources/send.qss",
+        "/home/kaneki/Documents/PythonProject/DesktopApp/Zender/resources/home.qss",
+        "/home/kaneki/Documents/PythonProject/DesktopApp/Zender/resources/settings.qss",
+        "/home/kaneki/Documents/PythonProject/DesktopApp/Zender/resources/images/logo.png"
+    ]
+}

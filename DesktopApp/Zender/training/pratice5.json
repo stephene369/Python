@@ -1,0 +1,485 @@
+[
+    {
+        "question": "1. Question\nA Solutions Architect is designing the messaging and streaming layers of a serverless application. The messaging layer will manage communications between components and the streaming layer will manage real-time analysis and processing of streaming data.\nThe Architect needs to select the most appropriate AWS services for these functions. Which services should be used for the messaging and streaming layers? (choose 2)\nUse Amazon Kinesis for collecting, processing and analyzing real-time streaming data\nUse Amazon EMR for collecting, processing and analyzing real-time streaming data\nUse Amazon SNS for providing a fully managed messaging service\nUse Amazon SWF for providing a fully managed messaging service\nUse Amazon CloudTrail for collecting, processing and analyzing real-time streaming data\n",
+        "answer": [
+            1,
+            3
+        ],
+        "explanation": "Amazon Kinesis makes it easy to collect, process, and analyze real-time streaming data. With Amazon Kinesis Analytics, you can run standard SQL or build entire streaming applications using SQL\nAmazon Simple Notification Service (Amazon SNS) provides a fully managed messaging service for pub/sub patterns using asynchronous event notifications and mobile push notifications for microservices, distributed systems, and serverless applications\nAmazon Elastic Map Reduce runs on EC2 instances so is not serverless\nAmazon Simple Workflow Service is used for executing tasks not sending messages\nAmazon CloudTrail is used for recording API activity on your account\nReferences:\nhttps://digitalcloud.training/certification-training/aws-solutions-architect-associate/analytics/amazon-kinesis/\nhttps://digitalcloud.training/certification-training/aws-solutions-architect-associate/application-integration/amazon-sns/"
+    },
+    {
+        "question": "2. Question\nYou are using CloudWatch to monitor the performance of AWS Lambda. Which metrics does Lambda track? (choose 2)\nLatency per request\nTotal number of connections\nTotal number of transactions\nTotal number of requests\nNumber of users\n",
+        "answer": [
+            1,
+            4
+        ],
+        "explanation": "Lambda automatically monitors Lambda functions and reports metrics through CloudWatch.\nLambda tracks the number of requests, the latency per request, and the number of requests resulting in an error\nYou can view the request rates and error rates using the AWS Lambda Console, the CloudWatch console, and other AWS resources\nReferences:\nhttps://digitalcloud.training/certification-training/aws-solutions-architect-associate/compute/aws-lambda/"
+    },
+    {
+        "question": "3. Question\nThe financial institution you are working for stores large amounts of historical transaction records. There are over 25TB of records and your manager has decided to move them into the AWS Cloud. You are planning to use Snowball as copying the data would take too long. Which of the statements below are true regarding Snowball? (choose 2)\nCan be used with multipart upload\nSnowball can import to S3 but cannot export from S3\nSnowball can be used for migration on-premise to on-premise\nPetabyte scale data transport solution for transferring data into or out of AWS\nUses a secure storage device for physical transportation\n",
+        "answer": [
+            4,
+            5
+        ],
+        "explanation": "Snowball is a petabyte scale data transport solution for transferring data into or out of AWS. It uses a secure storage device for physical transportation\nThe AWS Snowball Client is software that is installed on a local computer and is used to identify, compress, encrypt, and transfer data. It uses 256-bit encryption (managed with the AWS KMS) and tamper-resistant enclosures with TPM\nSnowball can import to S3 or export from S3\nSnowball cannot be used with multipart upload\nYou cannot use Snowball for migration between on-premise data centers\nReferences:\nhttps://digitalcloud.training/certification-training/aws-solutions-architect-associate/migration/aws-snowball/"
+    },
+    {
+        "question": "4. Question\nA three-tier application running in your VPC uses Auto Scaling for maintaining a desired count of EC2 instances. One of the EC2 instances just reported an EC2 Status Check status of Impaired. Once this information is reported to Auto Scaling, what action will be taken?\nThe impaired instance will be terminated, then a replacement will be launched\nA new instance will immediately be launched, then the impaired instance will be terminated\nAuto Scaling must verify with the ELB status checks before taking any action\nAuto Scaling waits for the health check grace period and then terminates the instance\n",
+        "answer": [
+            1
+        ],
+        "explanation": "By default Auto Scaling uses EC2 status checks\nUnlike AZ rebalancing, termination of unhealthy instances happens first, then Auto Scaling attempts to launch new instances to replace terminated instances\nAuto Scaling does not wait for the health check grace period or verify with ELB before taking any action\nReferences:\nhttps://digitalcloud.training/certification-training/aws-solutions-architect-associate/compute/aws-auto-scaling/"
+    },
+    {
+        "question": "5. Question\nYou just created a new subnet in your VPC and have launched an EC2 instance into it. You are trying to directly access the EC2 instance from the Internet and cannot connect. Which steps should you take to troubleshoot the issue? (choose 2)\nCheck that you can ping the instance from another subnet\nCheck that Security Group has a rule for outbound traffic\nCheck that the route table associated with the subnet has an entry for an Internet Gateway\nCheck that there is a NAT Gateway configured for the subnet\nCheck that the instance has a public IP address\n",
+        "answer": [
+            3,
+            5
+        ],
+        "explanation": "Public subnets are subnets that have:\n\u2013         \u201cAuto-assign public IPv4 address\u201d set to \u201cYes\u201d\n\u2013         The subnet route table has an attached Internet Gateway\nA NAT Gateway is used for providing outbound Internet access for EC2 instances in private subnets\nChecking you can ping from another subnet does not relate to being able to access the instance remotely as it uses different protocols and a different network path\nSecurity groups are stateful and do not need a rule for outbound traffic. For this solution you would only need to create an inbound rule that allows the relevant protocol\nReferences:\nhttps://digitalcloud.training/certification-training/aws-solutions-architect-associate/networking-and-content-delivery/amazon-vpc/"
+    },
+    {
+        "question": "6. Question\nYou are creating a design for a two-tier application with a MySQL RDS back-end. The performance requirements of the database tier are hard to quantify until the application is running and you are concerned about right-sizing the database.\nWhat methods of scaling are possible after the MySQL RDS database is deployed? (choose 2)\nHorizontal scaling for read and write by enabling Multi-Master RDS DB\nHorizontal scaling for write capacity by enabling Multi-AZ\nHorizontal scaling for read capacity by creating a read-replica\nVertical scaling for read and write by using Transfer Acceleration\nVertical scaling for read and write by choosing a larger instance size\n",
+        "answer": [
+            3,
+            5
+        ],
+        "explanation": "Relational databases can scale vertically (e.g. upgrading to a larger RDS DB instance)\nFor read-heavy use cases, you can scale horizontally using read replicas\nThere is no such thing as a Multi-Master MySQL RDS DB (there is for Aurora)\nYou cannot scale write capacity by enabling Multi-AZ as only one DB is active and can be written to\nTransfer Acceleration is a feature of S3 for fast uploads of objects\nReferences:\nhttps://aws.amazon.com/architecture/well-architected/\nhttps://digitalcloud.training/certification-training/aws-solutions-architect-associate/database/amazon-rds/"
+    },
+    {
+        "question": "7. Question\nYour company has multiple AWS accounts for each environment (Prod, Dev, Test etc.). You would like to copy an EBS snapshot from DEV to PROD. The snapshot is from an EBS volume that was encrypted with a custom key.\nWhat steps do you need to take to share the encrypted EBS snapshot with the Prod account? (choose 2)\nShare the custom key used to encrypt the volume\nModify the permissions on the encrypted snapshot to share it with the Prod account\nUse CloudHSM to distribute the encryption keys use to encrypt the volume\nMake a copy of the EBS volume and unencrypt the data in the process\nCreate a snapshot of the unencrypted volume and share it with the Prod account\n",
+        "answer": [
+            1,
+            2
+        ],
+        "explanation": "When an EBS volume is encrypted with a custom key you must share the custom key with the PROD account. You also need to modify the permissions on the snapshot to share it with the PROD account. The PROD account must copy the snapshot before they can then create volumes from the snapshot\nYou cannot share encrypted volumes created using a default CMK key and you cannot change the CMK key that is used to encrypt a volume\nCloudHSM is used for key management and storage but not distribution\nYou do not need to decrypt the data as there is a workable solution that keeps the data secure at all times\nReferences:\nhttps://digitalcloud.training/certification-training/aws-solutions-architect-associate/compute/amazon-ebs/\nhttps://aws.amazon.com/blogs/aws/new-cross-account-copying-of-encrypted-ebs-snapshots/"
+    },
+    {
+        "question": "8. Question\nA Solutions Architect is designing the compute layer of a serverless application. The compute layer will manage requests from external systems, orchestrate serverless workflows, and execute the business logic.\nThe Architect needs to select the most appropriate AWS services for these functions. Which services should be used for the compute layer? (choose 2)\nUse Amazon ECS for executing the business logic\nUse AWS CloudFormation for orchestrating serverless workflows\nUse Amazon API Gateway with AWS Lambda for executing the business logic\nUse AWS Elastic Beanstalk for executing the business logic\nUse AWS Step Functions for orchestrating serverless workflows\n",
+        "answer": [
+            3,
+            5
+        ],
+        "explanation": "With Amazon API Gateway, you can run a fully managed REST API that integrates with Lambda to execute your business logic and includes traffic management, authorization and access control, monitoring, and API versioning\nAWS Step Functions orchestrates serverless workflows including coordination, state, and function chaining as well as combining long-running executions not supported within Lambda execution limits by breaking into multiple steps or by calling workers running on Amazon Elastic Compute Cloud (Amazon EC2) instances or on-premises\nThe Amazon Elastic Container Service (ECS) is not a serverless application stack, containers run on EC2 instances\nAWS CloudFormation and Elastic Beanstalk are orchestrators that are used for describing and provisioning resources not actually performing workflow functions within the application\nReferences:\nhttps://aws.amazon.com/step-functions/\nhttps://digitalcloud.training/certification-training/aws-solutions-architect-associate/networking-and-content-delivery/amazon-api-gateway/"
+    },
+    {
+        "question": "9. Question\nYou are building a small web application running on EC2 that will be serving static content. The user base is spread out globally and speed is important. Which AWS service can deliver the best user experience cost-effectively and reduce the load on the web server?\nAmazon CloudFront\nAmazon EBS volume\nAmazon RedShift\nAmazon S3\n",
+        "answer": [
+            1
+        ],
+        "explanation": "This is a good use case for CloudFront as the user base is spread out globally and CloudFront can cache the content closer to users and also reduce the load on the web server running on EC2\nAmazon S3 is very cost-effective however a bucket is located in a single region and therefore performance is\nEBS is not the most cost-effective storage solution and the data would be located in a single region to latency could be an issue\nAmazon RedShift is a data warehouse and is not suitable in this solution\nReferences:\nhttps://digitalcloud.training/certification-training/aws-solutions-architect-associate/storage/amazon-s3/"
+    },
+    {
+        "question": "10. Question\nYou are developing a multi-tier application that includes loosely-coupled, distributed application components and need to determine a method of sending notifications instantaneously. Using SNS which transport protocols are supported? (choose 2)\nFTP\nAWS Lambda\nAmazon SWF\nHTTPS\nEmail-JSON\n",
+        "answer": [
+            4,
+            5
+        ],
+        "explanation": "Note that the questions asks you which transport protocols are supported, NOT which subscribers \u2013 therefore Lambda is not supported\nSNS supports notifications over multiple transport protocols:\nHTTP/HTTPS \u2013 subscribers specify a URL as part of the subscription registration\nEmail/Email-JSON \u2013 messages are sent to registered addresses as email (text-based or JSON-object)\nSQS \u2013 users can specify an SQS standard queue as the endpoint\nSMS \u2013 messages are sent to registered phone numbers as SMS text messages\nReferences:\nhttps://digitalcloud.training/certification-training/aws-solutions-architect-associate/application-integration/amazon-sns/"
+    },
+    {
+        "question": "11. Question\nYou are a developer at Digital Cloud Training. An application stack you are building needs a message bus to decouple the application components from each other. The application will generate up to 300 messages per second without using batching. You need to ensure that a message is only delivered once and duplicates are not introduced into the queue. It is not necessary to maintain the order of the messages.\nWhich SQS queue type will you use?\nStandard queues\nLong polling queues\nFIFO queues\nAuto Scaling queues\n",
+        "answer": [
+            3
+        ],
+        "explanation": "The key fact you need to consider here is that duplicate messages cannot be introduced into the queue. For this reason alone you must use a FIFO queue. The statement about it not being necessary to maintain the order of the messages is meant to confuse you, as that might lead you to think you can use a standard queue, but standard queues don\u2019t guarantee that duplicates are not introduced into the queue\nFIFO (first-in-first-out) queues preserve the exact order in which messages are sent and received \u2013 note that this is not required in the question but exactly once processing is. FIFO queues provide exactly-once processing, which means that each message is delivered once and remains available until a consumer processes it and deletes it\nStandard queues provide a loose-FIFO capability that attempts to preserve the order of messages. Standard queues provide at-least-once delivery, which means that each message is delivered at least once\nLong polling is configuration you can apply to a queue, it is not a queue type\nThere is no such thing as an Auto Scaling queue\nReferences:\nhttps://digitalcloud.training/certification-training/aws-solutions-architect-associate/application-integration/amazon-sqs/"
+    },
+    {
+        "question": "12. Question\nAWS Regions provide multiple, physically separated and isolated _____________ which are connected with low latency, high throughput, and highly redundant networking. Select the missing term from the options below.\nSubnets\nFacilities\nEdge Locations\nAvailability Zones\n",
+        "answer": [
+            4
+        ],
+        "explanation": "Availability Zones are distinct locations that are engineered to be isolated from failures in other Availability Zones and are connected with low latency, high throughput, and highly redundant networking\nSubnets are created within availability zones (AZs). Each subnet must reside entirely within one Availability Zone and cannot span zones\nEach AZ is located in one or more data centers (facilities)\nAn Edge Location is a CDN endpoint for CloudFront\nReferences:\nhttps://digitalcloud.training/certification-training/aws-solutions-architect-associate/networking-and-content-delivery/amazon-vpc/\nhttps://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html"
+    },
+    {
+        "question": "13. Question\nThe application development team in your company have created a new application written in .NET. You are looking for a way to easily deploy the application whilst maintaining full control of the underlying resources.\nWhich PaaS service provided by AWS would suit this requirement?\nCloudFront\nElastic Beanstalk\nCloudFormation\nEC2 Placement Groups\n",
+        "answer": [
+            2
+        ],
+        "explanation": "AWS Elastic Beanstalk can be used to quickly deploy and manage applications in the AWS Cloud. Developers upload applications and Elastic Beanstalk handles the deployment details of capacity provisioning, load balancing, auto-scaling, and application health monitoring. It is considered to be a Platform as a Service (PaaS) solution and allows full control of the underlying resources\nCloudFront is a content delivery network for caching content to improve performance\nCloudFormation uses templates to provision infrastructure\nEC2 Placement Groups are used to control how instances are launched to enable low-latency connectivity or to be spread across distinct hardware\nReferences:\nhttps://digitalcloud.training/certification-training/aws-solutions-architect-associate/compute/aws-elastic-beanstalk/"
+    },
+    {
+        "question": "14. Question\nYou work for a large multinational retail company. The company has a large presence in AWS in multiple regions. You have established a new office and need to implement a high-bandwidth, low-latency connection to multiple VPCs in multiple regions within the same account. The VPCs each have unique CIDR ranges.\nWhat would be the optimum solution design using AWS technology? (choose 2)\nCreate a Direct Connect gateway, and create private VIFs to each region\nConfigure AWS VPN CloudHub\nProvision an MPLS network\nImplement a Direct Connect connection to the closest AWS region\nImplement Direct Connect connections to each AWS region\n",
+        "answer": [
+            1,
+            4
+        ],
+        "explanation": "You should implement an AWS Direct Connect connection to the closest region. You can then use Direct Connect gateway to create private virtual interfaces (VIFs) to each AWS region. Direct Connect gateway provides a grouping of Virtual Private Gateways (VGWs) and Private Virtual Interfaces (VIFs) that belong to the same AWS account and enables you to interface with VPCs in any AWS Region (except AWS China Region). You can share a private virtual interface to interface with more than one Virtual Private Cloud (VPC) reducing the number of BGP sessions required\nYou do not need to implement multiple Direct Connect connections to each region. This would be a more expensive option as you would need to pay for an international private connection\nAWS VPN CloudHub is not the best solution as you have been asked to implement high-bandwidth, low-latency connections and VPN uses the Internet so is not reliable\nAn MPLS network could be used to create a network topology that gets you closer to AWS in each region but you would still need use Direct Connect or VPN for the connectivity into AWS. Also, the question states that you should use AWS technology and MPLS is not offered as a service by AWS\nReferences:\nhttps://digitalcloud.training/certification-training/aws-solutions-architect-associate/networking-and-content-delivery/aws-direct-connect/"
+    },
+    {
+        "question": "15. Question\nA client has requested a design for a fault tolerant database that can failover between AZs. You have decided to use RDS in a multi-AZ configuration. What type of replication will the primary database use to replicate to the standby instance?\nAsynchronous replication\nContinuous replication\nScheduled replication\nSynchronous replication\n",
+        "answer": [
+            4
+        ],
+        "explanation": "Multi-AZ RDS creates a replica in another AZ and synchronously replicates to it (DR only). Multi-AZ deployments for the MySQL, MariaDB, Oracle and PostgreSQL engines utilize synchronous physical replication. Multi-AZ deployments for the SQL Server engine use synchronous logical replication (SQL Server-native Mirroring technology)\nAsynchronous replication is used by RDS for Read Replicas\nScheduled and continuous replication are not replication types that are supported by RDS\nReferences:\nhttps://digitalcloud.training/certification-training/aws-solutions-architect-associate/database/amazon-rds/"
+    },
+    {
+        "question": "16. Question\nUsing the VPC wizard, you have selected the option \u201cVPC with Public and Private Subnets and Hardware VPN access\u201d. Which of the statements below correctly describe the configuration that will be created? (choose 2)\nA NAT gateway will be created for the private subnet\nOne subnet will be connected to your corporate data center using an IPSec VPN tunnel\nA physical VPN device will be allocated to your VPC\nA peering connection will be made between the public and private subnets\nA virtual private gateway will be created\n",
+        "answer": [
+            2,
+            5
+        ],
+        "explanation": "The configuration for this scenario includes a virtual private cloud (VPC) with a public subnet and a private subnet, and a virtual private gateway to enable communication with your own network over an IPsec VPN tunnel\nReview the scenario described in the AWS article below for more information\nReferences:\nhttps://digitalcloud.training/certification-training/aws-solutions-architect-associate/networking-and-content-delivery/amazon-vpc/\nhttps://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Scenario3.html"
+    },
+    {
+        "question": "17. Question\nA three-tier web application that you deployed in your VPC has been experiencing heavy load on the DB tier. The DB tier uses RDS MySQL in a multi-AZ configuration. Customers have been complaining about poor response times and you have been asked to find a solution. During troubleshooting you discover that the DB tier is experiencing high read contention during peak hours of the day.\nWhat are two possible options you could use to offload some of the read traffic from the DB to resolve the performance issues? (choose 2)\nDeploy ElastiCache in each AZ\nMigrate to DynamoDB\nUse an ELB to distribute load between RDS instances\nUse a larger RDS instance size\nAdd RDS read replicas in each AZ\n",
+        "answer": [
+            1,
+            5
+        ],
+        "explanation": "ElastiCache is a web service that makes it easy to deploy and run Memcached or Redis protocol-compliant server nodes in the cloud. The in-memory caching provided by ElastiCache can be used to significantly improve latency and throughput for many read-heavy application workloads or compute-intensive workloads\nRead replicas are used for read heavy DBs and replication is asynchronous. They are for workload sharing and offloading and are created from a snapshot of the master instance\nMoving from a relational DB to a NoSQL DB (DynamoDB) is unlikely to be a viable solution\nUsing a larger instance size may alleviate the problems the question states that the solution should offload reads from the main DB, read replicas can do this\nReferences:\nhttps://digitalcloud.training/certification-training/aws-solutions-architect-associate/database/amazon-elasticache/\nhttps://digitalcloud.training/certification-training/aws-solutions-architect-associate/database/amazon-rds/"
+    },
+    {
+        "question": "18. Question\nA company is deploying new services on EC2 and needs to determine which instance types to use with what type of attached storage. Which of the statements about Instance store-backed and EBS-backed instances is true?\nEBS-backed instances can be stopped and restarted\nInstance-store backed instances can be stopped and restarted\nInstance-store backed instances can only be terminated\nEBS-backed instances cannot be restarted\n",
+        "answer": [
+            1
+        ],
+        "explanation": "EBS-backed means the root volume is an EBS volume and storage is persistent whereas instance store-backed means the root volume is an instance store volume and storage is not persistent\nOn an EBS-backed instance, the default action is for the root EBS volume to be deleted upon termination\nEBS backed instances can be stopped. You will not lose the data on this instance if it is stopped (persistent)\nEBS volumes can be detached and reattached to other EC2 instances\nEBS volume root devices are launched from AMI\u2019s that are backed by EBS snapshots\nInstance store volumes are sometimes called Ephemeral storage (non-persistent)\nInstance store volumes cannot be stopped. If the underlying host fails the data will be lost\nInstance store volume root devices are created from AMI templates stored on S3\nInstance store volumes cannot be detached/reattached\nWhen rebooting the instances for both types data will not be lost\nBy default, both root volumes will be deleted on termination unless you configured otherwise\nReferences:\nhttps://digitalcloud.training/certification-training/aws-solutions-architect-associate/compute/amazon-ebs/"
+    },
+    {
+        "question": "19. Question\nAn application you manage regularly uploads files from an EC2 instance to S3. The files can be a couple of GB in size and sometimes the uploads are slower than you would like resulting in poor upload times. What method can be used to increase throughput and speed things up?\nRandomize the object names when uploading\nUse Amazon S3 multipart upload\nUpload the files using the S3 Copy SDK or REST API\nTurn off versioning on the destination bucket\n",
+        "answer": [
+            2
+        ],
+        "explanation": "Multipart upload can be used to speed up uploads to S3. Multipart upload uploads objects in parts independently, in parallel and in any order. It is performed using the S3 Multipart upload API and is recommended for objects of 100MB or larger. It can be used for objects from 5MB up to 5TB and must be used for objects larger than 5GB\nRandomizing object names provides no value in this context, random prefixes are used for intensive read requests\nCopy is used for copying, moving and renaming objects within S3 not for uploading to S3\nTurning off versioning will not speed up the upload\nReferences:\nhttps://digitalcloud.training/certification-training/aws-solutions-architect-associate/storage/amazon-s3/"
+    },
+    {
+        "question": "20. Question\nYou need to create a file system that can be concurrently accessed by multiple EC2 instances within an AZ. The file system needs to support high throughput and the ability to burst. As the data that will be stored on the file system will be sensitive you need to ensure it is encrypted at rest and in transit.\nWhich storage solution would you implement for the EC2 instances?\nAdd EBS volumes to each EC2 instance and use an ELB to distribute data evenly between the volumes\nAdd EBS volumes to each EC2 instance and configure data replication\nUse the Elastic File System (EFS) and mount the file system using NFS v4.1\nUse the Elastic Block Store (EBS) and mount the file system at the block level\n",
+        "answer": [
+            3
+        ],
+        "explanation": "EFS is a fully-managed service that makes it easy to set up and scale file storage in the Amazon Cloud. EFS file systems are mounted using the NFSv4.1 protocol. EFS is designed to burst to allow high throughput levels for periods of time. EFS also offers the ability to encrypt data at rest and in transit\nEBS is a block-level storage system not a file-level storage system. You cannot connect to a single EBS volume concurrently from multiple EC2 instances\nAdding EBS volumes to each instance and configuring data replication is not the best solution for this scenario and there is no native capability within AWS for performing the replication. Some 3rd party data management software does use this model however\nYou cannot use an ELB to distribute data between EBS volumes\nReferences:\nhttps://digitalcloud.training/certification-training/aws-solutions-architect-associate/storage/amazon-efs/"
+    },
+    {
+        "question": "21. Question\nA Solutions Architect needs a storage solution for a fleet of Linux web application servers. The solution should provide a file system interface and be able to support millions of files. Which AWS service should the Architect choose?\nAmazon ElastiCache\nAmazon S3\nAmazon EBS\nAmazon EFS\n",
+        "answer": [
+            4
+        ],
+        "explanation": "The Amazon Elastic File System (EFS) is the only storage solution in the list that provides a file system interface. It also supports millions of files as requested\nAmazon S3 is an object storage solution and does not provide a file system interface\nAmazon EBS provides a block storage interface\nAmazon ElastiCache is an in-memory caching solution for databases\nReferences:\nhttps://digitalcloud.training/certification-training/aws-solutions-architect-associate/storage/amazon-efs/"
+    },
+    {
+        "question": "22. Question\nYou are running an application on EC2 instances in a private subnet of your VPC. You would like to connect the application to Amazon API Gateway. For security reasons, you need to ensure that no traffic traverses the Internet and need to ensure all traffic uses private IP addresses only.\nHow can you achieve this?\nCreate a public VIF on a Direct Connect connection\nCreate a NAT gateway\nCreate a private API using an interface VPC endpoint\nAdd the API gateway to the subnet the EC2 instances are located in\n",
+        "answer": [
+            3
+        ],
+        "explanation": "An Interface endpoint uses AWS PrivateLink and is an elastic network interface (ENI) with a private IP address that serves as an entry point for traffic destined to a supported service. Using PrivateLink you can connect your VPC to supported AWS services, services hosted by other AWS accounts (VPC endpoint services), and supported AWS Marketplace partner services\nYou do not need to implement Direct Connect and create a public VIF. Public IP addresses are used in public VIFs and the question requests that only private addresses are used\nYou cannot add API Gateway to the subnet the EC2 instances are in, it is a public service with a public endpoint\nNAT Gateways are used to provide Internet access for EC2 instances in private subnets so are of no use in this solution\nReferences:\nhttps://digitalcloud.training/certification-training/aws-solutions-architect-associate/networking-and-content-delivery/amazon-vpc/"
+    },
+    {
+        "question": "23. Question\nYou have just initiated the creation of a snapshot of an EBS volume and the snapshot process is currently in operation. Which of the statements below is true regarding the operations that are possible while the snapshot process in running?\nThe volume cannot be used until the snapshot completes\nThe volume can be used in write-only mode while the snapshot is in progress\nThe volume can be used in read-only mode while the snapshot is in progress\nThe volume can be used as normal while the snapshot is in progress\n",
+        "answer": [
+            4
+        ],
+        "explanation": "You can take a snapshot of an EBS volume while the instance is running and it does not cause any outage of the volume so it can continue to be used as normal. However, the advice is that to take consistent snapshots writes to the volume should be stopped. For non-root EBS volumes this can entail taking the volume offline (detaching the volume with the instance still running), and for root EBS volumes it entails shutting down the instance\nReferences:\nhttps://digitalcloud.training/certification-training/aws-solutions-architect-associate/compute/amazon-ebs/\nhttps://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-snapshot.html"
+    },
+    {
+        "question": "24. Question\nAn EC2 instance on which you are running a video on demand web application has been experiencing high CPU utilization. You would like to take steps to reduce the impact on the EC2 instance and improve performance for consumers. Which of the steps below would help?\nCreate a CloudFront distribution and configure a custom origin pointing at the EC2 instance\nCreate a CloudFront RTMP distribution and point it at the EC2 instance\nUse ElastiCache as the web front-end and forward connections to EC2 for cache misses\nCreate an ELB and place it in front of the EC2 instance\n",
+        "answer": [
+            1
+        ],
+        "explanation": "This is a good use case for CloudFront which is a content delivery network (CDN) that caches content to improve performance for users who are consuming the content. This will take the load off of the EC2 instances as CloudFront has a cached copy of the video files. An origin is the origin of the files that the CDN will distribute. Origins can be either an S3 bucket, an EC2 instance, and Elastic Load Balancer, or Route 53 \u2013 can also be external (non-AWS)\nElastiCache cannot be used as an Internet facing web front-end\nFor RTMP CloudFront distributions files must be stored in an S3 bucket\nPlacing an ELB in front of a single EC2 instance does not help to reduce load\nReferences:\nhttps://digitalcloud.training/certification-training/aws-solutions-architect-associate/networking-and-content-delivery/amazon-cloudfront/"
+    },
+    {
+        "question": "25. Question\nA new application that you rolled out recently runs on Amazon EC2 instances and uses API Gateway and Lambda. Your company is planning on running an advertising campaign that will likely result in significant hits to the application after each ad is run.\nYou\u2019re concerned about the impact this may have on your application and would like to put in place some controls to limit the number of requests per second that hit the application.\nWhat controls will you implement in this situation?\nEnable caching on the API Gateway and specify a size in gigabytes\nAPI Gateway and Lambda scale automatically to handle any load so there\u2019s no need to implement controls\nEnable Lambda continuous scaling\nImplement throttling rules on the API Gateway\n",
+        "answer": [
+            4
+        ],
+        "explanation": "The key requirement is that you need to limit the number of requests per second that hit the application. This can only be done by implementing throttling rules on the API Gateway. Throttling enables you to throttle the number of requests to your API which in turn means less traffic will be forwarded to your application server\nCaching can improve performance but does not limit the amount of requests coming in\nAPI Gateway and Lambda both scale up to their default limits however the bottleneck is with the application server running on EC2 which may not be able to scale to keep up with demand\nLambda continuous scaling does not resolve the scalability concerns with the EC2 application server\nReferences:\nhttps://digitalcloud.training/certification-training/aws-solutions-architect-associate/networking-and-content-delivery/amazon-api-gateway/\nhttps://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-request-throttling.html"
+    },
+    {
+        "question": "26. Question\nThe development team in your company have created a Python application running on ECS containers with the Fargate launch type. You have created an ALB with a Target Group that routes incoming connections to the ECS-based application. The application will be used by consumers who will authenticate using federated OIDC compliant Identity Providers such as Google and Facebook. You would like to securely authenticate the users on the front-end before they access the authenticated portions of the application.\nHow can this be done on the ALB?\nThis cannot be done on an ALB; you\u2019ll need to authenticate users on the back-end with AWS Single Sign-On (SSO) integration\nThis cannot be done on an ALB; you\u2019ll need to use another layer in front of the ALB\nThis can be done on the ALB by creating an authentication action on a listener rule that configures an Amazon Cognito user pool with the social IdP\nThe only option is to use SAML with Amazon Cognito on the ALB\n",
+        "answer": [
+            3
+        ],
+        "explanation": "ALB supports authentication from OIDC compliant identity providers such as Google, Facebook and Amazon. It is implemented through an authentication action on a listener rule that integrates with Amazon Cognito to create user pools\nSAML can be used with Amazon Cognito but this is not the only option\nReferences:\nhttps://digitalcloud.training/certification-training/aws-solutions-architect-associate/compute/elastic-load-balancing/\nhttps://aws.amazon.com/blogs/aws/built-in-authentication-in-alb/"
+    },
+    {
+        "question": "27. Question\nA new department will begin using AWS services in your account and you need to create an authentication and authorization strategy. Select the correct statements regarding IAM groups? (choose 2)\nIAM groups can be used to group EC2 instances\nIAM groups can be nested up to 4 levels\nIAM groups can be used to assign permissions to users\nAn IAM group is not an identity and cannot be identified as a principal in an IAM policy\nIAM groups can temporarily assume a role to take on permissions for a specific task\n",
+        "answer": [
+            3,
+            4
+        ],
+        "explanation": "Groups are collections of users and have policies attached to them\nA group is not an identity and cannot be identified as a principal in an IAM policy\nUse groups to assign permissions to users\nIAM groups cannot be used to group EC2 instances\nOnly users and services can assume a role to take on permissions (not groups)\nReferences:\nhttps://digitalcloud.training/certification-training/aws-solutions-architect-associate/security-identity-compliance/aws-iam/"
+    },
+    {
+        "question": "28. Question\nA systems integration consultancy regularly deploys and manages infrastructure services for customers on AWS. The SysOps team are facing challenges in tracking changes that are made to the infrastructure services and rolling back when problems occur.\nWhich of the approaches below would BEST assist the SysOps team?\nUse AWS Systems Manager to manage all updates to the infrastructure services\nUse Trusted Advisor to record updates made to the infrastructure services\nUse CloudFormation templates to deploy and manage the infrastructure services\nUse CodeDeploy to manage version control for the infrastructure services\n",
+        "answer": [
+            3
+        ],
+        "explanation": "When you provision your infrastructure with AWS CloudFormation, the AWS CloudFormation template describes exactly what resources are provisioned and their settings. Because these templates are text files, you simply track differences in your templates to track changes to your infrastructure, similar to the way developers control revisions to source code. For example, you can use a version control system with your templates so that you know exactly what changes were made, who made them, and when. If at any point you need to reverse changes to your infrastructure, you can use a previous version of your template.\nAWS Systems Manager gives you visibility and control of your infrastructure on AWS. Systems Manager provides a unified user interface so you can view operational data from multiple AWS services and allows you to automate operational tasks across your AWS resources. However, CloudFormation would be the preferred method of maintaining the state of the overall architecture.\nAWS CodeDeploy is a deployment service that automates application (not infrastructure) deployments to Amazon EC2 instances, on-premises instances, or serverless Lambda functions. This would be a good fit if we were talking about an application environment where code changes need to be managed but not for infrastructure services.\nAWS Trusted Advisor is an online resource to help you reduce cost, increase performance, and improve security by optimizing your AWS environment, Trusted Advisor provides real time guidance to help you provision your resources following AWS best practices.\nReferences:\nhttps://aws.amazon.com/cloudformation/resources/"
+    },
+    {
+        "question": "29. Question\nA company runs several web applications on AWS that experience a large amount of traffic. An Architect is considering adding a caching service to one of the most popular web applications. What are two advantages of using ElastiCache? (choose 2)\nDecoupling application components\nCan be used for storing session state data\nCaching query results for improved performance\nLow latency network connectivity\nMulti-region HA\n",
+        "answer": [
+            2,
+            3
+        ],
+        "explanation": "The in-memory caching provided by ElastiCache can be used to significantly improve latency and throughput for many read-heavy application workloads or compute-intensive workloads\nElasticache can also be used for storing session state\nYou cannot enable multi-region HA with ElastiCache\nElastiCache is a caching service, not a network service so it is not responsible for providing low-latency network connectivity\nAmazon SQS is used for decoupling application components\nReferences:\nhttps://digitalcloud.training/certification-training/aws-solutions-architect-associate/database/amazon-elasticache/"
+    },
+    {
+        "question": "30. Question\nAn application you manage runs a number of components using a micro-services architecture. Several ECS container instances in your ECS cluster are displaying as disconnected. The ECS instances were created from the Amazon ECS-Optimized AMI. What steps might you take to troubleshoot the issue? (choose 2)\nVerify that the container instances have the container agent installed\nVerify that the IAM instance profile has the necessary permissions\nVerify that the instances have the correct IAM group applied\nVerify that the container agent is running on the container instances\nVerify that the container instances are using the Fargate launch type\n",
+        "answer": [
+            2,
+            4
+        ],
+        "explanation": "The ECS container agent is included in the Amazon ECS optimized AMI and can also be installed on any EC2 instance that supports the ECS specification (only supported on EC2 instances). Therefore, you know don\u2019t need to verify that the agent is installed\nYou need to verify that the installed agent is running and that the IAM instance profile has the necessary permissions applied. You apply IAM roles (instance profile) to EC2 instances, not groups\nThis example is based on the EC2 launch type not the Fargate launch type. With Fargate the infrastructure is managed for you by AWS\nTroubleshooting steps for containers include:\nVerify that the Docker daemon is running on the container instance\nVerify that the Docker Container daemon is running on the container instance\nVerify that the container agent is running on the container instance\nVerify that the IAM instance profile has the necessary permissions\nReferences:\nhttps://digitalcloud.training/certification-training/aws-solutions-architect-associate/compute/amazon-ecs/\nhttps://aws.amazon.com/premiumsupport/knowledge-center/ecs-agent-disconnected/"
+    },
+    {
+        "question": "31. Question\nYou are using encryption with several AWS services and are looking for a solution for secure storage of the keys. Which AWS service provides a hardware-based storage solution for cryptographic keys?\nVirtual Private Cloud (VPC)\nKey Management Service (KMS)\nPublic Key Infrastructure (PKI)\nCloudHSM\n",
+        "answer": [
+            4
+        ],
+        "explanation": "AWS CloudHSM is a cloud-based hardware security module (HSM) that allows you to easily add secure key storage and high-performance crypto operations to your AWS applications\nCloudHSM is a managed service that automates time-consuming administrative tasks, such as hardware provisioning, software patching, high availability, and backups\nCloudHSM is one of several AWS services, including AWS Key Management Service (KMS), which offer a high level of security for your cryptographic keys\nKMS provides an easy, cost-effective way to manage encryption keys on AWS that meets the security needs for the majority of customer data\nA VPC is a logical networking construct within an AWS account\nPKI is a term used to describe the whole infrastructure responsible for the usage of public key cryptography\nReferences:\nhttps://aws.amazon.com/cloudhsm/details/"
+    },
+    {
+        "question": "32. Question\nYou are concerned that you may be getting close to some of the default service limits for several AWS services. Which AWS tool can be used to display current usage and limits?\nAWS Systems Manager\nAWS Trusted Advisor\nAWS Dashboard\nAWS CloudWatch\n",
+        "answer": [
+            2
+        ],
+        "explanation": "Trusted Advisor is an online resource to help you reduce cost, increase performance, and improve security by optimizing your AWS environment. Trusted Advisor provides real time guidance to help you provision your resources following AWS best practices. AWS Trusted Advisor offers a Service Limits check (in the Performance category) that displays your usage and limits for some aspects of some services\nAWS CloudWatch is used for performance monitoring not displaying usage limits\nAWS Systems Manager gives you visibility and control of your infrastructure on AWS. Systems Manager provides a unified user interface so you can view operational data from multiple AWS services and allows you to automate operational tasks across your AWS resources\nThere is no service known as \u201cAWS Dashboard\u201d\nReferences:\nhttps://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html"
+    },
+    {
+        "question": "33. Question\nThe development team in a media organization is moving their SDLC processes into the AWS Cloud. Which AWS service is primarily used for software version control?\nCodeCommit\nCodeStar\nCloudHSM\nStep Functions\n",
+        "answer": [
+            1
+        ],
+        "explanation": "AWS CodeCommit is a fully-managed source control service that hosts secure Git-based repositories\nAWS CodeStar enables you to quickly develop, build, and deploy applications on AWS\nAWS CloudHSM is a cloud-based hardware security module (HSM) that enables you to easily generate and use your own encryption keys on the AWS Cloud\nAWS Step Functions lets you coordinate multiple AWS services into serverless workflows so you can build and update apps quickly\nReferences:\nhttps://aws.amazon.com/codecommit/"
+    },
+    {
+        "question": "34. Question\nYour operations team would like to be notified if an RDS database exceeds certain metric thresholds. They have asked you how this could be automated?\nCreate a CloudWatch alarm and associate an SQS queue with it that delivers a message to SES\nSetup an RDS alarm and associate an SNS topic with it that sends an email\nCreate a CloudTrail alarm and configure a notification event to send an SMS\nCreate a CloudWatch alarm and associate an SNS topic with it that sends an email notification\n",
+        "answer": [
+            4
+        ],
+        "explanation": "You can create a CloudWatch alarm that watches a single CloudWatch metric or the result of a math expression based on CloudWatch metrics. The alarm performs one or more actions based on the value of the metric or expression relative to a threshold over a number of time periods. The action can be an Amazon EC2 action, an Amazon EC2 Auto Scaling action, or a notification sent to an Amazon SNS topic. SNS can be configured to send an email notification\nCloudTrail is used for auditing API access, not for performance monitoring\nCloudWatch performs performance monitoring so you don\u2019t setup alarms in RDS itself\nYou cannot associate an SQS queue with a CloudWatch alarm\nReferences:\nhttps://digitalcloud.training/certification-training/aws-solutions-architect-associate/management-tools/amazon-cloudwatch/"
+    },
+    {
+        "question": "35. Question\nYou are a Solutions Architect at Digital Cloud Training. In your VPC you have a mixture of EC2 instances in production and non-production environments. You need to devise a way to segregate access permissions to different sets of users for instances in different environments.\nHow can this be achieved? (choose 2)\nAttach an Identity Provider (IdP) and delegate access to the instances to the relevant groups\nCreate an IAM policy with a conditional statement that matches the environment variables\nCreate an IAM policy that grants access to any instances with the specific tag and attach to the users and groups\nAdd an environment variable to the instances using user data\nAdd a specific tag to the instances you want to grant the users or groups access to\n",
+        "answer": [
+            3,
+            5
+        ],
+        "explanation": "You can use the condition checking in IAM policies to look for a specific tag. IAM checks that the tag attached to the principal making the request matches the specified key name and value\nYou cannot achieve this outcome using environment variables stored in user data and conditional statements in a policy. You must use an IAM policy that grants access to instances based on the tag\nYou cannot use an IdP for this solution\nReferences:\nhttps://aws.amazon.com/premiumsupport/knowledge-center/iam-ec2-resource-tags/\nhttps://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html"
+    },
+    {
+        "question": "36. Question\nYou are a Solutions Architect at Digital Cloud Training. You have just completed the implementation of a 2-tier web application for a client. The application uses EC2 instances, ELB and Auto Scaling across two subnets. After deployment you notice that only one subnet has EC2 instances running in it. What might be the cause of this situation?\nCross-zone load balancing is not enabled on the ELB\nThe AMI is missing from the ASG\u2019s launch configuration\nThe Auto Scaling Group has not been configured with multiple subnets\nThe ELB is configured as an internal-only load balancer\n",
+        "answer": [
+            3
+        ],
+        "explanation": "You can specify which subnets Auto Scaling will launch new instances into. Auto Scaling will try to distribute EC2 instances evenly across AZs. If only one subnet has EC2 instances running in it the first thing to check is that you have added all relevant subnets to the configuration\nThe type of ELB deployed is not relevant here as Auto Scaling is responsible for launching instances into subnets whereas ELB is responsible for distributing connections to the instances\nCross-zone load balancing is an ELB feature and ELB is not the issue here as it is not responsible for launching instances into subnets\nIf the AMI was missing from the launch configuration no instances would be running\nReferences:\nhttps://digitalcloud.training/certification-training/aws-solutions-architect-associate/compute/aws-auto-scaling/"
+    },
+    {
+        "question": "37. Question\nThe AWS Acceptable Use Policy describes permitted and prohibited behavior on AWS and includes descriptions of prohibited security violations and network abuse. According to the policy, what is AWS\u2019s position on penetration testing?\nAWS do not allow any form of penetration testing\nAWS allow penetration testing by customers on their own VPC resources\nAWS allow penetration for some resources without prior authorization\nAWS allow penetration testing for all resources\n",
+        "answer": [
+            3
+        ],
+        "explanation": "AWS customers are welcome to carry out security assessments or penetration tests against their AWS infrastructure without prior approval for 8 services. Please check the AWS link below for the latest information.\nThere is a limited set of resources on which penetration testing can be performed.\nNote of caution: AWS used to require authorization for all penetration testing and this was changed in early 2019 \u2013 the exam may or may not reflect this.\nReferences:\nhttps://digitalcloud.training/certification-training/aws-certified-cloud-practitioner/cloud-security/\nhttps://aws.amazon.com/security/penetration-testing/"
+    },
+    {
+        "question": "38. Question\nA Solutions Architect is creating a design for a multi-tiered web application. The application will use multiple AWS services and must be designed with elasticity and high-availability in mind.\nWhich architectural best practices should be followed to reduce interdependencies between systems? (choose 2)\nEnable automatic scaling for storage and databases\nImplement service discovery using static IP addresses\nEnable graceful failure through AWS Auto Scaling\nImplement well-defined interfaces using a relational database\nImplement asynchronous integration using Amazon SQS queues\n",
+        "answer": [
+            3,
+            5
+        ],
+        "explanation": "Asynchronous integration \u2013 this is another form of loose coupling where an interaction does not need an immediate response (think SQS queue or Kinesis)\nGraceful failure \u2013 build applications such that they handle failure in a graceful manner (reduce the impact of failure and implement retries). Auto Scaling helps to reduce the impact of failure by launching replacement instances\nWell-defined interfaces \u2013 reduce interdependencies in a system by enabling interaction only through specific, technology-agnostic interfaces (e.g. RESTful APIs). A relational database is not an example of a well-defined interface\nService discovery \u2013 disparate resources must have a way of discovering each other without prior knowledge of the network topology. Usually DNS names and a method of resolution are preferred over static IP addresses which need to be hardcoded somewhere\nThough automatic scaling for storage and database provides scalability (not necessarily elasticity), it does not reduce interdependencies between systems\nReferences:\nhttps://aws.amazon.com/architecture/well-architected/"
+    },
+    {
+        "question": "39. Question\nAn event in CloudTrail is the record of an activity in an AWS account. What are the two types of events that can be logged in CloudTrail? (choose 2)\nData Events which are also known as data plane operations\nSystem Events which are also known as instance level operations\nManagement Events which are also known as control plane operations\nPlatform Events which are also known as hardware level operations\n",
+        "answer": [
+            1,
+            3
+        ],
+        "explanation": "Trails can be configured to log Data events and management events:\nData events: These events provide insight into the resource operations performed on or within a resource. These are also known as data plane operations\nManagement events: Management events provide insight into management operations that are performed on resources in your AWS account. These are also known as control plane operations. Management events can also include non-API events that occur in your account\nReferences:\nhttps://digitalcloud.training/certification-training/aws-solutions-architect-associate/management-tools/aws-cloudtrail/\nhttps://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html"
+    },
+    {
+        "question": "40. Question\nYou would like to provide some elasticity for your RDS DB. You are considering read replicas and are evaluating the features. Which of the following statements are applicable when using RDS read replicas? (choose 2)\nYou cannot have more than four instances involved in a replication chain\nReplication is synchronous\nIt is possible to have read-replicas of read-replicas\nYou cannot specify the AZ the read replica is deployed in\nDuring failover RDS automatically updates configuration (including DNS endpoint) to use the second node\n",
+        "answer": [
+            1,
+            3
+        ],
+        "explanation": "Multi-AZ utilizes failover and DNS endpoint updates, not read replicas\nRead replicas are used for read heavy DBs and replication is asynchronous\nYou can have read replicas of read replicas for MySQL and MariaDB but not for PostgreSQL\nYou cannot have more than four instances involved in a replication chain\nYou can specify the AZ the read replica is deployed in\nReferences:\nhttps://digitalcloud.training/certification-training/aws-solutions-architect-associate/database/amazon-rds/"
+    },
+    {
+        "question": "41. Question\nA solutions architect is building a scalable and fault tolerant web architecture and is evaluating the benefits of the Elastic Load Balancing (ELB) service. Which statements are true regarding ELBs? (select 2)\nMultiple subnets per AZ can be enabled for each ELB\nBoth types of ELB route traffic to the public IP addresses of EC2 instances\nFor public facing ELBs you must have one public subnet in each AZ where the ELB is defined\nInternal-only load balancers require an Internet gateway\nInternet facing ELB nodes have public IPs\n",
+        "answer": [
+            3,
+            5
+        ],
+        "explanation": "Internet facing ELB nodes have public IPs\nBoth types of ELB route traffic to the private IP addresses of EC2 instances\nFor public facing ELBs you must have one public subnet in each AZ where the ELB is defined\nInternal-only load balancers do not require an Internet gateway\nOnly 1 subnet per AZ can be enabled for each ELB\nReferences:\nhttps://digitalcloud.training/certification-training/aws-solutions-architect-associate/compute/elastic-load-balancing/"
+    },
+    {
+        "question": "42. Question\nThere is new requirement for a database that will store a large number of records for an online store. You are evaluating the use of DynamoDB. Which of the following are AWS best practices for DynamoDB? (choose 2)\nUse separate local secondary indexes for each item\nStore objects larger than 400KB in S3 and use pointers in DynamoDB\nStore more frequently and less frequently accessed data in separate tables\nUse for BLOB data use cases\nUse large files\n",
+        "answer": [
+            2,
+            3
+        ],
+        "explanation": "DynamoDB best practices include:\nKeep item sizes small\nIf you are storing serial data in DynamoDB that will require actions based on data/time use separate tables for days, weeks, months\nStore more frequently and less frequently accessed data in separate tables\nIf possible, compress larger attribute values\nStore objects larger than 400KB in S3 and use pointers (S3 Object ID) in DynamoDB\nReferences:\nhttps://digitalcloud.training/certification-training/aws-solutions-architect-associate/database/amazon-dynamodb/"
+    },
+    {
+        "question": "43. Question\nA Solutions Architect needs to migrate an Oracle database running on RDS onto Amazon RedShift to improve performance and reduce cost. What combination of tasks using AWS services should be followed to execute the migration? (choose 2)\nConfigure API Gateway to extract, transform and load the data into RedShift\nMigrate the database using the AWS Database Migration Service (DMS)\nEnable log shipping from the Oracle database to RedShift\nTake a snapshot of the Oracle database and restore the snapshot onto RedShift\nConvert the schema using the AWS Schema Conversion Tool\n",
+        "answer": [
+            2,
+            5
+        ],
+        "explanation": "Convert the data warehouse schema and code from the Oracle database running on RDS using the AWS Schema Conversion Tool (AWS SCT) then migrate data from the Oracle database to Amazon Redshift using the AWS Database Migration Service (AWS DMS)\nAPI Gateway is not used for ETL functions\nLog shipping, or snapshots are not supported migration methods from RDS to RedShift\nReferences:\nhttps://aws.amazon.com/getting-started/projects/migrate-oracle-to-amazon-redshift/"
+    },
+    {
+        "question": "44. Question\nAn application running in your on-premise data center writes data to a MySQL database. You are re-architecting the application and plan to move the database layer into the AWS cloud on RDS. You plan to keep the application running in your on-premise data center.\nWhat do you need to do to connect the application to the RDS database via the Internet? (choose 2)\nCreate a DB subnet group that is publicly accessible\nConfigure an NAT Gateway and attach the RDS database\nChoose to make the RDS instance publicly accessible and place it in a public subnet\nCreate a security group allowing access from your public IP to the RDS instance and assign to the RDS instance\nSelect a public IP within the DB subnet group to assign to the RDS instance\n",
+        "answer": [
+            3,
+            4
+        ],
+        "explanation": "When you create the RDS instance, you need to select the option to make it publicly accessible. A security group will need to be created and assigned to the RDS instance to allow access from the public IP address of your application (or firewall)\nNAT Gateways are used for enabling Internet connectivity for EC2 instances in private subnets\nA DB subnet group is a collection of subnets (typically private) that you create in a VPC and that you then designate for your DB instance. The DB subnet group cannot be made publicly accessible, even if the subnets are public subnets, it is the RDS DB that must be configured to be publicly accessible\nReferences:\nhttps://digitalcloud.training/certification-training/aws-solutions-architect-associate/database/amazon-rds/\nhttps://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.Scenarios.html#USER_VPC.Scenario4"
+    },
+    {
+        "question": "45. Question\nA new financial platform has been re-architected to use Docker containers in a micro-services architecture. The new architecture will be implemented on AWS and you have been asked to recommend the solution configuration. For operational reasons, it will be necessary to access the operating system of the instances on which the containers run.\nWhich solution delivery option will you select?\nECS with a default cluster\nECS with the Fargate launch type\nEKS with Kubernetes managed infrastructure\nECS with the EC2 launch type\n",
+        "answer": [
+            4
+        ],
+        "explanation": "Amazon Elastic Container Service (ECS) is a highly scalable, high performance container management service that supports Docker containers and allows you to easily run applications on a managed cluster of Amazon EC2 instances\nThe EC2 Launch Type allows you to run containers on EC2 instances that you manage so you will be able to access the operating system instances\nThe Fargate Launch Type is a serverless infrastructure managed by AWS so you do not have access to the operating system of the EC2 instances that the container platform runs on\nThe EKS service is a managed Kubernetes service that provides a fully-managed control plane so you would not have access to the EC2 instances that the platform runs on\nECS with a default cluster is an incorrect answer, you need to choose the launch type to ensure you get the access required, not the cluster configuration\nReferences:\nhttps://digitalcloud.training/certification-training/aws-solutions-architect-associate/compute/amazon-ecs/"
+    },
+    {
+        "question": "46. Question\nYou are using encrypted Amazon Elastic Block Store (EBS) volumes with your instances in EC2. A security administrator has asked how encryption works with EBS. Which statements are correct? (choose 2)\nData is only encrypted at rest\nData in transit between an instance and an encrypted volume is also encrypted\nYou cannot mix encrypted with unencrypted volumes on an instance\nEncryption is supported on all Amazon EBS volume types\nVolumes created from encrypted snapshots are unencrypted\n",
+        "answer": [
+            2,
+            4
+        ],
+        "explanation": "All EBS types support encryption and all instance families now support encryption\nNot all instance types support encryption\nData in transit between an instance and an encrypted volume is also encrypted (data is encrypted in trans\nYou can have encrypted an unencrypted EBS volumes attached to an instance at the same time\nSnapshots of encrypted volumes are encrypted automatically\nEBS volumes restored from encrypted snapshots are encrypted automatically\nEBS volumes created from encrypted snapshots are also encrypted\nReferences:\nhttps://digitalcloud.training/certification-training/aws-solutions-architect-associate/compute/amazon-ebs/"
+    },
+    {
+        "question": "47. Question\nWhich AWS service does API Gateway integrate with to enable users from around the world to achieve the lowest possible latency for API requests and responses?\nS3 Transfer Acceleration\nDirect Connect\nCloudFront\nLambda\n",
+        "answer": [
+            3
+        ],
+        "explanation": "CloudFront is used as the public endpoint for API Gateway and provides reduced latency and distributed denial of service protection through the use of CloudFront\nDirect Connect provides a private network into AWS from your data center\nS3 Transfer Acceleration is not used with API Gateway, it is used to accelerate uploads of S3 objects\nLambda is not used to reduce latency for API requests\nReferences:\nhttps://digitalcloud.training/certification-training/aws-solutions-architect-associate/networking-and-content-delivery/amazon-api-gateway/"
+    },
+    {
+        "question": "48. Question\nYou are trying to decide on the best data store to use for a new project. The requirements are that the data store is schema-less, supports strongly consistent reads, and stores data in tables, indexed by a primary key.\nWhich AWS data store would you use?\nAmazon S3\nAmazon RDS\nAmazon DynamoDB\nAmazon RedShift\n",
+        "answer": [
+            3
+        ],
+        "explanation": "Amazon Dynamo DB is a fully managed NoSQL (schema-less) database service that provides fast and predictable performance with seamless scalability. Provides two read models: eventually consistent reads (Default) and strongly consistent reads. DynamoDB stores structured data in tables, indexed by a primary key\nAmazon S3 is an object store and stores data in buckets, not tables\nAmazon RDS is a relational (has a schema) database service used for transactional purposes\nAmazon RedShift is a relational (has a schema) database service used for analytics\nReferences:\nhttps://digitalcloud.training/certification-training/aws-solutions-architect-associate/database/amazon-dynamodb/"
+    },
+    {
+        "question": "49. Question\nYou are a Solutions Architect at Digital Cloud Training. One of your customers runs an application on-premise that stores large media files. The data is mounted to different servers using either the SMB or NFS protocols. The customer is having issues with scaling the storage infrastructure on-premise and is looking for a way to offload the data set into the cloud whilst retaining a local cache for frequently accessed content.\nWhich of the following is the best solution?\nEstablish a VPN and use the Elastic File System (EFS)\nUse the AWS Storage Gateway File Gateway\nCreate a script that migrates infrequently used data to S3 using multi-part upload\nUse the AWS Storage Gateway Volume Gateway in cached volume mode\n",
+        "answer": [
+            2
+        ],
+        "explanation": "File gateway provides a virtual on-premises file server, which enables you to store and retrieve files as objects in Amazon S3. It can be used for on-premises applications, and for Amazon EC2-resident applications that need file storage in S3 for object based workloads. Used for flat files only, stored directly on S3. File gateway offers SMB or NFS-based access to data in Amazon S3 with local caching\nThe AWS Storage Gateway Volume Gateway in cached volume mode is a block-based (not file-based) solution so you cannot mount the storage with the SMB or NFS protocols With Cached Volume mode \u2013 the entire dataset is stored on S3 and a cache of the most frequently accessed data is cached on-site\nYou could mount EFS over a VPN but it would not provide you a local cache of the data\nCreating a script the migrates infrequently used data to S3 is possible but that data would then not be indexed on the primary filesystem so you wouldn\u2019t have a method of retrieving it without developing some code to pull it back from S3. This is not the best solution\nReferences:\nhttps://digitalcloud.training/certification-training/aws-solutions-architect-associate/storage/aws-storage-gateway/"
+    },
+    {
+        "question": "50. Question\nYou are trying to clean up your unused EBS volumes and snapshots to save some space and cost. How many of the most recent snapshots of an EBS volume need to be maintained to guarantee that you can recreate the full EBS volume from the snapshot?\nThe oldest snapshot, as this references data in all other snapshots\nYou must retain all snapshots as the process is incremental and therefore data is required from each snapshot\nTwo snapshots, the oldest and most recent snapshots\nOnly the most recent snapshot. Snapshots are incremental, but the deletion process will ensure that no data is lost\n",
+        "answer": [
+            4
+        ],
+        "explanation": "Snapshots capture a point-in-time state of an instance. If you make periodic snapshots of a volume, the snapshots are incremental, which means that only the blocks on the device that have changed after your last snapshot are saved in the new snapshot\nEven though snapshots are saved incrementally, the snapshot deletion process is designed so that you need to retain only the most recent snapshot in order to restore the volume\nReferences:\nhttps://digitalcloud.training/certification-training/aws-solutions-architect-associate/compute/amazon-ebs/\nhttps://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-deleting-snapshot.html"
+    },
+    {
+        "question": "51. Question\nThe development team at Digital Cloud Training have created a new web-based application that will soon be launched. The application will utilize 20 EC2 instances for the web front-end. Due to concerns over latency, you will not be using an ELB but still want to load balance incoming connections across multiple EC2 instances. You will be using Route 53 for the DNS service and want to implement health checks to ensure instances are available.\nWhat two Route 53 configuration options are available that could be individually used to ensure connections reach multiple web servers in this configuration? (choose 2)\nUse Route 53 multivalue answers to return up to 8 records with each DNS query\nUse Route 53 simple load balancing which will return records in a round robin fashion\nUse Route 53 Alias records to resolve using the zone apex\nUse Route 53 weighted records and give equal weighting to all 20 EC2 instances\nUse Route 53 failover routing in an active-passive configuration\n",
+        "answer": [
+            1,
+            4
+        ],
+        "explanation": "The key requirement here is that you can load balance incoming connections to a series of EC2 instances using Route 53 AND the solution must support health checks. With multi-value answers Route 53 responds with up to eight health records (per query) that are selected at random The weighted record type is similar to simple but you can specify a weight per IP address. You create records that have the same name and type and assign each record a relative weight. In this case you could assign multiple records the same weight and Route 53 will essentially round robin between the records\nWe cannot use the simple record type as it does not support health checks\nAlias records let you route traffic to selected AWS resources, such as CloudFront distributions and Amazon S3 buckets. They do not provide equal distribution to multiple endpoints or multi-value answers\nFailover routing with an active-passive configuration puts some resources in a standby state. In this case, it would be preferable to use active-active but this option is not presented\nReferences:\nhttps://digitalcloud.training/certification-training/aws-solutions-architect-associate/networking-and-content-delivery/amazon-route-53/"
+    },
+    {
+        "question": "52. Question\nYou have setup multi-factor authentication (MFA) for your root account according to AWS best practices and configured it to work with Google Authenticator on your smart phone. Unfortunately, your smart phone has been lost. What are the options available to access your account as the root user?\nYou will need to contact AWS support to request that the MFA device is deactivated and have your password reset\nOn the AWS sign-in with authentication device web page, choose to sign in using alternative factors of authentication and use the verification email and code to sign in\nUnfortunately, you will no longer be able to access this account as the root user\nGet a user with administrative privileges in your AWS account to deactivate the MFA device assigned to the root account\n",
+        "answer": [
+            2
+        ],
+        "explanation": "Multi-factor authentication (MFA) can be enabled/enforced for the AWS account and for individual users under the account. MFA uses an authentication device that continually generates random, six-digit, single-use authentication codes\nIf your AWS account root user multi-factor authentication (MFA) device is lost, damaged, or not working, you can sign in using alternative methods of authentication. This means that if you can\u2019t sign in with your MFA device, you can sign in by verifying your identity using the email and phone that are registered with your account\nThere is a resolution to this problem as described above and you do not need to raise a support request with AWS to deactivate the device and reset your password\nAn administrator can deactivate the MFA device but this does not enable you to access the account as the root user, you must sign in using alternative factors of authentication\nReferences:\nhttps://digitalcloud.training/certification-training/aws-solutions-architect-associate/security-identity-compliance/aws-iam/\nhttps://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_lost-or-broken.html"
+    },
+    {
+        "question": "53. Question\nThe development team in your organization would like to start leveraging AWS services. They have asked you what AWS service can be used to quickly deploy and manage applications in the AWS Cloud? The developers would like the ability to simply upload applications and have AWS handle the deployment details of capacity provisioning, load balancing, auto-scaling, and application health monitoring. What AWS service would you recommend?\nEC2\nOpsWorks\nAuto Scaling\nElastic Beanstalk\n",
+        "answer": [
+            4
+        ],
+        "explanation": "Whenever you hear about developers uploading code/applications think Elastic Beanstalk.AWS Elastic Beanstalk can be used to quickly deploy and manage applications in the AWS Cloud. Developers upload applications and Elastic Beanstalk handles the deployment details of capacity provisioning, load balancing, auto-scaling, and application health monitoring. It is considered to be a Platform as a Service (PaaS) solution and supports Java, .NET, PHP, Node.js, Python, Ruby, Go, and Docker web applications\nIf you use EC2 you must manage the deployment yourself, AWS will not handle the deployment, capacity provisioning etc.\nAuto Scaling does not assist with deployment of applications\nOpsWorks provides a managed Chef or Puppet infrastructure. You can define how to deploy and configure infrastructure but it does not give you the ability to upload application code and have the service deploy the application for you\nReferences:\nhttps://digitalcloud.training/certification-training/aws-solutions-architect-associate/compute/aws-elastic-beanstalk/"
+    },
+    {
+        "question": "54. Question\nA Solutions Architect is creating a solution for an application that must be deployed on Amazon EC2 hosts that are dedicated to the client. Instance placement must be automatic and billing should be per instance.\nWhich type of EC2 deployment model should be used?\nReserved Instance\nDedicated Instance\nDedicated Host\nCluster Placement Group\n",
+        "answer": [
+            2
+        ],
+        "explanation": "Dedicated Instances are Amazon EC2 instances that run in a VPC on hardware that\u2019s dedicated to a single customer. Your Dedicated instances are physically isolated at the host hardware level from instances that belong to other AWS accounts. Dedicated instances allow automatic instance placement and billing is per instance\nAn Amazon EC2 Dedicated Host is a physical server with EC2 instance capacity fully dedicated to your use. Dedicated Hosts can help you address compliance requirements and reduce costs by allowing you to use your existing server-bound software licenses. With dedicated hosts billing is on a per-host basis (not per instance)\nReserved instances are a method of reducing cost by committing to a fixed contract term of 1 or 3 years\nA Cluster Placement Group determines how instances are placed on underlying hardware to enable low-latency connectivity\nReferences:\nhttps://digitalcloud.training/certification-training/aws-solutions-architect-associate/compute/amazon-ec2/\nhttps://aws.amazon.com/ec2/dedicated-hosts/"
+    },
+    {
+        "question": "55. Question\nA client has made some updates to their web application. The application uses an Auto Scaling Group to maintain a group of several EC2 instances. The application has been modified and a new AMI must be used for launching any new instances.\nWhat do you need to do to add the new AMI?\nSuspend Auto Scaling and replace the existing AMI\nCreate a new target group that uses a new launch configuration with the new AMI\nCreate a new launch configuration that uses the AMI and update the ASG to use the new launch configuration\nModify the existing launch configuration to add the new AMI\n",
+        "answer": [
+            3
+        ],
+        "explanation": "A launch configuration is the template used to create new EC2 instances and includes parameters such as instance family, instance type, AMI, key pair and security groups\nYou cannot edit a launch configuration once defined. In this case you can create a new launch configuration that uses the new AMI and any new instances that are launched by the ASG will use the new AMI\nSuspending scaling processes can be useful when you want to investigate a configuration problem or other issue with your web application and then make changes to your application, without invoking the scaling processes. It is not useful in this situation\nA target group is a concept associated with an ELB not Auto Scaling\nReferences:\nhttps://digitalcloud.training/certification-training/aws-solutions-architect-associate/compute/amazon-ebs/"
+    },
+    {
+        "question": "56. Question\nA Solutions Architect is designing an application stack that will be highly elastic. Which AWS services can be used that don\u2019t require you to make any capacity decisions upfront? (choose 2)\nAWS Lambda\nDynamoDB\nAmazon EC2\nAmazon Kinesis Firehose\nAmazon RDS\n",
+        "answer": [
+            1,
+            4
+        ],
+        "explanation": "With Kinesis Data Firehose, you only pay for the amount of data you transmit through the service, and if applicable, for data format conversion. There is no minimum fee or setup cost\nAWS Lambda lets you run code without provisioning or managing servers. You pay only for the compute time you consume \u2013 there is no charge when your code is not running\nWith Amazon EC2 you need to select your instance sizes and number of instances\nWith RDS you need to select the instance size for the DB\nWith DynamoDB you need to specify the read/write capacity of the DB\nReferences:\nhttps://digitalcloud.training/certification-training/aws-solutions-architect-associate/compute/aws-lambda/\nhttps://digitalcloud.training/certification-training/aws-solutions-architect-associate/analytics/amazon-kinesis/"
+    },
+    {
+        "question": "57. Question\nA Solutions Architect is creating a design for an online gambling application that will process thousands of records. Which AWS service makes it easy to collect, process, and analyze real-time, streaming data?\nS3\nKinesis Data Streams\nRedShift\nEMR\n",
+        "answer": [
+            2
+        ],
+        "explanation": "Amazon Kinesis makes it easy to collect, process, and analyze real-time, streaming data so you can get timely insights and react quickly to new information. Kinesis Data Streams enables you to build custom applications that process or analyze streaming data for specialized needs. Kinesis Data Streams enables real-time processing of streaming big data and is used for rapidly moving data off data producers and then continuously processing the data\nAmazon S3 is an object store and does not have any native functionality for collecting, processing or analyzing streaming data\nRedShift is a data warehouse that can be used for storing data in a columnar structure for later analysis. It is not however used for streaming data\nAmazon EMR provides a managed Hadoop framework that makes it easy, fast, and cost-effective to process vast amounts of data across dynamically scalable Amazon EC2 instances. It does not collect streaming data\nReferences:\nhttps://digitalcloud.training/certification-training/aws-solutions-architect-associate/analytics/amazon-kinesis/"
+    },
+    {
+        "question": "58. Question\nYou are developing some code that uses a Lambda function and you would like to enable the function to connect to an ElastiCache cluster within a VPC that you own. What VPC-specific information must you include in your function to enable this configuration? (choose 2)\nVPC Subnet IDs\nVPC Peering IDs\nVPC Route Table IDs\nVPC Logical IDs\nVPC Security Group IDs\n",
+        "answer": [
+            1,
+            5
+        ],
+        "explanation": "To enable your Lambda function to access resources inside your private VPC, you must provide additional VPC-specific configuration information that includes VPC subnet IDs and security group IDs. AWS Lambda uses this information to set up elastic network interfaces (ENIs) that enable your function\nPlease see the AWS article linked below for more details on the requirements\nReferences:\nhttps://digitalcloud.training/certification-training/aws-solutions-architect-associate/compute/aws-lambda/\nhttps://docs.aws.amazon.com/lambda/latest/dg/vpc.html"
+    },
+    {
+        "question": "59. Question\nYou are a Solutions Architect for Digital Cloud Training. A client has asked for some assistance in selecting the best database for a specific requirement. The database will be used for a data warehouse solution and the data will be stored in a structured format. The client wants to run complex analytics queries using business intelligence tools.\nWhich AWS database service will you recommend?\nAmazon RDS\nAmazon Aurora\nAmazon RedShift\nAmazon DynamoDB\n",
+        "answer": [
+            3
+        ],
+        "explanation": "Amazon Redshift is a fast, fully managed data warehouse that makes it simple and cost-effective to analyze all your data using standard SQL and existing Business Intelligence (BI) tools. RedShift is a SQL based data warehouse used for analytics applications. RedShift is an Online Analytics Processing (OLAP) type of DB. RedShift is used for running complex analytic queries against petabytes of structured data, using sophisticated query optimization, columnar storage on high-performance local disks, and massively parallel query execution\nAmazon RDS does store data in a structured format but it is not a data warehouse. The primary use case for RDS is as a transactional database (not an analytics database)\nAmazon DynamoDB is not a structured database (schema-less / NoSQL) and is not a data warehouse solution\nAmazon Aurora is a type of RDS database so is also not suitable for a data warehouse use case\nReferences:\nhttps://digitalcloud.training/certification-training/aws-solutions-architect-associate/database/amazon-redshift/"
+    },
+    {
+        "question": "60. Question\nA company is moving some unstructured data into AWS and a Solutions Architect has created a bucket named \u201ccontosocustomerdata\u201d in the ap-southeast-2 region. Which of the following bucket URLs would be valid for accessing the bucket? (choose 2)\nhttps://s3.ap-southeast-2.amazonaws.com/contosocustomerdata\nhttps://s3.amazonaws.com/contosocustomerdata\nhttps://s3-ap-southeast-2.amazonaws.com.contosocustomerdata\nhttps://contosocustomerdata.s3.amazonaws.com\nhttps://amazonaws.s3-ap-southeast-2.com/contosocustomerdata\n",
+        "answer": [
+            1,
+            4
+        ],
+        "explanation": "AWS supports S3 URLs in the format of https://<bucket>.s3.amazonaws.com/<object> (virtual host style addressing) and https://s3.<region>.amazonaws.com/<bucket>/<object>\nReferences:\nhttps://docs.aws.amazon.com/AmazonS3/latest/dev/UsingBucket.html"
+    },
+    {
+        "question": "61. Question\nAn organization is creating a new storage solution and needs to ensure that Amazon S3 objects that are deleted are immediately restorable for up to 30 days. After 30 days the objects should be retained for a further 180 days and be restorable within 24 hours.\nThe solution should be operationally simple and cost-effective. How can these requirements be achieved? (choose 2)\nCreate a lifecycle rule to transition non-current versions to GLACIER after 30 days, and then expire the objects after 180 days\nEnable object versioning on the Amazon S3 bucket that will contain the objects\nCreate a lifecycle rule to transition non-current versions to STANDARD_IA after 30 days, and then expire the objects after 180 days\nEnable cross-region replication (CRR) for the Amazon S3 bucket that will contain the objects\nEnable multi-factor authentication (MFA) delete protection\n",
+        "answer": [
+            1,
+            2
+        ],
+        "explanation": "Object Versioning is a means of keeping multiple variants of an object in the same Amazon S3 bucket. When you delete an object in a versioning enabled bucket the object is not deleted, a delete marker is added and the object is considered \u201cnon-current\u201d. In this case we can then transition the non-current versions to GLACIER after 30 days (as we need immediate recoverability for 30 days), and then expire the object after 180 days as they are no longer required to be recoverable.\nMulti-factor authentication (MFA) delete is a way of adding an extra layer of security to prevent accidental deletion. That\u2019s not what we\u2019re looking to do here. We don\u2019t want to add any additional operational elements, we just need the ability to restore if we accidentally delete something.\nCross-region replication (CRR) is used for replicating the entire bucket to another region. This provide disaster recovery and a full additional copy of data. This is not the most cost-effective solution as you have 2 full copies of your data. However, deletions are not replicated so it does provide protection from deleting objects.\nTransitioning to STANDARD_IA is less cost-effective than transitioning to GLACIER. As we only need recoverability within 24 hours GLACIER is the best option.\nReferences:\nhttps://d0.awsstatic.com/whitepapers/protecting-s3-against-object-deletion.pdf\nhttps://digitalcloud.training/certification-training/aws-solutions-architect-associate/storage/amazon-s3/"
+    },
+    {
+        "question": "62. Question\nA company wishes to restrict access to their Amazon DynamoDB table to specific, private source IP addresses from their VPC. What should be done to secure access to the table?\nCreate the Amazon DynamoDB table in the VPC\nCreate an interface VPC endpoint in the VPC with an Elastic Network Interface (ENI)\nCreate an AWS VPN connection to the Amazon DynamoDB endpoint\nCreate a gateway VPC endpoint and add an entry to the route table\n",
+        "answer": [
+            4
+        ],
+        "explanation": "There are two different types of VPC endpoint: interface endpoint, and gateway endpoint. With an interface endpoint you use an ENI in the VPC. With a gateway endpoint you configure your route table to point to the endpoint. Amazon S3 and DynamoDB use gateway endpoints. This solution means that all traffic will go through the VPC endpoint straight to DynamoDB using private IP addresses.\nAs mentioned above, an interface endpoint is not used for DynamoDB, you must use a gateway endpoint.\nYou cannot create a DynamoDB table in a VPC, to connect securely using private addresses you should use a gateway endpoint instead.\nYou cannot create an AWS VPN connection to the Amazon DynamoDB endpoint.\nReferences:\nhttps://docs.amazonaws.cn/en_us/vpc/latest/userguide/vpc-endpoints-ddb.html\nhttps://aws.amazon.com/premiumsupport/knowledge-center/iam-restrict-calls-ip-addresses/\nhttps://aws.amazon.com/blogs/aws/new-vpc-endpoints-for-dynamodb/\nhttps://digitalcloud.training/certification-training/aws-solutions-architect-associate/networking-and-content-delivery/amazon-vpc/"
+    },
+    {
+        "question": "63. Question\nAn application running on Amazon EC2 needs to asynchronously invoke an AWS Lambda function to perform data processing. The services should be decoupled.\nWhich service can be used to decouple the compute services?\nAmazon MQ\nAmazon SNS\nAmazon SQS\nAmazon Step Functions\n",
+        "answer": [
+            2
+        ],
+        "explanation": "You can use a Lambda function to process Amazon Simple Notification Service notifications. Amazon SNS supports Lambda functions as a target for messages sent to a topic. This solution decouples the Amazon EC2 application from Lambda and ensures the Lambda function is invoked.\nYou cannot invoke a Lambda function using Amazon SQS. Lambda can be configured to poll a queue, as SQS is pull-based, but it is not push-based like SNS which is what this solution is looking for.\nAmazon MQ is similar to SQS but is used for existing applications that are being migrated into AWS. SQS should be used for new applications being created in the cloud.\nAmazon Step Functions is a workflow service. It is not the best solution for this scenario.\nReferences:\nhttps://docs.aws.amazon.com/lambda/latest/dg/with-sns.html\nhttps://digitalcloud.training/certification-training/aws-solutions-architect-associate/compute/aws-lambda/\nhttps://digitalcloud.training/certification-training/aws-solutions-architect-associate/application-integration/amazon-sns/\nhttps://aws.amazon.com/sns/features/"
+    },
+    {
+        "question": "64. Question\nAn Amazon RDS PostgreSQL database is configured as Multi-AZ. You need to scale read performance. What is the most cost-effective solution?\nConfigure the application to read from the Multi-AZ standby instance\nDeploy a Read Replica in a different AZ to the master DB instance\nCreate an ElastiCache cluster in front of the RDS DB instance\nDeploy a Read Replica in the same AZ as the master DB instance\n",
+        "answer": [
+            4
+        ],
+        "explanation": "The best option is to deploy a read replica. For PostgreSQL the read replica cannot be in another AZ. This solution will allow scaling of read performance and is the most cost-effective option that works.\nYou can combine Read Replicas with Multi-AZ for MySQL and MariaDB. However, PostgreSQL is not currently supported.\nElastiCache can assist with caching read requests but is not the most cost-effective option here.\nReferences:\nhttps://digitalcloud.training/certification-training/aws-solutions-architect-associate/database/amazon-rds/\nhttps://aws.amazon.com/about-aws/whats-new/2018/01/amazon-rds-read-replicas-now-support-multi-az-deployments/"
+    },
+    {
+        "question": "65. Question\nAn AWS Organization has an OU with multiple member accounts in it. The company needs to restrict the ability to launch only specific Amazon EC2 instance types. How can this policy be applied across the accounts with the least effort?\nCreate an IAM policy to deny launching all but the specific instance types\nCreate an SCP with a deny rule that denies all but the specific instance types\nUse AWS Resource Access Manager to control which launch types can be used\nCreate an SCP with an allow rule that allows launching the specific instance types\nAnswer:2\nExplanation:\nTo apply the restrictions across multiple member accounts you must use a Service Control Policy (SCP) in the AWS Organization. The way you would do this is to create a deny rule that applies to anything that does not equal the specific instance type you want to allow.\nWith IAM you need to apply the policy within each account rather than centrally so this would require much more effort.\nAWS Resource Access Manager (RAM) is a service that enables you to easily and securely share AWS resources with any AWS account or within your AWS Organization. It is not used for restricting access or permissions.\nReferences:\nhttps://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_example-scps.html#example-ec2-instances\nhttps://digitalcloud.training/certification-training/aws-solutions-architect-associate/management-tools/aws-organizations/",
+        "answer": [
+            2
+        ],
+        "explanation": "To apply the restrictions across multiple member accounts you must use a Service Control Policy (SCP) in the AWS Organization. The way you would do this is to create a deny rule that applies to anything that does not equal the specific instance type you want to allow.\nWith IAM you need to apply the policy within each account rather than centrally so this would require much more effort.\nAWS Resource Access Manager (RAM) is a service that enables you to easily and securely share AWS resources with any AWS account or within your AWS Organization. It is not used for restricting access or permissions.\nReferences:\nhttps://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_example-scps.html#example-ec2-instances\nhttps://digitalcloud.training/certification-training/aws-solutions-architect-associate/management-tools/aws-organizations/"
+    }
+]

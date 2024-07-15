@@ -1,0 +1,307 @@
+what is NAT Gateway ?
+what is Egress-Only Internet Gateway ?
+what is CloudHub ?
+what is resource-based bucket policy ?
+what is AWS API Gateway ?
+Give two method to grant public read access to object upload in S3 bucket.
+What is Origin Access Identity ?
+Explain me this : Multi-AZ with Cluster mode and Automatic Failover enabled.
+What is AWS global Accelerator ?
+
+what is SSL certificates ? and how it work ?
+Give types of security policies are supported by the Elastic Load Balancer for SSL negotiations between the ELB and clients
+(Custom security policies , ELB predefined Security policies)
+
+All type of ELB ? all type of traffic provide and allow by each type of ELB ?
+Explain me this : <<You can passthrough encrypted traffic with an NLB and terminate the SSL on the EC2 instances, so this is a valid answer.
+You can use a HTTPS listener with an ALB and install certificates on both the ALB and EC2 instances. This does not use passthrough, instead it will terminate the first SSL connection on the ALB and then re-encrypt the traffic and connect to the EC2 instances.>>
+What is Perfect Forward Secrecy (PFS) ?
+what is X-Forwarded-For header ?
+Explain me this <<API Gateway is a collection of resources and methods that are integrated with back-end HTTP endpoints, Lambda functions or other AWS services
+Throttling can be configured at multiple levels including Global and Service Call>>
+Type of record of Route53 and how they work ?
+Types of Queues and how they works ?
+List of type of "Storage Gateway" and they use case.
+what is "AWS PrivateLink" ?
+
+How task definition work ? in single ECS and in cluster of ECS ?
+What is "Instance Protection feature" ?
+what is "Enhanced VPC routing" ?
+What is "target tracking policy" ?
+What and in which case use "parallel requests and use byte-range fetches" ?
+Explain me this : "Please remember that Amazon SQS is pull-based (polling) not push-based (use SNS for push-based)."
+What is Ciphertext?  and how to store data as env variable in Lambda and encrypt it ?
+What is "time-to-live (TTL) settings" ? and it utility in API Gateway.
+What is "OpsWorks" and "Puppet Entreprise" ?
+What is "iSCSI protocol" ?
+Explain me this : <<Auto Scaling will terminate the existing instance before launching a replacement instance If connection draining is enabled, Auto Scaling will wait for in-flight connections to complete or timeout>>
+What is an Microsoft Active Directory (which case, how to use, when ...) ?
+What is Identity Federation and RBAC. ?
+What is "on-premise custom identity provider (IdP)" ?
+Redis AUTH ?
+What are the pre-requisites for using enhanced networking?
+what is "HVM AMI" ?
+Type of Network adapter ?
+
+
+
+****************       ******************************
+**************** NOTES ******************************
+****************       ******************************
+
+IOPS SSD
+Amazon EC2 instance store storage is not persistent so the data would be lost when the system is powered off each night
+
+
+When you create a VPC, you must specify an IPv4 CIDR block for the VPC
+The allowed block size is between a /16 netmask (65,536 IP addresses) and /28 netmask (16 IP addresses)
+The CIDR block must not overlap with any existing CIDR block that’s associated with the VPC
+A /27 subnet mask provides 32 addresses
+The first four IP addresses and the last IP address in each subnet CIDR block are not available for you to use, and cannot be assigned to an instance
+The following list shows total addresses for different subnet masks: /32 = 1 ; /31 = 2 ; /30 = 4 ; /29 = 8 ; /28 = 16 ; /27 = 32
+
+
+You are limited to running up to a total of 20 On-Demand instances across the instance family, purchasing 20 Reserved Instances, and requesting Spot Instances per your dynamic spot limit per region (by default)
+You are limited to an aggregate of 300 TiB of aggregate PIOPS volumes per region and 300,000 aggregate PIOPS
+
+
+There’s no such thing as a DynamoDB Read Replica (Read Replicas are an RDS concept)
+Cross-region replication is an Amazon S3 concept and the dynamic data that is presented by this application is unlikely to be stored in an S3 bucket
+
+
+You can use a single ALB and bind multiple SSL certificates to the same listener
+With Server Name Indication (SNI) a client indicates the hostname to connect to. SNI supports multiple secure websites using a single secure listener
+
+
+For this solution Kinesis Data Firehose can be used as it can use Kinesis Data Streams as a source and can capture, transform, and load streaming data into a RedShift cluster. Kinesis Data Firehose can invoke a Lambda function to transform data before delivering it to destinations
+Kinesis Video Streams makes it easy to securely stream video from connected devices to AWS for analytics, machine learning (ML), and other processing, this solution does not involve video streams
+AWS Data Pipeline is used for processing and moving data between compute and storage services. It does not work with streaming data as Kinesis does
+Elastic Map Reduce (EMR) is used for processing and analyzing data using the Hadoop framework. It is not used for transforming streaming data
+
+
+The best way to accomplish this requirement is to restrict incoming traffic to the Security Group used by the ALB. This will ensure that only the ALB (and its nodes) will be able to connect to the EC2 instances in the ECS cluster.
+You should not use the IP address of the ALB in the Security Group rules as an ALB has multiple nodes in each AZ in which it has subnets defined. Always use security groups whenever you can.
+Network ACLs work at the subnet level. It is preferable to use Security Groups which work at the instance level. Also, you should not use the IP of the ALB as it will have multiple nodes / IPs and it would be cumbersome to setup and administer.
+Enabling a WAF is useful when you need to protect against malicious code. However, this is not a requirement for this solution, you just need to restrict incoming traffic to the ALB.
+
+3
+A signed URL includes additional information, for example, an expiration date and time, that gives you more control over access to your content. You can also specify the IP address or range of IP addresses of the users who can access your content
+If you use CloudFront signed URLs (or signed cookies) to limit access to files in your Amazon S3 bucket, you may also want to prevent users from directly accessing your S3 files by using Amazon S3 URLs. To achieve this, you can create an origin access identity (OAI), which is a special CloudFront user, and associate the OAI with your distribution. You can then change the permissions either on your Amazon S3 bucket or on the files in your bucket so that only the origin access identity has read permission (or read and download permission)
+Users cannot login with an OAI
+You cannot use CloudFront and an OAI when you’re S3 bucket is configured as a website endpoint
+You cannot use CloudFront to pull data directly from an EBS volume
+
+
+S3 event notifications triggering a Lambda function is completely serverless and cost-effective
+AWS Glue can trigger ETL jobs that will transform that data and load it into a data store such as S3
+Kinesis Data Streams is used for processing data, rather than extracting and transforming it. The Kinesis consumers are EC2 instances which are not as cost-effective as serverless solutions
+AWS Data Pipeline can be used to automate the movement and transformation of data, it relies on other services to actually transform the data
+
+
+AWS Direct Connect provides a secure, reliable and private connection. However, lead times are often longer than 1 month so it cannot be used to migrate data within the timeframes. Therefore, it is better to use AWS Snowball to move the data and order a Direct Connect connection to satisfy the other requirement later on. In the meantime, the organization can use an AWS VPN for secure, private access to their VPC.
+A VPG is the AWS-side of an AWS VPN. A VPN does not provide a private connection and is not reliable as you can never guarantee the latency over the Internet.
+AWS VPN CloudHub is a service for connecting multiple sites into your VPC over VPN connections. It is not used for aggregating links and the limitations of Internet bandwidth from the company where the data is stored will still be an issue. It also uses the public Internet so is not a private or reliable connection.
+
+
+
+The AWS KMS API can be used for encrypting data keys (envelope encryption)
+AWS Certificate Manager is a service that lets you easily provision, manage, and deploy public and private Secure Sockets Layer/Transport Layer Security (SSL/TLS) certificates for use with AWS services and your internal connected resources
+The AWS Security Token Service (STS) is a web service that enables you to request temporary, limited-privilege credentials for AWS Identity and Access Management (IAM) users or for users that you authenticate (federated users)
+IAM access keys are used for signing programmatic requests you make to AWS
+
+
+
+A spread placement group is a group of instances that are each placed on distinct underlying hardware. Spread placement groups are recommended for applications that have a small number of critical instances that should be kept separate from each other. Launching instances in a spread placement group reduces the risk of simultaneous failures that might occur when instances share the same underlying hardware
+A cluster placement group is a logical grouping of instances within a single Availability Zone. Cluster placement groups are recommended for applications that benefit from low network latency, high network throughput, or both, and if the majority of the network traffic is between the instances in the group
+
+
+Explanation : Both the ALB and NLB support WebSockets. However, only the ALB supports HTTP/HTTPS listeners. The NLB only supports TCP, TLS, UDP, TCP_UDP.
+The CLB does not support WebSockets.
+A “Layer-4 Load Balancer” is not suitable, we need a layer 7 load balancer for HTTP/HTTPS.
+
+
+AWS Lambda scales concurrently executing functions up to your default limit
+API Gateway scales up to the default throttling limit, with some additional burst capacity available
+
+
+EC2 has a feature called “termination protection” not “Deletion Protection”
+The “DeleteOnTermination” value relates to EBS volumes not EC2 instances
+
+
+Amazon RedShift Enhanced VPC routing forces all COPY and UNLOAD traffic between clusters and data repositories through a VPC
+Cluster Security Groups are used with RedShift on EC2-Classic VPCs, regular security groups are used in EC2-VPC
+
+
+Data that is encrypted at rest includes the underlying storage for a DB instance, its automated backups, Read Replicas, and snapshots
+A Read Replica of an Amazon RDS encrypted instance is also encrypted using the same key as the master instance when both are in the same region
+If the master and Read Replica are in different regions, you encrypt using the encryption key for that region
+You can’t have an encrypted Read Replica of an unencrypted DB instance or an unencrypted Read Replica of an encrypted DB instance
+
+
+With target tracking scaling policies, you select a scaling metric and set a target value. In this case you can just set the target value to 40% average aggregate CPU utilization.
+A simple scaling policy will add instances when 40% CPU utilization is reached, but it is not designed to maintain 40% CPU utilization across the group.
+The step scaling policy makes scaling adjustments based on a number of factors. The PercentChangeInCapacity value increments or decrements the group size by a specified percentage. This does not relate to CPU utilization.
+
+
+Amazon S3 Transfer Acceleration is used for speeding up uploads of data to Amazon S3 by using the CloudFront network. It is not used for downloading data.
+AWS Global Accelerator is used for improving availability and performance for Amazon EC2 instances or Elastic Load Balancers (ALB and NLB). It is not used for improving Amazon S3 performance.
+
+
+Kinesis Data Firehose is the easiest way to load streaming data into data stores and analytics tools. Firehose Destinations include: Amazon S3, Amazon Redshift, Amazon Elasticsearch Service, and Splunk
+Amazon Redshift is a fast, fully managed data warehouse that makes it simple and cost-effective to analyze all your data using standard SQL and existing Business Intelligence (BI) tools
+EMR is a hosted Hadoop framework and doesn’t natively support SQL
+RDS is a transactional database and is not a supported Kinesis Firehose destinatio
+
+
+Caches are provisioned for a specific stage of your APIs. Caching features include customisable keys and time-to-live (TTL) in seconds for your API data which enhances response times and reduces load on back-end services.
+You can throttle and monitor requests to protect your back-end, but the cache is used to reduce the load on the back-end.
+Bursting isn’t an API Gateway feature that you can enable or disable.
+CloudFront is a bogus answer as even though it does have a cache of its own it won’t help you to enhance the performance of the API Gateway cache.
+
+
+AES 256 is an encryption protocol, not a policy
+
+
+Placement groups are a logical grouping of instances in one of the following configurations:
+–         Cluster—clusters instances into a low-latency group in a single AZ
+–         Spread—spreads instances across underlying hardware (can span AZs)
+Placement groups are recommended for applications that benefit from low latency and high bandwidth and it s recommended to use an instance type that supports enhanced networking. Instances within a placement group can communicate with each other using private or public IP addresses
+
+
+The AWS Storage Gateway service enables hybrid storage between on-premises environments and the AWS Cloud. It provides low-latency performance by caching frequently accessed data on premises, while storing data securely and durably in Amazon cloud storage services
+AWS Storage Gateway supports three storage interfaces: file, volume, and tape
+File:
+– File gateway provides a virtual on-premises file server, which enables you to store and retrieve files as objects in Amazon S3
+– File gateway offers SMB or NFS-based access to data in Amazon S3 with local caching — the question asks for an iSCSI (block) storage solution so a file gateway is not the right solution
+Volume:
+– The volume gateway represents the family of gateways that support block-based volumes, previously referred to as gateway-cached and gateway-stored modes
+– Block storage – iSCSI based – the volume gateway is the correct solution choice as it provides iSCSI (block) storage which is compatible with the existing configuration
+Tape:
+– Used for backup with popular backup software
+– Each gateway is preconfigured with a media changer and tape drives. Supported by NetBackup, Backup Exec, Veeam etc.
+
+
+Some of the parameters you can specify in a task definition include:
+Which Docker images to use with the containers in your task
+How much CPU and memory to use with each container
+Whether containers are linked together in a task
+The Docker networking mode to use for the containers in your task
+What (if any) ports from the container are mapped to the host container instances
+Whether the task should continue if the container finished or fails
+The commands the container should run when it is started
+Environment variables that should be passed to the container when it starts
+Data volumes that should be used with the containers in the task
+IAM role the task should use for permissions
+
+
+ElastiCache is a web service that makes it easy to deploy and run Memcached or Redis protocol-compliant server nodes in the cloud
+The in-memory caching provided by ElastiCache can be used to significantly improve latency and throughput for many read-heavy application workloads or compute-intensive workloads
+Memcached
+–         Not persistent
+–         Cannot be used as a data store
+–         Supports large nodes with multiple cores or threads
+–         Scales out and in, by adding and removing nodes
+Redis
+–         Data is persistent
+–         Can be used as a datastore
+–         Not multi-threaded
+–         Scales by adding shards, not nodes
+
+
+Access keys are a combination of an access key ID and a secret access key and you can assign two active access keys to a user at a time. These can be used to make programmatic calls to AWS when using the API in program code or at a command prompt when using the AWS CLI or the AWS PowerShell tools
+A password is needed for logging into the console but not for making API calls to AWS services. Similarly you don’t need to create a group and add the users to it to provide access to make API calls to AWS services
+
+
+You cannot configure DynamoDB as a destination in Amazon Kinesis Firehose. The options are S3, RedShift, Elasticsearch and Splunk
+When you have enabled extended data retention you can store data up to 7 days in Amazon Kinesis Data Streams – you cannot store it for 1 year
+Amazon EMR provides a managed Hadoop framework that makes it easy, fast, and cost-effective to process vast amounts of data across dynamically scalable Amazon EC2 instances. We’re looking for a data warehouse in this solution so running up EC2 instances may not be cost-effective
+
+
+The possible values (of An EC2 status check on an EBS volume) are ok, impaired, warning, or insufficient-data. If all checks pass, the overall status of the volume is ok. If the check fails, the overall status is impaired. If the status is insufficient-data, then the checks may still be taking place on your volume at the time
+
+
+Amazon EBS General Purpose SSD is recommended for most workloads. This will provide enough performance and keep the costs lower than provisioned IOPS SSD
+Amazon EC2 instance store storage is not persistent so the data would be lost when the system is powered off each night
+The legacy application may not be able to write to object storage (Amazon S3)
+
+
+A web application using RDS is a good fit as it includes multiple services and Elastic Beanstalk is an orchestration engine
+A data lake would not be a good fit for Elastic Beanstalk
+A Long running worker process is a good Elastic Beanstalk use case where it manages an SQS queue – again this is an example of multiple services being orchestrated
+Content caching would be a good use case for CloudFront
+A management task run occasionally might be a good fit for AWS Systems Manager Automation
+
+
+Both a NAT gateway and an Internet gateway offer redundancy however the NAT gateway is limited to 45 Gbps whereas the IGW does not impose any limits
+A VPC endpoint is used to access public services from a VPC without traversing the Internet
+NAT instances are EC2 instances that are used, in a similar way to NAT gateways, by instances in private subnets to access the Internet. However they are not redundant and are limited in bandwidth
+
+
+You can use MFA with a Cognito user pool (not in IAM) and this satisfies the requirement.
+A user pool is a user directory in Amazon Cognito. With a user pool, your users can sign in to your web or mobile app through Amazon Cognito. Your users can also sign in through social identity providers like Facebook or Amazon, and through SAML identity providers. Integrating IAM with a Cognito user pool or integrating a 3rd party IdP does not add another factor of authentication – “factors” include something you know (e.g. password), something you have (e.g. token device), and something you are (e.g. retina scan or fingerprint)
+
+
+AD Connector is a directory gateway for redirecting directory requests to your on-premise Active Directory. AD Connector eliminates the need for directory synchronization and the cost and complexity of hosting a federation infrastructure and connects your existing on-premise AD to AWS. It is the best choice when you want to use an existing Active Directory with AWS services
+IAM Roles are created and then “assumed” by trusted entities and define a set of permissions for making AWS service requests. With IAM Roles you can delegate permissions to resources for users and services without using permanent credentials (e.g. user name and password)
+AWS Directory Service Simple AD is an inexpensive Active Directory-compatible service with common directory features. It is a fully cloud-based solution and does not integrate with an on-premises Active Directory service. You map the groups in AD to IAM Roles, not IAM users or groups
+
+
+Explanation : Maintenance windows are configured to allow DB instance modifications to take place such as scaling and software patching. Some operations require the DB instance to be taken offline briefly and this includes """security patching""". Enabling Multi-AZ, promoting a Read Replica and updating DB parameter groups are not events that take place during a maintenance window
+
+
+Due to the reverse proxy being a bottleneck to scalability, we need to replace it with a solution that can perform content-based routing. This means we must use an ALB not a CLB as ALBs support path-based and host-based routing
+Auto Scaling should be added to the architecture so that the back end EC2 instances do not become a bottleneck. With Auto Scaling instances can be added and removed from the back end fleet as demand changes
+A Classic Load Balancer cannot perform content-based routing so cannot be used
+It is unknown how the reverse proxy can be scaled with Auto Scaling however using an ALB with content-based routing is a much better design as it scales automatically and is HA by default
+Burstable performance instances, which are T3 and T2 instances, are designed to provide a baseline level of CPU performance with the ability to burst to a higher level when required by your workload. CPU performance is not the constraint here and this would not be a cost-effective solution
+
+
+The AWS Security Token Service (STS) is a web service that enables you to request temporary, limited-privilege credentials for IAM users or for users that you authenticate (federated users). If your identity store is not compatible with SAML 2.0, then you can build a custom identity broker application to perform a similar function. The broker application authenticates users, requests temporary credentials for users from AWS, and then provides them to the user to access AWS resources
+
+
+Using the CloudFront content delivery network (CDN) would offload the processing from the EC2 instance as the videos would be cached and accessed without hitting the EC2 instance
+CloudFront is a web service that gives businesses and web application developers an easy and cost-effective way to distribute content with low latency and high data transfer speeds. CloudFront is a good choice for distribution of frequently accessed static content that benefits from edge delivery—like popular website images, videos, media files or software downloads.
+
+
+Expedited retrieval enables access to data in 1-5 minutes
+Bulk retrievals allow cost-effective access to significant amounts of data in 5-12 hours
+Standard retrievals typically complete in 3-5 hours
+Vault Lock allows you to easily deploy and enforce compliance controls on individual Glacier vaults via a lockable policy (Vault Lock policy)
+
+
+The solutions architect can create an IAM role that provides access to the required S3 buckets. With the on-premises firewall opened to allow outbound access to S3 (over HTTPS), a secure connection can be made and the files can be uploaded. This is the simplest solution. You can use a condition in the IAM role that restricts access to a list of source IP addresses (your on-premise routed IPs)
+
+
+Network ACL’s function at the subnet level
+Route tables are not firewalls
+Security groups act like a firewall at the instance level
+Specifically, security groups operate at the network interface level
+AWS WAF is a web application firewall and does not work at the instance level
+
+
+AWS WAF is a web application firewall that helps detect and block malicious web requests targeted at your web applications. AWS WAF allows you to create rules that can help protect against common web exploits like SQL injection and cross-site scripting. With AWS WAF you first identify the resource (either an Amazon CloudFront distribution or an Application Load Balancer) that you need to protect. You then deploy the rules and filters that will best protect your applications
+
+
+A VPG is used to setup an AWS VPN which you can use in combination with Direct Connect to encrypt all data that traverses the Direct Connect link. This combination provides an IPsec-encrypted private connection that also reduces network costs, increases bandwidth throughput, and provides a more consistent network experience than internet-based VPN connections.
+There is no option to enable IPSec encryption on the Direct Connect connection.
+The BGP protocol is not used to enable encryption for Direct Connect, it is used for routing.
+An AWS Direct Connect Gateway is used to connect to VPCs across multiple AWS regions. It is not involved with encryption
+
+
+To specify permissions for a specific task on Amazon ECS you should use IAM Roles for Tasks. The permissions policy can be applied to tasks when creating the task definition, or by using an IAM task role override using the AWS CLI or SDKs. The taskRoleArn parameter is used to specify the policy.
+You should not apply the permissions to the container instance as they will then apply to all tasks running on the instance as well as the instance itself.
+Though you will need a security group to allow outbound connections to DynamoDB, the question is asking how to assign permissions to write data to DynamoDB and a security group cannot provide those permissions.
+The AmazonECSTaskExecutionRolePolicy policy is the Task Execution IAM Role. This is used by the container agent to be able to pull container images, write log file etc.
+
+
+An Elastic Fabric Adapter is an AWS Elastic Network Adapter (ENA) with added capabilities. The EFA lets you apply the scale, flexibility, and elasticity of the AWS Cloud to tightly-coupled HPC apps. It is ideal for tightly coupled app as it uses the Message Passing Interface (MPI).
+The ENI is a basic type of adapter and is not the best choice for this use case.
+The ENA, which provides Enhanced Networking, does provide high bandwidth and low inter-instance latency but it does not support the features for a tightly-coupled app that the EFA does.
+
+
+VPCs can be shared among multiple AWS accounts. Resources can then be shared amongst those accounts. However, to restrict access so that consumers cannot connect to other instances in the VPC the best solution is to use PrivateLink to create an endpoint for the application. The endpoint type will be an interface endpoint and it uses a NLB in the shared services VPC.
+ClassicLink allows you to link EC2-Classic instances to a VPC in your account, within the same region. This solution does not include EC2-Classic which is now deprecated (replaced by VPC).
+VPC peering could be used along with security groups to restrict access to the application and other instances in the VPC. However, this would be administratively difficult as you would need to ensure that you maintain the security groups as resources and addresses change.
+References:
+
+

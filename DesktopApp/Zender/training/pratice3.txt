@@ -1,0 +1,977 @@
+Set 3: Practice Questions, Answers & Explanations
+1. Question
+Your Business Intelligence team use SQL tools to analyze data. What would be the best solution for performing queries on structured data that is being received at a high velocity?
+EMR using Hive
+Kinesis Firehose with RedShift
+Kinesis Firehose with RDS
+EMR running Apache Spark
+Answer: 2
+Explanation:
+Kinesis Data Firehose is the easiest way to load streaming data into data stores and analytics tools. Firehose Destinations include: Amazon S3, Amazon Redshift, Amazon Elasticsearch Service, and Splunk
+Amazon Redshift is a fast, fully managed data warehouse that makes it simple and cost-effective to analyze all your data using standard SQL and existing Business Intelligence (BI) tools
+EMR is a hosted Hadoop framework and doesn’t natively support SQL
+RDS is a transactional database and is not a supported Kinesis Firehose destination
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/analytics/amazon-kinesis/
+2. Question
+A Solutions Architect is migrating a small relational database into AWS. The database will run on an EC2 instance and the DB size is around 500 GB. The database is infrequently used with small amounts of requests spread across the day. The DB is a low priority and the Architect needs to lower the cost of the solution.
+What is the MOST cost-effective storage type?
+Amazon EBS Provisioned IOPS SSD
+Amazon EBS Throughput Optimized HDD
+Amazon EBS General Purpose SSD
+Amazon EFS
+Answer: 2
+Explanation:
+Throughput Optimized HDD is the most cost-effective storage option and for a small DB with low traffic volumes it may be sufficient. Note that the volume must be at least 500 GB in size
+Provisioned IOPS SSD provides high performance but at a higher cost
+AWS recommend using General Purpose SSD rather than Throughput Optimized HDD for most use cases but it is more expensive
+The Amazon Elastic File System (EFS) is not an ideal storage solution for a database
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/compute/amazon-ebs/
+3. Question
+A Solutions Architect has been asked to improve the performance of a DynamoDB table. Latency is currently a few milliseconds and this needs to be reduced to microseconds whilst also scaling to millions of requests per second.
+What is the BEST architecture to support this?
+Reduce the number of Scan operations
+Use CloudFront to cache the content
+Create an ElastiCache Redis cluster
+Create a DynamoDB Accelerator (DAX) cluster
+Answer: 4
+Explanation:
+Amazon DynamoDB Accelerator (DAX) is a fully managed, highly available, in-memory cache for DynamoDB that delivers up to a 10x performance improvement – from milliseconds to microseconds – even at millions of requests per second
+It is possible to use ElastiCache in front of DynamoDB, however this is not a supported architecture
+DynamoDB is not a supported origin for CloudFront
+Reducing the number of Scan operations on DynamoDB may improve performance but will not reduce latency to microseconds
+References:
+https://aws.amazon.com/dynamodb/dax/
+4. Question
+You are developing an application that uses Lambda functions. You need to store some sensitive data that includes credentials for accessing the database tier. You are planning to store this data as environment variables within Lambda. How can you ensure this sensitive information is properly secured?
+There is no need to make any changes as all environment variables are encrypted by default with AWS Lambda
+Use encryption helpers that leverage AWS Key Management Service to store the sensitive information as Ciphertext
+This cannot be done, only the environment variables that relate to the Lambda function itself can be encrypted
+Store the environment variables in an encrypted DynamoDB table and configure Lambda to retrieve them as required
+Answer: 2
+Explanation:
+Environment variables for Lambda functions enable you to dynamically pass settings to your function code and libraries, without making changes to your code. Environment variables are key-value pairs that you create and modify as part of your function configuration, using either the AWS Lambda Console, the AWS Lambda CLI or the AWS Lambda SDK. You can use environment variables to help libraries know what directory to install files in, where to store outputs, store connection and logging settings, and more
+When you deploy your Lambda function, all the environment variables you’ve specified are encrypted by default after, but not during, the deployment process. They are then decrypted automatically by AWS Lambda when the function is invoked. If you need to store sensitive information in an environment variable, we strongly suggest you encrypt that information before deploying your Lambda function. The Lambda console makes that easier for you by providing encryption helpers that leverage AWS Key Management Service to store that sensitive information as Ciphertext
+The environment variables are not encrypted throughout the entire process so there is a need to take action here. Storing the variables in an encrypted DynamoDB table is not necessary when you can use encryption helpers
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/compute/aws-lambda/
+https://docs.aws.amazon.com/lambda/latest/dg/env_variables.html
+5. Question
+You have implemented API Gateway and enabled a cache for a specific stage. How can you control the cache to enhance performance and reduce load on back-end services?
+Configure the throttling feature
+Using CloudFront controls
+Enable bursting
+Using time-to-live (TTL) settings
+Answer: 4
+Explanation:
+Caches are provisioned for a specific stage of your APIs. Caching features include customisable keys and time-to-live (TTL) in seconds for your API data which enhances response times and reduces load on back-end services.
+You can throttle and monitor requests to protect your back-end, but the cache is used to reduce the load on the back-end.
+Bursting isn’t an API Gateway feature that you can enable or disable.
+CloudFront is a bogus answer as even though it does have a cache of its own it won’t help you to enhance the performance of the API Gateway cache.
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/networking-and-content-delivery/amazon-api-gateway/
+6. Question
+You are implementing an Elastic Load Balancer (ELB) for an application that will use encrypted communications. Which two types of security policies are supported by the Elastic Load Balancer for SSL negotiations between the ELB and clients? (choose 2)
+ELB predefined Security policies
+AES 256
+Network ACLs
+Security groups
+Custom security policies
+Answer: 1,5
+Explanation:
+AWS recommend that you always use the default predefined security policy. When choosing a custom security policy you can select the ciphers and protocols (only for CLB)
+Security groups and network ACLs are security controls that apply to instances and subnets
+AES 256 is an encryption protocol, not a policy
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/compute/elastic-load-balancing/
+7. Question
+A company is migrating an on-premises 10 TB MySQL database to AWS. The company expects the database to quadruple in size and the business requirement is that replicate lag must be kept under 100 milliseconds.
+Which Amazon RDS engine meets these requirements?
+Amazon Aurora
+Oracle
+Microsoft SQL Server
+MySQL
+Answer: 1
+Explanation:
+Aurora databases can scale up to 64 TB and Aurora replicas features millisecond latency
+All other RDS engines have a limit of 16 TiB maximum DB size and asynchronous replication typically takes seconds
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/database/amazon-rds/
+https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_Limits.html
+8. Question
+You have been asked to deploy a new High-Performance Computing (HPC) cluster. You need to create a design for the EC2 instances that ensures close proximity, low latency and high network throughput.
+Which AWS features will help you to achieve this requirement whilst considering cost? (choose 2)
+Use EC2 instances with Enhanced Networking
+Use dedicated hosts
+Launch I/O Optimized EC2 instances in one private subnet in an AZ
+Use Placement groups
+Use Provisioned IOPS EBS volumes
+Answer: 1,4
+Explanation:
+Placement groups are a logical grouping of instances in one of the following configurations:
+–         Cluster—clusters instances into a low-latency group in a single AZ
+–         Spread—spreads instances across underlying hardware (can span AZs)
+Placement groups are recommended for applications that benefit from low latency and high bandwidth and it s recommended to use an instance type that supports enhanced networking. Instances within a placement group can communicate with each other using private or public IP addresses
+I/O optimized instances and provisioned IOPS EBS volumes are more geared towards storage performance than network performance
+Dedicated hosts might ensure close proximity of instances but would not be cost efficient
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/compute/amazon-ec2/
+9. Question
+Your company currently uses Puppet Enterprise for infrastructure and application management. You are looking to move some of your infrastructure onto AWS and would like to continue to use the same tools in the cloud. What AWS service provides a fully managed configuration management service that is compatible with Puppet Enterprise?
+CloudFormation
+OpsWorks
+Elastic Beanstalk
+CloudTrail
+Answer: 2
+Explanation:
+The only service that would allow you to continue to use the same tools is OpsWorks. AWS OpsWorks is a configuration management service that provides managed instances of Chef and Puppet. OpsWorks lets you use Chef and Puppet to automate how servers are configured, deployed, and managed across your Amazon EC2 instances or on-premises compute environments.
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/management-tools/aws-opsworks/
+https://docs.aws.amazon.com/opsworks/latest/userguide/welcome.html
+10. Question
+You are a Solutions Architect for an insurance company. An application you manage is used to store photos and video files that relate to insurance claims. The application writes data using the iSCSI protocol to a storage array. The array currently holds 10TB of data and is approaching capacity.
+Your manager has instructed you that he will not approve further capital expenditure for on-premises infrastructure. Therefore, you are planning to migrate data into the cloud. How can you move data into the cloud whilst retaining low-latency access to frequently accessed data on-premise using the iSCSI protocol?
+Use an AWS Storage Gateway File Gateway in cached volume mode
+Use an AWS Storage Gateway Virtual Tape Library
+Use an AWS Storage Gateway Volume Gateway in cached volume mode
+Use an AWS Storage Gateway Volume Gateway in stored volume mode
+Answer: 3
+Explanation:
+The AWS Storage Gateway service enables hybrid storage between on-premises environments and the AWS Cloud. It provides low-latency performance by caching frequently accessed data on premises, while storing data securely and durably in Amazon cloud storage services
+AWS Storage Gateway supports three storage interfaces: file, volume, and tape
+File:
+–         File gateway provides a virtual on-premises file server, which enables you to store and retrieve files as objects in Amazon S3
+–         File gateway offers SMB or NFS-based access to data in Amazon S3 with local caching — the question asks for an iSCSI (block) storage solution so a file gateway is not the right solution
+Volume:
+–         The volume gateway represents the family of gateways that support block-based volumes, previously referred to as gateway-cached and gateway-stored modes
+–         Block storage – iSCSI based – the volume gateway is the correct solution choice as it provides iSCSI (block) storage which is compatible with the existing configuration
+Tape:
+–         Used for backup with popular backup software
+–         Each gateway is preconfigured with a media changer and tape drives. Supported by NetBackup, Backup Exec, Veeam etc.
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/storage/aws-storage-gateway/
+11. Question
+You are a Solutions Architect at Digital Cloud Training. One of your clients is an online media company that attracts a large volume of users to their website each day. The media company are interested in analyzing the user’s clickstream data so they can analyze user behavior in real-time and dynamically update advertising. This intelligent approach to advertising should help them to increase conversions.
+What would you suggest as a solution to assist them with capturing and analyzing this data?
+Update the application to write data to an SQS queue, and create an additional application component to analyze the data in the queue and update the website
+Use EMR to process and analyze the data in real-time and Lambda to update the website based on the results
+Use Kinesis Data Streams to process and analyze the clickstream data. Store the results in DynamoDB and create an application component that reads the data from the database and updates the website
+Write the data directly to RedShift and use Business Intelligence tools to analyze the data
+Answer: 3
+Explanation:
+This is an ideal use case for Kinesis Data Streams which can process and analyze the clickstream data. Kinesis Data Streams stores the results in a number of supported services which includes DynamoDB
+SQS does not provide a solution for analyzing the data
+RedShift is a data warehouse and good for analytics on structured data. It is not used for real time ingestion
+EMR utilizes a hosted Hadoop framework running on Amazon EC2 and Amazon S3 and is used for processing large quantities of data. It is not suitable for this solution
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/analytics/amazon-kinesis/
+12. Question
+A systems integration company that helps customers migrate into AWS repeatedly build large, standardized architectures using several AWS services. The Solutions Architects have documented the architectural blueprints for these solutions and are looking for a method of automating the provisioning of the resources.
+Which AWS service would satisfy this requirement?
+Elastic Beanstalk
+AWS CloudFormation
+AWS OpsWorks
+AWS CodeDeploy
+Answer: 2
+Explanation:
+CloudFormation allows you to use a simple text file to model and provision, in an automated and secure manner, all the resources needed for your applications across all regions and accounts
+Elastic Beanstalk is a PaaS service that helps you to build and manage web applications
+AWS OpsWorks is a configuration management service that helps you build and operate highly dynamic applications, and propagate changes instantly
+AWS CodeDeploy is a deployment service that automates application deployments to Amazon EC2 instances, on-premises instances, or serverless Lambda functions
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/management-tools/aws-cloudformation/
+13. Question
+A Solutions Architect is designing a static website that will use the zone apex of a DNS domain (e.g. example.com). The Architect wants to use the Amazon Route 53 service. Which steps should the Architect take to implement a scalable and cost-effective solution? (choose 2)
+Host the website on an Amazon EC2 instance with ELB and Auto Scaling, and map a Route 53 Alias record to the ELB endpoint
+Host the website using AWS Elastic Beanstalk, and map a Route 53 Alias record to the Beanstalk stack
+Host the website on an Amazon EC2 instance, and map a Route 53 Alias record to the public IP address of the EC2 instance
+Create a Route 53 hosted zone, and set the NS records of the domain to use Route 53 name servers
+Serve the website from an Amazon S3 bucket, and map a Route 53 Alias record to the website endpoint
+Answer: 4,5
+Explanation:
+To use Route 53 for an existing domain the Architect needs to change the NS records to point to the Amazon Route 53 name servers. This will direct name resolution to Route 53 for the domain name. The most cost-effective solution for hosting the website will be to use an Amazon S3 bucket. To do this you create a bucket using the same name as the domain name (e.g. example.com) and use a Route 53 Alias record to map to it
+Using an EC2 instance instead of an S3 bucket would be more costly so that rules out 2 options that explicitly mention EC2
+Elastic Beanstalk provisions EC2 instances so again this would be a more costly option
+References:
+https://docs.aws.amazon.com/AmazonS3/latest/dev/website-hosting-custom-domain-walkthrough.html
+14. Question
+A Solutions Architect is planning to run some Docker containers on Amazon ECS. The Architect needs to define some parameters for the containers. What application parameters can be defined in an ECS task definition? (choose 2)
+The ELB node to be used to scale the task containers
+The security group rules to apply
+The ports that should be opened on the container instance for your application
+The container images to use and the repositories in which they are located
+The application configuration
+Answer: 3,4
+Explanation:
+Some of the parameters you can specify in a task definition include:
+Which Docker images to use with the containers in your task
+How much CPU and memory to use with each container
+Whether containers are linked together in a task
+The Docker networking mode to use for the containers in your task
+What (if any) ports from the container are mapped to the host container instances
+Whether the task should continue if the container finished or fails
+The commands the container should run when it is started
+Environment variables that should be passed to the container when it starts
+Data volumes that should be used with the containers in the task
+IAM role the task should use for permissions
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/compute/amazon-ecs/
+15. Question
+A major upcoming sales event is likely to result in heavy read traffic to a web application your company manages. As the Solutions Architect you have been asked for advice on how best to protect the database tier from the heavy load and ensure the user experience is not impacted.
+The web application owner has also requested that the design be fault tolerant. The current configuration consists of a web application behind an ELB that uses Auto Scaling and an RDS MySQL database running in a multi-AZ configuration. As the database load is highly changeable the solution should allow elasticity by adding and removing nodes as required and should also be multi-threaded.
+What recommendations would you make?
+Deploy an ElastiCache Redis cluster with cluster mode disabled and multi-AZ with automatic failover
+Deploy an ElastiCache Redis cluster with cluster mode enabled and multi-AZ with automatic failover
+Deploy an ElastiCache Memcached cluster in multi-AZ mode in the same AZs as RDS
+Deploy an ElastiCache Memcached cluster in both AZs in which the RDS database is deployed
+Answer: 4
+Explanation:
+ElastiCache is a web service that makes it easy to deploy and run Memcached or Redis protocol-compliant server nodes in the cloud
+The in-memory caching provided by ElastiCache can be used to significantly improve latency and throughput for many read-heavy application workloads or compute-intensive workloads
+Memcached
+–         Not persistent
+–         Cannot be used as a data store
+–         Supports large nodes with multiple cores or threads
+–         Scales out and in, by adding and removing nodes
+Redis
+–         Data is persistent
+–         Can be used as a datastore
+–         Not multi-threaded
+–         Scales by adding shards, not nodes
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/database/amazon-elasticache/
+https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/SelectEngine.html
+16. Question
+An application currently stores all data on Amazon EBS volumes. All EBS volumes must be backed up durably across multiple Availability Zones.
+What is the MOST resilient way to back up volumes?
+Create a script to copy data to an EC2 instance store
+Enable EBS volume encryption
+Mirror data across two EBS volumes
+Take regular EBS snapshots
+Answer: 4
+Explanation:
+EBS snapshots are stored in S3 and are therefore replicated across multiple locations
+Enabling volume encryption would not increase resiliency
+Instance stores are ephemeral (non-persistent) data stores so would not add any resilience
+Mirroring data would provide resilience however both volumes would need to be mounted to the EC2 instance within the same AZ so you are not getting the redundancy required
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/compute/amazon-ebs/
+17. Question
+You work for Digital Cloud Training and have just created a number of IAM users in your AWS account. You need to ensure that the users are able to make API calls to AWS services. What else needs to be done?
+Enable Multi-Factor Authentication for the users
+Create a set of Access Keys for the users
+Create a group and add the users to it
+Set a password for each user
+Answer: 2
+Explanation:
+Access keys are a combination of an access key ID and a secret access key and you can assign two active access keys to a user at a time. These can be used to make programmatic calls to AWS when using the API in program code or at a command prompt when using the AWS CLI or the AWS PowerShell tools
+A password is needed for logging into the console but not for making API calls to AWS services. Similarly you don’t need to create a group and add the users to it to provide access to make API calls to AWS services
+Multi-factor authentication can be used to control access to AWS service APIs but the question is not asking how to better secure the calls but just being able to make them
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/security-identity-compliance/aws-iam/
+18. Question
+A Solutions Architect is designing a workload that requires a high performance object-based storage system that must be shared with multiple Amazon EC2 instances.
+Which AWS service delivers these requirements?
+Amazon S3
+Amazon EFS
+Amazon EBS
+Amazon ElastiCache
+Answer: 1
+Explanation:
+Amazon S3 is an object-based storage system. Though object storage systems aren’t mounted and shared like filesystems or block based storage systems they can be shared by multiple instances as they allow concurrent access
+Amazon EFS is file-based storage system it is not object-based
+Amazon EBS is a block-based storage system it is not object-based
+Amazon ElastiCache is a database caching service
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/storage/amazon-s3/
+19. Question
+A client from the agricultural sector has approached you for some advice around the collection of a large volume of data from sensors they have deployed around the country.
+An application needs to collect data from over 100,000 sensors and each sensor will send around 1KB of data every minute. The data needs to then be stored in a durable, low latency data store. The client also needs historical data that is over 1 year old to be moved into a data warehouse where they can perform analytics using standard SQL queries.
+What combination of AWS services would you recommend to the client? (choose 2)
+Use Amazon Elastic Map Reduce (EMR) for analytics
+Use Amazon RedShift for the analytics
+Use Amazon Kinesis data streams for data ingestion and enable extended data retention to store data for 1 year
+Use Amazon Kinesis Data Firehose for data ingestion and configure a consumer to store data in Amazon DynamoDB
+Use Amazon Kinesis Data Streams for data ingestion and configure a consumer to store data in Amazon DynamoDB
+Answer: 2,5
+Explanation:
+The key requirements are that historical data that data is recorded in a low latency, durable data store and then moved into a data warehouse when the data is over 1 year old for historical analytics. This is a good use case for using a Kinesis Data Streams producer for ingestion of the real-time data and then configuring a Kinesis Data Streams consumer to write the data to DynamoDB which is a low latency data store that can be used for holding the data for the first year
+Amazon Redshift is an ideal use case for storing longer term data and performing analytics on it. It is a fast, fully managed data warehouse that makes it simple and cost-effective to analyze all your data using standard SQL and existing Business Intelligence (BI) tools. RedShift is a SQL based data warehouse used for analytics applications
+You cannot configure DynamoDB as a destination in Amazon Kinesis Firehose. The options are S3, RedShift, Elasticsearch and Splunk
+When you have enabled extended data retention you can store data up to 7 days in Amazon Kinesis Data Streams – you cannot store it for 1 year
+Amazon EMR provides a managed Hadoop framework that makes it easy, fast, and cost-effective to process vast amounts of data across dynamically scalable Amazon EC2 instances. We’re looking for a data warehouse in this solution so running up EC2 instances may not be cost-effective
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/database/amazon-dynamodb/
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/database/amazon-redshift/
+20. Question
+An EC2 status check on an EBS volume is showing as insufficient-data. What is the most likely explanation?
+The checks have failed on the volume
+The checks require more information to be manually entered
+The checks may still be in progress on the volume
+The volume does not have enough data on it to check properly
+Answer: 3
+Explanation:
+The possible values are ok, impaired, warning, or insufficient-data. If all checks pass, the overall status of the volume is ok. If the check fails, the overall status is impaired. If the status is insufficient-data, then the checks may still be taking place on your volume at the time
+The checks do not require manual input and they have not failed or the status would be impaired. The volume does not need a certain amount of data on it to be checked properly
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/compute/amazon-ebs/
+https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVolumeStatus.html
+21. Question
+You run a two-tier application with a web tier that is behind an Internet-facing Elastic Load Balancer (ELB). You need to restrict access to the web tier to a specific list of public IP addresses.
+What are two possible ways you can implement this requirement? (choose 2)
+Configure a VPC NACL to allow web traffic from the list of IPs and deny all outbound traffic
+Configure the VPC internet gateway to allow incoming traffic from these IP addresses
+Configure the proxy protocol on the web servers and filter traffic based on IP address
+Configure your ELB to send the X-forwarded for headers and the web servers to filter traffic based on the ELB’s “X-forwarded-for” header
+Configure the ELB security group to allow traffic only from the specific list of IPs
+Answer: 4,5
+Explanation:
+There are two methods you can use to restrict access from some known IP addresses. You can either use the ELB security group rules or you can configure the ELB to send the X-Forwarded For headers to the web servers. The web servers can then filter traffic using a local firewall such as iptables
+X-forwarded-for for HTTP/HTTPS carries the source IP/port information. X-forwarded-for only applies to L7. The ELB security group controls the ports and protocols that can reach the front-end listener
+Proxy protocol applies to layer 4 and is not configured on the web servers
+A NACL is applied at the subnet level and as they are stateless if you deny all outbound traffic return traffic will be blocked
+You cannot configure an Internet gateway to allow this traffic. Internet gateways are used for outbound Internet access from public subnets
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/compute/elastic-load-balancing/
+22. Question
+An issue has been reported whereby Amazon EC2 instances are not being terminated from an Auto Scaling Group behind an ELB when traffic volumes are low. How can this be fixed?
+Modify the scale down increment
+Modify the scaling settings on the ELB
+Modify the lower threshold settings on the ASG
+Modify the upper threshold settings on the ASG
+Answer: 3
+Explanation:
+The lower threshold may be set to high. With the lower threshold if the metric falls below this number for the breach duration, a scaling operation is triggered. If it’s set too high you may find that your Auto Scaling group does not scale-in when required
+The upper threshold is the metric that, if the metric exceeds this number for the breach duration, a scaling operation is triggered. This would be adjusted when you need to change the behaviour of scale-out events
+You do not change scaling settings on an ELB, you change them on the Auto Scaling group
+The scale down increment defines the number of EC2 instances to remove when performing a scaling activity. This changes the number of instances that are removed but does not change the conditions in which they are removed which is the problem we need to solve here
+References:
+https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environments-cfg-autoscaling-triggers.html
+23. Question
+A Solutions Architect is designing a solution for a financial application that will receive trading data in large volumes. What is the best solution for ingesting and processing a very large number of data streams in near real time?
+Amazon EMR
+Amazon Kinesis Data Streams
+Amazon Redshift
+Amazon Kinesis Firehose
+Answer: 2
+Explanation:
+Kinesis Data Streams enables you to build custom applications that process or analyze streaming data for specialized needs. It enables real-time processing of streaming big data and can be used for rapidly moving data off data producers and then continuously processing the data. Kinesis Data Streams stores data for later processing by applications (key difference with Firehose which delivers data directly to AWS services)
+Kinesis Firehose can allow transformation of data and it then delivers data to supported services
+RedShift is a data warehouse solution used for analyzing data
+EMR is a hosted Hadoop framework that is used for analytics
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/analytics/amazon-kinesis/
+24. Question
+You have been asked to recommend the best AWS storage solution for a client. The client requires a storage solution that provide a mounted file system for a Big Data and Analytics application. The client’s requirements include high throughput, low latency, read-after-write consistency and the ability to burst up to multiple GB/s for short periods of time.
+Which AWS service can meet this requirement?
+S3
+DynamoDB
+EBS
+EFS
+Answer: 4
+Explanation:
+EFS is a fully-managed service that makes it easy to set up and scale file storage in the Amazon Cloud. EFS is good for big data and analytics, media processing workflows, content management, web serving, home directories etc.. EFS uses the NFSv4.1 protocol which is a protocol for mounting file systems (similar to Microsoft’s SMB)
+EBS is mounted as a block device not a file system
+S3 is object storage
+DynamoDB is a fully managed NoSQL database
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/storage/amazon-efs/
+25. Question
+A company runs a legacy application with a single-tier architecture on an Amazon EC2 instance. Disk I/O is low, with occasional small spikes during business hours. The company requires the instance to be stopped from 8pm to 8am daily.
+Which storage option is MOST appropriate for this workload?
+Amazon EBS Provisioned IOPS SSD (io1) storage
+Amazon S3
+Amazon EBS General Purpose SSD (gp2) storage
+Amazon EC2 Instance Store storage
+Answer: 3
+Explanation:
+Amazon EBS General Purpose SSD is recommended for most workloads. This will provide enough performance and keep the costs lower than provisioned IOPS SSD
+Amazon EC2 instance store storage is not persistent so the data would be lost when the system is powered off each night
+The legacy application may not be able to write to object storage (Amazon S3)
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/compute/amazon-ebs/
+26. Question
+An EC2 instance in an Auto Scaling group that has been reported as unhealthy has been marked for replacement. What is the process Auto Scaling uses to replace the instance? (choose 2)
+Auto Scaling will send a notification to the administrator
+Auto Scaling will terminate the existing instance before launching a replacement instance
+If connection draining is enabled, Auto Scaling will wait for in-flight connections to complete or timeout
+Auto Scaling has to perform rebalancing first, and then terminate the instance
+Auto Scaling has to launch a replacement first before it can terminate the unhealthy instance
+Answer: 2,3
+Explanation:
+If connection draining is enabled, Auto Scaling waits for in-flight requests to complete or timeout before terminating instances. Auto Scaling will terminate the existing instance before launching a replacement instance
+Auto Scaling does not send a notification to the administrator
+Unlike AZ rebalancing, termination of unhealthy instances happens first, then Auto Scaling attempts to launch new instances to replace terminated instances
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/compute/aws-auto-scaling/
+27. Question
+You have an application running in ap-southeast that requires six EC2 instances running at all times.
+With three Availability Zones available in that region (ap-southeast-2a, ap-southeast-2b, and ap-southeast-2c), which of the following deployments provides fault tolerance if any single Availability Zone in ap-southeast-2 becomes unavailable? (choose 2)
+2 EC2 instances in ap-southeast-2a, 2 EC2 instances in ap-southeast-2b, 2 EC2 instances in ap-southeast-2c
+3 EC2 instances in ap-southeast-2a, 3 EC2 instances in ap-southeast-2b, no EC2 instances in ap-southeast-2c
+4 EC2 instances in ap-southeast-2a, 2 EC2 instances in ap-southeast-2b, 2 EC2 instances in ap-southeast-2c
+6 EC2 instances in ap-southeast-2a, 6 EC2 instances in ap-southeast-2b, no EC2 instances in ap-southeast-2c
+3 EC2 instances in ap-southeast-2a, 3 EC2 instances in ap-southeast-2b, 3 EC2 instances in ap-southeast-2c
+Answer: 4,5
+Explanation:
+This is a simple mathematical problem. Take note that the question asks that 6 instances must be available in the event that ANY SINGLE AZ becomes unavailable. There are only 2 options that fulfil these criteria
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/compute/amazon-ec2/
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/networking-and-content-delivery/amazon-vpc/
+28. Question
+For which of the following workloads should a Solutions Architect consider using Elastic Beanstalk? (choose 2)
+A management task run occasionally
+Caching content for Internet-based delivery
+A long running worker process
+A data lake
+A web application using Amazon RDS
+Answer: 3,5
+Explanation:
+A web application using RDS is a good fit as it includes multiple services and Elastic Beanstalk is an orchestration engine
+A data lake would not be a good fit for Elastic Beanstalk
+A Long running worker process is a good Elastic Beanstalk use case where it manages an SQS queue – again this is an example of multiple services being orchestrated
+Content caching would be a good use case for CloudFront
+A management task run occasionally might be a good fit for AWS Systems Manager Automation
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/compute/aws-elastic-beanstalk/
+https://aws.amazon.com/elasticbeanstalk/faqs/
+29. Question
+You need to create a file system that can be concurrently accessed by multiple EC2 instances within an AZ. The file system needs to support high throughput and the ability to burst. As the data that will be stored on the file system will be sensitive you need to ensure it is encrypted at rest and in transit.
+What storage solution would you implement for the EC2 instances?
+Use the Elastic File System (EFS) and mount the file system using NFS v4.1
+Use the Elastic Block Store (EBS) and mount the file system at the block level
+Add EBS volumes to each EC2 instance and use an ELB to distribute data evenly between the volumes
+Add EBS volumes to each EC2 instance and configure data replication
+Answer: 1
+Explanation:
+EFS is a fully-managed service that makes it easy to set up and scale file storage in the Amazon Cloud
+EFS uses the NFSv4.1 protocol
+Amazon EFS is designed to burst to allow high throughput levels for periods of time
+EFS offers the ability to encrypt data at rest and in transit
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/storage/amazon-efs/
+30. Question
+A Solutions Architect is designing a web page for event registrations and needs a managed service to send a text message to users every time users sign up for an event.
+Which AWS service should the Architect use to achieve this?
+Amazon STS
+Amazon SQS
+AWS Lambda
+Amazon SNS
+Answer: 4
+Explanation:
+Amazon Simple Notification Service (SNS) is a web service that makes it easy to set up, operate, and send notifications from the cloud and supports notifications over multiple transports including HTTP/HTTPS, Email/Email-JSON, SQS and SMS
+Amazon Security Token Service (STS) is used for requesting temporary credentials
+Amazon Simple Queue Service (SQS) is a message queue used for decoupling application components
+Lambda is a serverless service that runs code in response to events/triggers
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/application-integration/amazon-sns/
+31. Question
+A Solutions Architect is developing an application that will store and index large (>1 MB) JSON files. The data store must be highly available and latency must be consistently low even during times of heavy usage. Which service should the Architect use?
+AWS CloudFormation
+DynamoDB
+Amazon RedShift
+Amazon EFS
+Answer: 4
+Explanation:
+EFS provides a highly-available data store with consistent low latencies and elasticity to scale as required
+RedShift is a data warehouse that is used for analyzing data using SQL
+DynamoDB is a low latency, highly available NoSQL DB. You can store JSON files up to 400KB in size in a DynamoDB table, for anything bigger you’d want to store a pointer to an object outside of the table
+CloudFormation is an orchestration tool and does not help with storing documents
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/storage/amazon-efs/
+32. Question
+An Architect is designing a serverless application that will accept images uploaded by users from around the world. The application will make API calls to back-end services and save the session state data of the user to a database.
+Which combination of services would provide a solution that is cost-effective while delivering the least latency?
+Amazon S3, API Gateway, AWS Lambda, Amazon RDS
+Amazon CloudFront, API Gateway, Amazon S3, AWS Lambda, Amazon RDS
+API Gateway, Amazon S3, AWS Lambda, DynamoDB
+Amazon CloudFront, API Gateway, Amazon S3, AWS Lambda, DynamoDB
+Answer: 4
+Explanation:
+Amazon CloudFront caches content closer to users at Edge locations around the world. This is the lowest latency option for uploading content. API Gateway and AWS Lambda are present in all options. DynamoDB can be used for storing session state data
+The option that presents API Gateway first does not offer a front-end for users to upload content to
+Amazon RDS is not a serverless service so this option can be ruled out
+Amazon S3 alone will not provide the least latency for users around the world unless you have many buckets in different regions and a way of directing users to the closest bucket (such as Route 3 latency based routing). However, you would then need to manage replicating the data
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/networking-and-content-delivery/amazon-cloudfront/
+https://aws.amazon.com/blogs/aws/amazon-cloudfront-content-uploads-post-put-other-methods/
+33. Question
+A Solutions Architect is determining the best method for provisioning Internet connectivity for a data-processing application that will pull large amounts of data from an object storage system via the Internet. The solution must be redundant and have no constraints on bandwidth.
+Which option satisfies these requirements?
+Attach an Internet Gateway
+Create a VPC endpoint
+Use a NAT Gateway
+Deploy NAT Instances in a public subnet
+Answer: 1
+Explanation:
+Both a NAT gateway and an Internet gateway offer redundancy however the NAT gateway is limited to 45 Gbps whereas the IGW does not impose any limits
+A VPC endpoint is used to access public services from a VPC without traversing the Internet
+NAT instances are EC2 instances that are used, in a similar way to NAT gateways, by instances in private subnets to access the Internet. However they are not redundant and are limited in bandwidth
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/storage/amazon-s3/
+34. Question
+The development team at your company have created a new mobile application that will be used by users to access confidential data. The developers have used Amazon Cognito for authentication, authorization, and user management. Due to the sensitivity of the data, there is a requirement to add another method of authentication in addition to a username and password.
+You have been asked to recommend the best solution. What is your recommendation?
+Enable multi-factor authentication (MFA) in IAM
+Use multi-factor authentication (MFA) with a Cognito user pool
+Integrate IAM with a user pool in Cognito
+Integrate a third-party identity provider (IdP)
+Answer: 2
+Explanation:
+You can use MFA with a Cognito user pool (not in IAM) and this satisfies the requirement.
+A user pool is a user directory in Amazon Cognito. With a user pool, your users can sign in to your web or mobile app through Amazon Cognito. Your users can also sign in through social identity providers like Facebook or Amazon, and through SAML identity providers
+Integrating IAM with a Cognito user pool or integrating a 3rd party IdP does not add another factor of authentication – “factors” include something you know (e.g. password), something you have (e.g. token device), and something you are (e.g. retina scan or fingerprint)
+References:
+https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-mfa.html
+35. Question
+You need to provide AWS Management Console access to a team of new application developers. The team members who perform the same role are assigned to a Microsoft Active Directory group and you have been asked to use Identity Federation and RBAC.
+Which AWS services would you use to configure this access? (choose 2)
+AWS IAM Groups
+AWS Directory Service AD Connector
+AWS IAM Users
+AWS IAM Roles
+AWS Directory Service Simple AD
+Answer: 2,4
+Explanation:
+AD Connector is a directory gateway for redirecting directory requests to your on-premise Active Directory. AD Connector eliminates the need for directory synchronization and the cost and complexity of hosting a federation infrastructure and connects your existing on-premise AD to AWS. It is the best choice when you want to use an existing Active Directory with AWS services
+IAM Roles are created and then “assumed” by trusted entities and define a set of permissions for making AWS service requests. With IAM Roles you can delegate permissions to resources for users and services without using permanent credentials (e.g. user name and password)
+AWS Directory Service Simple AD is an inexpensive Active Directory-compatible service with common directory features. It is a fully cloud-based solution and does not integrate with an on-premises Active Directory service
+You map the groups in AD to IAM Roles, not IAM users or groups
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/security-identity-compliance/aws-directory-service/
+36. Question
+A critical database runs in your VPC for which availability is a concern. Which RDS DB instance events may force the DB to be taken offline during a maintenance window?
+Selecting the Multi-AZ feature
+Promoting a Read Replica
+Security patching
+Updating DB parameter groups
+Answer: 3
+Explanation:
+Maintenance windows are configured to allow DB instance modifications to take place such as scaling and software patching. Some operations require the DB instance to be taken offline briefly and this includes security patching
+Enabling Multi-AZ, promoting a Read Replica and updating DB parameter groups are not events that take place during a maintenance window
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/database/amazon-rds/
+37. Question
+You are putting together a design for a three-tier web application. The application tier requires a minimum of 6 EC2 instances to be running at all times. You need to provide fault tolerance to ensure that the failure of a single Availability Zone (AZ) will not affect application performance.
+Which of the options below is the optimum solution to fulfill these requirements?
+Create an ASG with 12 instances spread across 4 AZs behind an ELB
+Create an ASG with 6 instances spread across 3 AZs behind an ELB
+Create an ASG with 9 instances spread across 3 AZs behind an ELB
+Create an ASG with 18 instances spread across 3 AZs behind an ELB
+Answer: 3
+Explanation:
+This is simply about numbers. You need 6 EC2 instances to be running even in the case of an AZ failure. The question asks for the “optimum” solution so you don’t want to over provision. Remember that it takes time for EC2 instances to boot and applications to initialize so it may not be acceptable to have a reduced fleet of instances during this time, therefore you need enough that the minimum number of instances are running without interruption in the event of an AZ outage.
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/compute/aws-auto-scaling/
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/compute/elastic-load-balancing/
+38. Question
+You have a three-tier web application running on AWS that utilizes Route 53, ELB, Auto Scaling and RDS. One of the EC2 instances that is registered against the ELB fails a health check. What actions will the ELB take in this circumstance?
+The ELB will terminate the instance that failed the health check
+The ELB will stop sending traffic to the instance that failed the health check
+The ELB will instruct Auto Scaling to terminate the instance and launch a replacement
+The ELB will update Route 53 by removing any references to the instance
+Answer: 2
+Explanation:
+The ELB will simply stop sending traffic to the instance as it has determined it to be unhealthy
+ELBs are not responsible for terminating EC2 instances.
+The ELB does not send instructions to the ASG, the ASG has its own health checks and can also use ELB health checks to determine the status of instances
+ELB does not update Route 53 records
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/compute/elastic-load-balancing/
+39. Question
+A company runs a service on AWS to provide offsite backups for images on laptops and phones. The solution must support millions of customers, with thousands of images per customer. Images will be retrieved infrequently but must be available for retrieval immediately.
+Which is the MOST cost-effective storage option that meets these requirements?
+Amazon EFS
+Amazon S3 Standard
+Amazon S3 Standard-Infrequent Access
+Amazon Glacier with expedited retrievals
+Answer: 3
+Explanation:
+Amazon S3 Standard-Infrequent Access is the most cost-effective choice
+Amazon Glacier with expedited retrievals is fast (1-5 minutes) but not immediate
+Amazon EFS is a high-performance file system and not ideally suited to this scenario, it is also not the most cost-effective option
+Amazon S3 Standard provides immediate retrieval but is not less cost-effective compared to Standard-Infrequent access
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/storage/amazon-s3/
+40. Question
+You are deploying an application on Amazon EC2 that must call AWS APIs. Which method of securely passing credentials to the application should you use?
+Embed the API credentials into you application files
+Assign IAM roles to the EC2 instances
+Store API credentials as an object in Amazon S3
+Store the API credentials on the instance using instance metadata
+Answer: 2
+Explanation:
+Always use IAM roles when you can
+It is an AWS best practice not to store API credentials within applications, on file systems or on instances (such as in metadata).
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/security-identity-compliance/aws-iam/
+41. Question
+A company is generating large datasets with millions of rows that must be summarized by column. Existing business intelligence tools will be used to build daily reports.
+Which storage service meets the requirements?
+Amazon RedShift
+Amazon RDS
+Amazon ElastiCache
+Amazon DynamoDB
+Answer: 1
+Explanation:
+Amazon RedShift uses columnar storage and is used for analyzing data using business intelligence tools (SQL)
+Amazon RDS is more suited to OLTP workloads rather than analytics workloads
+Amazon ElastiCache is an in-memory caching service
+Amazon DynamoDB is a fully managed NoSQL database service, it is not a columnar database
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/database/amazon-redshift/
+42. Question
+A company runs a multi-tier application in an Amazon VPC. The application has an ELB Classic Load Balancer as the front end in a public subnet, and an Amazon EC2-based reverse proxy that performs content-based routing to two back end EC2 instances in a private subnet. The application is experiencing increasing load and the Solutions Architect is concerned that the reverse proxy and current back end setup will be insufficient.
+Which actions should the Architect take to achieve a cost-effective solution that ensures the application automatically scales to meet the demand? (choose 2)
+Add Auto Scaling to the Amazon EC2 reverse proxy layer
+Add Auto Scaling to the Amazon EC2 back end fleet
+Use t3 burstable instance types for the back end fleet
+Replace both the front end and reverse proxy layers with an Application Load Balancer
+Replace the Amazon EC2 reverse proxy with an ELB internal Classic Load Balancer
+Answer: 2,4
+Explanation:
+Due to the reverse proxy being a bottleneck to scalability, we need to replace it with a solution that can perform content-based routing. This means we must use an ALB not a CLB as ALBs support path-based and host-based routing
+Auto Scaling should be added to the architecture so that the back end EC2 instances do not become a bottleneck. With Auto Scaling instances can be added and removed from the back end fleet as demand changes
+A Classic Load Balancer cannot perform content-based routing so cannot be used
+It is unknown how the reverse proxy can be scaled with Auto Scaling however using an ALB with content-based routing is a much better design as it scales automatically and is HA by default
+Burstable performance instances, which are T3 and T2 instances, are designed to provide a baseline level of CPU performance with the ability to burst to a higher level when required by your workload. CPU performance is not the constraint here and this would not be a cost-effective solution
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/compute/elastic-load-balancing/
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/compute/aws-auto-scaling/
+43. Question
+A new security mandate requires that all personnel data held in the cloud is encrypted at rest. Which two methods allow you to encrypt data stored in S3 buckets at rest cost-efficiently? (choose 2)
+Use AWS S3 server-side encryption with Key Management Service keys or Customer-provided keys
+Encrypt the data at the source using the client's CMK keys before transferring it to S3
+Use Multipart upload with SSL
+Make use of AWS S3 bucket policies to control access to the data at rest
+Use CloudHSM
+Answer: 1,2
+Explanation:
+When using S3 encryption your data is always encrypted at rest and you can choose to use KMS managed keys or customer-provided keys. If you encrypt the data at the source and transfer it in an encrypted state it will also be encrypted in-transit
+With client side encryption data is encrypted on the client side and transferred in an encrypted state and with server-side encryption data is encrypted by S3 before it is written to disk (data is decrypted when it is downloaded)
+You can use bucket policies to control encryption of data that is uploaded but use of encryption is not stated in the answer given. Simply using bucket policies to control access to the data does not meet the security mandate that data must be encrypted
+Multipart upload helps with uploading large files but does not encrypt your data
+CloudHSM can be used to encrypt data but as a dedicated service it is charged on an hourly basis and is less cost-efficient compared to S3 encryption or encrypting the data at the source.
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/storage/amazon-s3/
+44. Question
+Your company has an on-premise LDAP directory service. As part of a gradual migration into AWS you would like to integrate the LDAP directory with AWS’s Identity and Access Management (IAM) solutions so that existing users can authenticate against AWS services.
+What method would you suggest using to enable this integration?
+Develop an on-premise custom identity provider (IdP) and use the AWS Security Token Service (STS) to provide temporary security credentials
+Use SAML to develop a direct integration from the on-premise LDAP directory to the relevant AWS services
+Create a policy in IAM that references users in the on-premise LDAP directory
+Use AWS Simple AD and create a trust relationship with IAM
+Answer: 1
+Explanation:
+The AWS Security Token Service (STS) is a web service that enables you to request temporary, limited-privilege credentials for IAM users or for users that you authenticate (federated users). If your identity store is not compatible with SAML 2.0, then you can build a custom identity broker application to perform a similar function. The broker application authenticates users, requests temporary credentials for users from AWS, and then provides them to the user to access AWS resources
+You cannot create trust relationships between SimpleAD and IAM
+You cannot use references in an IAM policy to an on-premise AD
+SAML may not be supported by the on-premise LDAP directory so you would need to develop a custom IdP and use STS
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/security-identity-compliance/aws-iam/
+https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_common-scenarios_federated-users.html
+45. Question
+You need to improve data security for your ElastiCache Redis cluster. How can you force users to enter a password before they are able to execute Redis commands?
+Upload a key pair
+Use Redis AUTH
+Use a Cognito identity pool
+Implement multi-factor authentication (MFA)
+Answer: 2
+Explanation:
+Using Redis AUTH command can improve data security by requiring the user to enter a password before they are granted permission to execute Redis commands on a password-protected Redis server
+You cannot use MFA with ElastiCache
+Key pairs are used with EC2 instances, not ElastiCache
+References:
+https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html
+46. Question
+A Kinesis consumer application is reading at a slower rate than expected. It has been identified that multiple consumer applications have total reads exceeding the per-shard limits. How can this situation be resolved?
+Increase the number of shards in the Kinesis data stream
+Implement API throttling to restrict the number of requests per-shard
+Increase the number of read transactions per shard
+Implement read throttling for the Kinesis data stream
+Answer: 1
+Explanation:
+In a case where multiple consumer applications have total reads exceeding the per-shard limits, you need to increase the number of shards in the Kinesis data stream
+Read throttling is enabled by default for Kinesis data streams. If you’re still experiencing performance issues you must increase the number of shards
+You cannot increase the number of read transactions per shard
+API throttling is used to throttle API requests it is not responsible and cannot be used for throttling Get requests in a Kinesis stream
+References:
+https://docs.aws.amazon.com/streams/latest/dev/troubleshooting-consumers.html#consumer-app-reading-slower
+https://docs.aws.amazon.com/streams/latest/dev/kinesis-record-processor-additional-considerations.html
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/analytics/amazon-kinesis/
+47. Question
+You are designing a solution on AWS that requires a file storage layer that can be shared between multiple EC2 instances. The storage should be highly-available and should scale easily.
+Which AWS service can be used for this design?
+Amazon S3
+Amazon EFS
+Amazon EC2 instance store
+Amazon EBS
+Answer: 2
+Explanation:
+Amazon Elastic File Service (EFS) allows concurrent access from many EC2 instances and is mounted over NFS which is a file-level protocol
+An Amazon Elastic Block Store (EBS) volume can only be attached to a single instance and cannot be shared
+Amazon S3 is an object storage system that is accessed via REST API not file-level protocols. It cannot be attached to EC2 instances
+An EC2 instance store is an ephemeral storage volume that is local to the server on which the instances runs and is not persistent. It is accessed via block protocols and also cannot be shared between instances
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/storage/amazon-efs/
+48. Question
+You have been asked to take a snapshot of a non-root EBS volume that contains sensitive corporate data. You need to ensure you can capture all data that has been written to your Amazon EBS volume at the time the snapshot command is issued and are unable to pause any file writes to the volume long enough to take a snapshot.
+What is the best way to take a consistent snapshot whilst minimizing application downtime?
+Un-mount the EBS volume, take the snapshot, then re-mount it again
+Take the snapshot while the EBS volume is attached and the instance is running
+Stop the instance and take the snapshot
+You can’t take a snapshot for a non-root EBS volume
+Answer: 1
+Explanation:
+The key facts here are that whilst minimizing application downtime you need to take a consistent snapshot and are unable to pause writes long enough to do so. Therefore the best option is to unmount the EBS volume and take the snapshot. This will be much faster than shutting down the instance, taking the snapshot, and then starting it back up again
+Snapshots capture a point-in-time state of an instance and are stored on S3. To take a consistent snapshot writes must be stopped (paused) until the snapshot is complete – if not possible the volume needs to be detached, or if it’s an EBS root volume the instance must be stopped
+If you take the snapshot with the EBS volume attached you may not get a fully consistent snapshot. Though stopping the instance and taking a snapshot will ensure the snapshot if fully consistent the requirement is that you minimize application downtime. You can take snapshots of any EBS volume
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/compute/amazon-ebs/
+49. Question
+You are working on a database migration plan from an on-premise data center that includes a variety of databases that are being used for diverse purposes. You are trying to map each database to the correct service in AWS.
+Which of the below use cases are a good fit for DynamoDB (choose 2)
+Complex queries and joins
+Large amounts of dynamic data that require very low latency
+Backup for on-premises Oracle DB
+Migration from a Microsoft SQL relational database
+Rapid ingestion of clickstream data
+Answer: 2,5
+Explanation:
+Amazon Dynamo DB is a fully managed NoSQL database service that provides fast and predictable performance with seamless scalability that provides low read and write latency. Because of its performance profile and the fact that it is a NoSQL type of database, DynamoDB is good for rapidly ingesting clickstream data
+You should use a relational database such as RDS when you need to do complex queries and joins. Microsoft SQL and Oracle DB are both relational databases so DynamoDB is not a good backup target or migration destination for these types of DB
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/database/amazon-dynamodb/
+50. Question
+You work as a System Administrator at Digital Cloud Training and your manager has asked you to investigate an EC2 web server hosting videos that is constantly running at over 80% CPU utilization. Which of the approaches below would you recommend to fix the issue?
+Create a Launch Configuration from the instance using the CreateLaunchConfiguration action
+Create a CloudFront distribution and configure the Amazon EC2 instance as the origin
+Create an Elastic Load Balancer and register the EC2 instance to it
+Create an Auto Scaling group from the instance using the CreateAutoScalingGroup action
+Answer: 2
+Explanation:
+Using the CloudFront content delivery network (CDN) would offload the processing from the EC2 instance as the videos would be cached and accessed without hitting the EC2 instance
+CloudFront is a web service that gives businesses and web application developers an easy and cost-effective way to distribute content with low latency and high data transfer speeds. CloudFront is a good choice for distribution of frequently accessed static content that benefits from edge delivery—like popular website images, videos, media files or software downloads. An origin is the origin of the files that the CDN will distribute. Origins can be either an S3 bucket, an EC2 instance, and Elastic Load Balancer, or Route53) – can also be external (non-AWS)
+Using CloudFront is preferable to using an Auto Scaling group to launch more instances as it is designed for caching content and would provide the best user experience
+Creating an ELB will not help unless there a more instances to distributed the load to
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/networking-and-content-delivery/amazon-cloudfront/
+51. Question
+A Solutions Architect is designing a solution to store and archive corporate documents, and has determined that Amazon Glacier is the right solution. Data must be delivered within 10 minutes of a retrieval request.
+Which features in Amazon Glacier can help meet this requirement?
+Bulk retrieval
+Expedited retrieval
+Vault Lock
+Standard retrieval
+Answer: 2
+Explanation:
+Expedited retrieval enables access to data in 1-5 minutes
+Bulk retrievals allow cost-effective access to significant amounts of data in 5-12 hours
+Standard retrievals typically complete in 3-5 hours
+Vault Lock allows you to easily deploy and enforce compliance controls on individual Glacier vaults via a lockable policy (Vault Lock policy)
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/storage/amazon-s3/
+https://docs.aws.amazon.com/amazonglacier/latest/dev/downloading-an-archive-two-steps.html
+52. Question
+A Solutions Architect is designing a mobile application that will capture receipt images to track expenses. The Architect wants to store the images on Amazon S3. However, uploading the images through the web server will create too much traffic.
+What is the MOST efficient method to store images from a mobile application on Amazon S3?
+Upload directly to S3 using a pre-signed URL
+Upload to a second bucket, and have a Lambda event copy the image to the primary bucket
+Expand the web server fleet with Spot instances to provide the resources to handle the images
+Upload to a separate Auto Scaling Group of server behind an ELB Classic Load Balancer, and have the server instances write to the Amazon S3 bucket
+Answer: 1
+Explanation:
+Uploading using a pre-signed URL allows you to upload the object without having any AWS security credentials/permissions. Pre-signed URLs can be generated programmatically and anyone who receives a valid pre-signed URL can then programmatically upload an object. This solution bypasses the web server avoiding any performance bottlenecks
+Uploading to a second bucket (through the web server) does not solve the issue of the web server being the bottleneck
+Using Auto Scaling, ELB and fleets of EC2 instances (including Spot instances) is not the most efficient solution to the problem
+References:
+https://docs.aws.amazon.com/AmazonS3/latest/dev/PresignedUrlUploadObject.html
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/storage/amazon-s3/
+53. Question
+A company needs to deploy virtual desktops for its customers in an AWS VPC, and would like to leverage their existing on-premise security principles. AWS Workspaces will be used as the virtual desktop solution.
+Which set of AWS services and features will meet the company’s requirements?
+A VPN connection, VPC NACLs and Security Groups
+Amazon EC2, and AWS IAM
+A VPN connection. AWS Directory Services
+AWS Directory Service and AWS IAM
+Answer: 3
+Explanation:
+A security principle is an individual identity such as a user account within a directory. The AWS Directory service includes: Active Directory Service for Microsoft Active Directory, Simple AD, AD Connector. One of these services may be ideal depending on detailed requirements. The Active Directory Service for Microsoft AD and AD Connector both require a VPN or Direct Connect connection
+A VPN with NACLs and security groups will not deliver the required solution. AWS Directory Service with IAM or EC2 with IAM are also not sufficient for leveraging on-premise security principles. You must have a VPN
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/security-identity-compliance/aws-directory-service/
+54. Question
+An organization is considering ways to reduce administrative overhead and automate build processes. An Architect has suggested using CloudFormation. Which of the statements below are true regarding CloudFormation? (choose 2)
+It provides visibility into user activity by recording actions taken on your account
+It is used to collect and track metrics, collect and monitor log files, and set alarms
+You pay for CloudFormation and the AWS resources created
+Allows you to model your entire infrastructure in a text file
+It provides a common language for you to describe and provision all the infrastructure resources in your cloud environment
+Answer: 4,5
+Explanation:
+CloudFormation allows you to model your infrastructure in a text file using a common language. You can then provision those resources using CloudFormation and only ever pay for the resources created. It provides a common language for you to describe and provision all the infrastructure resources in your cloud environment
+You do not pay for CloudFormation, only the resources created
+CloudWatch is used to collect and track metrics, collect and monitor log files, and set alarm
+CloudTrail provides visibility into user activity by recording actions taken on your account
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/management-tools/aws-cloudformation/
+55. Question
+A legacy application running on-premises requires a Solutions Architect to be able to open a firewall to allow access to several Amazon S3 buckets. The Architect has a VPN connection to AWS in place.
+Which option represents the simplest method for meeting this requirement?
+Create an IAM role that allows access from the corporate network to Amazon S3
+Configure IP whitelisting on the customer’s gateway
+Configure a proxy on Amazon EC2 and use an Amazon S3 VPC endpoint
+Use Amazon API Gateway to do IP whitelisting
+Answer: 1
+Explanation:
+The solutions architect can create an IAM role that provides access to the required S3 buckets. With the on-premises firewall opened to allow outbound access to S3 (over HTTPS), a secure connection can be made and the files can be uploaded. This is the simplest solution. You can use a condition in the IAM role that restricts access to a list of source IP addresses (your on-premise routed IPs)
+Configuring a proxy on EC2 and using a VPC endpoint is not the simplest solution
+API Gateway is not suitable for performing IP whitelisting
+You cannot perform IP whitelisting on a VPN customer gateway
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/storage/amazon-s3/
+https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html#example-bucket-policies-use-case-3
+56. Question
+You are planning to deploy a number of EC2 instances in your VPC. The EC2 instances will be deployed across several subnets and multiple AZs. What AWS feature can act as an instance-level firewall to control traffic between your EC2 instances?
+AWS WAF
+Security group
+Route table
+Network ACL
+Answer: 2
+Explanation:
+Network ACL’s function at the subnet level
+Route tables are not firewalls
+Security groups act like a firewall at the instance level
+Specifically, security groups operate at the network interface level
+AWS WAF is a web application firewall and does not work at the instance level
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/networking-and-content-delivery/amazon-vpc/
+57. Question
+You need a service that can provide you with control over which traffic to allow or block to your web applications by defining customizable web security rules. You need to block common attack patterns, such as SQL injection and cross-site scripting, as well as creating custom rules for your own applications.
+Which AWS service fits these requirements?
+Route 53
+CloudFront
+Security Groups
+AWS WAF
+Answer: 4
+Explanation:
+AWS WAF is a web application firewall that helps detect and block malicious web requests targeted at your web applications. AWS WAF allows you to create rules that can help protect against common web exploits like SQL injection and cross-site scripting. With AWS WAF you first identify the resource (either an Amazon CloudFront distribution or an Application Load Balancer) that you need to protect. You then deploy the rules and filters that will best protect your applications
+The other services listed do not enable you to create custom web security rules that can block known malicious attacks
+References:
+https://aws.amazon.com/waf/details/
+58. Question
+You would like to deploy an EC2 instance with enhanced networking. What are the pre-requisites for using enhanced networking? (choose 2)
+Instances must be launched from a HVM AMI
+Instances must be launched from a PV AMI
+Instances must be launched in a VPC
+Instances must be EBS backed, not Instance-store backed
+Instances must be of T2 Micro type
+Answer: 1,3
+Explanation:
+AWS currently supports enhanced networking capabilities using SR-IOV which provides direct access to network adapters, provides higher performance (packets-per-second) and lower latency. You must launch an HVM AMI with the appropriate drivers and it is only available for certain instance types and only supported in VPC
+You cannot use enhanced networking with instances launched from a PV AMI. There is not restriction on EBS vs Instance Store backed VMs and instances do not need to be T2 Micros
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/compute/amazon-ec2/
+59. Question
+You have created an application in a VPC that uses a Network Load Balancer (NLB). The application will be offered in a service provider model for AWS principals in other accounts within the region to consume. Based on this model, what AWS service will be used to offer the service for consumption?
+VPC Endpoint Services using AWS PrivateLink
+API Gateway
+IAM Role Based Access Control
+Route 53
+Answer: 1
+Explanation:
+An Interface endpoint uses AWS PrivateLink and is an elastic network interface (ENI) with a private IP address that serves as an entry point for traffic destined to a supported service
+Using PrivateLink you can connect your VPC to supported AWS services, services hosted by other AWS accounts (VPC endpoint services), and supported AWS Marketplace partner services
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/networking-and-content-delivery/amazon-vpc/
+60. Question
+Which service uses a simple text file to model and provision infrastructure resources, in an automated and secure manner?
+OpsWorks
+CloudFormation
+Elastic Beanstalk
+Simple Workflow Service
+Answer: 2
+Explanation:
+AWS CloudFormation is a service that gives developers and businesses an easy way to create a collection of related AWS resources and provision them in an orderly and predictable fashion. CloudFormation can be used to provision a broad range of AWS resources. Think of CloudFormation as deploying infrastructure as code
+Elastic Beanstalk is a PaaS solution for deploying and managing applications
+SWF helps developers build, run, and scale background jobs that have parallel or sequential steps
+OpsWorks is a configuration management service that provides managed instances of Chef and Puppet
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/management-tools/aws-cloudformation/
+61. Question
+An organization has a large amount of data on Windows (SMB) file shares in their on-premises data center. The organization would like to move data into Amazon S3. They would like to automate the migration of data over their AWS Direct Connect link.
+Which AWS service can assist them?
+AWS DataSync
+AWS Snowball
+AWS CloudFormation
+AWS Database Migration Service (DMS)
+Answer: 1
+Explanation:
+AWS DataSync can be used to move large amounts of data online between on-premises storage and Amazon S3 or Amazon Elastic File System (Amazon EFS). DataSync eliminates or automatically handles many of these tasks, including scripting copy jobs, scheduling and monitoring transfers, validating data, and optimizing network utilization. The source datastore can be Server Message Block (SMB) file servers.
+AWS Database Migration Service (DMS) is used for migrating databases, not data on file shares.
+AWS CloudFormation can be used for automating infrastructure provisioning. This is not the best use case for CloudFormation as DataSync is designed specifically for this scenario.
+AWS Snowball is a hardware device that is used for migrating data into AWS. The organization plan to use their Direct Connect link for migrating data rather than sending it in via a physical device. Also, Snowball will not automate the migration.
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/migration/aws-datasync/
+https://aws.amazon.com/datasync/faqs/
+62. Question
+An organization is extending a secure development environment into AWS. They have already secured the VPC including removing the Internet Gateway and setting up a Direct Connect connection.
+What else needs to be done to add encryption?
+Setup a Virtual Private Gateway (VPG)
+Setup the Border Gateway Protocol (BGP) with encryption
+Configure an AWS Direct Connect Gateway
+Enable IPSec encryption on the Direct Connect connection
+Answer: 1
+Explanation:
+A VPG is used to setup an AWS VPN which you can use in combination with Direct Connect to encrypt all data that traverses the Direct Connect link. This combination provides an IPsec-encrypted private connection that also reduces network costs, increases bandwidth throughput, and provides a more consistent network experience than internet-based VPN connections.
+There is no option to enable IPSec encryption on the Direct Connect connection.
+The BGP protocol is not used to enable encryption for Direct Connect, it is used for routing.
+An AWS Direct Connect Gateway is used to connect to VPCs across multiple AWS regions. It is not involved with encryption
+References:
+https://docs.aws.amazon.com/whitepapers/latest/aws-vpc-connectivity-options/aws-direct-connect-plus-vpn-network-to-amazon.html
+https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-gateways-intro.html
+63. Question
+An application running on an Amazon ECS container instance using the EC2 launch type needs permissions to write data to Amazon DynamoDB.
+How can you assign these permissions only to the specific ECS task that is running the application?
+Modify the AmazonECSTaskExecutionRolePolicy policy to add permissions for DynamoDB
+Use a security group to allow outbound connections to DynamoDB and assign it to the container instance
+Create an IAM policy with permissions to DynamoDB and assign It to a task using the taskRoleArn parameter
+Create an IAM policy with permissions to DynamoDB and attach it to the container instance
+Answer: 3
+Explanation:
+To specify permissions for a specific task on Amazon ECS you should use IAM Roles for Tasks. The permissions policy can be applied to tasks when creating the task definition, or by using an IAM task role override using the AWS CLI or SDKs. The taskRoleArn parameter is used to specify the policy.
+You should not apply the permissions to the container instance as they will then apply to all tasks running on the instance as well as the instance itself.
+Though you will need a security group to allow outbound connections to DynamoDB, the question is asking how to assign permissions to write data to DynamoDB and a security group cannot provide those permissions.
+The AmazonECSTaskExecutionRolePolicy policy is the Task Execution IAM Role. This is used by the container agent to be able to pull container images, write log file etc.
+References:
+https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/compute/amazon-ecs/
+64. Question
+An Amazon RDS Read Replica is being deployed in a separate region. The master database is not encrypted but all data in the new region must be encrypted. How can this be achieved?
+Enable encryption using Key Management Service (KMS) when creating the cross-region Read Replica
+Encrypt a snapshot from the master DB instance, create a new encrypted master DB instance, and then create an encrypted cross-region Read Replica
+Encrypt a snapshot from the master DB instance, create an encrypted cross-region Read Replica from the snapshot
+Enabled encryption on the master DB instance, then create an encrypted cross-region Read Replica
+Answer: 2
+Explanation:
+You cannot create an encrypted Read Replica from an unencrypted master DB instance. You also cannot enable encryption after launch time for the master DB instance. Therefore, you must create a new master DB by taking a snapshot of the existing DB, encrypting it, and then creating the new DB from the snapshot. You can then create the encrypted cross-region Read Replica of the master DB.
+All other options will not work dues to the limitations explained above.
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/database/amazon-rds/
+https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html
+https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Encryption.html
+65. Question
+A legacy tightly-coupled High Performance Computing (HPC) application will be migrated to AWS. Which network adapter type should be used?
+Elastic Network Adapter (ENA)
+Elastic Fabric Adapter (EFA)
+Elastic IP Address
+Elastic Network Interface (ENI)
+Answer: 2
+Explanation:
+An Elastic Fabric Adapter is an AWS Elastic Network Adapter (ENA) with added capabilities. The EFA lets you apply the scale, flexibility, and elasticity of the AWS Cloud to tightly-coupled HPC apps. It is ideal for tightly coupled app as it uses the Message Passing Interface (MPI).
+The ENI is a basic type of adapter and is not the best choice for this use case.
+The ENA, which provides Enhanced Networking, does provide high bandwidth and low inter-instance latency but it does not support the features for a tightly-coupled app that the EFA does.
+References:
+https://aws.amazon.com/blogs/aws/now-available-elastic-fabric-adapter-efa-for-tightly-coupled-hpc-workloads/
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/compute/amazon-ec2/

@@ -1,0 +1,1004 @@
+Set 6: Practice Questions, Answers & Explanations
+1. Question
+You are putting together an architecture for a new VPC on AWS. Your on-premise data center will be connected to the VPC by a hardware VPN and has public and VPN-only subnets. The security team has requested that traffic hitting public subnets on AWS that’s destined to on-premise applications must be directed over the VPN to the corporate firewall.
+How can this be achieved?
+In the public subnet route table, add a route for your remote network and specify the virtual private gateway as the target
+Configure a NAT Gateway and configure all traffic to be directed via the virtual private gateway
+In the VPN-only subnet route table, add a route that directs all Internet traffic to the virtual private gateway
+In the public subnet route table, add a route for your remote network and specify the customer gateway as the target
+Answer: 1
+Explanation:
+Route tables determine where network traffic is directed. In your route table, you must add a route for your remote network and specify the virtual private gateway as the target. This enables traffic from your VPC that’s destined for your remote network to route via the virtual private gateway and over one of the VPN tunnels. You can enable route propagation for your route table to automatically propagate your network routes to the table for you
+You must select the virtual private gateway (AWS side of the VPN) not the customer gateway (customer side of the VPN) in the target in the route table
+NAT Gateways are used to enable Internet access for EC2 instances in private subnets, they cannot be used to direct traffic to VPG
+You must create the route table rule in the route table attached to the public subnet, not the VPN-only subnet
+References:
+https://docs.aws.amazon.com/vpc/latest/userguide/VPC_VPN.html
+2. Question
+A development team are creating a Continuous Integration and Continuous Delivery (CI/CD) toolchain on the AWS cloud. The team currently use Jenkins X and Kubernetes on-premise and are looking to utilize the same services in the AWS cloud.
+What AWS service can provide a managed container platform that is MOST similar to their current CI/CD toolchain?
+AWS CodePipeline
+Amazon EKS
+Amazon ECS
+AWS Lambda
+Answer: 2
+Explanation:
+Amazon EKS is AWS’ managed Kubernetes offering, which enables you to focus on building applications, while letting AWS handle managing Kubernetes and the underlying cloud infrastructure
+Amazon Elastic Container Service (ECS) does not use Kubernetes so it is not the most similar product
+AWS Lambda is a serverless service that executes code as functions
+AWS CodePipeline is a fully managed continuous delivery service that helps you automate your release pipelines for fast and reliable application and infrastructure updates. It is not a container platform
+References:
+https://aws.amazon.com/eks/
+3. Question
+A customer is deploying services in a hybrid cloud model. The customer has mandated that data is transferred directly between cloud data centers, bypassing ISPs.
+Which AWS service can be used to enable hybrid cloud connectivity?
+IPSec VPN
+Amazon Route 53
+AWS Direct Connect
+Amazon VPC
+Answer: 3
+Explanation:
+With AWS Direct Connect, you can connect to all your AWS resources in an AWS Region, transfer your business-critical data directly from your datacenter, office, or colocation environment into and from AWS, bypassing your Internet service provider and removing network congestion
+Amazon Route 53 is a highly available and scalable cloud Domain Name System (DNS) web service
+An IPSec VPN can be used to connect to AWS however it does not bypass the ISPs or Internet
+Amazon Virtual Private Cloud (Amazon VPC) enables you to launch AWS resources into a virtual network that you’ve defined
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/networking-and-content-delivery/aws-direct-connect/
+4. Question
+A web application you manage receives order processing information from customers and places the messages on an SQS queue. A fleet of EC2 instances are configured to pick up the messages, process them, and store the results in a DynamoDB table. The current configuration has been resulting in a large number of empty responses to ReceiveMessage requests. You would like to update the configuration to eliminate empty responses to reduce operational overhead. How can this be done?
+Use a Standard queue to provide at-least-once delivery, which means that each message is delivered at least once
+Use a FIFO (first-in-first-out) queue to preserve the exact order in which messages are sent and received
+Configure Short Polling to eliminate empty responses by reducing the length of time a connection request remains open
+Configure Long Polling to eliminate empty responses by allowing Amazon SQS to wait until a message is available in a queue before sending a response
+Answer: 4
+Explanation:
+The correct answer is to use Long Polling which will eliminate empty responses by allowing Amazon SQS to wait until a message is available in a queue before sending a response
+The problem does not relate to the order in which the messages are processed in and there are no concerns over messages being delivered more than once so it doesn’t matter whether you use a FIFO or standard queue
+Long Polling:
+Uses fewer requests and reduces cost
+Eliminates false empty responses by querying all servers
+SQS waits until a message is available in the queue before sending a response
+Requests contain at least one of the available messages up to the maximum number of messages specified in the ReceiveMessage action
+Shouldn’t be used if your application expects an immediate response to receive message calls
+ReceiveMessageWaitTime is set to a non-zero value (up to 20 seconds)
+Same charge per million requests as short polling
+Changing the queue type would not assist in this situation
+Short Polling:
+Does not wait for messages to appear in the queue
+It queries only a subset of the available servers for messages (based on weighted random execution)
+Short polling is the default
+ReceiveMessageWaitTime is set to 0
+More requests are used, which implies higher cost
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/application-integration/amazon-sqs/
+https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-long-polling.html
+5. Question
+Your company runs a web-based application that uses EC2 instances for the web front-end and RDS for the database back-end. The web application writes transaction log files to an S3 bucket and the quantity of files is becoming quite large. You have determined that it is acceptable to retain the most recent 60 days of log files and permanently delete the rest. What can you do to enable this to happen automatically?
+Use an S3 lifecycle policy to move the log files that are more than 60 days old to the GLACIER storage class
+Write a Ruby script that checks the age of objects and deletes any that are more than 60 days old
+Use an S3 lifecycle policy with object expiration configured to automatically remove objects that are more than 60 days old
+Use an S3 bucket policy that deletes objects that are more than 60 days old
+Answer: 3
+Explanation:
+Moving logs to Glacier may save cost but the questions requests that the files are permanently deleted
+Object Expiration allows you to schedule removal of your objects after a defined time period
+Using Object Expiration rules to schedule periodic removal of objects eliminates the need to build processes to identify objects for deletion and submit delete requests to Amazon S3
+References:
+https://aws.amazon.com/about-aws/whats-new/2011/12/27/amazon-s3-announces-object-expiration/
+https://aws.amazon.com/about-aws/whats-new/2011/12/27/amazon-s3-announces-object-expiration/
+6. Question
+You have created an Auto Scaling Group (ASG) that has launched several EC2 instances running Linux. The ASG was created using the CLI. You want to ensure that you do not pay for monitoring. What needs to be done to ensure that monitoring is free of charge?
+The launch configuration will have been created with basic monitoring enabled which is free of charge so you do not need to do anything
+The launch configuration will have been created with detailed monitoring enabled which is chargeable. You will need to change the settings on the launch configuration
+The launch configuration will have been created with detailed monitoring enabled which is chargeable. You will need to recreate the launch configuration with basic monitoring enabled
+The launch configuration will have been created with detailed monitoring enabled which is chargeable. You will need to modify the settings on the ASG
+Answer: 3
+Explanation:
+Basic monitoring sends EC2 metrics to CloudWatch about ASG instances every 5 minutes
+Detailed can be enabled and sends metrics every 1 minute (chargeable)
+When the launch configuration is created from the CLI detailed monitoring of EC2 instances is enabled by default
+You cannot edit a launch configuration once defined
+If you want to change your launch configuration you have to create a new one, make the required changes, and use that with your auto scaling groups
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/compute/aws-auto-scaling/
+7. Question
+You have associated a new launch configuration to your Auto Scaling Group (ASG) which runs a fleet of EC2 instances. The new launch configuration changes monitoring from detailed to basic. There are a couple of CloudWatch alarms configured on the ASG which monitor every 60 seconds. There is a mismatch in frequency of metric reporting between these configuration settings, what will be the result?
+The EC2 metrics will be updated automatically to match the frequency of the alarms and send updates every 60 seconds
+The alarm state will be immediately set to INSUFFICIENT_DATA
+If you do not update your alarms to match the five-minute period, they continue to check for statistics every minute and might find no data available for as many as four out of every five periods
+The ASG will automatically update the frequency of the alarms to 300 seconds to match the EC2 monitoring in the launch configuration
+Answer: 3
+Explanation:
+If you have an Auto Scaling group and need to change which type of monitoring is enabled for your Auto Scaling instances, you must create a new launch configuration and update the Auto Scaling group to use this launch configuration. After that, the instances that the Auto Scaling group launches will use the updated monitoring type
+If you have CloudWatch alarms associated with your Auto Scaling group, use the put-metric-alarm command to update each alarm so that its period matches the monitoring type (300 seconds for basic monitoring and 60 seconds for detailed monitoring). If you change from detailed monitoring to basic monitoring but do not update your alarms to match the five-minute period, they continue to check for statistics every minute and might find no data available for as many as four out of every five periods
+References:
+https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-monitoring.html#as-group-metrics
+8. Question
+You need to run a PowerShell script on a fleet of EC2 instances running Microsoft Windows. The instances have already been launched in your VPC. What tool can be run from the AWS Management Console that will run the script on all target EC2 instances?
+AWS CodeDeploy
+AWS OpsWorks
+Run Command
+AWS Config
+Answer: 3
+Explanation:
+Run Command is designed to support a wide range of enterprise scenarios including installing software, running ad hoc scripts or Microsoft PowerShell commands, configuring Windows Update settings, and more. Run Command can be used to implement configuration changes across Windows instances on a consistent yet ad hoc basis and is accessible from the AWS Management Console, the AWS Command Line Interface (CLI), the AWS Tools for Windows PowerShell, and the AWS SDKs
+AWS OpsWorks provides instances of managed Puppet and Chef
+AWS Config is a service that enables you to assess, audit, and evaluate the configurations of your AWS resources. It is not used for ad-hoc script execution
+AWS CodeDeploy is a deployment service that automates application deployments to Amazon EC2 instances, on-premises instances, serverless Lambda functions, or Amazon ECS services
+References:
+https://aws.amazon.com/blogs/aws/new-ec2-run-command-remote-instance-management-at-scale/
+9. Question
+You are using the Elastic Container Service (ECS) to run a number of containers using the EC2 launch type. To gain more control over scheduling containers you have decided to utilize Blox to integrate a third-party scheduler. The third-party scheduler will use the StartTask API to place tasks on specific container instances. What type of ECS scheduler will you need to use to enable this configuration?
+Cron Scheduler
+ECS Scheduler
+Custom Scheduler
+Service Scheduler
+Answer: 3
+Explanation:
+Amazon ECS provides a service scheduler (for long-running tasks and applications), the ability to run tasks manually (for batch jobs or single run tasks), with Amazon ECS placing tasks on your cluster for you. The service scheduler is ideally suited for long running stateless services and applications. Amazon ECS allows you to create your own schedulers that meet the needs of your business, or to leverage third party schedulers
+Custom schedulers use the StartTask API operation to place tasks on specific container instances within your cluster. Custom schedulers are only compatible with tasks using the EC2 launch type. If you are using the Fargate launch type for your tasks, the StartTask API does not work
+Blox is an open- source project that gives you more control over how your containerized applications run on Amazon ECS. Blox enables you to build schedulers and integrate third-party schedulers with Amazon ECS while leveraging Amazon ECS to fully manage and scale your clusters
+A cron scheduler is used in UNIX/Linux but is not a type of ECS scheduler
+A service scheduler is not a type of third-party scheduler
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/compute/amazon-ecs/
+https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html
+10. Question
+You need to run a production process that will use several EC2 instances and run constantly on an ongoing basis. The process cannot be interrupted or restarted without issue. Which EC2 pricing model would be best for this workload?
+Reserved instances
+Spot instances
+On-demand instances
+Flexible instances
+Answer: 1
+Explanation:
+In this scenario for a stable process that will run constantly on an ongoing basis RIs will be the most affordable solution
+RIs provide you with a significant discount (up to 75%) compared to On-Demand instance pricing. You have the flexibility to change families, OS types, and tenancies while benefitting from RI pricing when you use Convertible RIs
+Spot is more suited to short term jobs that can afford to be interrupted and offer the lowest price of all options
+On-demand is useful for short term ad-hoc requirements for which the job cannot afford to be interrupted and are typically more expensive than Spot instances
+There’s no such thing as flexible instances
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/compute/amazon-ec2/
+https://aws.amazon.com/ec2/pricing/reserved-instances/
+11. Question
+You have recently enabled Access Logs on your Application Load Balancer (ALB). One of your colleagues would like to process the log files using a hosted Hadoop service. What configuration changes and services can be leveraged to deliver this requirement?
+Configure Access Logs to be delivered to S3 and use Kinesis for processing the log files
+Configure Access Logs to be delivered to DynamoDB and use EMR for processing the log files
+Configure Access Logs to be delivered to S3 and use EMR for processing the log files
+Configure Access Logs to be delivered to EC2 and install Hadoop for processing the log files
+Answer: 3
+Explanation:
+Access Logs can be enabled on ALB and configured to store data in an S3 bucket. Amazon EMR is a web service that enables businesses, researchers, data analysts, and developers to easily and cost-effectively process vast amounts of data. EMR utilizes a hosted Hadoop framework running on Amazon EC2 and Amazon S3
+Neither Kinesis or EC2 provide a hosted Hadoop service
+You cannot configure access logs to be delivered to DynamoDB
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/analytics/amazon-emr/
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/compute/elastic-load-balancing/
+12. Question
+You created a new IAM user account for a temporary employee who recently joined the company. The user does not have permissions to perform any actions, which statement is true about newly created users in IAM?
+They are created with user privileges
+They are created with full permissions
+They are created with limited permissions
+They are created with no permissions
+Answer: 4
+Explanation:
+Every IAM user starts with no permissions
+In other words, by default, users can do nothing, not even view their own access keys
+To give a user permission to do something, you can add the permission to the user (that is, attach a policy to the user)
+Or you can add the user to a group that has the intended permission.
+References:
+https://docs.aws.amazon.com/IAM/latest/UserGuide/access_controlling.html
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/security-identity-compliance/aws-iam/
+13. Question
+In your VPC you have several EC2 instances that have been running for some time. You have logged into an instance and need to determine a few pieces of information including what IAM role is assigned, the instance ID and the names of the security groups that are assigned to the instance.
+From the options below, what would be a source of this information?
+Parameters
+Tags
+Metadata
+User data
+Answer: 3
+Explanation:
+Instance metadata is data about your instance that you can use to configure or manage the running instance and is available at http://169.254.169.254/latest/meta-data
+Tags are used to categorize and label resources
+Parameters are used in databases
+User data is used to configure the system at launch time and specify scripts
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/compute/amazon-ec2/
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html#instancedata-data-categories
+14. Question
+The application development team in your company have developed a Java application and saved the source code in a .war file. They would like to run the application on AWS resources and are looking for a service that can handle the provisioning and management of the underlying resources it will run on.
+What AWS service would allow the developers to upload the Java source code file and provide capacity provisioning and infrastructure management?
+AWS CodeDeploy
+AWS Elastic Beanstalk
+AWS CloudFormation
+AWS OpsWorks
+Answer: 2
+Explanation:
+AWS Elastic Beanstalk can be used to quickly deploy and manage applications in the AWS Cloud. Developers upload applications and Elastic Beanstalk handles the deployment details of capacity provisioning, load balancing, auto-scaling, and application health monitoring
+Elastic Beanstalk supports applications developed in Go, Java, .NET, Node.js, PHP, Python, and Ruby, as well as different platform configurations for each language. To use Elastic Beanstalk, you create an application, upload an application version in the form of an application source bundle (for example, a Java .war file) to Elastic Beanstalk, and then provide some information about the application
+AWS CloudFormation uses templates to deploy infrastructure as code. It is not a PaaS service like Elastic Beanstalk and is more focussed on infrastructure than applications and management of applications
+AWS CodeDeploy is a deployment service that automates application deployments to Amazon EC2 instances, on-premises instances, serverless Lambda functions, or Amazon ECS services
+AWS OpsWorks is a configuration management service that provides managed instances of Chef and Puppet
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/compute/aws-elastic-beanstalk/
+https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/Welcome.html
+15. Question
+You have launched an EC2 instance into a VPC. You need to ensure that instances have both a private and public DNS hostname. Assuming you did not change any settings during creation of the VPC, how will DNS hostnames be assigned by default? (choose 2)
+In a default VPC instances will be assigned a private but not a public DNS hostname
+In a non-default VPC instances will be assigned a public and private DNS hostname
+In a non-default VPC instances will be assigned a private but not a public DNS hostname
+In all VPCs instances no DNS hostnames will be assigned
+In a default VPC instances will be assigned a public and private DNS hostname
+Answer: 3,5
+Explanation:
+When you launch an instance into a default VPC, we provide the instance with public and private DNS hostnames that correspond to the public IPv4 and private IPv4 addresses for the instance
+When you launch an instance into a nondefault VPC, we provide the instance with a private DNS hostname and we might provide a public DNS hostname, depending on the DNS attributes you specify for the VPC and if your instance has a public IPv4 address
+References:
+https://docs.aws.amazon.com/vpc/latest/userguide/vpc-dns.html
+16. Question
+A Solutions Architect has created a VPC and is in the process of formulating the subnet design. The VPC will be used to host a two-tier application that will include Internet facing web servers, and internal-only DB servers. Zonal redundancy is required.
+How many subnets are required to support this requirement?
+1 subnet
+2 subnets
+6 subnets
+4 subnets
+Answer: 4
+Explanation:
+Zonal redundancy indicates that the architecture should be split across multiple Availability Zones. Subnets are mapped 1:1 to AZs
+A public subnet should be used for the Internet-facing web servers and a separate private subnet should be used for the internal-only DB servers. Therefore you need 4 subnets – 2 (for redundancy) per public/private subnet
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/networking-and-content-delivery/amazon-vpc/
+17. Question
+A security officer has requested that all data associated with a specific customer is encrypted. The data resides on Elastic Block Store (EBS) volumes. Which of the following statements about using EBS encryption are correct? (choose 2)
+Not all EBS types support encryption
+Data in transit between an instance and an encrypted volume is also encrypted
+All attached EBS volumes must share the same encryption state
+There is no direct way to change the encryption state of a volume
+All instance types support encryption
+Answer: 2,4
+Explanation:
+All EBS types and all instance families support encryption
+Not all instance types support encryption
+There is no direct way to change the encryption state of a volume
+Data in transit between an instance and an encrypted volume is also encrypted
+You can have encrypted and non-encrypted EBS volumes on a single instance
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/compute/amazon-ebs/
+18. Question
+You have just created a new security group in your VPC. You have not yet created any rules. Which of the statements below are correct regarding the default state of the security group? (choose 2)
+There are is an inbound rule that allows traffic from the Internet Gateway
+There is an inbound rule allowing traffic from the Internet to port 22 for management
+There is an outbound rule allowing traffic to the Internet Gateway
+There is an outbound rule that allows all traffic to all IP addresses
+There are no inbound rules and traffic will be implicitly denied
+Answer: 4,5
+Explanation:
+Custom security groups do not have inbound allow rules (all inbound traffic is denied by default)
+Default security groups do have inbound allow rules (allowing traffic from within the group)
+All outbound traffic is allowed by default in both custom and default security groups
+Security groups act like a stateful firewall at the instance level. Specifically security groups operate at the network interface level of an EC2 instance. You can only assign permit rules in a security group, you cannot assign deny rules and there is an implicit deny rule at the end of the security group. All rules are evaluated until a permit is encountered or continues until the implicit deny. You can create ingress and egress rules
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/networking-and-content-delivery/amazon-vpc/
+19. Question
+You are running a database on an EC2 instance in your VPC. The load on the DB is increasing and you have noticed that the performance has been impacted. Which of the options below would help to increase storage performance? (choose 2)
+Use EBS optimized instances
+Use HDD, Cold (SC1) EBS volumes
+Use Provisioned IOPS (I01) EBS volumes
+Use a larger instance size within the instance family
+Create a RAID 1 array from multiple EBS volumes
+Answer: 1,3
+Explanation:
+EBS optimized instances provide dedicated capacity for Amazon EBS I/O. EBS optimized instances are designed for use with all EBS volume types
+Provisioned IOPS EBS volumes allow you to specify the amount of IOPS you require up to 50 IOPS per GB. Within this limitation you can therefore choose to select the IOPS required to improve the performance of your volume
+RAID can be used to increase IOPS, however RAID 1 does not. For example:
+–         RAID 0 = 0 striping – data is written across multiple disks and increases performance but no redundancy
+–         RAID 1 = 1 mirroring – creates 2 copies of the data but does not increase performance, only redundancy
+HDD, Cold – (SC1) provides the lowest cost storage and low performance
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/compute/amazon-ebs/
+20. Question
+One of you clients has asked for assistance with a performance issue they are experiencing. The client has a fleet of EC2 instances behind an Elastic Load Balancer (ELB) that are a mixture of c4.2xlarge instance types and c5.large instances. The load on the CPUs on the c5.large instances has been very high, often hitting 100% utilization, whereas the c4.2xlarge instances have been performing well. The client has asked for advice on the most cost-effective way to resolve the performance problems?
+Add more c5.large instances to spread the load more evenly
+Change the configuration to use only c4.2xlarge instance types
+Add all of the instances into a Placement Group
+Enable the weighted routing policy on the ELB and
+Answer: 2
+Explanation:
+The 2xlarge instance type provides more CPUs. The best answer is to use this instance type for all instances
+A placement group helps provide low-latency connectivity between instances and would not help here
+The weighted routing policy is a Route 53 feature that would not assist in this situation
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/compute/amazon-ec2/
+21. Question
+A large quantity of data that is rarely accessed is being archived onto Amazon Glacier. Your CIO wants to understand the resilience of the service. Which of the statements below is correct about Amazon Glacier storage? (choose 2)
+Data is replicated globally
+Provides 99.999999999% durability of archives
+Data is resilient in the event of one entire region destruction
+Provides 99.9% availability of archives
+Data is resilient in the event of one entire Availability Zone destruction
+Answer: 2,5
+Explanation:
+Glacier is designed for durability of 99.999999999% of objects across multiple Availability Zones. Data is resilient in the event of one entire Availability Zone destruction. Glacier supports SSL for data in transit and encryption of data at rest. Glacier is extremely low cost and is ideal for long-term archival
+Data is not resilient to the failure of an entire region
+Data is not replicated globally
+Glacier is “designed for” availability of 99.99%
+References:
+https://aws.amazon.com/s3/storage-classes/
+22. Question
+An EC2 instance you manage is generating very high packets-per-second and performance of the application stack is being impacted. You have been asked for a resolution to the issue that results in improved performance from the EC2 instance. What would you suggest?
+Configure a RAID 1 array from multiple EBS volumes
+Create a placement group and put the EC2 instance in it
+Use enhanced networking
+Add multiple Elastic IP addresses to the instance
+Answer: 3
+Explanation:
+Enhanced networking provides higher bandwidth, higher packet-per-second (PPS) performance, and consistently lower inter-instance latencies. If your packets-per-second rate appears to have reached its ceiling, you should consider moving to enhanced networking because you have likely reached the upper thresholds of the VIF driver. It is only available for certain instance types and only supported in VPC. You must also launch an HVM AMI with the appropriate drivers
+AWS currently supports enhanced networking capabilities using SR-IOV. SR-IOV provides direct access to network adapters, provides higher performance (packets-per-second) and lower latency
+You do not need to create a RAID 1 array (which is more for redundancy than performance anyway)
+A placement group is used to increase network performance between instances. In this case there is only a single instance so it won’t help
+Adding multiple IP addresses is not a way to increase performance of the instance as the same amount of bandwidth is available to the Elastic Network Interface (ENI)
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/compute/amazon-ec2/
+https://aws.amazon.com/premiumsupport/knowledge-center/enable-configure-enhanced-networking/
+23. Question
+One of your EC2 instances that is behind an Elastic Load Balancer (ELB) is in the process of being de-registered. Which ELB feature can be used to allow existing connections to close cleanly?
+Sticky Sessions
+Deletion Protection
+Proxy Protocol
+Connection Draining
+Answer: 4
+Explanation:
+Connection draining is enabled by default and provides a period of time for existing connections to close cleanly. When connection draining is in action an CLB will be in the status “InService: Instance deregistration currently in progress”
+Session stickiness uses cookies and ensures a client is bound to an individual back-end instance for the duration of the cookie lifetime
+Deletion protection is used to protect the ELB from deletion
+The Proxy Protocol header helps you identify the IP address of a client when you have a load balancer that uses TCP for back-end connections
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/compute/elastic-load-balancing/
+24. Question
+Your manager has asked you to explain some of the security features available in the AWS cloud. How can you describe the function of Amazon CloudHSM?
+It is a firewall for use with web applications
+It can be used to generate, use and manage encryption keys in the cloud
+It provides server-side encryption for S3 objects
+It is a Public Key Infrastructure (PKI)
+Answer: 2
+Explanation:
+AWS CloudHSM is a cloud-based hardware security module (HSM) that allows you to easily add secure key storage and high-performance crypto operations to your AWS applications. CloudHSM has no upfront costs and provides the ability to start and stop HSMs on-demand, allowing you to provision capacity when and where it is needed quickly and cost-effectively. CloudHSM is a managed service that automates time-consuming administrative tasks, such as hardware provisioning, software patching, high availability, and backups
+CloudHSM is a part of a PKI but a PKI is a broader term that does not specifically describe its function
+CloudHSM does not provide server-side encryption for S3 objects, it provides encryption keys that can be used to encrypt data
+CloudHSM is not a firewall
+References:
+https://aws.amazon.com/cloudhsm/details/
+25. Question
+One of your clients has multiple VPCs that are peered with each other. The client would like to use a single Elastic Load Balancer (ELB) to route traffic to multiple EC2 instances in peered VPCs within the same region. Is this possible?
+This is not possible with ELB, you would need to use Route 53
+This is possible using the Network Load Balancer (NLB) and Application Load Balancer (ALB) if using IP addresses as targets
+This is possible using the Classic Load Balancer (CLB) if using Instance IDs
+No, the instances that an ELB routes traffic to must be in the same VPC
+Answer: 2
+Explanation:
+With ALB and NLB IP addresses can be used to register:
+Instances in a peered VPC
+AWS resources that are addressable by IP address and port
+On-premises resources linked to AWS through Direct Connect or a VPN connection
+References:
+https://aws.amazon.com/blogs/aws/new-application-load-balancing-via-ip-address-to-aws-on-premises-resources/
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/compute/elastic-load-balancing/
+26. Question
+An application you manage runs a series of EC2 instances with a web application behind an Application Load Balancer (ALB). You are updating the configuration with a health check and need to select the protocol to use. What options are available to you? (choose 2)
+HTTP
+TCP
+ICMP
+SSL
+HTTPS
+Answer:1,5
+Explanation:
+The Classic Load Balancer (CLB) supports health checks on HTTP, TCP, HTTPS and SSL
+The Application Load Balancer (ALB) only supports health checks on HTTP and HTTPS
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/compute/elastic-load-balancing/
+27. Question
+You have just created a new Network ACL in your VPC. You have not yet created any rules. Which of the statements below are correct regarding the default state of the Network ACL? (choose 2)
+There is a default outbound rule denying all traffic
+There is a default outbound rule allowing traffic to the Internet Gateway
+There is a default inbound rule allowing traffic from the VPC CIDR block
+There is a default outbound rule allowing all traffic
+There is a default inbound rule denying all traffic
+Answer: 1,5
+Explanation:
+A VPC automatically comes with a default network ACL which allows all inbound/outbound traffic
+A custom NACL denies all traffic both inbound and outbound by default
+Network ACL’s function at the subnet level and you can have permit and deny rules. Network ACLs have separate inbound and outbound rules and each rule can allow or deny traffic. Network ACLs are stateless so responses are subject to the rules for the direction of traffic. NACLs only apply to traffic that is ingress or egress to the subnet not to traffic within the subnet
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/networking-and-content-delivery/amazon-vpc/
+28. Question
+You are trying to SSH into an EC2 instance running Linux but cannot connect. The EC2 instance has been launched in a public subnet with an Internet Gateway. Upon investigation you have verified that the instance has a public IP address and that the route table does reference the Internet Gateway correctly. What else needs to be checked to enable connectivity?
+Check that there is a Bastion Host in the subnet and connect to it first
+Check that the subnet CIDR block is referenced properly in the route table
+Check that the VPN is configured correctly
+Check that the Security Groups and Network ACLs have the correct rules configured
+Answer: 4
+Explanation:
+Security Groups and Network ACLs do need to be configured to enable connectivity. Check the there relevant rules exist to allow port 22 inbound to your EC2 instance
+Bastion Hosts are used as an admin tools so you can connect to a single, secured EC2 instance and then jump from there to other instances (typically in private subnets but not always)
+The subnet CIDR block is configured automatically as part of the creation of the VPC/subnet so should not be the issue here
+You do not need a VPN connection to connect to an instance in a public subnet
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/compute/amazon-ec2/
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/networking-and-content-delivery/amazon-vpc/
+29. Question
+You launched an EBS-backed EC2 instance into your VPC. A requirement has come up for some high-performance ephemeral storage and so you would like to add an instance-store backed volume. How can you add the new instance store volume?
+You can specify the instance store volumes for your instance only when you launch an instance
+You can use a block device mapping to specify additional instance store volumes when you launch your instance, or you can attach additional instance store volumes after your instance is running
+You must use an Elastic Network Adapter (ENA) to add instance store volumes. First, attach an ENA, and then attach the instance store volume
+You must shutdown the instance in order to be able to add the instance store volume
+Answer: 1
+Explanation:
+You can specify the instance store volumes for your instance only when you launch an instance. You can’t attach instance store volumes to an instance after you’ve launched it
+You can use a block device mapping to specify additional EBS volumes when you launch your instance, or you can attach additional EBS volumes after your instance is running
+An Elastic Network Adapter has nothing to do with adding instance store volumes
+References:
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/add-instance-store-volumes.html
+30. Question
+You are creating a CloudFormation Stack that will create EC2 instances that will record log files to an S3 bucket. When creating the template which optional section is used to return the name of the S3 bucket?
+Resources
+Parameters
+Outputs
+Mappings
+Answer: 3
+Explanation:
+The optional Outputs section declares output values that you can import into other stacks (to create cross-stack references), return in response (to describe stack calls), or view on the AWS CloudFormation console. For example, you can output the S3 bucket name for a stack to make the bucket easier to find
+Template elements include:
+File format and version (mandatory)
+List of resources and associated configuration values (mandatory)
+Template parameters (optional)
+Output values (optional)
+List of data tables (optional)
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/management-tools/aws-cloudformation/
+https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/outputs-section-structure.html
+31. Question
+Your company has started using the AWS CloudHSM for secure key storage. A recent administrative error resulted in the loss of credentials to access the CloudHSM. You need access to data that was encrypted using keys stored on the hardware security module. How can you recover the keys that are no longer accessible?
+There is no way to recover your keys if you lose your credentials
+Reset the CloudHSM device and create a new set of credentials
+Log a case with AWS support and they will use MFA to recover the credentials
+Restore a snapshot of the CloudHSM
+Answer: 1
+Explanation:
+Amazon does not have access to your keys or credentials and therefore has no way to recover your keys if you lose your credentials
+References:
+https://aws.amazon.com/cloudhsm/faqs/
+32. Question
+A development team needs to run up a few lab servers on a weekend for a new project. The servers will need to run uninterrupted for a few hours. Which EC2 pricing option would be most suitable?
+Spot
+Reserved
+On-Demand
+Dedicated Instances
+Answer: 3
+Explanation:
+Spot pricing may be the most economical option for a short duration over a weekend but you may have the instances terminated by AWS and there is a requirement that the servers run uninterrupted
+On-Demand pricing ensures that instances will not be terminated and is the most economical option
+Reserved pricing provides a reduced cost for a contracted period (1 or 3 years), and is not suitable for ad hoc requirements
+Dedicated instances run on hardware that’s dedicated to a single customer and are more expensive than regular On-Demand instances
+References:
+https://aws.amazon.com/ec2/pricing/
+33. Question
+You are a Solutions Architect at Digital Cloud Training. A client has asked you for some advice about how they can capture detailed information about all HTTP requests that are processed by their Internet facing Application Load Balancer (ALB). The client requires information on the requester, IP address, and request type for analyzing traffic patterns to better understand their customer base.
+What would you recommend to the client?
+Use CloudTrail to capture all API calls made to the ALB
+Enable Access Logs and store the data on S3
+Configure metrics in CloudWatch for the ALB
+Enable EC2 detailed monitoring
+Answer: 2
+Explanation:
+You can enable access logs on the ALB and this will provide the information required including requester, IP, and request type. Access logs are not enabled by default. You can optionally store and retain the log files on S3
+CloudWatch is used for performance monitoring and CloudTrail is used for auditing API access
+Enabling EC2 detailed monitoring will not capture the information requested
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/compute/elastic-load-balancing/
+34. Question
+You are planning to launch a fleet of EC2 instances running Linux. As part of the launch you would like to install some application development frameworks and custom software onto the instances. The installation will be initiated using some scripts you have written. What feature allows you to specify the scripts so you can install the software during the EC2 instance launch?
+Run Command
+User Data
+Metadata
+AWS Config
+Answer: 2
+Explanation:
+When you launch an instance in Amazon EC2, you have the option of passing user data to the instance that can be used to perform common automated configuration tasks and even run scripts after the instance starts. You can pass two types of user data to Amazon EC2: shell scripts and cloud-init directives
+User data is data that is supplied by the user at instance launch in the form of a script and is limited to 16KB
+User data and meta data are not encrypted. Instance metadata is available at http://169.254.169.254/latest/meta-data. The Instance Metadata Query tool allows you to query the instance metadata without having to type out the full URI or category names
+The AWS Systems Manager run command is used to manage the configuration of existing instances by using remotely executed commands. User data is better for specifying scripts to run at startup
+References:
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/compute/amazon-ec2/
+35. Question
+An application you manage uses RDS in a multi-AZ configuration as the database back-end. There is a failure of the primary DB instance. Which of the following statements are correct in relation to the process RDS uses to failover to the standby DB instance? (choose 2)
+The failover mechanism automatically moves the Elastic IP address of the instance to the standby DB instance
+Multi-AZ uses synchronous replication; therefore, the failover is instantaneous
+Failover times are typically 60-120 seconds
+The failover mechanism automatically changes the DNS record of the DB instance to point to the standby DB instance
+Answer: 3,4
+Explanation:
+The failover mechanism automatically changes the DNS record of the DB instance to point to the standby DB instance. As a result, you need to re-establish any existing connections to your DB instance
+The time it takes for the failover to complete depends on the database activity and other conditions at the time the primary DB instance became unavailable. Failover times are typically 60-120 seconds
+Multi-AZ does use synchronous replication but failover is not instantaneous
+The DN record is updated, not the IP address
+References:
+https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.MultiAZ.html
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/database/amazon-rds/
+36. Question
+A Solutions Architect is designing the system monitoring and deployment layers of a serverless application. The system monitoring layer will manage system visibility through recording logs and metrics and the deployment layer will deploy the application stack and manage workload changes through a release management process.
+The Architect needs to select the most appropriate AWS services for these functions. Which services and frameworks should be used for the system monitoring and deployment layers? (choose 2)
+Use AWS SAM to package, test, and deploy the serverless application stack
+Use AWS X-Ray to package, test, and deploy the serverless application stack
+Use AWS Lambda to package, test, and deploy the serverless application stack
+Use Amazon CloudWatch for consolidating system and application logs and monitoring custom metrics
+Use Amazon CloudTrail for consolidating system and application logs and monitoring custom metrics
+Answer: 1,4
+Explanation:
+AWS Serverless Application Model (AWS SAM) is an extension of AWS CloudFormation that is used to package, test, and deploy serverless applications
+With Amazon CloudWatch, you can access system metrics on all the AWS services you use, consolidate system and application level logs, and create business key performance indicators (KPIs) as custom metrics for your specific needs
+AWS Lambda is used for executing your code as functions, it is not used for packaging, testing and deployment. AWS Lambda is used with AWS SAM
+AWS X-Ray lets you analyze and debug serverless applications by providing distributed tracing and service maps to easily identify performance bottlenecks by visualizing a request end-to-end
+References:
+https://docs.aws.amazon.com/lambda/latest/dg/serverless_app.html
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/management-tools/amazon-cloudwatch/
+37. Question
+You need to upload a large (2GB) file to an S3 bucket. What is the recommended way to upload a single large file to an S3 bucket?
+Use AWS Import/Export
+Use Multipart Upload
+Use a single PUT request to upload the large file
+Use Amazon Snowball
+Answer: 2
+Explanation:
+In general, when your object size reaches 100 MB, you should consider using multipart uploads instead of uploading the object in a single operation. The largest object that can be uploaded in a single PUT is 5 gigabytes
+Snowball is used for migrating large quantities (TB/PB) of data into AWS, it is overkill for this requirement
+AWS Import/Export is a service in which you send in HDDs with data on to AWS and they import your data into S3. It is not used for single files
+References:
+https://docs.aws.amazon.com/AmazonS3/latest/dev/uploadobjusingmpu.html
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/storage/amazon-s3/
+38. Question
+You are using a series of Spot instances that process messages from an SQS queue and store results in a DynamoDB table. Shortly after picking up a message from the queue AWS terminated the Spot instance. The Spot instance had not finished processing the message. What will happen to the message?
+The results may be duplicated in DynamoDB as the message will likely be processed multiple times
+The message will be lost as it would have been deleted from the queue when processed
+The message will remain in the queue and be immediately picked up by another instance
+The message will become available for processing again after the visibility timeout expires
+Answer: 4
+Explanation:
+The visibility timeout is the amount of time a message is invisible in the queue after a reader picks up the message. If a job is processed within the visibility timeout the message will be deleted. If a job is not processed within the visibility timeout the message will become visible again (could be delivered twice). The maximum visibility timeout for an Amazon SQS message is 12 hours
+The message will not be lost and will not be immediately picked up by another instance. As mentioned above it will be available for processing in the queue again after the timeout expires
+As the instance had not finished processing the message it should only be fully processed once. Depending on your application process however it is possible some data was written to DynamoDB
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/application-integration/amazon-sqs/
+39. Question
+A DynamoDB table you manage has a variable load, ranging from sustained heavy usage some days, to only having small spikes on others. The load is 80% read and 20% write. The provisioned throughput capacity has been configured to account for the heavy load to ensure throttling does not occur.
+You have been asked to find a solution for saving cost. What would be the most efficient and cost-effective solution?
+Create a CloudWatch alarm that notifies you of increased/decreased load, and manually adjust the provisioned throughput
+Create a DynamoDB Auto Scaling scaling policy
+Create a CloudWatch alarm that triggers an AWS Lambda function that adjusts the provisioned throughput
+Use DynamoDB DAX to increase the performance of the database
+Answer: 2
+Explanation:
+DynamoDB auto scalinguses the AWS Application Auto Scaling service to dynamically adjust provisioned throughput capacity on your behalf, in response to actual traffic patterns. This is the most efficient and cost-effective solution
+Manually adjusting the provisioned throughput is not efficient
+Using AWS Lambda to modify the provisioned throughput is possible but it would be more cost-effective to use DynamoDB Auto Scaling as there is no cost to using it
+DynamoDB DAX is an in-memory cache that increases the performance of DynamoDB. However, it costs money and there is no requirement to increase performance
+References:
+https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/AutoScaling.html
+40. Question
+A financial services company regularly runs an analysis of the day’s transaction costs, execution reporting, and market performance. The company currently uses third-party commercial software for provisioning, managing, monitoring, and scaling the computing jobs which utilize a large fleet of EC2 instances.
+The company is seeking to reduce costs and utilize AWS services. Which AWS service could be used in place of the third-party software?
+Amazon Lex
+Amazon Athena
+AWS Systems Manager
+AWS Batch
+Answer: 4
+Explanation:
+AWS Batch eliminates the need to operate third-party commercial or open source batch processing solutions. There is no batch software or servers to install or manage. AWS Batch manages all the infrastructure for you, avoiding the complexities of provisioning, managing, monitoring, and scaling your batch computing jobs
+AWS Systems Manager gives you visibility and control of your infrastructure on AWS
+Amazon Athena is an interactive query service that makes it easy to analyze data in Amazon S3 using standard SQL
+Amazon Lex is a service for building conversational interfaces into any application using voice and text
+References:
+https://aws.amazon.com/batch/
+41. Question
+One of the applications you manage receives a high traffic load between 7:30am and 9:30am daily. The application uses an Auto Scaling Group (ASG) to maintain 3 EC2 instances most of the time but during the peak period requires 6 EC2 instances. How can you configure ASG to perform a regular scale-out event at 7:30am and a scale-in event at 9:30am daily to account for the peak load?
+Use a Simple scaling policy
+Use a Scheduled scaling policy
+Use a Step scaling policy
+Use a Dynamic scaling policy
+Answer: 2
+Explanation:
+Simple – maintains a current number of instances, you can manually change the ASGs min/desired/max and attach/detach instances
+Scheduled – Used for predictable load changes, can be a single event or a recurring schedule
+Dynamic (event based) – scale in response to an event/alarm
+Step – configure multiple scaling steps in response to multiple alarms
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/compute/aws-auto-scaling/
+42. Question
+A large multi-national client has requested a design for a multi-region database. The master database will be in the EU (Frankfurt) region and databases will be located in 4 other regions to service local read traffic. The database should be a managed service including the replication.
+The solution should be cost-effective and secure. Which AWS service can deliver these requirements?
+RDS with cross-region Read Replicas
+RDS with Multi-AZ
+ElastiCache with Redis and clustering mode enabled
+EC2 instances with EBS replication
+Answer: 1
+Explanation:
+RDS Read replicas are used for read heavy DBs and replication is asynchronous. Read replicas are for workload sharing and offloading. Read replicas can be in another region (uses asynchronous replication)
+RDS with Multi-AZ is within a region only
+ElastiCache is an in-memory key/value storedatabase (more OLAP than OLTP) and is not suitable for this scenario. Clustering mode is only available within the same region
+EC2 instances with EBS replication is not a suitable solution
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/database/amazon-rds/
+43. Question
+You have just created a new AWS account and selected the Asia Pacific (Sydney) region. Within the default VPC there is a default security group. What settings are configured within this security group by default? (choose 2)
+There is an outbound rule that allows all traffic to all addresses
+There is an outbound rule that allows traffic to the VPC router
+There is an outbound rule that allows all traffic to the security group itself
+There is an inbound rule that allows all traffic from any address
+There is an inbound rule that allows all traffic from the security group itself
+Answer: 1,5
+Explanation:
+Default security groups have inbound allow rules (allowing traffic from within the group)
+Custom security groups do not have inbound allow rules (all inbound traffic is denied by default)
+All outbound traffic is allowed by default in custom and default security groups
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/networking-and-content-delivery/amazon-vpc/
+44. Question
+You are running an Auto Scaling Group (ASG) with an Elastic Load Balancer (ELB) and a fleet of EC2 instances. Health checks are configured on the ASG to use EC2 status checks. The ELB has determined that an EC2 instance is unhealthy and has removed it from service. However, you noticed that the instance is still running and has not been terminated by the ASG.
+What would be an explanation for this behavior?
+The ELB health check type has not been selected for the ASG and so it is unaware that the instance has been determined to be unhealthy by the ELB and has been removed from service
+Connection draining is enabled and the ASG is waiting for in-flight requests to complete
+The health check grace period has not yet expired
+The ASG is waiting for the cooldown timer to expire before terminating the instance
+Answer: 1
+Explanation:
+If using an ELB it is best to enable ELB health checks as otherwise EC2 status checks may show an instance as being healthy that the ELB has determined is unhealthy. In this case the instance will be removed from service by the ELB but will not be terminated by Auto Scaling
+Connection draining is not the correct answer as the ELB has taken the instance out of service so there are no active connections
+The health check grace period allows a period of time for a new instance to warm up before performing a health check
+More information on ASG health checks:
+By default uses EC2 status checks
+Can also use ELB health checks and custom health checks
+ELB health checks are in addition to the EC2 status checks
+If any health check returns an unhealthy status the instance will be terminated
+With ELB an instance is marked as unhealthy if ELB reports it as OutOfService
+A healthy instance enters the InService state
+If an instance is marked as unhealthy it will be scheduled for replacement
+If connection draining is enabled, Auto Scaling waits for in-flight requests to complete or timeout before terminating instances
+The health check grace period allows a period of time for a new instance to warm up before performing a health check (300 seconds by default)
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/compute/aws-auto-scaling/
+45. Question
+A developer is writing code for AWS Lambda and is looking to automate the release process. Which AWS services can be used to automate the release process of Lambda applications? (choose 2)
+AWS Glue
+AWS OpsWorks
+AWS CodeDeploy
+AWS Cognito
+AWS CodePipeline
+Answer: 3,5
+Explanation:
+You can automate your serverless application’s release process using AWS CodePipeline and AWS CodeDeploy
+The following AWS services can be used to fully automate the deployment process:
+You use CodePipeline to model, visualize, and automate the steps required to release your serverless application
+You use AWS CodeDeploy to gradually deploy updates to your serverless applications
+You use CodeBuild to build, locally test, and package your serverless application
+You use AWS CloudFormation to deploy your application
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/compute/aws-lambda/
+https://docs.aws.amazon.com/lambda/latest/dg/build-pipeline.html
+46. Question
+When using the MySQL database with AWS RDS, features such as Point-In-Time restore and snapshot restore require a recoverable storage engine. Which storage engine must be used to enable these features?
+Memory
+MyISAM
+InnoDB
+Federated
+Answer: 3
+Explanation:
+RDS fully supports the InnoDB storage engine for MySQL DB instances. RDS features such as Point-In-Time restore and snapshot restore require a recoverable storage engine and are supported for the InnoDB storage engine only
+Automated backups and snapshots are not supported for MyISAM
+There is no storage engine called “memory” or “federated”
+References:
+https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MySQL.html
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/database/amazon-rds/
+47. Question
+One of your clients is transitioning their web presence into the AWS cloud. As part of the migration the client will be running a web application both on-premises and in AWS for a period of time. During the period of co-existence the client would like 80% of the traffic to hit the AWS-based web servers and 20% to be directed to the on-premises web servers.
+What method can you use to distribute traffic as requested?
+Use Route 53 with a simple routing policy
+Use Route 53 with a weighted routing policy and configure the respective weights
+Use an Application Load Balancer to distribute traffic based on IP address
+Use a Network Load Balancer to distribute traffic based on Instance ID
+Answer: 2
+Explanation:
+Route 53 weighted routing policy is similar to simple but you can specify a weight per IP address. You create records that have the same name and type and assign each record a relative weight which is a numerical value that favours one IP over another (values must total 100). To stop sending traffic to a resource you can change the weight of the record to 0
+Network Load Balancer can distribute traffic to AWS and on-premise resources using IP addresses (not Instance IDs)
+Application Load Balancer can distribute traffic to AWS and on-premise resources using IP addresses but cannot be used to distribute traffic in a weighted manner
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/compute/elastic-load-balancing/
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/networking-and-content-delivery/amazon-route-53/
+48. Question
+A government agency is using CloudFront for a web application that receives personally identifiable information (PII) from citizens. What feature of CloudFront applies an extra level of encryption at CloudFront edge locations to ensure the PII data is secured end-to-end?
+Origin access identity
+Field-level encryption
+Object invalidation
+RTMP distribution
+Answer: 2
+Explanation:
+Field-level encryption adds an additional layer of security on top of HTTPS that lets you protect specific data so that it is only visible to specific applications
+Origin access identity applies to S3 bucket origins, not web servers
+Object invalidation is a method to remove objects from the cache
+An RTMP distribution is a method of streaming media using Adobe Flash
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/networking-and-content-delivery/amazon-cloudfront/
+https://aws.amazon.com/about-aws/whats-new/2017/12/introducing-field-level-encryption-on-amazon-cloudfront/
+49. Question
+An application is generating a large amount of clickstream events data that is being stored on S3. The business needs to understand customer behaviour and want to run complex analytics queries against the data.
+Which AWS service can be used for this requirement?
+Amazon Kinesis Firehose
+Amazon RDS
+Amazon Neptune
+Amazon RedShift
+Answer: 4
+Explanation:
+Amazon Redshift is a fast, fully managed data warehouse that makes it simple and cost-effective to analyze all your data using standard SQL and existing Business Intelligence (BI) tools.
+RedShift is used for running complex analytic queries against petabytes of structured data, using sophisticated query optimization, columnar storage on high-performance local disks, and massively parallel query execution.
+With RedShift you can load data from Amazon S3 and perform analytics queries. RedShift Spectrum can analyze data directly in Amazon S3, but was not presented as an option.
+RDS is a relational database that is used for transactional workloads not analytics workloads.
+Amazon Neptune is a new product that offers a fully-managed Graph database.
+Amazon Kinesis Firehose processes streaming data, not data stored on S3.
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/database/amazon-redshift/
+50. Question
+You need to setup a distribution method for some static files. The requests will be mainly GET requests and you are expecting a high volume of GETs often exceeding 2000 per second. The files are currently stored in an S3 bucket. According to AWS best practices, what can you do to optimize performance?
+Integrate CloudFront with S3 to cache the content
+Use cross-region replication to spread the load across regions
+Use ElastiCache to cache the content
+Use S3 Transfer Acceleration
+Answer: 1
+Explanation:
+Amazon S3 automatically scales to high request rates. For example, your application can achieve at least 3,500 PUT/POST/DELETE and 5,500 GET requests per second per prefix in a bucket. There are no limits to the number of prefixes in a bucket
+If your workload is mainly sending GET requests, in addition to the preceding guidelines, you should consider using Amazon CloudFront for performance optimization. By integrating CloudFront with Amazon S3, you can distribute content to your users with low latency and a high data transfer rate
+Transfer Acceleration is used to accelerate object uploads to S3 over long distances (latency)
+Cross-region replication creates a replica copy in another region but should not be used for spreading read requests across regions. There will be 2 S3 endpoints and CRR is not designed for 2 way sync so this would not work well
+ElastiCache is used for caching database content not S3 content
+References:
+https://docs.aws.amazon.com/AmazonS3/latest/dev/request-rate-perf-considerations.html
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/storage/amazon-s3/
+51. Question
+An RDS database is experiencing heavy read traffic. You are planning on creating read replicas. When using Amazon RDS with Read Replicas, which of the deployment options below are valid? (choose 2)
+Cross-Continent
+Within an Availability Zone
+Cross-subnet
+Cross-Availability Zone
+Cross-Facility
+Answer: 2,4
+Explanation:
+Read Replicas can be within an AZ, Cross-AZ and Cross-Region
+Read replicas are used for read heavy DBs and replication is asynchronous. Read replicas are for workload sharing and offloading
+Read replicas cannot be cross-continent, cross-subnet or cross-facility
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/database/amazon-rds/
+52. Question
+You are planning on using AWS Auto Scaling to ensure that you have the correct number of Amazon EC2 instances available to handle the load for your applications. Which of the following statements is correct about Auto Scaling? (choose 2)
+Auto Scaling is a region-specific service
+Auto Scaling can span multiple AZs within the same AWS region
+Auto Scaling is charged by the hour when registered
+You create collections of EC2 instances, called Launch Groups
+Auto Scaling relies on Elastic Load Balancing
+Answer: 1,2
+Explanation:
+Auto Scaling is a region specific service
+Auto Scaling can span multiple AZs within the same AWS region
+You create collections of EC2 instances, called Auto Scaling groups
+There is no additional cost for Auto Scaling, you just pay for the resources (EC2 instances) provisioned
+Auto Scaling does not rely on ELB but can be used with ELB.
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/compute/aws-auto-scaling/
+53. Question
+As a Solutions Architect at Digital Cloud Training you are helping a client to design a multi-tier web application architecture. The client has requested that the architecture provide low-latency connectivity between all servers and be resilient across multiple locations. The client uses Microsoft SQL Server for existing databases. The client has a limited budget for staff costs and does not need to access the underlying operating system
+What would you recommend as the most efficient solution?
+Amazon RDS with Microsoft SQL Server
+Amazon EC2 instances with Microsoft SQL Server and data replication within an AZ
+Amazon RDS with Microsoft SQL Server in a Multi-AZ configuration
+Amazon EC2 instances with Microsoft SQL Server and data replication between two different AZs
+Answer: 3
+Explanation:
+As the client does not need to manage the underlying operating system and they have a limited budget for staff, they should use a managed service such as RDS. Multi-AZ RDS creates a replica in another AZ and synchronously replicates to it which enables the required resilience across multiple locations
+With EC2 you have full control at the operating system layer (not required) and can install your own database. However, you would then need to manage the entire stack and therefore staff costs would increase so this is not the best solution
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/networking-and-content-delivery/amazon-vpc/
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/compute/amazon-ec2/
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/database/amazon-rds/
+54. Question
+A company is investigating ways to analyze and process large amounts of data in the cloud faster, without needing to load or transform the data in a data warehouse. The data resides in Amazon S3.
+Which AWS services would allow the company to query the data in place? (choose 2)
+Amazon RedShift Spectrum
+Amazon Elasticsearch
+Amazon Kinesis Data Streams
+Amazon SWF
+Amazon S3 Select
+Answer: 1,5
+Explanation:
+Amazon S3 Select is designed to help analyze and process data within an object in Amazon S3 buckets, faster and cheaper. It works by providing the ability to retrieve a subset of data from an object in Amazon S3 using simple SQL expressions
+Amazon Redshift Spectrum allows you to directly run SQL queries against exabytes of unstructured data in Amazon S3. No loading or transformation is required
+Amazon Kinesis Data Streams (KDS) is a massively scalable and durable real-time data streaming service. It does not allow you to perform query-in-place operations on S3
+Amazon Elasticsearch Service, is a fully managed service that makes it easy for you to deploy, secure, operate, and scale Elasticsearch to search, analyze, and visualize data in real-time
+Amazon SWF helps developers build, run, and scale background jobs that have parallel or sequential steps
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/database/amazon-redshift/
+https://aws.amazon.com/blogs/aws/s3-glacier-select/
+https://aws.amazon.com/about-aws/whats-new/2017/11/amazon-redshift-spectrum-is-now-available-in-four-additional-aws-regions-and-enhances-query-performance-in-all-available-aws-regions/
+55. Question
+You work as an Enterprise Architect for a global organization which employs 20,000 people. The company is growing at around 5% per annum. The company strategy is to increasingly adopt AWS cloud services. There is an existing Microsoft Active Directory (AD) service that is used as the on-premise identity and access management system. You want to enable users to authenticate using their existing identities and access AWS resources (including the AWS Management Console) using single sign-on (SSO).
+What is the simplest way to enable SSO to the AWS management console using the existing domain?
+Launch a large AWS Directory Service AD Connector to proxy all authentication back to your on-premise AD service for authentication
+Use a large AWS Simple AD in AWS
+Launch an Enterprise Edition AWS Active Directory Service for Microsoft Active Directory and setup trust relationships with your on-premise domain
+Install a Microsoft Active Directory Domain Controller on AWS and add it into your existing on-premise domain
+Answer: 3
+Explanation:
+With the AWS Active Directory Service for Microsoft Active Directory you can setup trust relationships to extend authentication from on-premises Active Directories into the AWS cloud. You can also use Active Directory credentials to authenticate to the AWS management console without having to set up SAML authentication. It is a fully managed AWS service on AWS infrastructure and is the best choice if you have more than 5000 users and/or need a trust relationship set up.
+You could install a Microsoft AD DC on an EC2 instance and add it to the existing domain. However, you would then have to setup federation / SAML infrastructure for SSO. This is not therefore the simplest solution
+AWS Simple AD does not support trust relationships or synchronisation with Active Directory
+AD Connector would be a good solution for this use case however the best practice is to use AWS Active Directory Service for Microsoft Active Directory for more than 5,000 users
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/security-identity-compliance/aws-directory-service/
+56. Question
+One of the departments in your company has been generating a large amount of data on S3 and you are considering the increasing costs of hosting it. You have discussed the matter with the department head and he explained that data older than 90 days is rarely accessed but must be retained for several years. If this data does need to be accessed at least 24 hours notice will be provided.
+How can you optimize the costs associated with storage of this data whilst ensuring it is accessible if required?
+Use S3 lifecycle policies to move data to GLACIER after 90 days
+Implement archival software that automatically moves the data to tape
+Select the older data and manually migrate it to GLACIER
+Use S3 lifecycle policies to move data to the STANDARD_IA storage class
+Answer: 1
+Explanation:
+To manage your objects so that they are stored cost effectively throughout their lifecycle, configure their lifecycle. A lifecycle configuration is a set of rules that define actions that Amazon S3 applies to a group of objects. Transition actions define when objects transition to another storage class
+For example, you might choose to transition objects to the STANDARD_IA storage class 30 days after you created them, or archive objects to the GLACIER storage class one year after creating them
+STANDARD_IA is good for infrequently accessed data and provides faster access times than GLACIER but is more expensive so not the best option here
+GLACIER retrieval times:
+Standard retrieval is 3-5 hours which is well within the requirements here
+You can use Expedited retrievals to access data in 1 – 5 minutes
+You can use Bulk retrievals to access up to petabytes of data in approximately 5 – 12 hours
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/storage/amazon-s3/
+https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html
+https://aws.amazon.com/about-aws/whats-new/2016/11/access-your-amazon-glacier-data-in-minutes-with-new-retrieval-options/
+57. Question
+You need to launch a series of EC2 instances with multiple attached volumes by modifying the block device mapping. Which block device can be specified in a block device mapping to be used with an EC2 instance? (choose 2)
+EFS volume
+Snapshot
+S3 bucket
+Instance store volume
+EBS volume
+Answer: 4,5
+Explanation:
+Each instance that you launch has an associated root device volume, either an Amazon EBS volume or an instance store volume
+You can use block device mapping to specify additional EBS volumes or instance store volumes to attach to an instance when it’s launched. You can also attach additional EBS volumes to a running instance
+You cannot use a block device mapping to specify a snapshot, EFS volume or S3 bucket
+References:
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/compute/amazon-ebs/
+58. Question
+Some data has become corrupt in an RDS database you manage. You are planning to use point-in-time restore to recover the data to the last known good configuration. Which of the following statements is correct about restoring an RDS database to a specific point-in-time? (choose 2)
+The database restore overwrites the existing database
+The default DB security group is applied to the new DB instance
+You can restore up to the last 1 minute
+Custom DB security groups are applied to the new DB instance
+You can restore up to the last 5 minutes
+Answer: 2,5
+Explanation:
+Restored DBs will always be a new RDS instance with a new DNS endpoint and you can restore up to the last 5 minutes
+You cannot restore from a DB snapshot to an existing DB – a new instance is created when you restore
+Only default DB parameters and security groups are restored – you must manually associate all other DB parameters and SGs
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/database/amazon-rds/
+https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIT.html
+59. Question
+You are designing the disk configuration for an EC2 instance. The instance needs to support a MapReduce process that requires high throughput for a large dataset with large I/O sizes. You need to provision the most cost-effective storage solution option.
+What EBS volume type will you select?
+EBS General Purpose SSD in a RAID 1 configuration
+EBS Throughput Optimized HDD
+EBS Provisioned IOPS SSD
+EBS General Purpose SSD
+Answer: 2
+Explanation:
+EBS Throughput Optimized HDD is good for the following use cases (and is the most cost-effective option:
+Frequently accessed, throughput intensive workloads with large datasets and large I/O sizes, such as MapReduce, Kafka, log processing, data warehouse, and ETL workloads
+Throughput is measured in MB/s, and includes the ability to burst up to 250 MB/s per TB, with a baseline throughput of 40 MB/s per TB and a maximum throughput of 500 MB/s per volume
+The SSD options are more expensive
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/compute/amazon-ebs/
+60. Question
+A company is deploying a new two-tier web application that uses EC2 web servers and a DynamoDB database backend. An Internet facing ELB distributes connections between the web servers.
+The Solutions Architect has created a security group for the web servers and needs to create a security group for the ELB. What rules should be added? (choose 2)
+Add an Inbound rule that allows HTTP/HTTPS, and specify the source as 0.0.0.0/32
+Add an Outbound rule that allows ALL TCP, and specify the destination as the Internet Gateway
+Add an Inbound rule that allows HTTP/HTTPS, and specify the source as 0.0.0.0/0
+Add an Outbound rule that allows HTTP/HTTPS, and specify the destination as the web server security group
+Add an Outbound rule that allows HTTP/HTTPS, and specify the destination as VPC CIDR
+Answer: 3,4
+Explanation:
+An inbound rule should be created for the relevant protocols (HTTP/HTTPS) and the source should be set to any address (0.0.0.0/0)
+The address 0.0.0.0/32 is incorrect as the 32 mask means an exact match is required (0.0.0.0)
+The outbound rule should forward the relevant protocols (HTTP/HTTPS) and the destination should be set to the web server security group
+Using the VPC CIDR would not be secure and you cannot specify an Internet Gateway in a security group (not that you’d want to anyway)
+FYI on the web server security group you’d want to add an Inbound rule allowing HTTP/HTTPS from the ELB security group
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/compute/elastic-load-balancing/
+61. Question
+A High Performance Computing (HPC) application will be migrated to AWS. The application requires low network latency and high throughput between nodes and will be deployed in a single AZ.
+How should the application be deployed for best inter-node performance?
+Behind a Network Load Balancer (NLB)
+In a partition placement group
+In a cluster placement group
+In a spread placement group
+Answer: 3
+Explanation:
+A cluster placement group provides low latency and high throughput for instances deployed in a single AZ. It is the best way to provide the performance required for this application.
+A partition placement group is used for grouping instances into logical segments. It provides control and visibility into instance placement but is not the best option for performance.
+A spread placement group is used to spread instances across underlying hardware. It is not the best option for performance.
+A network load balancer is used for distributing incoming connections, this does assist with inter-node performance.
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/compute/amazon-ec2/
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html
+62. Question
+A web application is deployed in multiple regions behind an ELB Application Load Balancer. You need deterministic routing to the closest region and automatic failover. Traffic should traverse the AWS global network for consistent performance.
+How can this be achieved?
+Use a CloudFront distribution with multiple custom origins in each region and configure for high availability
+Create a Route 53 Alias record for each ALB and configure a latency-based routing policy
+Place an EC2 Proxy in front of the ALB and configure automatic failover
+Configure AWS Global Accelerator and configure the ALBs as targets
+Answer: 4
+Explanation:
+AWS Global Accelerator is a service that improves the availability and performance of applications with local or global users. You can configure the ALB as a target and Global Accelerator will automatically route users to the closest point of presence. Failover is automatic and does not rely on any client side cache changes as the IP addresses for Global Accelerator are static anycast addresses. Global Accelerator also uses the AWS global network which ensures consistent performance.
+Placing an EC2 proxy in front of the ALB does not meet the requirements. This solution does not ensure deterministic routing the closest region and failover is happening within a region which does not protect against regional failure. Also, this introduces a potential bottleneck and lack of redundancy.
+A Route 53 Alias record for each ALB with latency-based routing does provide routing based on latency and failover. However, the traffic will not traverse the AWS global network.
+You can use CloudFront with multiple custom origins and configure for HA. However, the traffic will not traverse the AWS global network.
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/networking-and-content-delivery/aws-global-accelerator/
+https://aws.amazon.com/global-accelerator/
+https://aws.amazon.com/global-accelerator/faqs/
+https://docs.aws.amazon.com/global-accelerator/latest/dg/what-is-global-accelerator.html
+63. Question
+An application on Amazon Elastic Container Service (ECS) performs data processing in two parts. The second part takes much longer to complete. How can an Architect decouple the data processing from the backend application component?
+Process both parts using the same ECS task. Create an Amazon Kinesis Firehose stream
+Process each part using a separate ECS task. Create an Amazon SQS queue
+Create an Amazon DynamoDB table and save the output of the first part to the table
+Process each part using a separate ECS task. Create an Amazon SNS topic and send a notification when the processing completes
+Answer: 2
+Explanation:
+Processing each part using a separate ECS task may not be essential but means you can separate the processing of the data. An Amazon Simple Queue Service (SQS) is used for decoupling applications. It is a message queue on which you place messages for processing by application components. In this case you can process each data processing part in separate ECS tasks and have them write an Amazon SQS queue. That way the backend can pick up the messages from the queue when they’re ready and there is no delay due to the second part not being complete.
+Amazon Kinesis Firehose is used for streaming data. This is not an example of streaming data. In this case SQS is better as a message can be placed on a queue to indicate that the job is complete and ready to be picked up by the backend application component.
+Amazon DynamoDB is unlikely to be a good solution for this requirement. There is a limit on the maximum amount of data that you can store in an entry in a DynamoDB table.
+Amazon Simple Notification Service (SNS) can be used for sending notifications. It is useful when you need to notify multiple AWS services. In this case an Amazon SQS queue is a better solution as there is no mention of multiple AWS services and this is an ideal use case for SQS.
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/application-integration/amazon-sqs/
+64. Question
+A new relational database is being deployed on AWS. The performance requirements are unknown. Which database service does not require you to make capacity decisions upfront?
+Amazon RDS
+Amazon ElastiCache
+Amazon Aurora Serverless
+Amazon DynamoDB
+Answer: 3
+Explanation:
+If you don’t know the performance requirements it will be difficult to determine the correct instance type to use. Amazon Aurora Serverless does not require you to make capacity decisions upfront as you do not select an instance type. As a serverless service it will automatically scale as needed.
+Amazon DynamoDB is not a relational database, it is a NoSQL database.
+Amazon ElastiCache is more suitable for caching and also requires an instance type to be selected.
+Amazon RDS requires an instance type to be selected.
+References:
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/database/amazon-aurora/
+https://aws.amazon.com/rds/aurora/serverless/
+65. Question
+The database tier of a web application is running on a Windows server on-premises. The database is a Microsoft SQL Server database. The application owner would like to migrate the database to an Amazon RDS instance.
+How can the migration be executed with minimal administrative effort and downtime?
+Use AWS DataSync to migrate the data from the database to Amazon S3. Use AWS Database Migration Service (DMS) to migrate the database to RDS
+Use the AWS Database Migration Service (DMS) to directly migrate the database to RDS. Use the Schema Conversion Tool (SCT) to enable conversion from Microsoft SQL Server to Amazon RDS
+Use the AWS Database Migration Service (DMS) to directly migrate the database to RDS
+Use the AWS Server Migration Service (SMS) to migrate the server to Amazon EC2. Use AWS Database Migration Service (DMS) to migrate the database to RDS
+Answer: 3
+Explanation:
+You can directly migrate Microsoft SQL Server from an on-premises server into Amazon RDS using the Microsoft SQL Server database engine.
+You do not need to use the SCT as you are migrating into the same destination database engine (RDS is just the platform).
+You do not need to use the AWS SMS service to migrate the server into EC2 first. You can directly migrate the database online with minimal downtime.
+AWS DataSync is used for migrating data, not databases.
+References:
+https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.html
+https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.html
+https://aws.amazon.com/dms/schema-conversion-tool/
+https://digitalcloud.training/certification-training/aws-solutions-architect-associate/migration/aws-database-migration-service/

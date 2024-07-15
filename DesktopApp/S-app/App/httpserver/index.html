@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Directory</title>
+    <!--BOX ICONS-->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+
+
+<style>
+        h1 {
+            color: #333;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background: transparent;
+            margin: 5px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin: 15px;
+            border-radius: 10px;
+        }
+        li:hover{
+            box-shadow: 3px 3px 0 0 rgba(82, 82, 255, 0.308);
+
+        }
+        a {
+            text-decoration: none;
+            color: #007bff;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .download-button {
+            color: blue;
+            text-decoration: underline;
+            cursor: pointer;
+            border: none;
+            background: none;
+            padding: 0;
+            font-size: 1em;
+        }
+
+
+        *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+
+}
+
+body{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+}
+
+.wrapper{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: linear-gradient(90deg, rgba(68, 126, 233, 0.164) 0%, rgb(255, 255, 255) 25%);
+
+}
+.box div{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    border: 1px solid rgba(32, 41, 97, 0.712);
+    
+
+}
+
+.box div:nth-child(1){
+    top: 12%;
+    left: 42%;
+    animation: animate 6s linear infinite;
+    background-color: blue;
+    border: solid 3px blue;
+}
+
+.box div:nth-child(2){
+    top: 70%;
+    left: 6%;
+    animation: animate 10s linear infinite;
+    background-color: blue;
+    border: solid 3px blue;
+}
+
+.box div:nth-child(3){
+    top: 17%;
+    left: 6%;
+    animation: animate 12s linear infinite;
+    background-color: blue;
+    border: solid 3px blue;
+}
+
+
+.box div:nth-child(4){
+    top: 69%;
+    left: 80%;
+    animation: animate 9s linear infinite;
+}
+
+.box div:nth-child(5){
+    top: 32%;
+    left: 25%;
+    animation: animate 12s linear infinite;
+}
+
+.box div:nth-child(6){
+    top: 90%;
+    left: 2%;
+    animation: animate 5s linear infinite;
+}
+
+.box div:nth-child(7){
+    top: 80%;
+    left: 65%;
+    animation: animate 6s linear infinite;
+    background-color: blue;
+    border: solid 3px blue;
+}
+
+.box div:nth-child(8){
+    top: 2%;
+    left: 75%;
+    animation: animate 18s linear infinite;
+}
+
+.box div:nth-child(9){
+    top: 95%;
+    left: 50%;
+    animation: animate 12s linear infinite;
+    background-color: blue;
+    border: solid 3px blue;
+}
+
+
+
+.box div:nth-child(11){
+    top: 10%;
+    left: 2%;
+    animation: animate 5s linear infinite;
+}
+
+.box div:nth-child(12){
+    top: 50%;
+    left: 2%;
+    animation: animate 15s linear infinite;
+    background-color: blue;
+    border: solid 3px blue;
+}
+
+
+.box div:nth-child(13){
+    top: 20%;
+    left: 20%;
+    animation: animate 35s linear infinite;
+}
+
+.box div:nth-child(14){
+    top: 35%;
+    left: 0%;
+    animation: animate 35s linear infinite;
+}
+
+
+.box div:nth-child(15){
+    top: 40%;
+    left: 30%;
+    animation: animate 30s linear infinite;
+}
+
+
+.box div:nth-child(16){
+    top: 45%;
+    left: 35%;
+    animation: animate 30s linear infinite;
+}
+
+
+.box div:nth-child(17){
+    top: 60%;
+    left: 25%;
+    animation: animate 13s linear infinite;
+}
+
+.box div:nth-child(18){
+    top: 60%;
+    left: 25%;
+    animation: animate 8s linear infinite;
+}
+
+.box div:nth-child(19){
+    top: 80%;
+    left: 25%;
+    animation: animate 10s linear infinite;
+}
+
+
+
+.box div:nth-child(20){
+    top: 70%;
+    left: 35%;
+    animation: animate 3s linear infinite;
+}
+
+
+.box div:nth-child(21){
+    top: 70%;
+    left: 90%;
+    animation: animate 3s linear infinite;
+    background-color: blue;
+    border: solid 3px blue;
+}
+
+
+
+
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container .text{
+    position:relative;
+    color: rgb(0, 0, 184);
+    font-size: 20px;
+    font-weight: 900px;
+}
+
+
+svg{
+    width: 90px;
+    height: 110px;
+    align-items: center;
+    justify-content: center;
+}
+
+.simple{
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.container-down{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 60px;
+    font-weight: 2px;
+    margin-top: 60px;
+}
+
+.container .text.first-text{
+    color:black;
+}
+
+
+.container .text.sec-text:before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color:white;
+    border-left: 4px solid blue;
+    animation: animate0 5s steps(12) infinite;
+}
+
+.container-down .down-text:before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color:rgb(255, 255, 255);
+    border-left: 1px solid rgb(165, 163, 163);
+    animation: animate0 5s steps(40) infinite;
+}
+
+
+
+@keyframes animate0{
+    40%, 60% {
+        left: calc(100% + 4px);
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+
+@keyframes animate{
+    0%{
+        transform:  scale(0) translateY(0) rotate(0);
+        opacity: 1;
+    }
+    0%{
+        transform: scale(1.3) translate(-90px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+h3{
+    margin-bottom: 30px;
+}
+
+
+.footer {
+            background-color: #becfff;
+            color: #000000;
+            text-align: center;
+            padding: 1px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            font-size: 15px;
+            display: flex;
+            height: 30px;
+            align-items: center;
+            justify-content: center;
+        }
+
+.footer div{
+    display: flex;
+    padding-left: 30px;
+}
+
+.name{
+    color: rgb(0, 0, 179);
+}
+
+</style>
+</head>
+<body>   
+
+    <div class="wrapper">
+        <div class="box">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <div class="container">
+        
+        <div class="text first-text">
+            <h3>Available File : </h3>
+            <ul id="file-list"></ul>
+        </div>
+    </div>
+
+
+    <script>
+        fetch('/files')
+            .then(response => response.json())
+            .then(data => {
+                const fileList = document.getElementById('file-list');
+                data.files.forEach(file => {
+                    const li = document.createElement('li');
+                    
+                    const a = document.createElement('span');
+                    a.href = file.url;
+                    a.textContent = `${file.name} (${file.size})`;
+                    a.classList.add("name")
+                    
+                    const button = document.createElement('button');
+                    button.textContent = 'Download';
+                    button.className = 'download-button';
+                    button.onclick = () => {
+                        window.location.href = file.url;
+                    };
+
+                    li.appendChild(a);
+                    li.appendChild(document.createTextNode(' '));
+                    li.appendChild(button);
+                    fileList.appendChild(li);
+                });
+            });
+    </script>
+
+
+        <!-- Pied de page -->
+        <div class="footer">
+            <div>
+                <i class='bx bx-user'></i>
+                <p>Stephene WANTCHEKON</p>
+            </div>
+
+            <div>
+                <i class='bx bxl-gmail' ></i>
+                <p>stephenew36@gmail.com</p>
+            </div>
+
+            <div>
+                <i class='bx bxl-linkedin-square' ></i>
+                <a href="www.linkedin.com/in/stephene-wantchekon">www.linkedin.com/in/stephene-wantchekon</a>
+            </div>
+
+            <div>
+                <i class='bx bxl-whatsapp' ></i>
+                <a href="">+229-60-87-77-28</a>
+            </div>
+        </div>
+</body>
+</html>

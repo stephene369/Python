@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML to PDF Example</title>
+    <!-- Inclusion des bibliothèques jsPDF et html2canvas via CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+    <div id="html-content">
+        <h1>Hello, world!</h1>
+        <p>This is a simple example of generating PDF from HTML using JavaScript.</p>
+    </div>
+    <button id="download-pdf">Generate PDF</button>
+
+    <script>
+        document.getElementById('download-pdf').addEventListener('click', function() {
+            const element = document.getElementById('html-content'); // Get the HTML element to be converted to PDF
+            html2canvas(element).then(canvas => {
+                const imgData = canvas.toDataURL('image/png'); // Convert canvas to image data
+                const pdf = new jsPDF(); // Initialize jsPDF
+                const imgProps = pdf.getImageProperties(imgData);
+                const pdfWidth = pdf.internal.pageSize.getWidth();
+                const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+                pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight); // Add image to PDF
+                pdf.save('converted-document.pdf'); // Save PDF
+            });
+        });
+    </script>
+</body>
+</html>
