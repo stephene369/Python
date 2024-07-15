@@ -1,0 +1,101 @@
+\documentclass[a4paper, 12pt]{book}
+
+% Packages
+\usepackage{titlesec}
+\usepackage{fontawesome}
+\usepackage[utf8]{inputenc}
+\usepackage[OT1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumerate}
+\usepackage{shorttoc}
+\usepackage[table]{xcolor}
+\definecolor{lightgray}{gray}{0.1}
+\usepackage{multirow}
+\usepackage{geometry}
+
+\usepackage{graphicx}
+
+\usepackage{epstopdf}
+\geometry{left=2cm,right=2cm,top=2cm,bottom=2cm}
+
+\usepackage{textcomp}
+\usepackage{fancyhdr}
+\usepackage{mathtools}
+
+
+\pagestyle{fancy}
+\lhead{ }
+\rhead{Etude comparative de deux stratégies de trading}
+\lfoot{Stephene Wantchekon} 
+\cfoot{}
+\rfoot{\thepage}
+\renewcommand{\footrulewidth}{0.1mm}
+\setcounter{tocdepth}{4}
+
+\definecolor{myblue}{RGB}{180,200,240}
+
+%{\normalfont\huge\bfseries\filcenter}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
+%\definecolor{myblue}{RGB}{142, 251, 255}
+
+\usepackage{pstricks-add, cellspace}
+\usepackage{wasysym}
+\usepackage{pifont}
+%\usepackage{auto-pst-pdf}
+\newcommand{\msat}{\raisebox{-0.4\height}{\begin{pspicture}\pscircle(0,0){\satradius}\psscalebox{0.5}{\qdisk(0,0){\satradius}}\end{pspicture}}}
+\newcommand{\bigItemDiamond}{\Large{\item[$\diamond$]}}
+
+
+
+\begin{document}
+	\thispagestyle{empty}
+		
+		\input{debut/garde.tex}
+
+
+	%%% CHAPITRE 2
+		\newpage
+		\input{chapitre1/garde.tex}
+		\newpage
+		\input{chapitre2/garde.tex}
+		\newpage
+		\input{chapitre2/cadreTheorique.tex}
+
+		\input{chapitre2/revue.tex}
+		
+		\input{chapitre2/methodologie.tex}
+
+		\input{chapitre2/outils.tex}
+
+		\newpage
+		\input{chapitre3/garde.tex}
+		\newpage
+
+		\input{chapitre3/collecte_analyse.tex}
+		\input{chapitre3/presentation.tex}
+		\input{chapitre3/interpretation.tex}
+		\input{chapitre3/solutions.tex}
+		
+			
+		%\newpage
+		%\input{fin/conclusion.tex}
+		%\newpage
+		\input{fin/references.tex}
+
+\end{document}
+
+
+
+%\item[$\blacksquare$]
+
+
+
+
+
+
+
+
+
+
+ 

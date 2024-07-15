@@ -1,0 +1,3068 @@
+<h1 class="unnumbered" id="avertissement">Avertissement</h1>
+<div class="center">
+<p>L’African School of Economics n’entend donner ni approbation, ni
+improbation aux opinions émises dans ce mémoire. Ces opinions doivent
+être considérées comme propres à son auteur.</p>
+</div>
+<h1 class="unnumbered" id="approbation">Approbation</h1>
+<div class="center">
+<p>Nous certifions que le présent mémoire a été réalisé par son auteur.
+Sa rédaction est achevée et il a été soutenu devant un jury.<br />
+Abomey-Calavi, le<br />
+</p>
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><em>Présiden t du jury</em></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h1 class="unnumbered" id="dédicaces">Dédicaces</h1>
+<div class="center">
+<p><span>À mes frères.</span></p>
+</div>
+<h1 class="unnumbered" id="remerciements">Remerciements</h1>
+<p>Ce travail n’aurait pas été possible sans l’aide et la contribution
+de certaine personne. Je tiens avant tout à remercier :</p>
+<ul>
+<li><p>le professeur Léonard WANTCHEKON, Président fondateur d’African
+School of Economics ;<br />
+</p></li>
+<li><p>le Dr Placide da CRUZ, Doyen des études du premier cycle
+d’African School of Economics ;<br />
+</p></li>
+<li><p>le Dr Maurice COMLAN, Enseignant à l’ENEAM, mon Maitre de mémoire
+;<br />
+</p></li>
+<li><p>M. Amiel SOSSA, mon Maitre de stage, pour sa patience, sa
+disponibilité et surtout ses judicieux conseils, qui ont contribué à
+alimenter ma réflexion ;<br />
+</p></li>
+<li><p>Amos Sourou LEGBA, mon college de stage, camarade de promation et
+avant tout un ami très cher ;<br />
+</p></li>
+<li><p>tous les stagières et étudiant de LESCAL ;<br />
+</p></li>
+<li><p>tous mes camades de promotion ;<br />
+</p></li>
+<li><p>toutes ma famille pour leurs encouragement ;<br />
+</p></li>
+<li><p>toutes les personnes qui directement ou indirectement ont
+contribu à la russite de ce travail.<br />
+</p></li>
+</ul>
+<p>Merci pour vos différents contribution qui ont permis la réalisation
+de ce mémoire.</p>
+<div class="center">
+<p><strong>SIGLES ET ACRONYMES</strong></p>
+</div>
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>LESCAL</strong></td>
+<td style="text-align: left;">:</td>
+<td style="text-align: left;">Laboratoire d’Etudes Statistique et de
+Conception d’Applications</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">et de Logiciels ;</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>MA</strong></td>
+<td style="text-align: left;">:</td>
+<td style="text-align: left;">Moving Average (moyenne mobile);</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>MMa</strong></td>
+<td style="text-align: left;">:</td>
+<td style="text-align: left;">Moyenne Mobile Arithmetique ;</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>MME</strong></td>
+<td style="text-align: left;">:</td>
+<td style="text-align: left;">Moyenne Mobile Exponentielle ;</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>MACD</strong></td>
+<td style="text-align: left;">:</td>
+<td style="text-align: left;">Moyenne Average Convergence Divergence
+(Moyenne Mobile</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Convergence Divergence);</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>BRVM</strong></td>
+<td style="text-align: left;">:</td>
+<td style="text-align: left;">Bourse Régionale des Valeurs Mobilières
+;</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>"BRVM-Agri"</strong></td>
+<td style="text-align: left;">:</td>
+<td style="text-align: left;">BRVM-Agriculture ;</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>AUDUSD</strong></td>
+<td style="text-align: left;">:</td>
+<td style="text-align: left;">La paire de devises AUD/USD
+représente</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">le Dollar Australien (AUD) coté par
+rapport au Dollar Américain (USD) ;</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>EURUSD</strong></td>
+<td style="text-align: left;">:</td>
+<td style="text-align: left;">La paire de devises EUR/USD
+représente</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">l’Euro (EUR) coté par rapport au Dollar
+Américain (USD) ;</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>GBPUSD</strong></td>
+<td style="text-align: left;">:</td>
+<td style="text-align: left;">La paire de devises GBP/USD
+représente</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">la Livre Sterling (GBP) cotée par rapport
+au Dollar Américain (USD) ;</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>BRVUSDJPY</strong></td>
+<td style="text-align: left;">:</td>
+<td style="text-align: left;">La paire de devises USD/JPY
+représente</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">le Dollar Américain (USD) coté par rapport
+au Yen Japonais (JPY) ;</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>XAUUSD</strong></td>
+<td style="text-align: left;">:</td>
+<td style="text-align: left;">La paire de devises XAU/USD
+représente</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">le prix de l’Or (XAU) coté par rapport au
+Dollar Américain (USD) ;</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>USDCAD</strong></td>
+<td style="text-align: left;">:</td>
+<td style="text-align: left;">La paire de devises USD/CAD
+représente</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">le Dollar Américain (USD) coté par rapport
+au Dollar Canadien (CAD) ;</td>
+</tr>
+</tbody>
+</table>
+<h1 class="unnumbered" id="résumé">Résumé</h1>
+<p>Dans le présente étude nous comparons la stratégie de trading basée
+sur les Moyennes Mobile avec celle combinant l’Oscillateur Stochastique
+et la Moyenne Mobile Convergence Divergence, dans le but d’évaluer leur
+performance respective sur les indices BRVM-Agriculture et
+BRVM-Services-Publics. L’étude a été réalisée en utilisant les données
+historiques des cours des indices. Pour appliquer les stratégies, nous
+avons d’abord déterminé notre profil d’investisseur, puis élaboré des
+critères permettant de valider les paramètres spécifiques à chaque
+stratégie, en fonction de notre profil d’investisseur. Les résultats de
+cette étude ont montré que la stratégie la plus performante pour
+l’indice BRVM-Agriculture est la stratégie des Moyennes Mobile, tandis
+que pour l’indice BRVM-Services-Publics, la stratégie combinée de
+l’Oscillateur Stochastique et de la Moyenne Mobile Convergence
+Divergence s’est avérée être la plus performante. Contrairement aux
+études antérieures où les stratégies de trading sont appliquées
+directement avec certains paramètres, cette étude met l’accent sur la
+validation des paramètres des stratégies de trading en fonction du
+profil d’investisseur. Ainsi, tout investisseur sur la Bourse Régionale
+des Valeurs Mobilières, notamment sur les indices BRVM-Agriculture et
+BRVM-Services-Publics, possédant le profil d’investisseur spécifié dans
+ce document, peut exploiter les résultats de cette étude dans sa
+stratégie d’investissement. Une des limites de cette étude est qu’elle
+se limite à deux indices de la Bourse Régionale des Valeurs
+Mobilières.</p>
+<p><u>Mots clés</u> : BRVM , strategies de trading</p>
+<h1 class="unnumbered" id="abstract">Abstract</h1>
+<p>In the context of this research, we compare the trading strategy
+based on moving averages with that combining the Stochastic Oscillator
+and the Moving Average Convergence Divergence, in order to assess their
+performance respectively on the BRVM-Agriculture and
+BRVM-Services-Publics indices. The study was carried out using
+historical index price data. For each strategy, we first determined our
+investor profile, then developed criteria to validate the parameters
+specific to each strategy, depending on our investor profile. The
+results of this study showed that the most efficient method for the
+BRVM-Agriculture index is the Moving Averages strategy, while for the
+BRVM-Services-Publics index, the combined strategy of the Stochastic
+Oscillator and Moving Average Convergence Divergence proved to be the
+best performer. Unlike previous studies where trading strategies are
+applied directly with certain parameters, this study emphasizes the
+validation parameters of trading strategies according to the investor
+profile. Thus, any investor on the Regional Stock Exchange, in
+particular on the BRVM-Agriculture and BRVM-Services-Publics indices,
+with the profile investor specified in this document, may exploit the
+results of this study in its investment strategy. One of the limitations
+of this study is that it is limited to two stock market indices Regional
+Securities.</p>
+<p><u>Keywords</u> : BRVM , trading strategy</p>
+<h1 class="unnumbered" id="introduction">Introduction</h1>
+<p><span> L’analyse technique est une méthode d’analyse utilisée en
+finance et en trading pour évaluer et prévoir les mouvements futurs des
+prix des actifs financiers, tels que les actions, les devises, les
+matières premières, etc. Elle est largement appliquée sur les marchés
+financiers depuis des décennies par les traders pour profiter du
+comportement observé sur les marchés financiers. Cette approche ce base
+fondamentalement sur l’étude des données historiques des cours et
+volumes de ces actifs afin d’identifier des tendances, des modèles
+récurrents et des signaux d’achat ou de vente. L’analyse technique
+propose plusieurs méthodes pour étudier les données de marchés et
+identifier les tendances et les opportunités de trading. Certains des
+plus utilisés par les investisseur et les traders sont : l’analyse des
+tendances, l’analyse des indicateurs technique, l’analyse des supports
+et des résistances, et l’analyse des méthodes de chandeliers. Cependant
+les techniques d’analyse technique ne performe pas tous sur tous les
+marchés financier. Pour un investisseur soucieux de son capitale, il est
+important de connaître quelle méthode choisir en fonction de sur un
+marché financier spécifique. Il existe dans le monde plusieurs marchés
+financier dont la Bourse régionale des valeurs Mobilières qui est une
+Institution Financière Spécialisé Communautaire chargé des transactions
+qui portent sur les valeurs mobilières. Sur la BRVM la actions côté sont
+regroupées en sept secteurs que sont: le Secteur Industrie, le Secteur
+Services Publics, le Secteur Finance, le Secteur Transport, le Secteur
+Agriculture, le Secteur Distribution et le Secteur Autres. Le secteurs
+Agriculture représente l’ensembles des entreprises Agriculture côté à
+Bourse Régionale des Valeurs Mobile; comme PALM Côte d’Ivoire et
+SUCRIVOIRE Côte D’Ivoire. Quant au Secteurs Services Publics, il
+représente l’ensemble des entreprises de services publics côté à la
+BRVM, principalement des entreprises de distribution télécommunication
+comme SONATEL Sénégal, et les entreprises de distribution électrique
+comme CIE Côte D’Ivoire. Pour chaque secteur, la BRVM dispose des
+indices qui mesure la performance des entreprises côtes dans le secteur
+spécifique. Ainsi la BRVM-Agriculture est un indice qui mesure
+l’évolution des cours des actions des secteurs agricole et la
+BRVM-Services-Publics qui représentant l’évolution du cours des actions
+des entreprises de Services Publics côté à la BRVM. Pour tout
+investisseur désireux d’investir et de profiter de l’évolution de
+l’Agriculture dans l’espace UEMOA ou des Services Publics il est
+important de connaître quelle stratégie de trading ou quel indicateur
+technique utilisé afin de comprendre et de profiter de l’évolution des
+cours des actifs sur le marché. Le présent document s’intéresse à une
+comparaison de deux stratégies de trading sur l’indice BRVM-Agriculture,
+et l’indice BRVM-Services-Publics ; la stratégie des Moyennes Mobile, et
+la stratégie combinée de l’Oscillateur Stochastique et de la Moyenne
+Mobile Convergence Divergence, ainsi qu’aux meilleurs paramètres de
+chaque stratégie. Ce document est subdiviser en trois partie: la
+première chapitres. Dans le premiers chapitres intitulé cadre
+institutionnel et observation du stage, nous allons présenter le cadre
+institutionnel qu’est LESCAL puis dans le chapitre 2 nous allons parler
+de la méthodologie puis enfin dans le chapitre trois nous allons
+appliquer les stratégie de trading sur les différents données et
+présenter les résultats. </span></p>
+<h1 id="cadre-institutionnel-et-observation-du-stage">CADRE
+INSTITUTIONNEL ET OBSERVATION DU STAGE</h1>
+<h2 id="présentation-du-lescal">Présentation du LESCAL</h2>
+<h3 id="historique-missions-objectifs-et-activités-du-lescal">
+Historique, missions, objectifs et activités du LESCAL</h3>
+<h4 id="historique-du-lescal">Historique du LESCAL</h4>
+<p>Le Laboratoire d’Etudes Statistiques et de Conception d’Applications
+et logiciels, LESCAL est le fruit de la collaboration entre
+statisticiens et informaticiens qui l’ont créé en Juillet 2017. LESCAL
+autrefois dénommé LES (Laboratoire d’Etudes Statistiques) était une
+initiative dont l’objet était d’apporter un appui aux étudiants
+statisticiens et non statisticiens pour le traitement des données
+(analyses statistiques avancées, différentes régressions, méthodes de
+prévision) dans le cadre de la rédaction de leur mémoire de fin de
+formation (licence, master, doctorat).</p>
+<p>Deux années plus tard (2019), certains membres de l’équipe, aspirant
+aux nouvelles technologies ont étendu les domaines d’intervention du
+LESCAL au secteur du numérique d’où le suffixe « CAL » (Conception
+d’Applications et Logiciels), ce qui engendra LESCAL. A nos jours le
+laboratoire intervient dans les divers domaines que sont : le traitement
+et l’analyse des données statistiques, le génie logiciel et
+l’intelligence artificielle.</p>
+<h4 id="missions-et-activités-du-lescal">Missions et activités du
+LESCAL</h4>
+<p>LESCAL intervient sur deux principaux volets : le génie logiciel et
+l’intelligence artificielle. Conformément au premier, LESCAL répond aux
+besoins des entreprises, des chercheurs, des professionnels, des
+particuliers en termes de solutions informatiques destinées à divers
+usages: Business analytics (analyse commerciale), comptabilité,
+facturation, site internet, application mobile, etc. D’autre part, il
+conçoit des solutions d’intelligence artificielle dans les domaines :
+reconnaissance visuelle (computer vision), compréhension du langage
+humain (Natural Language Processing). Par ailleurs à travers son vaste
+programme LESCAL ACADEMY, il offre aux étudiants, aux professionnels et
+au personnel des entreprises une gamme variée de formations dans le
+domaine du numérique et de la science des données et contribue à
+l’insertion professionnelle des jeunes par des programmes de stage.</p>
+<h4 id="objectifs-de-lescal">Objectifs de LESCAL</h4>
+<p>LESCAL a pour objectif de:</p>
+<ul>
+<li><p>promouvoir la statistique dans tous les secteurs d’activité
+;<br />
+</p></li>
+<li><p>promouvoir les métiers du numérique ;<br />
+</p></li>
+<li><p>aider à la gestion statistique informatisée pour une bonne prise
+de décision;<br />
+</p></li>
+<li><p>former des cadres compétents et de qualité pour la
+relève.</p></li>
+</ul>
+<h3
+id="organisation-fonctionnement-environnement-et-localisation-géographique-du-lescal">Organisation,
+fonctionnement, environnement et localisation<br />
+géographique du LESCAL</h3>
+<h4 id="localisation-et-organisation">Localisation et Organisation</h4>
+<p>Situation géographique de la structure<br />
+Siège : Bénin, Abomey-Calavi<br />
+Téléphone : (+229) 97 67 57 68<br />
+Email: lescal@gmail.com et lescal@lescal-soc.com<br />
+L.E.S.C.A.L. est organisé en Unités de Formation et de Recherche (UFR),
+ce qui correspond au modèle universitaire, celui-ci se voulant digne des
+recherches contribuant aux innovations technologiques, voulant
+accompagner les jeunes étudiants des filières du numérique. Les Unités
+de Formation et de Recherche dont il est constitué sont les suivantes
+:</p>
+<ul>
+<li><p>UFR Datasciences / Intelligence Artificielle</p></li>
+<li><p>UFR Ingénierie logiciels desktops</p></li>
+<li><p>UFR ingénierie applications mobiles</p></li>
+<li><p>UFR ingénierie du web / développement web</p></li>
+</ul>
+<p>Ainsi les étudiants sollicitant un stage ou une formation sont alors
+insérés dans l’une des Unités de Formation et de Recherche selon leurs
+talents et leurs aspirations professionnelles. Le Laboratoire d’Etudes
+Statistiques et de Conception d’Applications et Logiciels s’organise
+pour créer une structure professionnelle et de façon à pouvoir mener à
+bien les objectifs de l’institution. L’organigramme du laboratoire se
+présente comme suit :</p>
+<figure>
+<img src="img/orga.png" />
+<figcaption>Organigramme de LESCAL</figcaption>
+</figure>
+<h4 id="fonctionnement">Fonctionnement</h4>
+<p>LESCAL étant un laboratoire de recherche qui vise à contribuer aux
+innovations technologique, il est subdivisé en quatre grandes Unités de
+Formation et de Recherche (Data sciences / Intelligence Artificielle,
+ingénierie logiciels desktops, ingénierie applications mobiles,
+ingénierie du web). Le responsable du laboratoire définit les rôles et
+attributions de chaque UFR ; chaque UFR étant dirigée par un sous
+responsable qui se charge de coordonner les travaux des membres dans
+l’atteinte des objectifs généraux du laboratoire.</p>
+<h3 id="environnement-micro-et-macro">Environnement micro et macro</h3>
+<h4 id="le-micro-environnement">Le micro-environnement</h4>
+<p>Le microenvironnement de LESCAL est l’ensemble de tous les éléments
+qui exercent une influence sur les activités du laboratoire, il s’agit
+de la concurrence, la clientèle, les fournisseurs.</p>
+<h4 id="la-concurrence">La Concurrence</h4>
+<p>Le laboratoire L.E.S.C.A.L vit dans un environnement fortement
+concurrentiel compte tenu de la nature de ses services. Ses concurrents
+sont l’ensemble des entreprises dont les services sont directement ou
+indirectement substituables aux siens. L’analyse de la concurrence étant
+d’une importance fondamentale pour toute entreprise quelle que soit sa
+taille, doit lui permettre d’innover, de perfectionner ses produits afin
+de satisfaire au maximum ses clients et se faire attribuer la plus
+grande part de marché.</p>
+<h4 id="la-clientèle">La clientèle</h4>
+<p>La clientèle est constiltuée des consommateurs actuels et potentiels
+qui s’intéressent à l’offre du laboratoire. Il s’agit des acheteurs ou
+consommateurs des services. Elle regroupe l’ensemble des opérateurs
+réels et potentiels des services du laboratoire. En effet, la clientèle
+étant un élément principal de fonds de commerce, toute décision
+commerciale doit tenir compte de ses désirs et attentes.</p>
+<h4 id="les-fournisseurs">Les fournisseurs</h4>
+<p>Il s’agit des entreprises qui fournissent à au laboratoire
+L.E.S.C.A.L tout ce dont elle a besoin pour son fonctionnement. Il
+s’agit des fournisseurs d’intrants, de fournisseurs de services généraux
+(fourniture d’énergies, d’eau, de communications). Ici, ils représentent
+les tiers, qui peuvent être des personnes physiques ou morales qui,
+approvisionnent la société en prestations diverses. Ainsi, les
+fournisseurs peuvent être regroupés en deux (02) catégories :</p>
+<ul>
+<li><p>les prestataires de services ;</p></li>
+<li><p>les équipementiers.</p></li>
+</ul>
+<h4 id="le-macro-environnement">Le macro-environnement</h4>
+<p>On le définit comme l’ensemble des grandes tendances du laboratoire
+dans sa globalité. La caractéristique et l’évolution du
+macro-environnement s’imposent au laboratoire: en aucun cas, elle n’a la
+possibilité d’interagir avec. Il s’agit notamment de:</p>
+<h4 id="lenvironnement-politico-légal-ou-réglementaire">l’environnement
+politico-légal ou réglementaire</h4>
+<p>Tout comme le marché béninois, l’environnement politico-légal ou
+réglementaire est aujourd’hui fortement marqué par le libéralisme
+économique. Au plan législatif, la loi N° 90-005 du 15 mai 1990 fixant
+les conditions d’exercice des activités du commerce en République du
+Bénin affirme les principes de la liberté du commerce au Bénin et
+apporte les allègements substantiels aux procédures d’implantation des
+entreprises commerciales étrangères. Au plan réglementaire, les nouveaux
+textes simplifient les procédures d’exclusion des commerçants en rendant
+plus libre le commerce au Bénin.</p>
+<h4 id="lenvironnement-économique-et-technologique">L’environnement
+économique et technologique</h4>
+<p>La définition d’un marché ne tient pas compte seulement de l’aspect
+quantitatif mais aussi de l’aspect qualitatif en terme de pouvoir
+d’achat des clients actuels et potentiels L’économie béninoise est
+actuellement caractérisée par une diminution du pouvoir d’achat de la
+population due à l’inflation dont le taux moyen est de 2,5% en 2005.
+Selon les données statistiques, une entreprise dont l’environnement
+technologique doit couvrir essentiellement les nouvelles technologies
+dans les domaines de l’information et de la communication et de
+l’informatique appartenant aux innovations de pointe.</p>
+<h4 id="lenvironnement-démographique-et-socioculturel">L’environnement
+démographique et socioculturel</h4>
+<p>Le centre évolue sur un marché à forte croissance à cause de la
+poussée démographique que connaît le Bénin. Avec une superficie de 114
+763 km2 et un taux de croissance de 3.25% selon le Recensement Général
+de la Population et de l’Habitat, la population du Bénin est en plein
+croissance. Le rythme de la croissance démographique présente un intérêt
+pour le monde des affaires car l’augmentation de la population entraîne
+un accroissement de la demande des offres et donc un développement de ce
+marché.</p>
+<h2 id="déroulement-du-stage">Déroulement du stage</h2>
+<h3 id="entitées-parcourues-et-tâches-exécutées">Entitées parcourues et
+tâches exécutées</h3>
+<p><span>Nos quatres mois de stages au Laboratoire d’Etude Statistiques
+et de Conception d’Applications et Logiciels ont été marqué par
+plusieurs activités. Tous d’abord nous avons commencer par un mois
+d’inition au concept des marchés financier, su trading et des stratégies
+de trading. Puis nous avons suivi et réaliser des formations et des
+activités dans les UFR suivant. De plus nous avons eu à enseigner des
+cours de programmation Python et de programmation C. </span></p>
+<p><span>Nous avons suivi une formation en computer vision en Deep
+Learning et en reconnaissance du langage humain. Lors de la formation en
+conputer vision nous avons écrire et entrainer des model d’IA qui
+permettent de reconnaitre des bateaux.</span></p>
+<p><span>En ingénierie logiciel, nous avons participer à la Conception
+d’une application d’intelligence Artificielle visant à relever
+automatiquement des les notes des éleves depuis une images vers un
+fichiers Excel. Dans ce projet nous nous somme occuper du volet UI de
+l’application. Également nous avons concu une application qui à pour
+rôle d’optimiser le temps de calcul des paramètres des systèmes de
+distibution d’eau en parapluie et en surpression.</span></p>
+<h3 id="observations-du-stage-et-difficultées-rencontrées">Observations
+du stage et difficultées rencontrées</h3>
+<h4 id="observations-du-stage">Observations du stage</h4>
+<p><span>À LESCAL les étudiants et les stagiaires sont très passionner
+par les Datasciences, la programmation et l’Intelligence Artificielle.
+Ce qui permet de faire de nouvelles connaissance et d’être entourrer des
+personnes partagant des mêmes sens d’interet. Durant notre stage nous
+avons été confronté à plusieurs difficulté. En effet il faut noter qu’à
+LESCAL la connection Internet n’est pas toujours disponoble quand on en
+a besoin. Ce qui ne permet pas de pouvoir accès à l’information en temps
+voulu. Même si toute les dispositions matériels de base telles que
+l’acces sans faille à l’électricité, les meubles etc... sont présentes
+il faut noter que en temps de saison sèche, il manque de système de
+ventillation afin de permettre un cadre aiéré en temps de chaleur.
+</span></p>
+<h4 id="expériences-accumulées">Expériences accumulées</h4>
+<p><span>Durant nos quatre mois de stage au Laboratoire d’Etude
+Statistique et de Conception d’Applications et Logicils, nous avons
+acquet des expériences dans le domaine de l’Intelligence Artificielle,
+de la finance et surtour dans le developpement d’application Desktop et
+le developpement web. De plus de part les recherches en programmation
+dans le cadre de l’accomplissement de certains travaux de laboratoire,
+nous avons consolider nos acquis en programmation python, notamment la
+manipulation des images et des videos sous python et le web scrapping.
+De même de part nous avons consolider nos acquis en programmation
+C.</span></p>
+<h1 id="cadre-theorique-et-methodologie-de-letude">CADRE THEORIQUE ET
+METHODOLOGIE DE L’ETUDE</h1>
+<h2 id="cadre-théorique-de-létude">Cadre théorique de l’étude</h2>
+<h3
+id="problématique-intérêts-objectifs-et-hypothèses-de-létude">Problématique,
+intérêts, objectifs et hypothèses de l’étude</h3>
+<h4 id="problématique-et-intérêt-de-létude">Problématique et intérêt de
+l’étude</h4>
+<p>Dans un monde de plus en plus orienté vers l’économie de la
+financiarisation, le nombre d’actifs financiers augmente de façon
+exponentielle, de même que le nombre d’investisseurs. En effet, en 2020,
+la valeur des actifs financiers détenus par l’ensemble de la population
+mondiale a augmenté de 10%, atteignant 200 000 milliards d’euros. De
+plus en plus nombreux, les investisseurs attendent des signaux propices
+à l’investissement sur les marchés boursiers avant de passer à l’action.
+Ce n’est qu’en apprenant l’analyse du marché du trading ou des actions
+qu’un investisseur peut prendre des décisions intelligentes et, par
+conséquent, des bénéfices. Parmi les analyses faites en trading, on
+trouve l’analyse technique. Elle consiste principalement à analyser une
+tendance ayant une représentation graphique[1]. En réalité, il existe
+plusieurs méthodes de l’analyse technique permettant de prévoir ;es
+tendance du marché. Il existe un grand nombre de méthodes et d’approches
+différentes pour analyser les mouvements des prix des actifs
+financiers.</p>
+<p>Il est donc très difficile pour les investisseurs de choisir le
+meilleur indicateur technique et, par conséquent, de maximiser leurs
+revenus. Cette étude s’intéresse au marché boursier de l’UEMOA qu’est la
+Bourse Régionale des Valeurs Mobilières (BRVM), en particulier à
+l’indice BRVM-Agriculture qui suit la performance des entreprises du
+secteur agricole cotées à la Bourse Régionale des Valeurs Mobilières. Il
+fournit une valeur de référence pour évaluer la performance des
+entreprises du secteur agricole en Afrique de l’Ouest et à l’indice
+BRVM-Services-Publics qui suit les performances des entreprises du
+secteur publics. En raison du développement continu de l’agriculture et
+des entreprises proposant des services publics (notamment les
+entreprises des télécommunication), dans la région de l’Afrique de
+l’Ouest, la BRVM-Agriculture et la BRVM-Services-Publics sont des
+indices précieux pour les investisseurs désireux de profiter du
+potentiel de croissance de l’agriculture et des services publics dans
+cette zone géographique. Il est donc nécessaire de savoir quand les prix
+sont susceptibles d’augmenter ou de diminuer et quelle et surtout
+quelles stratégie utiliser pour . À cet effet, plusieurs indicateurs
+techniques et algorithmes existent afin de prédire et de générer les
+signaux d’achat et de vente. L’intérêt de notre étude est de trouver le
+meilleur indicateur technique entre l’indicateur Moyenne Mobile, et
+l’indicateur combiné de l’Oscillateur Stochastique et de la Moyenne
+Mobile Convergence Divergence.</p>
+<h4 id="objectifs-de-létude">Objectifs de l’étude</h4>
+<p>L’objectif général de cet étude est de comparer la stratégies de
+trading basé sur les Moyennes Mobiles à la méthode combinée de
+l’osciateurs stochastiques et de la moyenne mobile convergence
+divergence. Il s’agira de :</p>
+<ul>
+<li><p><span>Appliquer la stratégie des Moyennes Mobiles sur l’indice
+BRVM-Agriculture;</span></p></li>
+<li><p><span>Appliquer la méthodes combiné de l’osciateurs stochastique
+et de la Moyenne Mobile Convergence Divergence;</span></p></li>
+<li><p><span>Appliquer la methode du backtesting sur les deux stratégies
+de trading</span></p></li>
+</ul>
+<h4 id="hypothèses">Hypothèses</h4>
+<p><span class="math inline"> − <em>H</em><sub>1</sub></span><span> : La
+méthode des Moyennes Mobiles génère plus de signal d’achat et de ventes
+que le que la méthodes de l’oscillateur stochastique combinée à la
+méthodes des Moyennes Mobiles. </span><br />
+<span class="math inline"> − <em>H</em><sub>2</sub></span><span> : La
+méthodes de l’oscillateur stochastique combinée à la méthodes des
+Moyennes Mobiles produit plus de bénéfice à l’investisseur </span><br />
+</p>
+<h3 id="revue-de-littérature">Revue de littérature</h3>
+<h4 id="clarifications-conceptuelles">Clarifications conceptuelles</h4>
+<div class="center">
+<p><strong>Marché financier</strong></p>
+</div>
+<p>Un marché financier est un lieu, physique ou virtuel, où les acteurs
+du marché (acheteurs, vendeurs) se rencontrent pour négocier des
+produits financiers. Il permet de financer l’économie, tout en
+permettant aux investisseurs de placer leur épargne.</p>
+<div class="center">
+<p><strong>Trading financier</strong></p>
+</div>
+<p>Le trading est l’activité qui consiste à spéculer sur les marchés
+financiers dans le but de réaliser des profits. Elle consiste à acheter
+ou à vendre différents types d’actifs financiers, tels que des actions,
+des devises (Forex Trading ou Trading Forex), des matières premières et
+des crypto-monnaies, entre autres. Plus l’actif est liquide, mieux
+c’est.</p>
+<div class="center">
+<p><strong>Actifs financiers</strong></p>
+</div>
+<p>Un actif financier est un titre ou un contrat, généralement
+transmissible et négociable, par exemple sur un marché financier, qui
+est susceptible de produire à son détenteur des revenus ou un gain en
+capital, en contrepartie d’une certaine prise de risque. Pour un
+particulier propriétaire d’un tel instrument, un actif financier est
+considéré comme un placement et est compté dans son patrimoine. Les
+instruments financiers sont généralement les obligations légales d’une
+partie de transférer un actif/valeur (généralement de l’argent) à une
+autre partie à une date ultérieure et sous certaines conditions. Afin de
+comprendre les instruments financiers, il faut savoir qu’ils sont en
+fait des actifs qui peuvent être tradés. Ces actifs peuvent être de
+l’argent comptant, des droits contractuels de livrer ou de recevoir de
+l’argent ou un autre type d’instrument financier ou une preuve de
+propriété d’une entité économique.</p>
+<div class="center">
+<p><strong>Indices boursiers</strong></p>
+</div>
+<p>Un indice boursier est un indicateur calculé sur la base des valeurs
+d’actions et/ou d’obligations des sociétés publiques, collectées selon
+un certain critère. Il peut s’agir des plus grandes entreprises d’un
+pays ou d’un secteur en termes de capitalisation. L’indice boursier joue
+un rôle d’indicateur de l’état du marché boursier et de l’économie des
+différents secteurs ou de l’ensemble d’un pays. La croissance de
+l’indice implique le développement, tandis que la récession montre les
+problèmes existants.</p>
+<div class="center">
+<p><strong>Portefeuille d’actifs</strong></p>
+</div>
+<p>Un portefeuille désigne un ensemble d’actifs financiers détenus par
+un individu ou un organisme financier dans le but d’optimiser son
+rendement tout en minimisant le risque. Les différents titres qui
+composent le portefeuille sont choisis de manière à obtenir un rendement
+global qui soit le plus élevé et le moins risqué possible.</p>
+<div class="center">
+<p><strong>Le cours d’un actif financier</strong></p>
+</div>
+<p>Le cours d’une action correspond au montant nécessaire pour acheter
+une action d’une société. Le cours d’une action n’est pas fixe. Il varie
+selon les conditions du marché. Le cours augmentera probablement si la
+société semble bien se porter et chutera si elle ne répond pas aux
+attentes.</p>
+<div class="center">
+<p><strong>Stratégie de trading</strong></p>
+</div>
+<p>Une stratégie de trading représente le plan d’action qu’un trader
+utilise pour tous ses traders sur les marchés financiers. Elle est
+essentielle pour tout investisseur, qu’il soit débutant ou
+professionnel, de sorte que toute décision de trading soit informée et
+en concordance avec un plan rigoureux. Les stratégies de trading créent
+un ensemble de règles ou une méthodologie pour faciliter le processus de
+prise des décisions de trading.</p>
+<div class="center">
+<p><strong>Analyse fondamentale en finance</strong></p>
+</div>
+<p>L’analyse fondamentale est une méthode d’analyse basée sur l’étude
+des fondamentaux économiques. Elle consiste à déterminer la valeur
+intrinsèque d’un actif financier pour la comparer à sa valeur de marché.
+Si la valeur intrinsèque obtenue par l’analyse fondamentale de l’actif
+est inférieure à sa valeur de marché, alors l’actif est sous-valorisé. À
+l’inverse, si la valeur intrinsèque est supérieure à la valeur de
+marché, alors l’actif est surévalué. L’analyse fondamentale peut
+s’appliquer à n’importe quel marché financier, qu’il s’agisse des
+actions, des indices boursiers, des obligations, des devises ou des
+matières premières. Certains investisseurs vedettes tels que Warren
+Buffet en ont d’ailleurs fait le cœur de leur stratégie avec
+l’investissement value.</p>
+<div class="center">
+<p><strong>Analyse technique en finance</strong></p>
+</div>
+<p>L’analyse technique est une méthode de compréhension des marchés
+financiers reposant sur l’étude des prix et des volumes, de leurs
+fluctuations et des configurations qu’ils forment. Le trader et
+l’investisseur « techniciens » recherchent des configurations – ou
+patterns – susceptibles de se répéter selon une certaine probabilité. Le
+technicien souhaite en effet déceler des configurations à fortes
+probabilités afin d’obtenir un avantage concurrentiel décisif sur les
+marchés.</p>
+<div class="center">
+<p><strong>Moyenne Mobile</strong></p>
+</div>
+<p>La moyenne mobile, ou moyenne glissante, est un type de moyenne
+statistique utilisée pour analyser des séries ordonnées de données, le
+plus souvent des séries temporelles, en supprimant les fluctuations
+transitoires. Elle est également utilisée dans le milieu du trading en
+tant qu’indicateur de tendance.</p>
+<h4 id="travaux-antérieurs">Travaux antérieurs</h4>
+<p><strong>-Comparison Between Exponential Moving Average Based MACD
+with Simple Moving Average Based MACD of Technical Analysis par Vyas
+street,Nr. Hanuman Gali,Upali, Bazar, Decembre 2013</strong></p>
+<p><span>L’objectif de cette étude était de trouver la méthode des
+Moyennes Mobiles Convergence Divergence qui générait le plus de profits,
+le maximum de signaux et un bon rendement. Elle a été réalisée en
+utilisant les prix de clôture quotidiens par an (01-04 au 31-03) sur
+trois années consécutives à partir de 2010 de la CNX Nifty qui est un
+indice boursier indien composé de 50 des principales capitalisations
+boursières du pays. L’étude a montré que la stratégie des MACD basée sur
+la Moyenne Mobile Exponentielle est la plus performante avec un revenu
+total de 63.61% contre 24.61% générés par la méthode basée sur la
+Moyenne Mobile Simple.</span></p>
+<p><strong>-Technology and Investment, 2010 :A Comparison of Stock
+Market Efficiency of the BRIC Countries par Terence, Sam &amp;
+Elfreda</strong></p>
+<p><span>Cette étude a pour but de mesurer la rentabilité des stratégies
+de trading basées sur des indicateurs techniques associés à la Moyenne
+Mobile Simple (SMA), l’Indice de Force Relative (RSI), la Moyenne Mobile
+Convergence Divergence (MACD) et le Momentum (MOM) sur les marchés
+boursiers du Brésil, de l’Inde, de la Russie et de la Chine. Cette étude
+a montré que c’est la méthode des Moyennes Mobiles Simple de période 10
+qui générait le plus de revenu, soit 60,58% pour l’indice Russe RST. Il
+ressort également de cette étude que la Moyenne Mobile de période 50 est
+le meilleur indicateur pour les indices BSE Sensex (Inde) et SZES
+(Chine) Composite. Enfin, la MACD (12,26,14) était le meilleur
+indicateur pour l’indice Chinois SSEA.</span></p>
+<p><strong>- Performance Comparison of Three Automated Trading Systems
+(MACD, PIVOT and SMA) by Means of the d-Backtest PS Implementation par
+D. Th. Vezeris and C. J. Schinas</strong></p>
+<p><span>Dans cette etude, Vezeris et Schinas cherche à évaluer la
+performance des stratégie de trading algorithmique, basé sur la
+MACD(MOyenne Mobile Convergence Divergence), SMA (moyenne mobile
+arithmétique) et le PIVOT points (croisement des prix). L’étude a été
+réalisé en utilisant les prix de clôture des devises : AUDUSD, EURUSD,
+GBPUSD, USDCAD,USDJPY, XAUUSD entre le 28/2/2016 et le 27/8/2017. En
+termes de rentabilité, le système de trading MACD adaptatif a été le
+plus efficace, suivi du système commercial PIVOT et le SMA a été classé
+comme le système commercial le moins rentable.</span></p>
+<p><strong>- The profitability of MACD and RSI trading rules in the
+Australian stock market par Safwan Mohd Nor et Guneratne
+Wickremasinghe.</strong></p>
+<p><span> Cette étude examine la rentabilité entre deux stratégie de
+trading : la convergence de la moyenne mobile Divergence (MACD) et
+l’indice de force relative (RSI) í sur le marché boursier australien.
+Elle a été réaliser en utilisant les données de 1996 à 2014 sur
+l’Australian All Ordinaries Index. D’après cette étude, la stratégie de
+la MACD et le RSI peuvent générer des profils sur le marché financier
+Australien. Cette étude suggèrent que le marché boursier l’Australie
+n’est pas efficace dans la forme faible. Les résultats de cette
+recherche appuient l’idée de constamment réviser les stratégies de
+trading existantes et optimiser les paramètres des règles de négociation
+afin d’exploiter inefficacité du marché.</span></p>
+<h2 id="méthodologie-de-la-recherche">Méthodologie de la recherche</h2>
+<h3 id="présentation-des-données"> Présentation des données </h3>
+<h4 id="données-brute">Données brute</h4>
+<p><span> Les données que nous utilisont dans cette étude proviennent du
+site web investing.com. Il s’agit des données de cours journalière des
+indices : </span></p>
+<ul>
+<li><p>BRVM-Agriculture</p>
+<div id="tab:multirow">
+<table>
+<caption>Présentation des données de la BRVM-Agriculture</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Date</th>
+<th style="text-align: left;">Dernier</th>
+<th style="text-align: left;">Ouv</th>
+<th style="text-align: left;">Plus Haut</th>
+<th style="text-align: left;">Plus Bas</th>
+<th style="text-align: left;">Variation%</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">29/11/2021</td>
+<td style="text-align: left;">247,95</td>
+<td style="text-align: left;">244,32</td>
+<td style="text-align: left;">248,97</td>
+<td style="text-align: left;">244,32</td>
+<td style="text-align: left;">1,49%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">30/11/2021</td>
+<td style="text-align: left;">248,36</td>
+<td style="text-align: left;">247,95</td>
+<td style="text-align: left;">248,43</td>
+<td style="text-align: left;">247,95</td>
+<td style="text-align: left;">0,17%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">01/12/2021</td>
+<td style="text-align: left;">249,12</td>
+<td style="text-align: left;">248,36</td>
+<td style="text-align: left;">250,45</td>
+<td style="text-align: left;">248,36</td>
+<td style="text-align: left;">0,31%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">02/12/2021</td>
+<td style="text-align: left;">250,05</td>
+<td style="text-align: left;">249,12</td>
+<td style="text-align: left;">251,09</td>
+<td style="text-align: left;">250,05</td>
+<td style="text-align: left;">0,37%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">03/12/2021</td>
+<td style="text-align: left;">243,92</td>
+<td style="text-align: left;">250,05</td>
+<td style="text-align: left;">250,05</td>
+<td style="text-align: left;">243,92</td>
+<td style="text-align: left;">-2,45%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">...</td>
+<td style="text-align: left;">...</td>
+<td style="text-align: left;">...</td>
+<td style="text-align: left;">...</td>
+<td style="text-align: left;">...</td>
+<td style="text-align: left;">...</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">09/05/2023</td>
+<td style="text-align: left;">260,09</td>
+<td style="text-align: left;">263,37</td>
+<td style="text-align: left;">263,37</td>
+<td style="text-align: left;">260,09</td>
+<td style="text-align: left;">-1,25%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">10/05/2023</td>
+<td style="text-align: left;">253,34</td>
+<td style="text-align: left;">260,09</td>
+<td style="text-align: left;">263,07</td>
+<td style="text-align: left;">247,71</td>
+<td style="text-align: left;">-2,60%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">11/05/2023</td>
+<td style="text-align: left;">251,77</td>
+<td style="text-align: left;">253,34</td>
+<td style="text-align: left;">254,20</td>
+<td style="text-align: left;">243,82</td>
+<td style="text-align: left;">-0,62%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">12/05/2023</td>
+<td style="text-align: left;">249,87</td>
+<td style="text-align: left;">251,77</td>
+<td style="text-align: left;">253,49</td>
+<td style="text-align: left;">243,25</td>
+<td style="text-align: left;">-0,75%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">15/05/2023</td>
+<td style="text-align: left;">248,05</td>
+<td style="text-align: left;">249,87</td>
+<td style="text-align: left;">250,58</td>
+<td style="text-align: left;">243,85</td>
+<td style="text-align: left;">-0,73%</td>
+</tr>
+</tbody>
+</table>
+</div></li>
+<li><p>BRVM-Services publics</p>
+<div id="tab:multirow">
+<table>
+<caption>Présentation des données de la BRVM-Service Public</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Date</th>
+<th style="text-align: left;">Dernier</th>
+<th style="text-align: left;">Ouv</th>
+<th style="text-align: left;">Plus Haut</th>
+<th style="text-align: left;">Plus Bas</th>
+<th style="text-align: left;">Variation%</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">26/11/2021</td>
+<td style="text-align: left;">440,30</td>
+<td style="text-align: left;">440,62</td>
+<td style="text-align: left;">445,25</td>
+<td style="text-align: left;">440,30</td>
+<td style="text-align: left;">-0,07%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">29/11/2021</td>
+<td style="text-align: left;">442,39</td>
+<td style="text-align: left;">440,30</td>
+<td style="text-align: left;">449,47</td>
+<td style="text-align: left;">440,30</td>
+<td style="text-align: left;">0,47%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">30/11/2021</td>
+<td style="text-align: left;">450,26</td>
+<td style="text-align: left;">442,39</td>
+<td style="text-align: left;">450,36</td>
+<td style="text-align: left;">442,39</td>
+<td style="text-align: left;">1,78%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">01/12/2021</td>
+<td style="text-align: left;">449,67</td>
+<td style="text-align: left;">450,26</td>
+<td style="text-align: left;">450,26</td>
+<td style="text-align: left;">449,67</td>
+<td style="text-align: left;">-0,13%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">02/12/2021</td>
+<td style="text-align: left;">449,50</td>
+<td style="text-align: left;">449,67</td>
+<td style="text-align: left;">450,09</td>
+<td style="text-align: left;">449,50</td>
+<td style="text-align: left;">-0,04%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">...</td>
+<td style="text-align: left;">...</td>
+<td style="text-align: left;">...</td>
+<td style="text-align: left;">...</td>
+<td style="text-align: left;">...</td>
+<td style="text-align: left;">...</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">09/05/2023</td>
+<td style="text-align: left;">481,66</td>
+<td style="text-align: left;">479,45</td>
+<td style="text-align: left;">481,76</td>
+<td style="text-align: left;">478,08</td>
+<td style="text-align: left;">0,46%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">10/05/2023</td>
+<td style="text-align: left;">482,27</td>
+<td style="text-align: left;">481,66</td>
+<td style="text-align: left;">492,36</td>
+<td style="text-align: left;">479,30</td>
+<td style="text-align: left;">0,13%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">11/05/2023</td>
+<td style="text-align: left;">486,77</td>
+<td style="text-align: left;">482,27</td>
+<td style="text-align: left;">486,77</td>
+<td style="text-align: left;">480,22</td>
+<td style="text-align: left;">0,93%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">12/05/2023</td>
+<td style="text-align: left;">489,95</td>
+<td style="text-align: left;">486,77</td>
+<td style="text-align: left;">490,69</td>
+<td style="text-align: left;">483,95</td>
+<td style="text-align: left;">0,65%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">15/05/2023</td>
+<td style="text-align: left;">468,96</td>
+<td style="text-align: left;">489,95</td>
+<td style="text-align: left;">489,95</td>
+<td style="text-align: left;">459,94</td>
+<td style="text-align: left;">-4,28%</td>
+</tr>
+</tbody>
+</table>
+</div></li>
+</ul>
+<h4 id="données-pré-traité">Données pré-traité</h4>
+<p><strong>Stratégie des Moyennes Mobiles.</strong></p>
+<div class="samepage">
+<div id="tab:multirow">
+<table>
+<caption>Données Pré-traités pour la stratégie des Moyennes Mobiles pour
+l’indice BRVM-Agriculture</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Date</th>
+<th style="text-align: left;">Dernier</th>
+<th style="text-align: left;">Ouv</th>
+<th style="text-align: left;">Variation</th>
+<th style="text-align: left;">MA26</th>
+<th style="text-align: left;">MA61</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">03/09/2020</td>
+<td style="text-align: left;">65,30</td>
+<td style="text-align: left;">67,55</td>
+<td style="text-align: left;">-3,33%</td>
+<td style="text-align: left;">60,16</td>
+<td style="text-align: left;">61,63</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">04/09/2020</td>
+<td style="text-align: left;">65,42</td>
+<td style="text-align: left;">65,30</td>
+<td style="text-align: left;">0,18%</td>
+<td style="text-align: left;">60,50</td>
+<td style="text-align: left;">61,63</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">07/09/2020</td>
+<td style="text-align: left;">65,35</td>
+<td style="text-align: left;">65,42</td>
+<td style="text-align: left;">-0,11%</td>
+<td style="text-align: left;">60,91</td>
+<td style="text-align: left;">61,65</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">08/09/2020</td>
+<td style="text-align: left;">66,64</td>
+<td style="text-align: left;">65,35</td>
+<td style="text-align: left;">1,97%</td>
+<td style="text-align: left;">61,37</td>
+<td style="text-align: left;">61,69</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">09/09/2020</td>
+<td style="text-align: left;">66,83</td>
+<td style="text-align: left;">66,64</td>
+<td style="text-align: left;">0,29%</td>
+<td style="text-align: left;">61,84</td>
+<td style="text-align: left;">61,75</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">...</td>
+<td style="text-align: left;">...</td>
+<td style="text-align: left;">...</td>
+<td style="text-align: left;">...</td>
+<td style="text-align: left;">...</td>
+<td style="text-align: left;">...</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">09/05/2023</td>
+<td style="text-align: left;">260,09</td>
+<td style="text-align: left;">263,37</td>
+<td style="text-align: left;">-1,25%</td>
+<td style="text-align: left;">275,57</td>
+<td style="text-align: left;">284,27</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">10/05/2023</td>
+<td style="text-align: left;">253,34</td>
+<td style="text-align: left;">260,09</td>
+<td style="text-align: left;">-2,60%</td>
+<td style="text-align: left;">274,15</td>
+<td style="text-align: left;">283,54</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">11/05/2023</td>
+<td style="text-align: left;">251,77</td>
+<td style="text-align: left;">253,34</td>
+<td style="text-align: left;">-0,62%</td>
+<td style="text-align: left;">272,80</td>
+<td style="text-align: left;">282,78</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">12/05/2023</td>
+<td style="text-align: left;">249,87</td>
+<td style="text-align: left;">251,77</td>
+<td style="text-align: left;">-0,75%</td>
+<td style="text-align: left;">271,32</td>
+<td style="text-align: left;">281,95</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">15/05/2023</td>
+<td style="text-align: left;">248,05</td>
+<td style="text-align: left;">249,87</td>
+<td style="text-align: left;">-0,73%</td>
+<td style="text-align: left;">269,76</td>
+<td style="text-align: left;">281,12</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="tab:multirow">
+<table>
+<caption>Données Pré-traités pour la stratégie des Moyennes Mobiles
+pour<br />
+l’indice BRVM-Service Public</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Date</th>
+<th style="text-align: left;">Dernier</th>
+<th style="text-align: left;">Ouv</th>
+<th style="text-align: left;">Variation</th>
+<th style="text-align: left;">MA48</th>
+<th style="text-align: left;">MA98</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">03/11/2020</td>
+<td style="text-align: left;">355,67</td>
+<td style="text-align: left;">370,36</td>
+<td style="text-align: left;">-3,97%</td>
+<td style="text-align: left;">360.05</td>
+<td style="text-align: left;">373.16</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">04/11/2020</td>
+<td style="text-align: left;">357,55</td>
+<td style="text-align: left;">355,67</td>
+<td style="text-align: left;">0,53%</td>
+<td style="text-align: left;">359.51</td>
+<td style="text-align: left;">372.76</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">05/11/2020</td>
+<td style="text-align: left;">361,29</td>
+<td style="text-align: left;">357,55</td>
+<td style="text-align: left;">1,05%</td>
+<td style="text-align: left;">359.04</td>
+<td style="text-align: left;">372.38</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">06/11/2020</td>
+<td style="text-align: left;">358,76</td>
+<td style="text-align: left;">361,29</td>
+<td style="text-align: left;">-0,70%</td>
+<td style="text-align: left;">358.61</td>
+<td style="text-align: left;">372.01</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">09/11/2020</td>
+<td style="text-align: left;">357,66</td>
+<td style="text-align: left;">358,76</td>
+<td style="text-align: left;">-0,31%</td>
+<td style="text-align: left;">358.16</td>
+<td style="text-align: left;">371.64</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">...</td>
+<td style="text-align: left;">...</td>
+<td style="text-align: left;">...</td>
+<td style="text-align: left;">...</td>
+<td style="text-align: left;">...</td>
+<td style="text-align: left;">...</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">09/05/2023</td>
+<td style="text-align: left;">481,66</td>
+<td style="text-align: left;">479,45</td>
+<td style="text-align: left;">0,46%</td>
+<td style="text-align: left;">487.29</td>
+<td style="text-align: left;">486.53</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">10/05/2023</td>
+<td style="text-align: left;">482,27</td>
+<td style="text-align: left;">481,66</td>
+<td style="text-align: left;">0,13%</td>
+<td style="text-align: left;">487.08</td>
+<td style="text-align: left;">486.74</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">11/05/2023</td>
+<td style="text-align: left;">486,77</td>
+<td style="text-align: left;">482,27</td>
+<td style="text-align: left;">0,93%</td>
+<td style="text-align: left;">486.88</td>
+<td style="text-align: left;">487.00</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">12/05/2023</td>
+<td style="text-align: left;">489,95</td>
+<td style="text-align: left;">486,77</td>
+<td style="text-align: left;">0,65%</td>
+<td style="text-align: left;">486.70</td>
+<td style="text-align: left;">487.29</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">15/05/2023</td>
+<td style="text-align: left;">468,96</td>
+<td style="text-align: left;">489,95</td>
+<td style="text-align: left;">-4,28%</td>
+<td style="text-align: left;">485.98</td>
+<td style="text-align: left;">487.37</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="samepage">
+<p><strong>Stratégie Combiné de l’Oscillateur Stochastique et
+de</strong><br />
+<strong>la moyenne Mobile Convergence Divergence.</strong></p>
+<div class="center">
+<div id="tab:multirow">
+<table>
+<caption>Données Pré-traités pour la stratégie Combiné de l’Oscillateur
+Stochastique et de la moyenne Mobile Convergence Divergence pour
+l’indice BRVM-Agriculture</caption>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Date</td>
+<td style="text-align: left;">Dern.</td>
+<td style="text-align: left;">Ouv.</td>
+<td style="text-align: left;">Haut</td>
+<td style="text-align: left;">Bas</td>
+<td style="text-align: left;">%k</td>
+<td style="text-align: left;">%d</td>
+<td style="text-align: left;">MACD(10,25)</td>
+<td style="text-align: left;">Signal(4)</td>
+<td style="text-align: left;">Hist</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">15/07/2020</td>
+<td style="text-align: left;">60,14</td>
+<td style="text-align: left;">62,33</td>
+<td style="text-align: left;">62,33</td>
+<td style="text-align: left;">60,14</td>
+<td style="text-align: left;">0.00</td>
+<td style="text-align: left;">0.00</td>
+<td style="text-align: left;">-0.925</td>
+<td style="text-align: left;">-0.56</td>
+<td style="text-align: left;">-0.36</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">16/07/2020</td>
+<td style="text-align: left;">59,09</td>
+<td style="text-align: left;">60,14</td>
+<td style="text-align: left;">60,14</td>
+<td style="text-align: left;">59,09</td>
+<td style="text-align: left;">0.00</td>
+<td style="text-align: left;">0.00</td>
+<td style="text-align: left;">-1.290</td>
+<td style="text-align: left;">-0.85</td>
+<td style="text-align: left;">-0.43</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">17/07/2020</td>
+<td style="text-align: left;">58,41</td>
+<td style="text-align: left;">59,09</td>
+<td style="text-align: left;">59,09</td>
+<td style="text-align: left;">58,41</td>
+<td style="text-align: left;">0.00</td>
+<td style="text-align: left;">0.00</td>
+<td style="text-align: left;">-1.618</td>
+<td style="text-align: left;">-1.15</td>
+<td style="text-align: left;">-0.45</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">20/07/2020</td>
+<td style="text-align: left;">57,05</td>
+<td style="text-align: left;">58,41</td>
+<td style="text-align: left;">58,41</td>
+<td style="text-align: left;">57,05</td>
+<td style="text-align: left;">0.00</td>
+<td style="text-align: left;">0.00</td>
+<td style="text-align: left;">-1.986</td>
+<td style="text-align: left;">-1.49</td>
+<td style="text-align: left;">-0.49</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">21/07/2020</td>
+<td style="text-align: left;">57,05</td>
+<td style="text-align: left;">57,05</td>
+<td style="text-align: left;">57,18</td>
+<td style="text-align: left;">57,05</td>
+<td style="text-align: left;">0.00</td>
+<td style="text-align: left;">0.00</td>
+<td style="text-align: left;">-2.236</td>
+<td style="text-align: left;">-1.78</td>
+<td style="text-align: left;">-0.44</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">...</td>
+<td style="text-align: left;">...</td>
+<td style="text-align: left;">...</td>
+<td style="text-align: left;">...</td>
+<td style="text-align: left;">...</td>
+<td style="text-align: left;">...</td>
+<td style="text-align: left;">...</td>
+<td style="text-align: left;">...</td>
+<td style="text-align: left;">...</td>
+<td style="text-align: left;">...</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">09/05/2023</td>
+<td style="text-align: left;">260,09</td>
+<td style="text-align: left;">263,37</td>
+<td style="text-align: left;">263,37</td>
+<td style="text-align: left;">260,09</td>
+<td style="text-align: left;">12.02</td>
+<td style="text-align: left;">20.15</td>
+<td style="text-align: left;">-7.143</td>
+<td style="text-align: left;">-6.79</td>
+<td style="text-align: left;">-0.34</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">10/05/2023</td>
+<td style="text-align: left;">253,34</td>
+<td style="text-align: left;">260,09</td>
+<td style="text-align: left;">263,07</td>
+<td style="text-align: left;">247,71</td>
+<td style="text-align: left;">15.53</td>
+<td style="text-align: left;">16.97</td>
+<td style="text-align: left;">-7.970</td>
+<td style="text-align: left;">-7.26</td>
+<td style="text-align: left;">-0.70</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">11/05/2023</td>
+<td style="text-align: left;">251,77</td>
+<td style="text-align: left;">253,34</td>
+<td style="text-align: left;">254,20</td>
+<td style="text-align: left;">243,82</td>
+<td style="text-align: left;">19.81</td>
+<td style="text-align: left;">15.79</td>
+<td style="text-align: left;">-8.648</td>
+<td style="text-align: left;">-7.81</td>
+<td style="text-align: left;">-0.82</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">12/05/2023</td>
+<td style="text-align: left;">249,87</td>
+<td style="text-align: left;">251,77</td>
+<td style="text-align: left;">253,49</td>
+<td style="text-align: left;">243,25</td>
+<td style="text-align: left;">16.29</td>
+<td style="text-align: left;">17.21</td>
+<td style="text-align: left;">-9.238</td>
+<td style="text-align: left;">-8.38</td>
+<td style="text-align: left;">-0.85</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">15/05/2023</td>
+<td style="text-align: left;">248,05</td>
+<td style="text-align: left;">249,87</td>
+<td style="text-align: left;">250,58</td>
+<td style="text-align: left;">243,85</td>
+<td style="text-align: left;">12.14</td>
+<td style="text-align: left;">16.08</td>
+<td style="text-align: left;">-9.745</td>
+<td style="text-align: left;">-8.93</td>
+<td style="text-align: left;">-0.81</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="tab:multirow">
+<table>
+<caption>Données Pré-traités pour la stratégie Combiné de l’Oscillateur
+Stochastique et de la moyenne Mobile Convergence Divergence pour
+l’indice BRVM-Service Public</caption>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Date</td>
+<td style="text-align: left;">Dern.</td>
+<td style="text-align: left;">Ouv.</td>
+<td style="text-align: left;">Haut</td>
+<td style="text-align: left;">Bas</td>
+<td style="text-align: left;">%k</td>
+<td style="text-align: left;">%d</td>
+<td style="text-align: left;">MACD(25,36)</td>
+<td style="text-align: left;">Sigal(6)</td>
+<td style="text-align: left;">Hist</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">13/07/2020</td>
+<td style="text-align: left;">382,46</td>
+<td style="text-align: left;">383,01</td>
+<td style="text-align: left;">383,08</td>
+<td style="text-align: left;">382,46</td>
+<td style="text-align: left;">0.00</td>
+<td style="text-align: left;">0.00</td>
+<td style="text-align: left;">-1.19</td>
+<td style="text-align: left;">-0.79</td>
+<td style="text-align: left;">-0.40</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">14/07/2020</td>
+<td style="text-align: left;">382,66</td>
+<td style="text-align: left;">382,46</td>
+<td style="text-align: left;">382,66</td>
+<td style="text-align: left;">382,46</td>
+<td style="text-align: left;">1.15</td>
+<td style="text-align: left;">0.38</td>
+<td style="text-align: left;">-1.35</td>
+<td style="text-align: left;">-0.95</td>
+<td style="text-align: left;">-0.39</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">15/07/2020</td>
+<td style="text-align: left;">382,32</td>
+<td style="text-align: left;">382,66</td>
+<td style="text-align: left;">383,27</td>
+<td style="text-align: left;">382,32</td>
+<td style="text-align: left;">0.00</td>
+<td style="text-align: left;">0.38</td>
+<td style="text-align: left;">-1.49</td>
+<td style="text-align: left;">-1.11</td>
+<td style="text-align: left;">-0.38</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">16/07/2020</td>
+<td style="text-align: left;">380,34</td>
+<td style="text-align: left;">382,32</td>
+<td style="text-align: left;">383,53</td>
+<td style="text-align: left;">380,34</td>
+<td style="text-align: left;">0.00</td>
+<td style="text-align: left;">0.38</td>
+<td style="text-align: left;">-1.65</td>
+<td style="text-align: left;">-1.26</td>
+<td style="text-align: left;">-0.39</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">17/07/2020</td>
+<td style="text-align: left;">384,42</td>
+<td style="text-align: left;">380,34</td>
+<td style="text-align: left;">384,42</td>
+<td style="text-align: left;">380,34</td>
+<td style="text-align: left;">20.96</td>
+<td style="text-align: left;">6.98</td>
+<td style="text-align: left;">-1.69</td>
+<td style="text-align: left;">-1.38</td>
+<td style="text-align: left;">-0.30</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">...</td>
+<td style="text-align: left;">...</td>
+<td style="text-align: left;">...</td>
+<td style="text-align: left;">...</td>
+<td style="text-align: left;">...</td>
+<td style="text-align: left;">...</td>
+<td style="text-align: left;">...</td>
+<td style="text-align: left;">...</td>
+<td style="text-align: left;">...</td>
+<td style="text-align: left;">...</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">09/05/2023</td>
+<td style="text-align: left;">481,66</td>
+<td style="text-align: left;">479,45</td>
+<td style="text-align: left;">481,76</td>
+<td style="text-align: left;">478,08</td>
+<td style="text-align: left;">90.70</td>
+<td style="text-align: left;">86.27</td>
+<td style="text-align: left;">-1.57</td>
+<td style="text-align: left;">-1.77</td>
+<td style="text-align: left;">0.19</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">10/05/2023</td>
+<td style="text-align: left;">482,27</td>
+<td style="text-align: left;">481,66</td>
+<td style="text-align: left;">492,36</td>
+<td style="text-align: left;">479,30</td>
+<td style="text-align: left;">68.53</td>
+<td style="text-align: left;">80.18</td>
+<td style="text-align: left;">-1.45</td>
+<td style="text-align: left;">-1.68</td>
+<td style="text-align: left;">0.22</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">11/05/2023</td>
+<td style="text-align: left;">486,77</td>
+<td style="text-align: left;">482,27</td>
+<td style="text-align: left;">486,77</td>
+<td style="text-align: left;">480,22</td>
+<td style="text-align: left;">82.56</td>
+<td style="text-align: left;">80.60</td>
+<td style="text-align: left;">-1.23</td>
+<td style="text-align: left;">-1.55</td>
+<td style="text-align: left;">0.32</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">12/05/2023</td>
+<td style="text-align: left;">489,95</td>
+<td style="text-align: left;">486,77</td>
+<td style="text-align: left;">490,69</td>
+<td style="text-align: left;">483,95</td>
+<td style="text-align: left;">92.48</td>
+<td style="text-align: left;">81.19</td>
+<td style="text-align: left;">-0.96</td>
+<td style="text-align: left;">-1.38</td>
+<td style="text-align: left;">0.42</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">15/05/2023</td>
+<td style="text-align: left;">468,96</td>
+<td style="text-align: left;">489,95</td>
+<td style="text-align: left;">489,95</td>
+<td style="text-align: left;">459,94</td>
+<td style="text-align: left;">27.82</td>
+<td style="text-align: left;">67.62</td>
+<td style="text-align: left;">-1.20</td>
+<td style="text-align: left;">-1.33</td>
+<td style="text-align: left;">0.13</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<h3
+id="méthode-outils-de-collecte-de-pré-traitement-et-de-traitements-des-données">Méthode,
+outils de collecte de pré-traitement et de traitements des données</h3>
+<h4 id="méthode-de-collecte-des-données">Méthode de collecte des
+données</h4>
+<p><span>Les données de cette étude ont été collectées sur la plateforme
+investing.com qui est une plateforme d’informations et d’actualités sur
+les marchés financiers fournissant des données en temps réel, des
+cotations, des graphiques, des outils financiers, des informations de
+dernière minute et des analyses sur 250 marchés boursiers du monde
+entier dans 44 éditions internationales. C’est l’un des trois premiers
+sites Web financiers mondiaux au monde.</span></p>
+<h4 id="outils-de-traitement-des-données">Outils de traitement des
+données</h4>
+<p><span> Notre étude à été réalisé en utilisant le langage de
+proagrmmation python, grâce aux environnements de développement Visual
+Studio Code et Jupyter Notebook.</span></p>
+<ul>
+<li><p><img src="icons/python-icon.jpg" style="height:1em"
+alt="image" /> Python</p>
+<p><span>Python est un langage de programmation interprété
+multiparadigme et multiplateforme.</span></p></li>
+<li><p><img src="icons/vscode-icon.png" style="height:1em"
+alt="image" /> Visual Studio Code</p>
+<p><span>Visual Studio Code est un éditeur de code open-source et
+gratuit développé par Microsoft. Il prend en charge plusieurs langages
+de programmation et possède à cet effet une grande variété d’extensions
+afin de faciliter le travail du développeur.</span></p></li>
+<li><p><img src="icons/jupyter-icon.png" style="height:1em"
+alt="image" /> Jupyter Notebook</p>
+<p><span> Jupyter Notebook est une application web qui permet de créer
+et partager des documents informatiques. Il offre une expérience simple,
+rationalisée et centrée sur les documents. Jupyter prend en charge
+plusieurs langages de programmation, notamment Python, R et
+Julia.</span></p></li>
+</ul>
+<div class="center">
+<p>Bibliothèque utilisées</p>
+</div>
+<ul>
+<li><p><img src="icons/pandas-icon.png" style="height:1em"
+alt="image" /> Pandas</p>
+<p><span>Pandas est un package Python qui fournit des structures de
+données rapides, flexibles et expressives conçues pour rendre le travail
+avec des données "relationnelles" ou "étiquetées" à la fois simple et
+intuitif. Il vise à être le bloc de construction fondamental de haut
+niveau pour effectuer une analyse pratique et réelle des données du
+monde en Python.</span></p></li>
+<li><p><img src="icons/numpy-icon.png" style="height:1em" alt="image" />
+NumPy</p>
+<p><span>Largement utilisée pour le calcul scientifique et numérique,
+NumPy fournit des structures de données et des fonctions optimisées pour
+manipuler des tableaux multidimensionnels, ce qui en fait un outil
+puissant pour le traitement des données. NumPy est le package
+fondamental pour le calcul scientifique avec Python.</span></p></li>
+<li><p><img src="icons/matplotlib-icon.png" style="height:1em"
+alt="image" /> Matplotlib</p>
+<p><span>Matplotlib est une bibliothèque complète pour créer des
+visualisations statiques, animées et interactives en
+Python.</span></p></li>
+</ul>
+<div class="center">
+<p>Formule Statistique</p>
+</div>
+<p><strong>Moyenne Mobile Arithmetique</strong></p>
+<p><span>On appelle moyenne mobile centrée d’ordre k de la série <span
+class="math inline">{<em>Y</em><sub><em>t</em></sub>, <em>t</em> = 1, …, <em>n</em>}</span>
+les Moyennes Mobiles arithmétiques calculées sur <span
+class="math inline"><em>k</em></span> valeurs successives.</span></p>
+<ul>
+<li><p>Si k est impaire avec k=2m+1 :<br />
+<span><span
+class="math inline"><em>M</em><sub><em>t</em></sub>(<em>k</em>)</span> =
+<span
+class="math inline">$\frac{1}{k}\sum_{i=m}^{m}Y_{t+i}$</span></span></p></li>
+<li><p>Si k est paire avec k=2m :<br />
+<span><span
+class="math inline"><em>M</em><sub><em>t</em></sub>(<em>k</em>)</span> =
+<span class="math inline">$\frac{1}{k}\left[\frac{Y_{t-m}}{2}+
+\sum_{i=-m+1}^{m-1}Y_{t+i} + \frac{Y_{t+m}}{2}\right]$</span>
+</span><br />
+</p></li>
+</ul>
+<p><strong>Moyenne Mobile Exponentielle</strong></p>
+<ul>
+<li><p>Formule de la Moyenne Mobile Exponentielle:<br />
+<span class="math display">$$\large{\bar{x}_t = \alpha\left( x_t +
+\left(1 - \alpha \right)x_{t-1} + {\left(1 - \alpha \right)}^2x_{t-2} +
+{\left(1 - \alpha \right)}^3x_{t-3} + \ldots \right)}$$</span> <span
+class="math display">$$\large{\bar{x}_t =
+\sum_{n=0}^{\infty}\alpha{\left(1 - \alpha\right)}^nx_{t-n}
+}$$</span></p></li>
+</ul>
+<p><strong>Oscillateur Stochastiue</strong></p>
+<ul>
+<li><p>Formule de la ligne %K sur une période p:</p></li>
+<li><p><span class="math inline">%<em>K</em></span> = <span
+class="math inline">${\frac{(C - L)}{(H - L)}}*100$</span></p></li>
+<li><p>C : c’est le prix de clôture de l’actif.</p></li>
+<li><p>L : c’est le prix le plus bas de l’actif sur les N dernères
+périodes.</p></li>
+<li><p>H : c’est le prix le plus élevé de l’actif sur les N dernière
+périodes<br />
+</p>
+<div class="large">
+<p><span class="math display">$$\begin{cases}
+		\large{L = Y_{min_t}  = min\left( Y_{t-p},Y_{t-p+1},\ldots,Y_{t+p}
+\right)}\\
+		\\
+		\large{H = Y_{max_t} = max\left( Y_{t-p},Y_{t-p+1},\ldots,Y_{t} \right)}
+		%\item[$ $] $L = Y_{min_t} = min\left( Y_{t-p},Y_{t-p+1},\ldots,Y_{t+p}
+\right)$\\
+		%\item[$ $] $H = Y_{max_t} = max\left( Y_{t-p},Y_{t-p+1},\ldots,Y_{t+p}
+\right)$
+	\end{cases}$$</span></p>
+</div></li>
+<li><p>Formule de la ligne <span
+class="math inline">%<em>D</em></span></p></li>
+<li><p>Si k est impaire :</p>
+<div class="large">
+<p><span
+class="math inline">%<em>D</em><sub><em>t</em></sub>(<em>k</em>)</span>
+= <span
+class="math inline">$\frac{1}{k}\sum_{i=m}^{m}\%K_{t+i}$</span></p>
+</div>
+<p><br />
+</p></li>
+<li><p>Si k est paire :</p>
+<div class="large">
+<p><span
+class="math inline">%<em>D</em><sub><em>t</em></sub>(<em>k</em>)</span>
+= <span class="math inline">$\frac{1}{k}\left[\frac{\%K_{t-m}}{2}+
+\sum_{i=-m+1}^{m-1}\%K_{t+i} + \frac{\%K_{t+m}}{2}\right]$</span></p>
+</div>
+<p><br />
+</p></li>
+</ul>
+<p><strong>Moyenne Mobile Convergence Divergence</strong></p>
+<ul>
+<li><p>Formule de la MACD<br />
+Soit C et L les périodes respectives des Moyennes Mobiles rapide et des
+Moyennes Mobiles lente.</p>
+<div class="large">
+<p><span
+class="math display"><em>m</em><em>a</em><em>c</em><em>d</em> = <em>x̄</em><sub><em>C</em></sub>(<em>t</em>) − <em>x̄</em><sub><em>L</em></sub>(<em>t</em>)</span>
+<span class="math display">$$\begin{cases}
+				\bar{x}_t(C) =
+					\sum_{n=0}^{C}\alpha{\left(1 - \alpha\right)}^nx_{t-n}\\
+
+				\bar{x}_t(L) =
+					\sum_{n=0}^{L}\alpha{\left(1 - \alpha\right)}^nx_{t-n}
+			\end{cases}$$</span></p>
+</div></li>
+<li><p>Formule de la ligne SIGNALE Soit S la période de la moyenne
+mobile de la ligne SIGNALE <span class="math display">$$\begin{cases}
+	\text{Si S est impaire}:\begin{large} \%D_t(k) =
+\frac{1}{S}\sum_{i=m}^{m}macd_{t+i}\end{large}\\
+	\text{Si S est paire} : \begin{large} \%D_t(k) = \frac{1}{S}
+\left[\frac{macd_{t-m}}{2}+ \sum_{i=-m+1}^{m-1}\%K_{t+i}+
+\frac{\%K_{t+m}}{2} \right] \end{large}
+	\end{cases}$$</span></p></li>
+</ul>
+<h3
+id="profil-dinvestisseur-et-paramètres-des-stratégies-de-traing.">Profil
+d’investisseur et paramètres des stratégies de traing.</h3>
+<p><span> Pour déterminer qu’une stratégie est meilleur pour un indice
+précis nous devons d’abord déterminer les bons paramètres qui maximise
+le rendement de la stratégie. La détermination des meilleurs paramètres
+pour chaque stratégies passe par une étape de validation durant laquelle
+les meilleur paramètres devrons respecter un certain nombre de critère
+de validation élaborer dans le cadre de cette étude. Notons également
+que les critère de validation présenter ci-dessous s’adapte à un profil
+d’investisseur précis dans le cadre de cette étude.</span></p>
+<h4 id="profil-dinvestissement.">Profil d’investissement.</h4>
+<p><span> Le profil d’investisseur est généralement défini en fonction
+du niveau de tolérance au risque financier qu’un investisseur est prêt à
+assumer, en comprenant le risque financier comme capacité d’assumer une
+perte. Il est déterminée en évaluant des éléments du caractère de
+l’investisseur comme la rentabilité qu’il espère obtenir, son objectif
+d’investissement, sa tolérance au risque[2].</span></p>
+<ul>
+<li><p><strong>Objectifs d’investissement.</strong></p>
+<p><span> Les objectifs d’investissement en trading peuvent varier en
+fonction des stratégies et des préférences de chaque individu ou
+institution. Voici quelques types d’objectifs d’investissement courants
+en trading :</span></p>
+<ol>
+<li><p>Objectif de croissance du capital ; L’objectif principal est de
+réaliser des profits en augmentant la valeur du capital investi. Les
+traders cherchent à exploiter les mouvements du marché pour générer des
+rendements positifs.</p></li>
+<li><p>Protéger son patrimoine contre un risque donné grâce à une
+stratégie de couverture ; c’est-à-dire prendre des mesures pour réduire
+ou neutraliser l’impact des fluctuations défavorables sur la valeur d’un
+actif ou d’un portefeuille d’investissement. Cette approche est souvent
+utilisée pour minimiser les pertes potentielles causées par des
+mouvements de marché indésirables[7].</p></li>
+<li><p>Spéculer sur les marchés ; c’est-à-dire à faire des paris sur
+l’évolution des prix à la hausse comme à la baisse[7].</p></li>
+<li><p>Objectif de revenu régulier : Certains traders cherchent à
+obtenir un revenu régulier en utilisant des stratégies de trading qui
+visent à générer des gains constants à partir de leurs
+investissements.</p></li>
+</ol></li>
+<li><p><strong>Horizon temporel.</strong></p>
+<p>Un horizon temporel (ou un horizon d’investissement) correspond à la
+durée totale pendant laquelle un titre est supposé être détenu par un
+investisseur. Les types d’horizons temporels varient de court terme à
+long terme. Certains traders fixent un horizon d’investissement plus
+long car ils disposent de plus de temps pour maintenir leur portefeuille
+investi et ainsi réaliser des bénéfices ou compenser les pertes subies.
+Normalement, avec un horizon à long terme, les investisseurs se sentent
+plus à l’aise pour prendre des décisions d’investissement plus risquées
+et capitaliser sur la volatilité du marché. Alors qu’à court terme,
+comme dans le cas d’un trader (négociateur sur séance), les
+investisseurs doivent veiller à éviter les investissements plus risqués
+(en particulier ceux qui sont proches de l’échéance) afin de ne pas
+subir de pertes significatives[8]. Il s’agit ici d’un facteurs crucial
+qui influence le choix de notre stratégie d’investissement.</p></li>
+<li><p><strong>Tolérance au risque.</strong></p>
+<p><span> En investissements la tolérance au risque est la capacité et
+la volonté d’un investisseur à assurumer une perte de la valeur de notre
+placement. </span></p>
+<ol>
+<li><p>Prudent : La tolérance au risque et la capacité à l’assumer sont
+toutes deux faibles. Les placements comporteront probablement moins
+d’actions et plus d’obligations ou d’actifs du marché monétaire (qui
+procurent généralement des rendements stables et moins de fluctuations
+de cours)</p></li>
+<li><p>Modéré : La niveaux modéré traduit une tolérance au risque plutôt
+élevée, mais une capacité moindre. Ici les placements pourraient
+comprendre une combinaison d’actions et d’obligations pour une approche
+plus équilibrée.</p></li>
+<li><p>Énergique : Ici votre tolérance au risque est élevée, tout comme
+votre capacité à prendre des risques. Vous acceptez que la valeur de vos
+placements puisse subir de grandes fluctuations au fil du temps. Vous
+rechercherez probablement un potentiel de rendement plus élevé. Vos
+placements sont probablement composés principalement d’actions (plutôt
+que d’obligations) de sociétés de grande et de petite taille.</p></li>
+</ol></li>
+</ul>
+<h4 id="critères-de-choix-des-paramètres.">Critères de choix des
+paramètres.</h4>
+<p>La Stratégie des Moyennes Mobiles se base sur une étude des tendances
+des Moyennes Mobiles de courte périodes et de longue périodes. A cet
+effet, il existe des périodes standards dans l’utilisation de cette
+Stratégie. Ces périodes dépendent de divers facteurs, notamment de la
+volatilité des actifs et de l’horizon temporel (court terme : MA5, MA10,
+moyen terme : MA50, MA100, long terme : MA200, MA250). Cependant, il est
+souvent nécessaire d’adapter ces périodes en fonction des conditions
+changeantes du marché et des besoins de l’investisseur. De plus la
+stratégie de l’Oscillateur Stochastique et de la moyenne mobile
+convergence divergence fait également appelle au calcul de certaine
+moyenne mobile. Ainsi, dans l’application de la Stratégie de trading
+basée sur les Moyennes Mobiles, et celle de la méthode combiné de
+l’Oscillateur stochastique et de la moyenne mobile convergence
+divergence nous avons testé différentes combinaisons qui ont permis de
+trouver les périodes des Moyennes Mobiles rapide et des Moyennes Mobiles
+lentes optimales, permettant d’appliquer efficacement la stratégie de
+trading. Il s’avère donc nécessaire de faire un choix logique, cohérent
+et robuste suivant toutes les périodes trouvées, nos objectifs
+d’investissements, notre horizon temporel et la tolérance au risque.</p>
+<ul>
+<li><p><strong>Simulation</strong></p>
+<p>La simulation consistera à tester plusieurs combinaisons de périodes
+pour les Moyennes Mobiles arithmétiques dans le cas de la stratégie
+basée sur les Moyennes Mobiles. Nous allons recueillir des informations
+sur le pourcentage de bénéfice réalisé à la suite du backtesting, le
+nombre total de signaux d’achat et de vente obtenus en utilisant les
+combinaisons de périodes, le nombre de transactions positives effectuées
+et le nombre de transactions négatives. Dans le cas de la Stratégie
+combinée de l’Oscillateur Stochastique et de la moyenne mobile
+Convergence Divergence, nous allons recueillir des informations sur le
+bénéfice, le nombre de transactions positives effectuées et le nombre de
+transactions négatives, ainsi que les combinaisons de périodes utilisées
+pour calculer les moyennes exponentielles, la ligne de signal et la
+ligne de l’Oscillateur Stochastique.</p>
+<p>Notre étude encourage l’investissement à cout et à long terme, ainsi
+donc nos simulations se feront pour des valeurs de la période courte de
+20 à 50 et pour des valeurs de la période longue de 50 à 150. À la fin
+de la simulation, nous choisirons les périodes ayant généré un bénéfice
+d’au moins 20%, un taux de transactions positives élevé et
+robuste.</p></li>
+<li><p><strong>Taux de réussite des transactions.</strong></p>
+<p>Une transaction est réussite lorsque le prix d’achat de l’actif est
+inférieur au prix de ventes. En d’autre termes, la transaction est
+réussite lorsque nous réalisons un bénéfice. Il arrive en effet lors de
+la génération des signaux que l’on obtiennent des faux signaux causé par
+un retard ,une grand fluctuation du marché etc... Le taux de réussites
+des transaction mesure donc la performance de la combinaison de période
+utilisée en ce basant sur le nombre de transaction réussi par rapport au
+nombre total de transactions effectuer.</p></li>
+<li><p><strong>Robustesse</strong></p>
+<p><span>La Robustesse est la capacité à ne pas être perturbé par une
+modification dans une petite partie des données. Une période est
+résistante lorsque la rentabilité produite par la période n’est pas très
+éloigner des rentabilités produites par les périodes
+avoisinantes.</span></p></li>
+</ul>
+<h4 id="outils-danalse-des-données">Outils d’analse des données</h4>
+<ul>
+<li><p><strong>Les tendances</strong></p>
+<p>La tendance est considérée comme étant la pierre angulaire de
+l’analyse technique par les traders, et dénote la direction d’un marché
+à un moment donné indiquant la tendance de la variation des prix. On
+distingue trois catégories de tendances à savoir, la tendance haussière,
+la tendance baissière et la tendance neutre.</p>
+<p>Une tendance haussière en bourse est une direction générale à la
+hausse des prix d’un actif sur une période donné. Elle se produit
+lorsque les prix d’un actif augmente régulièrement sur une période de
+temps donnée. Certains investisseur optimistes achètent souvent dans une
+tendance haussière dans l’espoir de réaliser des gains à mesure que le
+prix continue d’augmenter. Une tendance à la baisse est une situation
+boursière dans laquelle le prix d’un actif financier baisse pendant une
+certaine période[5]. Une tendance latéral se produit lorsque le prix
+d’un actif évolue horizontalement, sans tendance nette à la hausse ou à
+la baisse. Une tendance en dent de scie se caractérise se caractérise
+par des creux et des sommets qui se forment à des niveaux différents
+sans direction claire. Une tendance est un inversion de l’évolution des
+cours d’un actif : lorsqu’une tendance haussière se transforme en
+tendance baissière et vise versa.</p></li>
+<li><p><strong>Les niveaux de support et de résistance.</strong></p>
+<p>Les niveaux de résistance et de support illustre la manière dont les
+forces de l’offre et de la demande interagissent pour déterminer le prix
+en vigueur d’un actifs sous-jacent[4]. La résistance est une ligne qui
+relie les sommets des points les plus hauts de la courbe des actifs. Le
+support est une ligne qui relie les sommets des points les plus bas de
+la courbe. Si une ligne touche au moins trois points, elle devient
+significative. Plus les cours viendront toucher les lignes de résistance
+et de support, plus elles résisteront aux hausses et aux chutes du cours
+des actions. Les Lignes de résistances et de support peuvent être
+utilisées pour délimiter les zones potentielles où les prix peuvent
+rencontrer des changements de directions.</p>
+<p>Lorsque les cours arrivent finalement à traverser la résistance cela
+voudrait dire qu’ils ont accumulé assez de force pour traverser la
+résistance et qu’un changement significatif existe. Si les cours
+traversent le support cela implique une diminution potentiellement
+significative du cours de l’actifs.</p></li>
+<li><p><strong>Les Moyennes Mobiles.</strong></p>
+<p><span>La moyenne mobile est une ligne de tendance qui donne une idée
+de l’évolution des cours du marché. À chaque point de la moyenne mobile,
+la valeur est un indicateur du prix moyen sur une période donnée.
+Parfois il s’agit de la moyenne mobile arithmétique, d’autres fois ce
+sont des Moyennes Mobiles plus complexes qui sont utilisées, comme la
+moyenne mobile exponentielle. La configuration et la mise en œuvre de
+cet indicateur nécessitent un paramètre très important, qui est la
+période de temps. En trading, les Moyennes Mobiles sont utilisées pour
+générer des signaux d’achat et des signaux de vente. Dans la plupart des
+cas, deux Moyennes Mobiles sont utilisées dans le but de générer les
+signaux : la moyenne mobile rapide et la moyenne lente.</span></p>
+<p><span>La moyenne mobile rapide, comparativement à la moyenne mobile
+lente, est calculée sur une période plus courte. Vient donc une question
+primordiale qui est comment choisir la période des deux Moyennes Mobiles
+qui répond au mieux à nos données? Pour la moyenne mobile rapide, on
+peut choisir une moyenne mobile qui sert de support à la correction
+d’une remontée franche arrivant après un plus bas, et pour la moyenne
+mobile lente, le double de la période de la moyenne mobile rapide. [1]
+Étant donné que chaque valeur sur le marché peut avoir ses propres
+caractéristiques uniques, indépendamment des tendances générales du
+marché, il est nécessaire d’utiliser plusieurs périodes de Moyennes
+Mobiles pour trouver la période qui convient le mieux à l’analyse du
+titre spécifié. Par ailleurs, il faut garder à l’esprit de toujours
+garder une différence considérable entre les périodes des Moyennes
+Mobiles rapides et les périodes des moyennes lentes, pour éviter que les
+courbes ne se chevauchent et donc donnent des signaux contradictoires.
+En effet, suivant les valeurs de la différence entre la période lente et
+la période rapide, plus la différence est grande, plus les Moyennes
+Mobiles s’éloigneront les unes des autres. Cette différence est l’un des
+paramètres permettant de définir le profil d’investissement
+(spéculation, investissement à moyen terme, investissement à long
+terme). </span></p></li>
+<li><p><strong>Stratégie des moyennes mobile.</strong></p>
+<p><span>La stratégie des Moyennes Mobiles utilise les Moyennes Mobiles
+arithmétiques sur deux différentes périodes : la moyenne mobile lente
+(moyenne longue) et la moyenne mobile rapide (courte). En effet, la
+moyenne mobile arithmétique est un indicateur technique utilisé pour
+lisser les données de prix sur une période donnée. Son objectif
+principal est de fournir une estimation de la tendance générale des prix
+en filtrant les fluctuations. Suivant les différents croisements des
+deux Moyennes Mobiles, on peut détecter des signaux d’achat et de vente.
+Ainsi, lorsque la moyenne mobile rapide croise et dépasse la moyenne
+mobile lente, alors le marché est en tendance haussière ce qui est un
+signal d’achat. Par contre, quand la moyenne mobile rapide croise et est
+inférieure à la moyenne mobile lente, alors le marché est en tendance
+baissière et cela implique un signal de vente. Si les deux moyennes sont
+confondues, nous sommes en range. La création de cette stratégie est
+généralement attribuée à <strong>Charles H. Dow</strong>, un journaliste
+financier américain et fondateur du Dow Jones &amp; Company. Il est l’un
+des pionniers de l’analyse technique des marchés financiers et de
+l’utilisation des Moyennes Mobiles.</span></p></li>
+<li><p><strong>Strategie de la Moyenne mobile convergence
+divergence.</strong></p>
+<p><span>L’indicateur MACD (Moving Average Convergence Divergence) est
+un indicateur de suivi de tendance utilisé pour localiser les tendances
+du marché. Il est composé d’un histogramme de deux lignes calculées à
+partir des Moyennes Mobiles exponentielles et d’une ligne MACD et d’une
+ligne signal. Les deux lignes de Moyennes Mobiles Exponentielles sont
+calculées sur les cours de clôture. En effet, la Moyenne Mobile
+Exponentielle est un indicateur technique qui permet de lisser les cours
+des actifs en affectant plus de poids aux prix les plus récents tout en
+diminuant progressivement le poids des prix plus anciens. La ligne MACD
+est le résultat de la différence entre les Moyennes Mobiles rapides qui
+sont de courtes périodes et la moyenne mobile lente qui est de longue
+période. Une MACD positive indique une tendance haussière et une MACD
+négative indique une tendance baissière. La ligne signal est la moyenne
+mobile arithmétique de la ligne MACD. Cette ligne lisse la MACD et
+permet de générer les signaux d’achat et de vente. Ainsi, suivant les
+valeurs de la ligne signal et de la ligne MACD, lorsque la ligne MACD
+croise la ligne de signal et la dépasse, cela génère un signal d’achat
+et dans le cas où la ligne MACD croise la ligne signal et passe
+en-dessous de celle-ci, cela génère un signal de vente. La MACD a été
+développée par <strong>Gérald Appel</strong>, un analyste financier et
+trader américain connu pour ses contributions à l’analyse technique. Il
+faut noter que l’indicateur est le résultat de nombreuses contributions
+et améliorations apportées par divers professionnels de l’analyse
+technique au fil des ans. Cependant, étant donné que la Moyenne Mobile
+est un type d’indicateur technique qui se base sur des données
+historiques pour générer des signaux (indicateur retard), il est donc
+par conséquent lent à réagir aux changements de prix comparativement aux
+indicateurs avancés qui anticipent les mouvements futurs des prix. Pour
+cela, il est important de combiner la MACD avec d’autres indicateurs
+afin de confirmer les signaux.</span></p></li>
+<li><p><strong>Strategie de l’ oscillateur stochastique.</strong></p>
+<p><span>L’oscillateur stochastique est un indicateur qui évalue les
+conditions de surachat et de survente du marché. Le stochastique est
+basé sur le fait que lorsque les prix suivent une tendance haussière,
+les prix de fermeture tendent à se rapprocher du niveau supérieur de
+l’écart des prix. de même lorsque la tendance des prix est en baisse,
+les prix de fermeture tendent à se rapprocher du niveau inférieur de
+l’écart des prix. Pour cela, il fait appel à deux lingnes nommées %K et
+%D. Le %D est le plus plus important dans le sens ou c’est lui qui donne
+le signal. Ces lignes permettent de savoir si le marché est dans un état
+de surachat ou dans un état de survente[3]. En effet, la ligne %K est la
+ligne principale de l’oscillateur stochastique. Elle représente la
+position actuelle du prix de clôture par rapport à un échantillon de
+prix sur une période donnée. La ligne %D, quant à elle, est la moyenne
+mobile arithmétique de la ligne %K sur une autre période. Cette ligne
+est lissée afin de donner une meilleure indication sur les conditions du
+marché. Suivant les deux lignes, une valeur de %K et de %D de moins de
+30% indique que nous sommes dans un état de survente, et une valeur de
+plus de 70% indique un marché dans un état de surachat. Développé par
+<strong>George C. Lane</strong> vers les années 1950, l’oscillateur
+stochastique est utilisé pour identifier les changements potentiels dans
+les tendances et pour confirmer les signaux générés par d’autres
+indicateurs.</span></p></li>
+</ul>
+<h4 id="critère-de-decision">Critère de decision </h4>
+<ul>
+<li><p><strong>Le Backtesting.</strong></p>
+<p><span>Le Backtesting est une façon d’analyser la performance
+potentielle d’une stratégie de trading en l’appliquant à des données
+historiques réelles. C’est un outil qui aide à choisir la stratégie
+présentant le meilleur résultat. Cette stratégie se base sur l’idée
+selon laquelle une stratégie ayant donné de meilleurs résultats sur des
+données passées est susceptible de le faire également dans les
+conditions actuelles ou futures du marché. En effet, le Backtesting
+permet de tester les stratégies tout en ajustant les paramètres afin
+d’obtenir les meilleurs résultats. Les tests sont réalisés très
+rapidement et sans risquer le capital.</span></p></li>
+</ul>
+<h4 id="limite-de-létude.">Limite de l’étude. </h4>
+<p><span>Notre étude compare uniquement les performances de deux
+stratégies de trading sur les indices BRVM-Agriculture et BRVM-Service
+Publique. Malheureusement, les résultats de notre étude ne peuvent pas
+être utilisés pour d’autres indices ou pour d’autres titres sur d’autres
+marchés, y compris même celui de la BRVM. De plus, les périodes
+utilisées pour les calculs de moyenne mobile sont de plus de 20 jours,
+ce qui n’est pas convenable pour les traders spéculateurs. Il faut noter
+que le Backtesting, bien qu’il permette de trouver la stratégie la plus
+performante, ne garantit cependant pas la fiabilité de celle-ci sur les
+données futures du marché.</span></p>
+<h1 id="analyse-des-resultats-verification-et-solutions">ANALYSE DES
+RESULTATS, VERIFICATION ET SOLUTIONS</h1>
+<h2 id="collecte-des-données-et-analyse-des-résultats">Collecte des
+données et analyse des résultats</h2>
+<h3 id="présentation-des-données-et-analyse-des-résultats">Présentation
+des données et analyse des résultats</h3>
+<h4 id="analyse-descriptive.">Analyse descriptive.</h4>
+<p><span>Encore appelé statistique descriptive, l’analyse descriptive
+permet de décrire et de résumer les caractéristique essentielles d’un
+ensemble de données. En analyse technique, en plus des statistiques
+élémentaire on peut faire également une analyse des tendances pour
+comprendre les mouvements de prix d’un actif financier au fil du temps.
+De plus une analyse des niveaux de résistances et de support permet de
+fournir des repères pour déterminer les zones ou les prix sont
+susceptible de réagir ou potentiellement inverser leur
+direction.</span></p>
+<ul>
+<li><p><strong>L’indice BRVM-Services-Publics.</strong></p>
+<p><span>L’analyse descriptive des données de la BRVM-Agriculture, basée
+sur les données antérieures de la Bourse régionale des valeurs
+immobilières sur la période allant du <strong>16 juin 2020</strong> au
+<strong>15 mai 2023</strong>, révèle de nombreux points importants. En
+effet, la valeur moyenne de cet indice durant cette période s’élève à
+439,55, ce qui indique un niveau de prix autour duquel les prix tendent
+à se regrouper. L’écart type de 47,60 suggère que les prix de clôture
+sont légèrement dispersés par rapport à la moyenne, ce qui explique une
+certaine stabilité dans les fluctuations. Le prix minimum atteint durant
+cette période est de 328,64 tandis que le prix maximum atteint est de
+528,59. En étudiant les quartiles, nous pouvons remarquer que 25% des
+prix sont inférieurs à 397,54, tandis que 75% des prix de clôture sont
+inférieurs à 475,15, ce qui montre une distribution des prix légèrement
+asymétrique. Avec une valeur de 449,34, la médiane indique que la moitié
+des prix sont inférieurs à cette valeur. Suivant les niveaux de
+résistance et de support sur la figure ci-dessous, nous pouvons
+remarquer qu’aucune ligne de support ni de résistance ne respecte la
+"règle des trois touches", qui suggère que la résistance et le support
+sont valides lorsqu’ils ont été touchés au moins trois fois sans être
+traversés par la courbe des prix.</span></p>
+<p><span> En général, nous pouvons noter une légère augmentation du
+cours de l’indice durant la période allant de juin 2020 à mai 2023.
+Cette augmentation traduit une appréciation positive de la valeur par
+les investisseurs ou simplement une demande de plus en plus importante
+pour cette valeur.</span></p>
+<figure id="fig:Tendances de l&#39;indice BRVM-Services-Publics">
+<img src="img/public_tendance.jpg" />
+<figcaption>Tendances de l’indice BRVM-Services-Publics</figcaption>
+</figure></li>
+<li><p><strong>BRVM-Agriculture</strong></p>
+<p><span>L’analyse descriptive de l’indice BRVM-Agriculture sur la
+période du <strong>16 juin 2020</strong> au <strong>15 mai 2023</strong>
+révèle principalement une très grande augmentation du cours de la
+valeur. En effet, à la date du 15 mai 2023, le prix de l’indice
+BRVM-Agriculture valait 65,92 pour atteindre 248,05 Fcfa le 15 mai 2023.
+Autrement dit, la valeur vaut plus de 3,5 fois sa valeur initiale. Par
+ailleurs, le prix minimum atteint durant cette période est de 55,40 Fcfa
+enregistré le <strong>mercredi 05 août 2020</strong> et un maximum de
+349,65 Fcfa atteint le <strong>lundi 16 mai 2022</strong>. En moyenne,
+le prix de clôture de la "BRVM-Agri" durant cette période tourne autour
+de 206,82 Fcfa. L’étude des quartiles révèle que 25% des cours sont
+inférieurs à 109,59 Fcfa et 75% sont inférieurs à 287,00 Fcfa. En plus
+d’un écart type de 95,12, qui suggère une légère distribution par
+rapport à la moyenne, nous pouvons remarquer graphiquement une évolution
+des cours très progressive et sans changement brusque. Suivant les
+niveaux de résistance et de support, nous pouvons remarquer que
+seulement la troisième résistance ne respecte pas la "règle des trois
+points touchés". En effet, nous pouvons observer que la résistance qui
+commence vers le 09 novembre 2020 est touchée cinq fois par la courbe de
+l’évolution des cours de la valeur avant d’être traversée plutôt au
+sixième pic vers le 25 août 2022 pour atteindre un nouveau record de
+259,08 Fcfa le <strong>mardi 26 octobre 2021</strong>, ce qui valide la
+résistance précédente.</span></p>
+<figure id="fig:Tendance de l&#39;indice BRVM-Agriculture">
+<img src="img/agri_tendance.jpg" />
+<figcaption>Tendances de l’indice BRVM-Agriculture</figcaption>
+</figure></li>
+</ul>
+<h4 id="analyse-des-resultats.">Analyse des resultats.</h4>
+<p><strong>Profil d’investissement.</strong></p>
+<ul>
+<li><p><strong>Objectifs d’investissement :</strong> Dans cette étude ou
+nous cherchons la meilleur stratégie de trading pour chaque indices
+(BRVM-agriculture et BRVM-Service-Publics), notre objectif est de
+pouvoir acheter ces valeurs à un moins cours et les revendre plus chère.
+Notre objectif d’investissement est donc la <strong>croissance du
+capital</strong>.</p></li>
+<li><p><strong>Horizon temporel :</strong> Pour l’application des
+stratégies de trading nous prévoyons de conserver la valeur pendant une
+période assez longue. Dans cette étude nous faisons le choix d’un
+investissement à moyen terme.</p></li>
+<li><p><strong>Tolérance au risque :</strong> Dans cette étude, nous
+effectuons des opérations de trading sur les marchés d’indices
+boursiers. À chaque signal d’achat, nous achetons la valeur si nous ne
+possédons pas du stock puis nous revendons toute la valeur au prochain
+signal de vente. Nous acceptons donc que la valeur de nos placement
+puisse subir de grandes fluctuations au fil du temps. De plus nous
+recherchons une stratégie avec d’un potentiel de rendement élever. Nous
+avons donc un profil d’inverstisseur ’Energique’.</p></li>
+</ul>
+<p><strong>Paramètres des Stratégies de trading.</strong></p>
+<p>Afin de déterminer la combinaison de périodes qui maximise le
+bénéfice pour la Stratégie des Moyennes Mobiles, des simulations ont été
+effectuées sur un ensemble de couples de périodes afin de recueillir les
+informations sur chaque période. Des informations telles que le nombre
+de signaux positifs, le nombre de signaux négatifs, le nombre de
+transactions positives, le nombre de transactions négatives, et le taux
+de bénéfice réalisé sur cette combinaison de périodes. A cet effet, les
+Moyennes Mobiles ont été testées sur un intervalle de <strong>10 à
+54</strong> pour la période "rapide" et de <strong>24 à 100</strong>
+pour la période "lente".</p>
+<p>Au total, nous avons enregistré <strong>3465</strong> observations.
+Parmi ce grand nombre de possibilités, se trouve une et une seule
+combinaison de périodes qui répond le mieux à nos données et en même
+temps à nos critères de choix. Cependant, il est important de noter que
+suite aux simulations le maximum de bénéfice pour l’indice
+BRVM-Agriculture a été obtenu grâce aux périodes 35 pour la moyenne
+mobile lente et 34 pour la moyenne mobile rapide, avec
+<strong>446,531%</strong> de bénéfice pour 16 transactions réussies sur
+21 transactions au total. En ce qui concerne l’indice
+BRVM-Services-Publics, le plus grand taux de bénéfice est observé avec
+la période 30 pour la moyenne mobile lente et 32 pour la moyenne mobile
+rapide, avec un total de <strong>44,009%</strong> de bénéfice pour 14
+transactions réussies sur 25. Dans la suite, nous présenterons
+l’application des différents critères de sélection de périodes ainsi que
+les filtrages.</p>
+<ul>
+<li><p><strong>Paramètres pour la stratégie des Moyennes
+Mobiles.</strong></p>
+<ul>
+<li><p>Difference entre période.</p>
+<p><span>Il est conseillé que la moyenne mobile lente fasse au moins le
+double de la moyenne mobile rapide. Pour cela, nous allons prendre en
+considération uniquement les combinaisons de périodes dont la période
+"lente" fait au moins le double de la période "rapide". À la suite de
+cette sélection, il restait un total de <strong>1675</strong>
+observations (dans les deux cas). </span></p></li>
+<li><p>Taux de réussite des transactions.</p>
+<p><span>Une transaction est réussie lorsque le prix de vente de l’actif
+est supérieur à son prix d’achat. Ici, nous allons sélectionner
+uniquement les observations ayant un taux de transactions réussies de
+plus de <strong>80%</strong>. Suite à ce filtrage, il ne restait plus
+que <strong>6</strong> observations pour les périodes de l’indice
+BRVM-Agriculture et <strong>37</strong> observations pour les périodes
+de l’indice BRVM-Services-Publics.</span></p></li>
+<li><p>Taux de bénéfice.</p>
+<p><span>Dans ce niveau de filtrage, nous allons prélever la période qui
+a généré le pourcentage de bénéfice le plus élevé parmi les 6
+observations dans le cas de l’indice BRVM-Agriculture et les 37
+observations en ce qui concerne l’indice BRVM-Services-Publics. Dans le
+cas de l’indice BRVM-Agriculture, nous pouvons observer un maximum de
+bénéfice de <strong>380,184%</strong> avec les périodes 27 et 54, et un
+maximum de bénéfice de <strong>19,241%</strong> avec les périodes 49 et
+100 pour l’indice BRVM-Services-Publics.</span></p></li>
+<li><p>Robustesse.</p>
+<p><span>Ce niveau est le plus important parmi nos filtrages. En effet,
+nous allons vérifier si une légère modification des périodes citées plus
+haut affecte la rentabilité et le nombre de taux de transaction de la
+stratégie.</span></p>
+<div class="center">
+<p><strong>"BRVM-agri"</strong></p>
+</div>
+<table>
+<caption>Période voisins du couple (27,54) pour la BRVM-agri</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Longue</th>
+<th style="text-align: left;">Courte</th>
+<th style="text-align: left;">Bénefice</th>
+<th style="text-align: left;">Positive</th>
+<th style="text-align: left;">Négative</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">53</td>
+<td style="text-align: left;">26</td>
+<td style="text-align: left;">369.535</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">54</td>
+<td style="text-align: left;">26</td>
+<td style="text-align: left;">363.157</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">55</td>
+<td style="text-align: left;">26</td>
+<td style="text-align: left;">357.975</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">53</td>
+<td style="text-align: left;">27</td>
+<td style="text-align: left;">361.161</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">54</td>
+<td style="text-align: left;">27</td>
+<td style="text-align: left;">380.18</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">55</td>
+<td style="text-align: left;">27</td>
+<td style="text-align: left;">349.852</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">53</td>
+<td style="text-align: left;">28</td>
+<td style="text-align: left;">354.71</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">54</td>
+<td style="text-align: left;">28</td>
+<td style="text-align: left;">352.48</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">55</td>
+<td style="text-align: left;">28</td>
+<td style="text-align: left;">347.417</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">1</td>
+</tr>
+</tbody>
+</table>
+<p><span>En analysant le tableau ci-dessus, nous pouvons remarquer de
+très petites variations dans le taux de bénéfice, notamment au niveau
+des couples de périodes (28,55), (54,28), (53,28) et (55,27). De plus,
+pour toutes les périodes avoisinant le couple (27,53), nous observons un
+taux de réussite de transaction de 2 sur trois, soit
+<strong>66,66%</strong> de transactions réussies. Ainsi, le couple de
+périodes (27,53) n’est pas robuste. Nous allons maintenant chercher le
+couple de périodes ayant donné le plus grand taux de bénéfices pour un
+taux de réussite de transaction d’au moins <strong>75%</strong> pour au
+moins trois transactions réussies.</span></p>
+<table>
+<caption>Période voisins du couple (24,56) pour la BRVM-agri</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Longue</th>
+<th style="text-align: left;">Courte</th>
+<th style="text-align: left;">Bénefice</th>
+<th style="text-align: left;">Positive</th>
+<th style="text-align: left;">Négative</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">55</td>
+<td style="text-align: left;">23</td>
+<td style="text-align: left;">352.283</td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">56</td>
+<td style="text-align: left;">23</td>
+<td style="text-align: left;">355.751</td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">57</td>
+<td style="text-align: left;">23</td>
+<td style="text-align: left;">374.073</td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">55</td>
+<td style="text-align: left;">24</td>
+<td style="text-align: left;">364.412</td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">56</td>
+<td style="text-align: left;">24</td>
+<td style="text-align: left;">367.167</td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">57</td>
+<td style="text-align: left;">24</td>
+<td style="text-align: left;">376.914</td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">55</td>
+<td style="text-align: left;">25</td>
+<td style="text-align: left;">365.003</td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">56</td>
+<td style="text-align: left;">25</td>
+<td style="text-align: left;">361.049</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">57</td>
+<td style="text-align: left;">25</td>
+<td style="text-align: left;">361.175</td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">1</td>
+</tr>
+</tbody>
+</table>
+<p><span>De l’analyse du tableau ci-dessus, nous remarquons qu’une
+légère modification de la période de la moyenne mobile lente et de la
+moyenne mobile courte n’a presque pas d’effet sur le taux de bénéfice de
+la stratégie. En ce qui concerne les taux de transaction, nous
+remarquons qu’il n’y a pas de modification dans le nombre total de
+transactions effectuées et que le nombre de transactions négatives reste
+le même. En effet, cette transaction négative est causée par une
+fluctuation inhabituelle des cours observée entre le 26 juillet 2022 et
+janvier 2023. Mais au vu des observations, nous pouvons dire que le
+couple de périodes (24,56) est robuste dans le cadre de l’application de
+la stratégie de trading basée sur les moyennes sur la
+BRVM-Agri.</span></p>
+<div class="center">
+<p><strong>"BRVM-Service-Publics"</strong></p>
+</div>
+<table>
+<caption>Période voisins du couple (49,100) pour la
+BRVM-Service-Publics</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Longue</th>
+<th style="text-align: left;">Courte</th>
+<th style="text-align: left;">Bénefice</th>
+<th style="text-align: left;">Positive</th>
+<th style="text-align: left;">Négative</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">99</td>
+<td style="text-align: left;">48</td>
+<td style="text-align: left;">18.714</td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">100</td>
+<td style="text-align: left;">48</td>
+<td style="text-align: left;">18.756</td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">101</td>
+<td style="text-align: left;">48</td>
+<td style="text-align: left;">18.756</td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">99</td>
+<td style="text-align: left;">49</td>
+<td style="text-align: left;">17.827</td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">100</td>
+<td style="text-align: left;">49</td>
+<td style="text-align: left;">19.241</td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">101</td>
+<td style="text-align: left;">49</td>
+<td style="text-align: left;">12.727</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">99</td>
+<td style="text-align: left;">50</td>
+<td style="text-align: left;">17.072</td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">100</td>
+<td style="text-align: left;">50</td>
+<td style="text-align: left;">11.838</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">101</td>
+<td style="text-align: left;">50</td>
+<td style="text-align: left;">11.131</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">1</td>
+</tr>
+</tbody>
+</table>
+<p><span>D’après l’analyse du tableau, on remarque un léger changement
+du taux de bénéfice aux alentours du couple de périodes (38 ; 94),
+notamment aux couples (50,101) et (50,100) où le bénéfice descend
+jusqu’à 11%. Par contre, on peut observer une variation du nombre de
+transactions, notamment des transactions négatives. Nous allons
+maintenant chercher le couple de périodes ayant donné le plus grand taux
+de bénéfices pour un taux de réussite de transaction d’au moins
+<strong>75%</strong> pour au moins trois transactions
+réussies.</span></p>
+<table>
+<caption>Période voisins du couple (49,98) pour la
+BRVM-Service-Publics</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Longue</th>
+<th style="text-align: left;">Courte</th>
+<th style="text-align: left;">Bénefice</th>
+<th style="text-align: left;">Positive</th>
+<th style="text-align: left;">Négative</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">97</td>
+<td style="text-align: left;">48</td>
+<td style="text-align: left;">12.799</td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">98</td>
+<td style="text-align: left;">48</td>
+<td style="text-align: left;">19.083</td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">99</td>
+<td style="text-align: left;">48</td>
+<td style="text-align: left;">18.714</td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">97</td>
+<td style="text-align: left;">49</td>
+<td style="text-align: left;">17.62</td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">98</td>
+<td style="text-align: left;">49</td>
+<td style="text-align: left;">18.015</td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">99</td>
+<td style="text-align: left;">49</td>
+<td style="text-align: left;">17.827</td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">97</td>
+<td style="text-align: left;">50</td>
+<td style="text-align: left;">18.721</td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">98</td>
+<td style="text-align: left;">50</td>
+<td style="text-align: left;">18.532</td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">99</td>
+<td style="text-align: left;">50</td>
+<td style="text-align: left;">17.072</td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">0</td>
+</tr>
+</tbody>
+</table>
+<p><span>Le couple de périodes (49,98) n’a présenté aucun changement du
+nombre de transactions positives ou négatives pour ses périodes
+voisines. De plus, il n’y a pas une grande variation du taux de
+bénéfice, sauf pour la période 97 pour la moyenne mobile lente et 48
+pour la moyenne mobile rapide, où le bénéfice est descendu à 12%. Au vu
+de ces observations, nous pouvons déduire que le couple de périodes
+(49,98) est robuste dans le cadre de l’application de la stratégie de
+trading basée sur les moyennes sur la
+BRVM-Services-Publics.</span></p></li>
+</ul></li>
+<li><p><strong>Paramètres pour la stratégie combiné de l’Oscillateur
+Stochastique et de la moyenne mobile convergence
+Divergence.</strong></p>
+<ul>
+<li><p>Différence entre périodes.</p>
+<p><span> Comme vu précédemment dans le cas de la stratégie des Moyennes
+Mobiles, nous allons choisir une période pour la moyenne mobile
+exponentielle lente qui fait au moins le double de la période de la
+moyenne mobile rapide. En plus des Moyennes Mobiles exponentielles
+rapide et lente, nous avons également testé des périodes pour la
+fourchette de temps dans le cas de l’Oscillateur Stochastique, ainsi que
+différentes périodes pour la ligne de signal qui représente la moyenne
+mobile arithmétique de la MACD. Au total, nous avons obtenu
+<strong>142560</strong> combinaisons possibles ; soit allant de 20 à 59
+pour la période de la moyenne mobile exponentielle rapide, de 40 à 159
+pour la période de la moyenne mobile lente, de 3 à 6 pour le signal, et
+de 10 à 20 pour la fourchette de période de l’Oscillateur Stochastique.
+</span></p></li>
+<li><p>Taux de réussite des transactions. Dans cette partie, nous allons
+choisir les combinaisons de périodes ayant au moins fait un bénéfice de
+<strong>80%</strong>. Après ce filtrage, nous pouvons observer qu’il y a
+un nombre total de <strong>120087</strong> de combinaisons de périodes
+qui respectent cette condition dans le cas de l’application de la
+stratégie sur l’indice BRVM-Agriculture et un total de
+<strong>137935</strong> pour l’indice BRVM-Services-Publics.</p></li>
+<li><p>Taux de bénéfice. Parmi les 120087 observations restantes, nous
+remarquons que 1778 donnent un maximum de bénéfice de 14,5% et ont
+généré une seule transaction effectuée. Cela est dû au fait que le cours
+de l’actif est monté durant toute la période allant de juillet 2020 à
+mai 2022, et que la moyenne mobile exponentielle accorde une grande
+pondération aux données récentes. De plus, nous avons observé deux
+combinaisons de périodes qui ont fait un maximum de bénéfice de 37,366%.
+Nous reprenons donc les simulations, mais cette fois-ci sur des périodes
+allant de 10 à 55 pour la période de la moyenne mobile exponentielle
+rapide, et de 25 à 100 pour la période de la moyenne mobile
+exponentielle lente, de 4 à 6 pour la ligne de signal, et de 14 à 20
+pour la fourchette de période de l’Oscillateur Stochastique. Au total,
+nous obtenons <strong>56196</strong> nouvelles observations. Après
+analyse, il ressort qu’une combinaison de périodes génère un maximum de
+bénéfice de 29,105% pour l’indice BRVM-Agriculture, et deux différentes
+combinaisons de périodes ont fait un bénéfice de 39,758% soit (24,37) et
+(25,36).</p></li>
+<li><p>Robustesste.</p>
+<div class="center">
+<p><strong>"BRVM-agri"</strong></p>
+</div>
+<table>
+<caption>Période voisins du couple (25,10) pour la
+BRVM-Agriculture</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Longue</th>
+<th style="text-align: left;">Courte</th>
+<th style="text-align: left;">Bénefice</th>
+<th style="text-align: left;">Positive</th>
+<th style="text-align: left;">Négative</th>
+<th style="text-align: left;">Niveau</th>
+<th style="text-align: left;">Signal</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">24</td>
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">29.09</td>
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">20</td>
+<td style="text-align: left;">4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">25</td>
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">25.515</td>
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">20</td>
+<td style="text-align: left;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">26</td>
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">29.105</td>
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">20</td>
+<td style="text-align: left;">4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">24</td>
+<td style="text-align: left;">10</td>
+<td style="text-align: left;">25.515</td>
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">20</td>
+<td style="text-align: left;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">25</td>
+<td style="text-align: left;">10</td>
+<td style="text-align: left;">29.105</td>
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">20</td>
+<td style="text-align: left;">4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">26</td>
+<td style="text-align: left;">10</td>
+<td style="text-align: left;">18.682</td>
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">20</td>
+<td style="text-align: left;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">24</td>
+<td style="text-align: left;">11</td>
+<td style="text-align: left;">18.682</td>
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">20</td>
+<td style="text-align: left;">4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">25</td>
+<td style="text-align: left;">11</td>
+<td style="text-align: left;">20.111</td>
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">20</td>
+<td style="text-align: left;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">26</td>
+<td style="text-align: left;">11</td>
+<td style="text-align: left;">18.256</td>
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">20</td>
+<td style="text-align: left;">4</td>
+</tr>
+</tbody>
+</table>
+<p><span>D’après l’analyse du tableau ci-dessus, nous pouvons remarquer
+qu’une légère modification de la période de la moyenne mobile
+exponentielle lente et rapide ne modifie pas largement le taux de
+bénéfice. En effet, pour une modification de la période de la moyenne
+mobile exponentielle rapide et lente respectivement de 24 à 26 et de 9 à
+11, nous pouvons observer une variation de bénéfice entre 18,256% et
+29,105%. Dans le même temps, nous remarquons pour les observations
+voisines une transaction négative qui survient sur un total de 5
+transactions pour les périodes (26,10), (25,11), (24,11) et (26,11), et
+pour un total de 6 transactions pour les périodes (24,9), (26,9), (26,9)
+et (24,10). Nous pouvons déduire que les résultats restent moyennement
+stables pour les périodes (25,10). Nous en déduisons que les périodes 25
+pour la moyenne mobile exponentielle lente, 10 pour la moyenne mobile
+exponentielle rapide, 20 pour la fourchette de temps de l’Oscillateur
+Stochastique et 4 pour la ligne de signal sont robustes dans
+l’application de la stratégie combinée de l’Oscillateur Stochastique et
+de la Moyenne Mobile Convergence Divergence sur l’indice
+BRVM-Agriculture.</span></p>
+<div class="center">
+<p><strong>"BRVM-Services-Publique"</strong></p>
+</div>
+<table>
+<caption>Période voisins du couple (25,36) pour la
+BRVM-Services-Publics</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Longue</th>
+<th style="text-align: left;">Courte</th>
+<th style="text-align: left;">Bénefice</th>
+<th style="text-align: left;">Positive</th>
+<th style="text-align: left;">Négative</th>
+<th style="text-align: left;">Niveau</th>
+<th style="text-align: left;">Signal</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">35</td>
+<td style="text-align: left;">24</td>
+<td style="text-align: left;">26.048</td>
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">19</td>
+<td style="text-align: left;">6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">36</td>
+<td style="text-align: left;">24</td>
+<td style="text-align: left;">27.304</td>
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">19</td>
+<td style="text-align: left;">6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">37</td>
+<td style="text-align: left;">24</td>
+<td style="text-align: left;">39.758</td>
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">19</td>
+<td style="text-align: left;">6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">35</td>
+<td style="text-align: left;">25</td>
+<td style="text-align: left;">27.304</td>
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">19</td>
+<td style="text-align: left;">6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">36</td>
+<td style="text-align: left;">25</td>
+<td style="text-align: left;">39.758</td>
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">19</td>
+<td style="text-align: left;">6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">37</td>
+<td style="text-align: left;">25</td>
+<td style="text-align: left;">38.151</td>
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">19</td>
+<td style="text-align: left;">6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">36</td>
+<td style="text-align: left;">26</td>
+<td style="text-align: left;">38.151</td>
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">19</td>
+<td style="text-align: left;">6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">37</td>
+<td style="text-align: left;">26</td>
+<td style="text-align: left;">38.151</td>
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">19</td>
+<td style="text-align: left;">6</td>
+</tr>
+</tbody>
+</table>
+<p><span>D’après l’analyse du tableau ci-dessus, il ressort qu’une
+variation de la période lente entre 35 et 37 et une variation de la
+période rapide entre 24 et 26 font varier le pourcentage de bénéfice de
+26,048% à 38,151%. Notons également que pour les périodes (37,25),
+(36,26) et (37,26), le bénéfice reste stable et ne change pas. De plus,
+pour toutes les périodes avoisinant le couple (25,36), le nombre de
+transactions reste le même avec 100% de transactions positives. Nous en
+déduisons alors que les périodes 25, 36, 19 et 6, respectivement pour la
+moyenne mobile rapide, lente, la fourchette de période de l’Oscillateur
+Stochastique et la période de la ligne Signal, sont robustes dans le cas
+de l’application de la stratégie combinée de l’Oscillateur Stochastique
+et de la Moyenne Mobile Convergence Divergence sur l’indice
+BRVM-Services-Publics.</span></p></li>
+</ul></li>
+</ul>
+<p><strong>Strategies de trading.</strong></p>
+<ul>
+<li><p><strong>Strategie des Moyennes Mobiles avec les périodes
+standard.</strong><br />
+</p>
+<div class="center">
+<p><strong>"BRVM-Agriculture"-"BRVM-Services-Publics"</strong></p>
+</div>
+<figure
+id="fig:Strategie des Moyennes Mobiles avec les périodes standard">
+<img src="img/MA-standard.png" />
+<figcaption>Strategie des Moyennes Mobiles avec les périodes
+standard</figcaption>
+</figure></li>
+<li><p><strong>Strategie Combine de MACD et de Stochastique avec les
+périodes standard.</strong><br />
+</p>
+<div class="center">
+<p><strong>"BRVM-Agriculture-BRVM-Services-Publics"</strong></p>
+</div>
+<div class="samepage">
+<figure
+id="fig:Strategie Combine de MACD et de Stochastique avec les périodes standard">
+<img src="img/MACD-standard.png" />
+<figcaption>Strategie Combine de MACD et de Stochastique avec les
+périodes standard</figcaption>
+</figure>
+</div>
+<p>La figure 3.3 illustre la stratégie des Moyennes Mobiles sur les
+indices BRVM-Agriculture et BRVM-Services-Publics. L’analyse révèle que
+cette stratégie a généré 10 signaux d’achat et de vente sur l’indice
+BRVM-Agriculture, ainsi qu’un total de 18 signaux d’achat et de vente
+sur l’indice BRVM-Services-Publics. La première transaction réalisée sur
+l’indice BRVM-Agriculture a été la plus bénéfique, car le signal d’achat
+était de 65,42 Fcfa, tandis que le signal de vente était de 239,07 Fcfa.
+Cependant, les deux dernières transactions utilisant la stratégie des
+Moyennes Mobiles se sont soldées par des pertes. Ainsi, sur un total de
+5 transactions, seules 2 ont été enregistrées, soit un taux de réussite
+de 40 Concernant l’indice BRVM-Services-Publics, la stratégie des
+Moyennes Mobiles a généré un total de 18 signaux d’achat et de vente.
+Parmi ces 18 transactions organisées, 14 ont été positives, représentant
+un taux de réussite de 77%. L’analyse des courbes révèle que la 6ème
+transaction a été la plus bénéfique, avec un signal d’achat à un cours
+de 451,91 Fcfa et un signal de vente à un prix de 508,07 Fcfa. De plus,
+entre le 11, 13 et le 17 mai 2022, on peut observer une série de signaux
+d’achat et de vente causée par une chute, un pic, et une rechute des
+cours entre les périodes allant du 10 mai 2022 (où l’indice valait
+507,70 Fcfa) au 13 mai (où l’indice était à 522,36 Fcfa), pour
+finalement descendre à 500,63 Fcfa le lendemain. En résumé, la stratégie
+des Moyennes Mobiles a généré un bénéfice total de
+<strong>359,46%</strong> pour l’indice BRVM-Agriculture et un bénéfice
+total de <strong>11,41%</strong> pour l’indice
+BRVM-Services-Publics."</p>
+<p>La figure 3.4 illustre la stratégie combinée de l’Oscillateur
+Stochastique et de la moyenne mobile convergence divergence sur les
+indices BRVM-Agriculture et BRVM-Services-Publics. De son analyse, il
+ressort que la méthode combinée de l’Oscillateur Stochastique et de la
+MACD a donné un total de 3 signaux d’achat et de vente. Sur les trois
+signaux obtenus, une seule transaction a été réalisée, soit un signal
+d’achat pour un cours de 311,58 Fcfa et un signal de vente à 294,52
+Fcfa, ce qui représente un faux signal et donc a donné lieu à une
+transaction négative. Par la suite, un signal d’achat a été généré, mais
+malheureusement, dans la suite des données, il n’y a plus eu de signal
+de vente. Au total, la stratégie combinée de l’Oscillateur Stochastique
+et de la moyenne mobile convergence divergence a donné un taux de
+bénéfice de <strong>-5,48%</strong> sur la BRVM-Agriculture. En ce qui
+concerne l’indice BRVM-Services-Publics, la stratégie a donné 9 signaux
+d’achat et de vente. Nous n’avons pas observé de fausses transactions,
+mais un signal de vente très tôt à la 4ème transaction. En somme, la
+stratégie a donné un bénéfice total de <strong>29,79%</strong> sur
+l’indice BRVM-Services-Publics.</p></li>
+<li><p><strong>Strategie des Moyennes Mobiles (avec les nouveaux
+paramètres).</strong></p>
+<p><span>Maintenant que nous connaissons les périodes qu’il faut, nous
+allons appliquer la stratégie de trading basée sur la moyenne mobile sur
+les indices BRVM-Agriculture et sur les indices
+BRVM-Services-Publics.</span></p>
+<div class="center">
+<p><strong>"BRVM-Agriculture"</strong></p>
+</div>
+<figure id="fig:Strategie des Moyennes Mobiles sur la BRVM-Agri">
+<img src="img/MA-agri.jpg" />
+<figcaption>Strategie des Moyennes Mobiles sur la BRVM-Agri</figcaption>
+</figure>
+<p>La figure ci-dessus illustre l’application de la stratégie des
+Moyennes Mobiles sur l’indice BRVM-Agriculture. Cette représentation
+graphique présente les tendances de la moyenne mobile arithmétique lente
+et de la moyenne mobile rapide, ainsi que les signaux d’achat et de
+vente. L’analyse de cette figure révèle que la stratégie des Moyennes
+Mobiles a généré un total de 8 signaux d’achat et de vente.</p>
+<p>Sur le graphique de gauche, nous pouvons observer des nombres en
+rouge et en vert. Le nombre en vert représente le prix d’achat de
+l’actif après un signal d’achat, tandis que le nombre en rouge
+représente le prix de vente au signal de vente. Ainsi, si le nombre en
+rouge est inférieur au nombre en vert, cela signifie que la transaction
+a entraîné une perte.</p>
+<p>Dans la figure ci-dessous, nous pouvons remarquer que toutes les
+transactions sont positives, indiquant l’absence de faux signaux, ou
+presque. Toutefois, entre le 26 janvier 2022 et le 2 février 2022, nous
+avons observé deux signaux d’achat et de vente très rapprochés en raison
+d’une fluctuation inhabituelle du cours de l’indice. Malgré cela, les
+transactions ont été un succès car le prix d’achat était de 236,96 et le
+prix de vente de 242,91." La méthode des Moyennes Mobiles sur la
+BRVM-Agriculture à donner <strong>367,167%</strong></p>
+<div class="center">
+<p><strong>"BRVM-Services-Publics"</strong></p>
+</div>
+<figure
+id="fig:Strategie des Moyennes Mobiles sur la BRVM-Services-Publics">
+<img src="img/MA-public.jpg" />
+<figcaption>Strategie des Moyennes Mobiles sur la
+BRVM-Services-Publics</figcaption>
+</figure>
+<p>La représentation graphique ci-dessus offre une vue de la stratégie
+de trading des Moyennes Mobiles sur l’indice BRVM-Services-Publics. Dans
+le coin à droite ce trouve des informations sur ce que représente chaque
+courbe. Ainsi nous pouvons lire que la courbe en vert représente la
+moyenne mobile sur 98 jours (’lente’) et celle orange la moyenne mobile
+sur 48 jours (’rapide’). De son analyse il ressort qu’un total de trois
+transactions on été effectuées dont la plus bénéfique est la première
+transaction. En effet lors de cette transaction l’indice à été acheter
+au prix de 396,96 Fcfa et revendu à 446,66 Fcfa.</p>
+<p>Remarquons cependant que le signal d’achat est un signal légèrement
+en retard car il survient après un pique observer entre le 09 décembre
+2020 et le 17 décembre 2020 ou le cours de l’indice est passe de 351,14
+fcfa à 416,12 Fcfa. Il aurait été donc plus bénéfique que le signal
+d’achat ait été générer un peux plus tôt. Mais cela est dur à ce
+mouvement inhabituelle observer durant cette période de temps. Le
+phénomène contraire s’observe également au niveau de la deuxième
+transaction ou le signal de vente est venu un peu trop tardivement après
+un que l’indice est atteint son plus grand pique. En somme la Stratégie
+des Moyennes Mobiles sur l’indice BRVM-Services-Publics à engendrer un
+bénéfice total de <strong>18,01 %</strong></p></li>
+<li><p><strong>Strategie Combiné de l’Oscillateur Stochatique et de la
+Moyenne Mobile Convergence Divergence (avec les nouveaux
+paramètres).</strong></p>
+<div class="center">
+<p><strong>"BRVM-Agriculture"</strong></p>
+</div>
+<figure
+id="fig:Strategie Combine de MACD et de Stochastique sur l&#39;indice Agriculture">
+<img src="img/MACD-Agri.png" />
+<figcaption>Strategie Combine de MACD et de Stochastique sur l’indice
+Agriculture</figcaption>
+</figure>
+<p><span>La représentation graphique ci-dessus, illustre la courbe du
+cours de l’indice BRVM-Agriculture , la Moyenne Mobile Convergence
+Divergence , ainsi que l’Oscillateur Stochastique. De cette
+représentation graphique, nous pouvons observer que les courbes de
+l’Oscillateur Stochastique dépasse très fréquemment la barre des 70% ce
+qui indique à chaque fois que le marché est dans un état de surachat ce
+qui représente un signal de vente. Cependant afin de valider ce signal
+il faut que la MACD soit supérieur à zéro. De plus on peut remarquer que
+après le 12 juillet 2022 une fluctuation inhabituelle des cours de
+l’indice, ce qui a générer un faux signal de vente et qui donc a conduit
+une perte au cours de cette transaction. Suivant les cours des
+transactions en haut à gauche (du côté de la courbe des cours de
+l’indice) nous pouvons observer que le prix d’achat de la valeur à cette
+transaction était de 330,74 Fcfa et son prix de vente de 301,81 Fcfa.
+Finalement la stratégie combinée de l’Oscillateur Stochastique et de la
+Moyenne Mobile Convergence Divergence à donner un bénéfice total de
+<strong>29,105%</strong> </span></p>
+<div class="center">
+<p><strong>"BRVM-Services-Publics"</strong></p>
+</div>
+<figure
+id="fig:Strategie des Moyennes Mobiles sur la BRVM-Services-Publics">
+<img src="img/MACD-Public.png" />
+<figcaption>Strategie des Moyennes Mobiles sur la
+BRVM-Services-Publics</figcaption>
+</figure>
+<p>La figure ci-dessus présente l’application de la stratégie combinée
+de l’oscillateur Stochastique et de la Moyenne Mobile Convergence
+Divergence sur l’indice BRVM-Service-Publics. De son analyse il ressort
+qu’il y a une répartition équitable des signaux d’achat et de vente
+générer par la Moyenne Mobile Convergence Divergence. En tout nous avons
+obtenu 9 signaux d’achat et de vente dont un signal d’achat final. La
+transaction la plus bénéfique réalisé est la deuxième ou le prix d’achat
+de la valeur était de 351,61 Fcfa et son prix de vente de 405,19 Fcfa.
+Notons que toutes les transactions sont positives et que le taux de
+bénéfice total réalisé à la fin de l’application de la stratégie est de
+<strong>39,758&amp;</strong>.</p>
+<p>Bien que toute les transaction soit positive on observe que le 5eme
+signal de vente est venu un peut trop tôt car dans la suite de
+l’évolution des cours, le prix de l’indice à dépasser les 500 Fcfa
+contre un signal d’achat ou l’indice coutait 474,06 Fcfa. Ce retard est
+d’autant plus remarquable au niveau de la 4eme transaction où le signal
+de vente est venu vraiment très tôt cas juste après le signal de vente
+l’indice à atteint sont cours maximal de <strong>528,59
+Fcfa</strong>.</p>
+<h3
+id="interprétation-des-résultats-et-vérifications-des-hypothèses.">Interprétation
+des résultats et vérifications des hypothèses.</h3>
+<p>D’après les analyses, la stratégie des Moyennes Mobile sur l’indice
+BRVM-Agriculture à générer au total de 8 signaux d’achat et de vente et
+6 signaux d’achat et de vente sur l’indice BRVM-Services-Publics. En ce
+qui concerne la stratégie combinée de l’Oscillateur Stochastique et de
+la Moyenne Mobile Convergence Divergence, elle à donner 13 signaux
+d’achat et de vente pour l’indice BRVM-Agriculture et 11 signaux d’achat
+et de vente pour l’indice BRVM-Services-Publics, ce qui fait un total de
+24 signaux. Nous remarquons donc que nombre total de signaux obtenu
+grâce à la stratégie des Moyennes Mobiles ainsi que le nombre total de
+signaux individuel pour chaque indice est inférieur aux signaux obtenu
+grâce à la stratégie combiné de l’oscillateur stochastique et de la
+Moyenne Mobile Convergence Divergence. Alors l’hypothèses selon laquelle
+la méthode des Moyennes Mobiles génère plus de signal d’achat et de
+ventes que la méthodes combinée de l’Oscillateur Stochastique et de la
+des Moyennes Mobiles convergence divergence n’est pas vérifier.</p>
+<p>De plus il ressort que l’application de la stratégie des moyennes
+mobile à générer un bénéfice total de 367,167% sur l’indice
+BRVM-Agriculture et un total de 18,01% sur l’indice
+BRVM-Services-Publics. Par ailleurs la stratégie combinée de
+l’Oscillateur Stochastique et de la Moyenne Mobile Convergence
+Divergence quand à elle a donné un bénéfice total de 29,105% sur
+l’indice BRVM-Agriculture contre un bénéfice total de 39,758% pour
+l’indice BRVM-Service-Publics. Il ressort de ces résultats que
+<strong>la stratégie des Moyennes Mobile donne plus de bénéfice sur
+l’indice BRVM-Agriculture que sur l’indice BRVM-Services-Publics. Alors
+que la stratégie Combiné de l’Oscillateur Stochastique et de la Moyenne
+Mobile Convergence Divergence donne plus de bénéfices sur l’indice
+BRVM-Service-Public que sur l’indice BRVM-Agriculture</strong>. En somme
+la stratégie des Moyennes Mobiles donne un total de 385,177% pour les
+deux indices et la méthode combinée de l’Oscillateur Stochastique et de
+la Moyenne Mobile Convergence Divergence produit un total de 68,863%
+pour les deux indices. Alors l’hypothèses selon laquelle la méthode
+combinée de l’Oscillateur Stochastique et de la Moyenne Mobile
+Convergence Divergence génère plus de bénéfices que la méthode des
+Moyennes Mobile n’est pas vérifié.</p>
+<h2 id="approche-de-solution">Approche de solution</h2>
+<p><span> Afin d’optimiser au mieux le profil des investisseurs à la
+Bourse Régional des valeurs Mobilière, notamment ceux qui investissent
+dans le domaine des Services Publics et de l’Agriculture, entre la
+stratégie de la moyenne mobile et de la méthode Combiné de l’Oscillateur
+Stochastique et de la Moyenne Mobile Convergence Divergence au vu des
+résultats obtenus dans cet études nous recommandons vivement
+l’utilisation de la stratégie des Moyennes Mobile sur l’indice
+BRVM-Agriculture et l’usage de la méthode Combiné de l’Oscillateur
+stochastique et de la Moyenne Mobile Convergence Divergence sur l’indice
+BRVM-Services-Publics. De plus dans le cadre de l’application de ces
+stratégies nous recommandons de faire des simulations afin de déterminer
+les paramètres pour la stratégie des moyennes mobiles qui permettent
+d’obtenir de meilleur bénéfice pour les tendance futur du marché et
+l’usage de nos critère de validations des paramètres élaborer dans le
+cadre de cette étude comparative. </span></p></li>
+</ul>
+<h1 class="unnumbered" id="conclusion">Conclusion</h1>
+<p><span>La stratégie des moyennes mobile et celle de la Moyenne mobile
+Convergence Divergence se base sur l’indicateur de tendance de moyenne
+mobile, et la Stratégie de l’Oscillateur se base sur l’indicateur de de
+Momentum. Le but de cette étude était de déterminer la stratégie la plus
+performante entre ces deux méthodes pour les indices BRVM-Agriculture et
+BRVM-Services-Publics. Apres l’analyse des résultats, il est clair que
+la méthode des moyennes mobile performe le plus sur l’indice
+BRVM-Agriculture et la méthode combinée de l’Oscillateur Stochastique et
+de la Moyenne Mobile Convergence performe la mieux pour l’indice
+BRVM-Services-Publics. Notre étude met l’accent sur les différentes
+paramètres des stratégies de trading, notamment les périodes des
+moyennes mobile. Bien que l’objectif de cette étude était était de
+comparer les stratégies de trading sur les indices BRVM-Agriculture et
+BRVM-Services-Publics, il a été élaborer des critères permettant de
+valider les paramètre d’une Stratégie spécifique. Ainsi donc pour un
+investisseurs voulant bénéficier des résultats de ce travail il serait
+préférable de reprendre les analyse affecter dans cette étude tout en
+suivant toute les étapes élaborer pour bien choisir la stratégie la plus
+performante pour son actif financier. </span></p>
+<div class="thebibliography">
+<p><span>13</span><br />
+<a
+href="https://genevatradecenter.com/analyser-interpreter-une-tendance-trading/#:~:text=Il%20existe%20trois%20principaux%20types,terme%20et%20%C3%A0%20long%20terme"
+class="uri">https://genevatradecenter.com/analyser-interpreter-une-tendance-trading/#:~:text=Il%20existe%20trois%20principaux%20types,terme%20et%20%C3%A0%20long%20terme</a><br />
+27/07/2023 - 10h</p>
+<p><br />
+<a href="https://economy-pedia.com/11037482-investor-profile"
+class="uri">https://economy-pedia.com/11037482-investor-profile</a><br />
+27/07/2023 - 15h</p>
+<p><em>ZIAD SROUGI Avril 1993 : Analyse technique du taux de change
+nominal | UNIVERSITE DE MONTREAL | Département de sciences économiques
+faculté des arts et des sciences.</em></p>
+<p><br />
+<a
+href="https://www.avatrade.fr/education/technical-analysis-indicators-strategies/support-and-resistance"
+class="uri">https://www.avatrade.fr/education/technical-analysis-indicators-strategies/support-and-resistance</a><br />
+26/07/2023 - 22h</p>
+<p><br />
+<a
+href="https://www.forexagone.com/blog/2122-les-trois-types-de-tendance-en-analyse-graphique"
+class="uri">https://www.forexagone.com/blog/2122-les-trois-types-de-tendance-en-analyse-graphique</a><br />
+27/07/2023 - 03h</p>
+<p><em>Tendance baissière-Qu’est ce que c’est, définition et conceps
+:</em><br />
+<a href="https://economy-pedia.com/11032621-downtrend"
+class="uri">https://economy-pedia.com/11032621-downtrend</a></p>
+<p><em>Les 3 Objectifs de trading | Maxime PARRA | 23 novembre
+2018</em><br />
+<a
+href="https://www.newtrading.fr/objectifs-trading#:~:text=Dans%20quel%20but%20acheter%20et,G%C3%A9rer%2C%20Prot%C3%A9ger%2C%20ou%20Sp%C3%A9culer."
+class="uri">https://www.newtrading.fr/objectifs-trading#:~:text=Dans%20quel%20but%20acheter%20et,G%C3%A9rer%2C%20Prot%C3%A9ger%2C%20ou%20Sp%C3%A9culer.</a><br />
+31/07/2023</p>
+<p><em>Time Horizon</em><br />
+<a href="https://frfbs.com/glossary/time-horizon-36 "
+class="uri">https://frfbs.com/glossary/time-horizon-36 </a></p>
+<p><em>Actif financier</em><br />
+<a
+href="https://www.lafinancepourtous.com/outils/dictionnaire/actif-financier/"
+class="uri">https://www.lafinancepourtous.com/outils/dictionnaire/actif-financier/</a></p>
+<p><em>Volatilité</em><br />
+<a
+href="https://www.lafinancepourtous.com/decryptages/marches-financiers/fonctionnement-du-marche/volatilite/#:~:text=La%20volatilit%C3%A9%20d&#39;un%20titre,cours%20des%20march%C3%A9s%20sont%20instables."
+class="uri">https://www.lafinancepourtous.com/decryptages/marches-financiers/fonctionnement-du-marche/volatilite/#:~:text=La%20volatilit%C3%A9%20d'un%20titre,cours%20des%20march%C3%A9s%20sont%20instables.</a></p>
+<p><em>Action</em><br />
+<a
+href="https://www.ig.com/fr/glossaire-trading/Cours-de-l-action-definition#:~:text=Le%20cours%20d&#39;une%20action%20correspond%20au%20montant%20n%C3%A9cessaire%20pour,ne%20r%C3%A9pond%20pas%20aux%20attentes."
+class="uri">https://www.ig.com/fr/glossaire-trading/Cours-de-l-action-definition#:~:text=Le%20cours%20d'une%20action%20correspond%20au%20montant%20n%C3%A9cessaire%20pour,ne%20r%C3%A9pond%20pas%20aux%20attentes.</a></p>
+</div>

@@ -1,0 +1,141 @@
+\newpage
+\subsubsection{Outils d'analse des données}
+\begin{itemize}
+	\item[$\bullet$] \textbf{Les tendances}
+    \par{La tendance est considérée comme étant la pierre angulaire de l'analyse technique par les traders, et 
+    dénote la direction d'un marché à un moment donné indiquant la tendance de la variation des prix.
+    On distingue trois catégories de tendances à savoir, la tendance haussière, la tendance baissière et 
+    la tendance neutre. 
+
+    Une tendance haussière en bourse est une direction générale à la hausse des prix d'un actif sur une période
+    donné. Elle se produit lorsque les prix d'un actif augmente régulièrement sur une période de temps donnée.
+    Certains investisseur optimistes achètent souvent dans une tendance haussière dans l'espoir de réaliser des 
+    gains à mesure que le prix continue d'augmenter.
+    Une tendance à la baisse est une situation boursière dans laquelle le prix d'un actif financier baisse pendant 
+    une certaine période[5]. 
+    Une tendance latéral se produit lorsque le prix d'un actif évolue horizontalement, sans tendance nette à la 
+    hausse ou à la baisse.
+    Une tendance en dent de scie se caractérise se caractérise par des creux et des sommets qui se forment à des 
+    niveaux différents sans direction claire.
+    Une tendance est un inversion de l'évolution des cours d'un actif : lorsqu'une tendance haussière se transforme
+    en tendance baissière et vise versa. }
+
+    \item[$\bullet$] \textbf{Les niveaux de support et de résistance.}
+    \par{Les niveaux de résistance et de support illustre la manière dont les forces de l'offre et de la demande interagissent 
+    pour déterminer le prix en vigueur d'un actifs sous-jacent[4]. La résistance est une ligne qui relie les sommets des 
+    points les plus hauts de la courbe des actifs. Le support est une ligne qui relie les sommets des 
+    points les plus bas de la courbe. Si une ligne touche au moins trois points, elle devient significative.
+    Plus les cours viendront toucher les lignes de résistance et de support, plus elles résisteront aux hausses et aux 
+    chutes du cours des actions. Les Lignes de résistances et de support peuvent être utilisées pour délimiter les zones 
+    potentielles où les prix peuvent rencontrer des changements de directions.
+
+    Lorsque les cours arrivent finalement à traverser la résistance cela voudrait dire qu'ils ont accumulé
+    assez de force pour traverser la résistance et qu'un changement significatif existe.
+    Si les cours traversent le support cela implique une diminution potentiellement significative du cours de l'actifs.}
+
+	
+	\item[$\bullet$] \textbf{Les Moyennes Mobiles.}
+	\par{La moyenne mobile est une ligne de tendance qui donne une idée de l'évolution des cours du marché.
+	À chaque point de la moyenne mobile, la valeur est un indicateur du prix moyen sur une période donnée.
+	Parfois il s'agit de la moyenne mobile arithmétique, d'autres fois ce sont des Moyennes Mobiles plus complexes qui sont 
+	utilisées, comme la moyenne mobile exponentielle. La configuration et la mise en œuvre de cet indicateur 
+	nécessitent un paramètre très important, qui est la période de temps.
+	En trading, les Moyennes Mobiles sont utilisées pour générer des signaux d'achat et des signaux de vente. 
+	Dans la plupart des cas, deux Moyennes Mobiles sont utilisées dans le but de générer les signaux : 
+	la moyenne mobile rapide et la moyenne lente.}
+
+	\par{La moyenne mobile rapide, comparativement à la moyenne mobile lente, est calculée sur une période plus courte. 
+	Vient donc une question primordiale qui est comment choisir la période des deux Moyennes Mobiles 
+	qui répond au mieux à nos données? Pour la moyenne mobile rapide, on peut choisir une moyenne mobile qui 
+	sert de support à la correction d'une remontée franche arrivant après un plus bas, et pour la 
+	moyenne mobile lente, le double de la période de la moyenne mobile rapide. [1] Étant donné que chaque valeur sur le marché 
+	peut avoir ses propres caractéristiques uniques, indépendamment des tendances générales du marché, il est nécessaire
+	d'utiliser plusieurs périodes de Moyennes Mobiles pour trouver la période qui convient le mieux à l'analyse 
+	du titre spécifié. Par ailleurs, il faut garder à l'esprit de toujours garder une différence considérable entre 
+	les périodes des Moyennes Mobiles rapides et les périodes des moyennes lentes, pour éviter que les courbes ne se 
+	chevauchent et donc donnent des signaux contradictoires. En effet, suivant les valeurs de la différence entre
+	la période lente et la période rapide, plus la différence est grande, plus les Moyennes Mobiles s'éloigneront les 
+	unes des autres. Cette différence est l'un des paramètres permettant de définir le profil d'investissement (spéculation,
+	investissement à moyen terme, investissement à long terme). }
+
+
+    \item[$\bullet$] \textbf{Stratégie des moyennes mobile.}
+    \par{La stratégie des Moyennes Mobiles utilise les Moyennes Mobiles arithmétiques 
+    sur deux différentes périodes : la moyenne mobile lente (moyenne longue) et la moyenne mobile rapide (courte).
+    En effet, la moyenne mobile arithmétique est un indicateur technique utilisé pour lisser les données de prix sur une
+    période donnée. Son objectif principal est de fournir une estimation de la tendance générale des prix en filtrant les fluctuations.
+    Suivant les différents croisements des deux Moyennes Mobiles, on peut détecter des signaux d'achat et de vente.
+    Ainsi, lorsque la moyenne mobile rapide croise et dépasse la moyenne mobile lente, alors le marché est en tendance haussière 
+    ce qui est un signal d'achat. Par contre, quand la moyenne mobile rapide croise et est inférieure à la moyenne mobile lente,
+    alors le marché est en tendance baissière et cela implique un signal de vente. 
+    Si les deux moyennes sont confondues, nous sommes en range.
+    La création de cette stratégie est généralement attribuée à \textbf{Charles H. Dow}, un journaliste financier américain et 
+    fondateur du Dow Jones \& Company. Il est l'un des pionniers de l'analyse technique des marchés financiers et de 
+    l'utilisation des Moyennes Mobiles.}
+
+    \item[$\bullet$] \textbf{Strategie de la Moyenne mobile convergence divergence.}
+    \par{L'indicateur MACD (Moving Average Convergence Divergence) est un indicateur de suivi de tendance 
+    utilisé pour localiser les tendances du marché. Il est composé d'un histogramme de deux lignes 
+    calculées à partir des Moyennes Mobiles exponentielles et d'une ligne MACD et d'une ligne signal.
+    Les deux lignes de Moyennes Mobiles Exponentielles sont calculées sur les cours de clôture. 
+    En effet, la Moyenne Mobile Exponentielle est un indicateur technique qui permet de lisser les cours
+    des actifs en affectant plus de poids aux prix les plus récents tout en diminuant progressivement le
+    poids des prix plus anciens.
+    La ligne MACD est le résultat de la différence entre les Moyennes Mobiles rapides qui sont de courtes périodes et la moyenne 
+    mobile lente qui est de longue période. 
+    Une MACD positive indique une tendance haussière et une MACD négative indique une tendance baissière.
+    La ligne signal est la moyenne mobile arithmétique de la ligne MACD. Cette ligne lisse la MACD et permet
+    de générer les signaux d'achat et de vente.
+    Ainsi, suivant les valeurs de la ligne signal et de la ligne MACD, lorsque la ligne MACD croise
+    la ligne de signal et la dépasse, cela génère un signal d'achat et dans le cas où la ligne MACD croise 
+    la ligne signal et passe en-dessous de celle-ci, cela génère un signal de vente.
+    La MACD a été développée par \textbf{Gérald Appel}, un analyste financier et trader américain connu pour ses
+    contributions à l'analyse technique. Il faut noter que l'indicateur est le résultat de nombreuses
+    contributions et améliorations apportées par divers professionnels de l'analyse technique au fil des ans.
+    Cependant, étant donné que la Moyenne Mobile est un type d'indicateur technique qui se base sur des 
+    données historiques pour générer des signaux (indicateur retard), il est donc par conséquent lent à réagir aux
+    changements de prix comparativement aux indicateurs avancés qui anticipent les mouvements futurs des prix. 
+    Pour cela, il est important de combiner la MACD avec d'autres indicateurs afin de confirmer les signaux.}
+    \newpage
+    \item[$\bullet$] \textbf{Strategie de l' oscillateur stochastique.}
+    \par{L'oscillateur stochastique est un indicateur qui évalue les conditions de surachat et de survente
+    du marché. Le stochastique est basé sur le fait que lorsque les prix suivent une tendance haussière, les prix 
+    de fermeture tendent à se rapprocher du niveau supérieur de l'écart des prix. de même lorsque 
+    la tendance des prix est en baisse, les prix de fermeture tendent à se rapprocher du 
+    niveau inférieur de l'écart des prix.
+    Pour cela, il fait appel à deux lingnes nommées \%K et \%D. 
+    Le \%D est le plus plus important dans le sens ou c'est lui qui donne le signal.
+    Ces lignes permettent de savoir si le marché est dans un état de surachat ou dans un état de survente[3].
+    En effet, la ligne \%K est la ligne principale de l'oscillateur stochastique. Elle représente la position
+    actuelle du prix de clôture par rapport à un échantillon de prix sur une période donnée.
+    La ligne \%D, quant à elle, est la moyenne mobile arithmétique de la ligne \%K sur une autre période.
+    Cette ligne est lissée afin de donner une meilleure indication sur les conditions du marché.
+    Suivant les deux lignes, une valeur de \%K et de \%D de moins de 30\% indique que nous sommes dans un état de survente, et une valeur
+    de plus de 70\% indique un marché dans un état de surachat. 
+    Développé par \textbf{George C. Lane} vers les années 1950, l'oscillateur stochastique est utilisé pour identifier
+    les changements potentiels dans les tendances et pour confirmer les signaux générés par d'autres indicateurs.}
+    % paragraph Ceci est  (end)
+
+\end{itemize}
+
+\subsubsection{Critère de decision }
+\begin{itemize}
+\item[$\bullet$] \textbf{Le Backtesting.}
+\par{Le Backtesting est une façon d'analyser la performance potentielle d'une stratégie de 
+trading en l'appliquant à des données historiques réelles. C'est un outil qui aide à choisir
+la stratégie présentant le meilleur résultat. Cette stratégie se base sur l'idée selon laquelle
+une stratégie ayant donné de meilleurs résultats sur des données passées est susceptible de le faire également
+dans les conditions actuelles ou futures du marché. En effet, le Backtesting permet de tester les stratégies
+tout en ajustant les paramètres afin d'obtenir les meilleurs résultats. Les tests sont réalisés très rapidement
+et sans risquer le capital.}
+\end{itemize}
+%Pour réaliser la backtesting, il faut definir la stratégie de trading , collecter les données historique
+
+\subsubsection{Limite de l'étude. }
+\par{Notre étude compare uniquement les performances de deux stratégies de trading sur les indices BRVM-Agriculture et 
+BRVM-Service Publique. Malheureusement, les résultats de notre étude ne peuvent pas être utilisés pour d'autres 
+indices ou pour d'autres titres sur d'autres marchés, y compris même celui de la BRVM. De plus, les périodes utilisées
+pour les calculs de moyenne mobile sont de plus de 20 jours, ce qui n'est pas convenable pour les traders spéculateurs.
+Il faut noter que le Backtesting, bien qu'il permette de trouver la stratégie la plus performante, ne garantit cependant pas
+la fiabilité de celle-ci sur les données futures du marché.}
+

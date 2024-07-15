@@ -1,0 +1,145 @@
+\documentclass[a4paper, 12pt]{report}
+
+% Packages
+\usepackage{fontawesome}
+\usepackage[utf8]{inputenc}
+\usepackage[OT1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumerate}
+\usepackage{shorttoc}
+\usepackage[table]{xcolor}
+\definecolor{lightgray}{gray}{0.6}
+\usepackage{multirow}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{epstopdf}
+\usepackage{pifont}
+\geometry{inner=2.5cm, outer=2.5cm, top=2.5cm, bottom=2.5cm}
+\usepackage{textcomp}
+\usepackage{fancyhdr}
+
+\usepackage{url}
+\usepackage{biblatex}
+%\usepackage[style=numeric,backend=biber]{biblatex}
+
+%\addbibresource{reference.bib}
+
+
+\pagestyle{fancy}
+\lhead{ }
+\rhead{Etude comparative de deux stratégies de trading}
+\lfoot{Stephene Wantchekon} 
+\cfoot{}
+\rfoot{\thepage}
+\renewcommand{\footrulewidth}{0.1mm}
+
+\setcounter{secnumdepth}{6}
+\setcounter{tocdepth}{5}
+
+\definecolor{myblue}{RGB}{180,200,230}
+
+
+\begin{document}
+	
+%Taille et interligne
+\fontsize{13}{20}
+\selectfont
+	
+\thispagestyle{empty}
+	
+	%\input{debut/garde.tex}
+
+	%\newpage
+	\pagenumbering{roman} {
+	
+	\input{debut/avertissement.tex}
+		\newpage
+		\input{debut/approbation.tex}
+		\newpage
+		\input{debut/dedicaces.tex}
+		\newpage
+		\input{debut/Remerciements.tex}
+		\newpage
+		\input{debut/sigles.tex}
+		\input{debut/tableaux.tex}
+		\input{debut/figures.tex}
+		\newpage
+		\input{debut/resume.tex}
+		\newpage 
+		\input{debut/sommaire.tex}
+   }
+   %%	
+	\newpage
+	\pagenumbering{arabic}
+	\input{debut/introduction}
+
+
+	%%% CHAPITRE 1
+	\newpage
+	\input{chapitre1/garde.tex}
+	%\vspace{0.5cm}
+	\input{chapitre1/presentation.tex}
+	\input{chapitre1/deroulement.tex}
+
+
+%%% CHAPITRE 2
+	\newpage
+	\input{chapitre2/garde.tex}
+	\input{chapitre2/cadreTheorique.tex}
+	\input{chapitre2/revue.tex}
+	\input{chapitre2/methodologie.tex}
+	\input{chapitre2/outils.tex}
+
+
+	\newpage
+	\input{chapitre3/garde.tex}
+	\input{chapitre3/presentation.tex}
+	\input{chapitre3/interpretation.tex}
+	\newpage
+
+	\input{fin/conclusion.tex}
+	\newpage
+	%\input{fin/references.tex}
+	\begin{thebibliography}{9}
+		\bibitem{1}
+		Entreprise cotée en bourse, comment cela fonctionne-t-il ?,\\ 
+		\url{https://formationtrading.fr/guide-bourse/marche-boursier/cotation/entreprise-cote-bourse/}
+
+		\bibitem{2}
+		Thierry Clément \emph{Le guide complet de l'analyse technique}, (2020) $8^e$ édition.
+		
+		\bibitem{3}
+		BRVM \emph{Bulletin officiel de la cête}, (mardi 31 janvier 2023), \\
+		\url{https://www.brvm.org/sites/default/files/boc_20230131_2.pdf}
+
+
+	\end{thebibliography}
+	
+	\newpage
+	\addcontentsline{toc}{section}{\large Table des matières}
+	\tableofcontents
+	\setcounter{tocdepth}{3}
+
+	%\printbibliography
+	%\printbibheading
+	%\printbibliography[type=book,heading=subbibliography,title={Book Sources}]
+	%\printbibliography[nottype=book,heading=subbibliography,title={Other Sources}]
+	  
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

@@ -1,0 +1,122 @@
+
+\item[\ding{226}] \textbf{Paramètres pour la stratégie combiné de l'Oscillateur Stochastique et de la moyenne mobile convergence Divergence.}
+
+\begin{itemize}
+    \item[$\rightarrow$] Différence entre périodes.
+    \par{
+    Comme vu précédemment dans le cas de la stratégie des Moyennes Mobiles, nous allons choisir 
+    une période pour la moyenne mobile exponentielle lente qui fait au moins le double de la 
+    période de la moyenne mobile rapide.
+    En plus des Moyennes Mobiles exponentielles rapide et lente, nous avons également testé des 
+    périodes pour la fourchette de temps dans le cas de l'Oscillateur Stochastique, ainsi que 
+    différentes périodes pour la ligne de signal qui représente la moyenne mobile arithmétique de la 
+    MACD.
+    Au total, nous avons obtenu \textbf{142560} combinaisons possibles ; soit allant de 20 à 59 pour la 
+    période de la moyenne mobile exponentielle rapide, de 40 à 159 pour la période de la moyenne 
+    mobile lente, de 3 à 6 pour le signal, et de 10 à 20 pour la fourchette de période de 
+    l'Oscillateur Stochastique. }
+
+
+    \item[$\rightarrow$] Taux de réussite des transactions.
+    Dans cette partie, nous allons choisir les combinaisons de périodes ayant au moins fait un bénéfice 
+    de \textbf{80\%}.
+    Après ce filtrage, nous pouvons observer qu'il y a un nombre total de \textbf{120087} de combinaisons
+    de périodes qui respectent cette condition dans le cas de l'application de la stratégie sur l'indice 
+    BRVM-Agriculture et un total de \textbf{137935} pour l'indice BRVM-Services-Publics.  
+    
+
+    \item[$\rightarrow$] Taux de bénéfice.
+    Parmi les 120087 observations restantes, nous remarquons que 1778 donnent un maximum de bénéfice 
+    de 14,5\% et ont généré une seule transaction effectuée. Cela est dû au fait que le cours de l'actif 
+    est monté durant toute la période allant de juillet 2020 à mai 2022, et que la moyenne mobile exponentielle 
+    accorde une grande pondération aux données récentes. 
+    De plus, nous avons observé deux combinaisons de périodes qui ont fait un 
+    maximum de bénéfice de 37,366\%.
+    Nous reprenons donc les simulations, mais cette fois-ci sur des périodes allant
+    de 10 à 55 pour la période de la moyenne mobile exponentielle rapide, et de 
+    25 à 100 pour la période de la moyenne mobile exponentielle lente,
+    de 4 à 6 pour la ligne de signal, et de 14 à 20 pour la fourchette de période de
+    l'Oscillateur Stochastique. 
+    Au total, nous obtenons \textbf{56196} nouvelles observations.
+    Après analyse, il ressort qu'une combinaison de périodes génère un maximum de bénéfice
+    de 29,105\% pour l'indice BRVM-Agriculture, et deux différentes combinaisons de 
+    périodes ont fait un bénéfice de 39,758\% soit (24,37) et (25,36).
+    
+
+\item[$\rightarrow$] Robustesste.
+    \begin{center}
+        \textbf{"BRVM-agri" }
+    \end{center}
+    \begin{table}[ht]
+        %\rowcolors{2}{myblue}{white}
+        \centering
+        \caption{Période voisins du couple (25,10) pour la BRVM-Agriculture}
+        \begin{tabular}{p{1.5cm}p{1.5cm}p{1.5cm}p{1.5cm}p{1.5cm}p{1.5cm}p{1.5cm}}
+            \hline
+            Longue & Courte & Bénefice & Positive &Négative &Niveau &Signal\\
+            \hline
+            24	&9	&29.09	&5	&1	&20	&4	\\  
+            25	&9	&25.515	&5	&1	&20	&4	\\  
+            26	&9	&29.105	&5	&1	&20	&4	\\  
+            24	&10	&25.515	&5	&1	&20	&4	\\  \hline
+            \cellcolor{myblue}25	&\cellcolor{myblue}10	&\cellcolor{myblue}29.105	
+            &\cellcolor{myblue}5	&\cellcolor{myblue}1	&\cellcolor{myblue}20	&\cellcolor{myblue}4 \\ \hline  
+            26	&10	&18.682	&4	&1	&20	&4	\\  
+            24	&11	&18.682	&4	&1	&20	&4	\\  
+            25	&11	&20.111	&4	&1	&20	&4	\\  
+            26	&11	&18.256	&4	&1	&20	&4	\\ 
+            \hline
+        \end{tabular}
+    \end{table}%
+
+    \par{D'après l'analyse du tableau ci-dessus, nous pouvons remarquer qu'une légère modification de la 
+    période de la moyenne mobile exponentielle lente et rapide ne modifie pas largement le taux de 
+    bénéfice. En effet, pour une modification de la période de la moyenne mobile exponentielle rapide 
+    et lente respectivement de 24 à 26 et de 9 à 11, nous pouvons observer une variation de bénéfice
+    entre 18,256\% et 29,105\%. Dans le même temps, nous remarquons pour les observations voisines une transaction 
+    négative qui survient sur un total de 5 transactions pour les périodes (26,10), (25,11), (24,11) et 
+    (26,11), et pour un total de 6 transactions pour les périodes (24,9), (26,9), (26,9) et (24,10). 
+    Nous pouvons déduire que les résultats restent moyennement stables pour les périodes (25,10). Nous en 
+    déduisons que les périodes 25 pour la moyenne mobile exponentielle lente, 10 pour la moyenne 
+    mobile exponentielle rapide, 20 pour la fourchette de temps de l'Oscillateur Stochastique et 
+    4 pour la ligne de signal sont robustes dans l'application de la stratégie combinée de l'Oscillateur Stochastique et 
+    de la Moyenne Mobile Convergence Divergence sur l'indice BRVM-Agriculture.}
+    
+  
+    \begin{center}
+        \textbf{"BRVM-Services-Publique" }
+    \end{center}
+    \begin{table}[ht]
+        %\rowcolors{2}{myblue}{white}
+        \centering
+        \caption{Période voisins du couple (25,36) pour la BRVM-Services-Publics}
+        \begin{tabular}{p{1.5cm}p{1.5cm}p{1.5cm}p{1.5cm}p{1.5cm}p{1.5cm}p{1.5cm}}
+            \hline
+            Longue & Courte & Bénefice & Positive &Négative &Niveau &Signal\\
+            \hline
+            35	&24	&26.048	&5	&0	&19	&6	\\ 
+            36	&24	&27.304	&5	&0	&19	&6	\\ 
+            37	&24	&39.758	&5	&0	&19	&6	\\ 
+            35	&25	&27.304	&5	&0	&19	&6	\\ \hline
+            \cellcolor{myblue}36	&\cellcolor{myblue}25	&\cellcolor{myblue}39.758	
+            &\cellcolor{myblue}5	&\cellcolor{myblue}0	&\cellcolor{myblue}19	&\cellcolor{myblue}6	\\ \hline
+            37	&25	&38.151	&5	&0	&19	&6	\\ 
+            36	&26	&38.151	&5	&0	&19	&6	\\ 
+            37	&26	&38.151	&5	&0	&19	&6	\\ 
+            \hline
+        \end{tabular}
+    \end{table}%
+    \par{D'après l'analyse du tableau ci-dessus, il ressort qu'une variation de la période lente entre 
+    35 et 37 et une variation de la période rapide entre 24 et 26 font varier le pourcentage de 
+    bénéfice de 26,048\% à 38,151\%. Notons également que pour les périodes 
+    (37,25), (36,26) et (37,26), le bénéfice reste stable et ne change pas. De plus, pour toutes 
+    les périodes avoisinant le couple (25,36), le nombre de transactions reste le même avec 100\% de 
+    transactions positives. Nous en déduisons alors que les périodes 25, 36, 19 et 6, respectivement 
+    pour la moyenne mobile rapide, lente, la fourchette de période de l'Oscillateur 
+    Stochastique et la période de la ligne Signal, sont robustes dans le cas de l'application de la stratégie
+    combinée de l'Oscillateur Stochastique et de la Moyenne Mobile Convergence Divergence
+    sur l'indice BRVM-Services-Publics.}
+    
+\end{itemize}
+\end{itemize}
+\input{chapitre3/MA.tex}

@@ -1,0 +1,48 @@
+Dans cette étude, nous comparons la stratégie de trading basée sur 
+les moyennes mobiles à la stratégie combinée de l'oscillateur 
+stochastique et de la moyenne mobile convergence divergence 
+sur les indices BRVM-Agriculture et BRVM-Service Public. 
+L'objectif de cette étude était de déterminer quelle stratégie 
+serait la meilleure à utiliser pour un investisseur qui souhaite 
+utiliser l'une de ces deux stratégies comme outil de décision.
+
+Au vu des résultats de notre étude, la stratégie des moyennes 
+mobiles serait un choix judicieux pour un investisseur qui désire 
+promouvoir son capital grâce à l'indice BRVM-Agriculture, tandis 
+que la stratégie combinée de l'oscillateur stochastique et de la 
+moyenne mobile convergence divergence serait la meilleure pour 
+l'indice BRVM-Services Publics. Afin d'élargir les possibilités 
+de comparaison sur d'autres valeurs, une application desktop a été 
+conçue, dans laquelle ont été implémentés tous les critères de 
+comparaison élaborés dans le cadre de notre étude. Cette application 
+offre la possibilité de comparer rapidement et sur n'importe quelles 
+valeurs boursières la stratégie des moyennes mobiles et la stratégie 
+combinée de l'oscillateur stochastique et de la moyenne mobile 
+convergence divergence.
+
+
+
+
+
+
+Comparative Study of Two Trading Strategies on the BRVM-Agriculture and BRVM-Public Services Indices
+
+In this study, we compare the trading strategy based on moving averages 
+to the combined strategy of the stochastic oscillator and the moving 
+average convergence divergence on the BRVM-Agriculture and BRVM-Public 
+Service indices. The objective of this study was to determine which 
+strategy would be the best to use for an investor who wishes to use 
+one of these two strategies as a decision-making tool.
+
+Based on the results of our study, the moving average strategy would be 
+a judicious choice for an investor looking to enhance their capital 
+through the BRVM-Agriculture index, while the combined strategy of the 
+stochastic oscillator and the moving average convergence divergence would 
+be the best for the BRVM-Public Service index. In order to broaden the 
+comparison possibilities to other values, a desktop application has been 
+designed, in which all the comparison criteria developed within the framework 
+of our study have been implemented. This application provides the possibility 
+to quickly compare the moving average strategy and the combined strategy of 
+the stochastic oscillator and the moving average convergence divergence on 
+any stock values.
+

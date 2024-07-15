@@ -1,0 +1,198 @@
+\newpage
+\subsubsection{Analyse des resultats.}
+
+\textbf{Profil d'investissement.}
+\begin{itemize}
+    \item[$\diamond$] \textbf{Objectifs d'investissement : } 
+    Dans cette étude ou nous cherchons la meilleur stratégie de trading pour chaque indices (BRVM-agriculture et 
+    BRVM-Service-Publics), notre objectif est de pouvoir acheter ces valeurs à un moins cours et les revendre
+    plus chère. Notre objectif d'investissement est donc la \textbf{croissance du capital}.
+    
+    \item[$\diamond$] \textbf{Horizon temporel : } 
+    Pour l'application des stratégies de trading nous prévoyons de conserver la valeur 
+    pendant une période assez longue. 
+    Dans cette étude nous faisons le choix d'un investissement à moyen terme.
+
+    \item[$\diamond$] \textbf{Tolérance au risque : } 
+    Dans cette étude, nous effectuons des opérations de trading sur les marchés d'indices boursiers. 
+    À chaque signal d'achat, nous achetons la valeur si nous ne possédons
+    pas du stock puis nous revendons toute la valeur au prochain signal de vente. Nous acceptons donc
+    que la valeur de nos placement puisse subir de grandes fluctuations au fil du temps. De plus nous 
+    recherchons une stratégie avec d'un potentiel de rendement élever. 
+    Nous avons donc un profil d'inverstisseur 'Energique'.
+\end{itemize}
+
+\textbf{Paramètres des Stratégies de trading.}
+\par{Afin de déterminer la combinaison de périodes qui maximise le bénéfice 
+pour la Stratégie des Moyennes Mobiles, des simulations ont été effectuées sur 
+un ensemble de couples de périodes afin de recueillir les informations sur 
+chaque période. Des informations telles que le nombre de signaux positifs, le nombre de signaux
+négatifs, le nombre de transactions positives, le nombre de transactions négatives,
+et le taux de bénéfice réalisé sur cette combinaison de périodes.
+A cet effet, les Moyennes Mobiles ont été testées sur un intervalle de \textbf{10 à 54 }
+pour la période "rapide" et de \textbf{24 à 100} pour la période "lente".
+
+Au total, nous avons enregistré \textbf{3465} observations. Parmi ce grand nombre de possibilités,
+se trouve une et une seule combinaison de périodes qui répond le mieux à nos 
+données et en même temps à nos critères de choix.
+Cependant, il est important de noter que suite aux simulations le maximum de bénéfice pour l'indice 
+BRVM-Agriculture a été obtenu grâce aux périodes 35 pour la moyenne mobile lente
+et 34 pour la moyenne mobile rapide, avec \textbf{446,531\%} de bénéfice pour 16 transactions réussies sur 21
+transactions au total.
+En ce qui concerne l'indice BRVM-Services-Publics, le plus grand taux de bénéfice est observé avec la période 30
+pour la moyenne mobile lente et 32 pour la moyenne mobile rapide, avec un total de \textbf{44,009\%} de bénéfice pour 14 transactions réussies sur 25.
+Dans la suite, nous présenterons l'application des différents critères de sélection de périodes 
+ainsi que les filtrages.}
+
+
+\begin{itemize}
+
+    \item[\ding{226}] \textbf{Paramètres pour la stratégie des Moyennes Mobiles.}
+    \begin{itemize}
+    \item[$\rightarrow$] Difference entre période.
+    \par{Il est conseillé que la moyenne mobile lente fasse au moins le double de la moyenne mobile
+    rapide. Pour cela, nous allons prendre en considération uniquement les combinaisons de périodes
+    dont la période "lente" fait au moins le double de la période "rapide".
+    À la suite de cette sélection, il restait un total de \textbf{1675} observations (dans les deux cas). }
+    
+    \item[$\rightarrow$] Taux de réussite des transactions.
+    \par{Une transaction est réussie lorsque le prix de vente de l'actif est supérieur à son prix d'achat.
+    Ici, nous allons sélectionner uniquement les observations ayant un taux de transactions réussies de 
+    plus de \textbf{80\%}. Suite à ce filtrage, il ne restait plus que \textbf{6} observations pour les périodes de 
+    l'indice BRVM-Agriculture et \textbf{37} observations pour les périodes de l'indice BRVM-Services-Publics.}
+    
+    \item[$\rightarrow$] Taux de bénéfice.
+    \par{Dans ce niveau de filtrage, nous allons prélever la période qui a généré le pourcentage de bénéfice le plus
+    élevé parmi les 6 observations dans le cas de l'indice BRVM-Agriculture et les 37 observations en ce qui 
+    concerne l'indice BRVM-Services-Publics.
+    Dans le cas de l'indice BRVM-Agriculture, nous pouvons observer un maximum de bénéfice de \textbf{380,184\%}
+    avec les périodes 27 et 54, et un maximum de bénéfice de \textbf{19,241\%} avec les périodes 49 et 100 pour 
+    l'indice BRVM-Services-Publics.}
+    
+    \item[$\rightarrow$] Robustesse.
+    \par{Ce niveau est le plus important parmi nos filtrages. En effet, nous allons vérifier
+    si une légère modification des périodes citées plus haut affecte la rentabilité et le nombre de taux de transaction 
+    de la stratégie.}
+    
+    
+    
+\begin{center}
+    \textbf{"BRVM-agri" }
+\end{center}
+\begin{table}[ht]
+    %\rowcolors{2}{myblue}{white}
+    \centering
+    \caption{Période voisins du couple (27,54) pour la BRVM-agri}
+    \begin{tabular}{p{2cm}p{2cm}p{2cm}p{2cm}p{1.5cm}}
+        \hline
+        Longue & Courte & Bénefice & Positive &Négative \\
+        \hline
+        53	&26	&369.535	&2	&1	\\ 
+        54	&26	&363.157	&2	&1	\\ 
+        55	&26	&357.975	&2	&1	\\ 
+        53	&27	&361.161	&2	&1	\\ \hline
+        \cellcolor{myblue}54	&\cellcolor{myblue}27	&\cellcolor{myblue}380.18	    &\cellcolor{myblue}2	&\cellcolor{myblue}0	\\ \hline
+        55	&27	&349.852	&2	&1	\\ 
+        53	&28	&354.71	    &2	&1	\\ 
+        54	&28	&352.48	    &2	&1	\\ 
+        55	&28	&347.417	&2	&1	\\ 
+            \hline
+    \end{tabular}
+\end{table}%
+
+\par{En analysant le tableau ci-dessus, nous pouvons remarquer de très petites variations dans le taux de bénéfice, 
+notamment au niveau des couples de périodes (28,55), (54,28), (53,28) et (55,27). De plus, pour toutes les 
+périodes avoisinant le couple (27,53), nous observons un taux de réussite de transaction de 2 sur trois, soit 
+\textbf{66,66\%} de transactions réussies. Ainsi, le couple de périodes (27,53) n'est pas robuste. Nous allons
+maintenant chercher le couple de périodes ayant donné le plus grand taux de bénéfices pour un 
+taux de réussite de transaction d'au moins \textbf{75\%} pour au moins trois transactions réussies.}
+
+\begin{table}[ht]
+    %\rowcolors{2}{myblue}{white}
+    \centering
+    \caption{Période voisins du couple (24,56) pour la BRVM-agri}
+    \begin{tabular}{p{2cm}p{2cm}p{2cm}p{2cm}p{1.5cm}}
+        \hline
+        Longue & Courte & Bénefice & Positive &Négative \\ 
+        \hline
+        55	&23	&352.283	&3	&1	\\ 
+        56	&23	&355.751	&3	&1	\\ 
+        57	&23	&374.073	&3	&1	\\ 
+        55	&24	&364.412	&3	&1	\\ \hline
+        \cellcolor{myblue}56	&\cellcolor{myblue}24	&\cellcolor{myblue}367.167	&\cellcolor{myblue}3	&\cellcolor{myblue}1	\\ \hline
+        57	&24	&376.914	&3	&1	\\ 
+        55	&25	&365.003	&3	&1	\\ 
+        56	&25	&361.049	&2	&1	\\ 
+        57	&25	&361.175	&3	&1	\\ 
+    
+            \hline
+    \end{tabular}
+\end{table}%
+\par{De l'analyse du tableau ci-dessus, nous remarquons qu'une légère modification de la période de la moyenne mobile 
+lente et de la moyenne mobile courte n'a presque pas d'effet sur le taux de bénéfice de la stratégie.
+En ce qui concerne les taux de transaction, nous remarquons qu'il n'y a pas de modification dans le nombre total de transactions 
+effectuées et que le nombre de transactions négatives reste le même. En effet, cette transaction négative est causée par une fluctuation inhabituelle des cours observée entre le 
+26 juillet 2022 et janvier 2023. Mais au vu des observations, nous pouvons dire que le couple de périodes 
+(24,56) est robuste dans le cadre de l'application de la stratégie de trading basée sur les moyennes sur la 
+BRVM-Agri.}
+
+\begin{center}
+    \textbf{"BRVM-Service-Publics" }
+\end{center}
+\begin{table}[ht]
+    \centering
+    \caption{Période voisins du couple (49,100) pour la BRVM-Service-Publics}
+    \begin{tabular}{p{2cm}p{2cm}p{2cm}p{2cm}p{1.5cm}}
+        \hline
+        Longue & Courte & Bénefice & Positive &Négative \\ 
+        \hline
+        99	    &48	&18.714	&3	&0	\\ 
+        100	&48	&18.756	&3	&0	    \\ 
+        101	&48	&18.756	&3	&0	    \\ 
+        99	    &49	&17.827	&3	&0	\\ \hline
+        \cellcolor{myblue}100	&\cellcolor{myblue}49	&\cellcolor{myblue}19.241	&\cellcolor{myblue}3	&\cellcolor{myblue}0	    \\ \hline
+        101	&49	&12.727	&2	&1	    \\ 
+        99	    &50	&17.072	&3	&0	\\ 
+        100	&50	&11.838	&2	&1	    \\ 
+        101	&50	&11.131	&2	&1	    \\  
+            \hline
+    \end{tabular}
+\end{table}%
+\par{D'après l'analyse du tableau, on remarque un léger changement du taux de bénéfice aux alentours du couple 
+de périodes (38 ; 94), notamment aux couples (50,101) et (50,100) où le 
+bénéfice descend jusqu'à 11\%. Par contre, on peut observer une variation 
+du nombre de transactions, notamment des transactions négatives. Nous allons
+maintenant chercher le couple de périodes ayant donné le plus grand taux de bénéfices pour un 
+taux de réussite de transaction d'au moins \textbf{75\%} pour au moins trois transactions réussies.}
+
+\begin{table}[ht]
+    %\rowcolors{2}{myblue}{white}
+    \centering
+    \caption{Période voisins du couple (49,98) pour la BRVM-Service-Publics}
+    \begin{tabular}{p{2cm}p{2cm}p{2cm}p{2cm}p{1.5cm}}
+        \hline
+        Longue & Courte & Bénefice & Positive &Négative \\
+        \hline
+        97	&48	&12.799	&3	&0	\\ 
+        98	&48	&19.083	&3	&0	\\ 
+        99	&48	&18.714	&3	&0	\\ 
+        97	&49	&17.62	&3	&0	\\ \hline
+        \cellcolor{myblue}98	&\cellcolor{myblue}49	&\cellcolor{myblue}18.015	&\cellcolor{myblue}3	&\cellcolor{myblue}0	\\ \hline
+        99	&49	&17.827	&3	&0	\\ 
+        97	&50	&18.721	&3	&0	\\ 
+        98	&50	&18.532	&3	&0	\\ 
+        99	&50	&17.072	&3	&0	\\  
+        \hline
+    \end{tabular}
+\end{table}%
+
+\par{Le couple de périodes (49,98) n'a présenté aucun changement du nombre de transactions positives ou négatives 
+pour ses périodes voisines. De plus, il n'y a pas une grande variation du taux de bénéfice, sauf pour la 
+période 97 pour la moyenne mobile lente et 48 pour la moyenne mobile rapide, où le bénéfice est 
+descendu à 12\%. Au vu de ces observations, nous pouvons déduire que le couple de périodes (49,98) est 
+robuste dans le cadre de l'application de la stratégie de trading basée sur les moyennes sur la 
+BRVM-Services-Publics.}
+
+\end{itemize}
+
+\input{chapitre3/interpretation2.tex}
