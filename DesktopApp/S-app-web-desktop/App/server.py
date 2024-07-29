@@ -39,14 +39,10 @@ class Launcher :
             s.bind(("", 0))
             return s.getsockname()[1]
     
-    def lauch(self) : 
+    def lauch(self , port) : 
         # Essayer de démarrer le serveur sur plusieurs ports
-        port = self.find_free_port()
-        with socketserver.TCPServer(("", port), self.Handler) as self.httpd:
-            print(f"Serving on http://localhost:{port}")
-            self.link = f"http://localhost:{port}"
-            self.httpd.serve_forever()
-    
-    def forever(self) : 
+        self.httpd = socketserver.TCPServer(("", port), self.Handler) 
+        print(f"Serving on http://localhost:{port}")
+        self.link = f"http://localhost:{port}"
         self.httpd.serve_forever()
-        
+    
