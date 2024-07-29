@@ -21,21 +21,18 @@ class Window(FluentWindow):
         self.addSubInterface(self.home ,FIF.HOME , "Home")
         self.navigationInterface.setHidden(True)
         
-
         self.show()
         self.initWindow(0)
 
-
         self.createSubInterface()
         self.initWindow(1)
-
 
         # close splash screen
         self.splashScreen.finish()
 
     def createSubInterface(self):
         loop = QEventLoop(self)
-        QTimer.singleShot(8000, loop.quit)
+        QTimer.singleShot(800, loop.quit)
         loop.exec()
 
 

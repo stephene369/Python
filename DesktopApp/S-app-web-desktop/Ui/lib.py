@@ -1,5 +1,5 @@
 from PyQt5.QtGui import QIcon , QColor
-from PyQt5.QtCore import Qt, QEventLoop, QTimer, QSize
+from PyQt5.QtCore import Qt, QEventLoop, QTimer, QSize , QThread,pyqtSignal
 from PyQt5.QtCore import QSize , QEasingCurve, Qt , QThread , pyqtSignal , QUrl 
 from PyQt5.QtWidgets import (
     QApplication,QWidget , QHBoxLayout,QVBoxLayout , QFrame, 

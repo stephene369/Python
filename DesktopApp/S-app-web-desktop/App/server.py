@@ -3,6 +3,8 @@ import socketserver
 import json
 import socket
 from datetime import datetime
+from qframelesswindow.webengine import FramelessWebEngineView
+from PyQt5.QtCore import QUrl
 
 class CustomHandler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):
@@ -27,7 +29,7 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
         self.wfile.write(json.dumps(response).encode())
 
 
-class Laucher : 
+class Launcher : 
     def __init__(self) -> None:
         self.Handler = CustomHandler
 
@@ -39,15 +41,12 @@ class Laucher :
     
     def lauch(self) : 
         # Essayer de démarrer le serveur sur plusieurs ports
-        for port in range(8000, 8100):
-            try:
-                with socketserver.TCPServer(("", port), self.Handler) as httpd:
-                    print(f"Serving on http://localhost:{port}")
-                    httpd.serve_forever()
-                    return f"http://localhost:{port}"
-                
-            except OSError as e:
-                if e.errno == 98:  # Address already in use
-                    print(f"Port {port} in use, trying another port...")
-                else:
-                    raise
+        port = self.find_free_port()
+        with socketserver.TCPServer(("", port), self.Handler) as self.httpd:
+            print(f"Serving on http://localhost:{port}")
+            self.link = f"http://localhost:{port}"
+            self.httpd.serve_forever()
+    
+    def forever(self) : 
+        self.httpd.serve_forever()
+        
