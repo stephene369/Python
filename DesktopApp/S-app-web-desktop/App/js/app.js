@@ -179,15 +179,15 @@ document.addEventListener('DOMContentLoaded', function () {
             console.error(`Element with id ${linkId} or ${sectionId} not found`);
         }
     };
+
+
     setupToggle("translateA", "translate");
     setupToggle("settingsA", "settings");
-
-    /*
     setupToggle( "serverA" , "server" );
     setupToggle("helpA" , "help");
     setupToggle("developerA" , "developer");
     setupToggle("ultraA" , "ultra")
-    */
+    setupToggle("cvA" , "cv")
 
 
 

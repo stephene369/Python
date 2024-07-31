@@ -7,14 +7,18 @@
     font-family: 'Courier New', Courier, monospace;
 }
 
-body , html {
+
+body, html {
     background: white;
     height: 100vh;
     width: 100vw;
+    margin: 0;
+    padding: 0;
+    overflow: auto; /* Permet le défilement vertical */
 }
 
 nav {
-    position: absolute;
+    position: fixed; /* Change position from absolute to fixed */
     top: 0;
     bottom: 0;
     height: 100%;
@@ -26,7 +30,19 @@ nav {
     box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
+    z-index: 1000; /* Ensure the nav bar stays on top */
 }
+
+section {
+    padding-left: 80px; /* Adjust padding to account for the fixed nav bar */
+    width: 100%;
+    min-height: 100vh; /* Ensure sections are at least as tall as the viewport */
+    overflow-y: auto; /* Enable scrolling within sections if needed */
+    padding-top: 0px;
+}
+
+
+
 
 nav .down {
     margin-top: auto;
@@ -36,11 +52,12 @@ nav .down {
 .logo {
     text-align: center;
     display: flex;
-
     margin: 10px 0 0 10px;
 }
 
-.logo img {
+
+.logo img, 
+.logo1 img {
     width: 45px;
     height: 45px;
     border-radius: 50%;
@@ -103,13 +120,6 @@ nav:hover {
 }
 
 
-section {
-    padding-left: 80px;
-
-    width: 100%;
-    height: 100%;
-}
-
 
 
 
@@ -150,6 +160,11 @@ OFFLINE TRANSLATOR
     align-items: center;
     align-content: center;
     justify-content: space-between;
+}
+
+#translate .container-2 input{
+    background: none;
+
 }
 
 #translate .cont-1,
@@ -275,14 +290,16 @@ SETINGS
 }
 
 
+/*
+CV Builder 
+*/
 
-
-
-
-
-
-
-
+#cv .container {
+    display: flex;
+    padding-top: 3%;
+    height: 60%;
+    margin-left: 50px;
+}
 
 
 

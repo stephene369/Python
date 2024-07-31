@@ -7,7 +7,7 @@ class HomeWidget(QWidget):
         self.setObjectName(text.replace(' ', '-'))
 
         self.vBoxLayout = QVBoxLayout(self)   
-        self.browser = FramelessWebEngineView(self)
+        self.browser = QWebEngineView(self)
 
         self.setLayout(self.vBoxLayout)
         self.vBoxLayout.setContentsMargins(3, 3, 3, 3)
