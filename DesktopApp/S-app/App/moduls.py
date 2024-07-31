@@ -71,6 +71,7 @@ class Translator :
         
         return True
     
+
     
     def uninstallPackage(self,from_language , to_language):
         with open("App/languages/codes.json" , "r") as f : 

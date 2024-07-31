@@ -1,25 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HTTP Server Button Example</title>
     <link rel="stylesheet" href="App/style/style.css">
+    <link rel="stylesheet" href="App/style/style2.css">
+    <link rel="stylesheet" href="App/style/boxicons.min.css">
 </head>
+
 <body>
 
-<h1>Il s'agit d'un server de donner </h1>
     <nav>
-        <ul>
+        <ul class="top">
             <li>
-                <a href="#">
-                    <img src="App/icons/svg/bx-wifi-3.svg" alt="">
+                <a href="#" class="logo">
+                    <img src="App/img/logo.png" alt="">
+                    <span class="nav-item">Free/Fast/Fluid</span>
                 </a>
             </li>
+
+            <li><a href="#" id="translateA">
+                    <i class='bx bx-planet'></i>
+                    <span class="nav-item">Offline Translator</span>
+                </a></li>
+
+            <li>
+                <a href="#" id="serverA">
+                    <i id="dynamic-icon" class='bx bx-wifi-0'></i>
+                    <span class="nav-item">File Server </span>
+                </a>
+            </li>
+            <li>
+                <a href="#" id="ultraA">
+                    <i class='bx bx-wifi-0'></i>
+                    <span class="nav-item">Ultra Fast File Transfer </span>
+                </a>
+            </li>
+
+
+        </ul>
+
+        <ul class="down">
+            <li class="last-item">
+                <a href="#" id="helpA">
+                    <i class='bx bx-help-circle'></i>
+                    <span class="nav-item">Help</span>
+                </a>
+            </li>
+            <li class="last-item">
+                <a href="#" id="settingsA">
+                    <i class='bx bx-cog'></i>
+                    <span class="nav-item">Settings</span>
+                </a>
+            </li>
+            <li class="last-item">
+                <a href="#" id="developerA">
+                    <i class='bx bx-code-alt'></i>
+                    <span class="nav-item">Developer</span>
+                </a>
+            </li>
+
         </ul>
     </nav>
 
 
+    <section id="translate" class="show-section">
+        <h1 class="title">Offline Translator</h1>
+        <div class="container-1">
+            <div class="cont-1">
+                <select id="from-options" name="from-options">
+                </select>
+                <textarea name="from-text" id="from-text"></textarea>
+
+            </div>
+
+            <div class="cont-2">
+                <select id="to-options" name="to-options">
+                </select>
+                <textarea name="to-text" id="to-text"></textarea>
+            </div>
+        </div>
+
+        <h1 class="title">PDF Translator</h1>
+        <div class="container-2">
+            <div class="cont-1">
+                <h3>Upload PDF</h3>
+
+                <input type="file" id="fileInput">
+                <button id="uploadBtn">Upload and Translate</button>
+            </div>
+
+        </div>
+
+
+    </section>
+
+    <section id="server" class="hide-section">
+        <h1 class="title">File Server </h1>
+    </section>
+
+    <section id="settings" class="hide-section">
+        <h1 class="title">Settings</h1>
+        <div class="translator-setting">
+
+            <div class="cont-1">
+                <h3>Install new Package</h3>
+                <select name="" id="available-options"></select>
+                <button id="installBtn">Install</button>
+                <div id="loader"></div>
+            </div>
+
+            <div class="cont-2">
+                <h3>Uninstall packages</h3>
+                <select name="" id="installed-options"></select>
+                <button id="removeBtn">Remove</button>
+                <div id="loader1"></div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="hide-section" id="help">
+        <h1 class="title">Help</h1>
+    </section>
+
+    <section class="hide-section" id="developer">
+        <h1 class="title">Developer</h1>
+    </section>
+
+    <section class="hide-section" id="ultra">
+        <h1>Ultra Fast File Transfer</h1>
+    </section>
+
+
     <script src="App/js/app.js"></script>
 </body>
+
 </html>

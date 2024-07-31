@@ -52,7 +52,7 @@ class LauncherWorker(QThread):
 
     def run(self):
         try : 
-            self.link = self.server.lauch(port=self.port)
+            self.link = self.server.launch(port=self.port)
             self.finished.emit({
             "link":f"http://localhost:{self.port}"
             })

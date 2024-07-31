@@ -9,8 +9,6 @@ class Window(FluentWindow):
     def __init__(self):
         super().__init__()
         self.resize(700, 600)
-        self.setWindowTitle('PyQt-Fluent-Widgets')
-        self.setWindowIcon(QIcon(':/qfluentwidgets/images/logo.png'))
 
         self.splashScreen = SplashScreen(self.windowIcon(), self)
         self.splashScreen.setIconSize(QSize(102, 102))
@@ -39,16 +37,16 @@ class Window(FluentWindow):
     def initWindow(self , s):
         if s==0 : 
             self.resize(700, 600)
-            self.setWindowIcon(QIcon(':/qfluentwidgets/images/logo.png'))
-            self.setWindowTitle('PyQt-Fluent-Widgets')
+            self.setWindowIcon(QIcon('App/img/logo.png'))
+            self.setWindowTitle('S-apps')
 
             desktop = QApplication.desktop().availableGeometry()
             w, h = desktop.width(), desktop.height()
             self.move(w//2 - self.width()//2, h//2 - self.height()//2)
         elif s==1 :
             self.resize(int(900*1.2), int(700*1.2))
-            self.setWindowIcon(QIcon(':/qfluentwidgets/images/logo.png'))
-            self.setWindowTitle('PyQt-Fluent-Widgets')
+            self.setWindowIcon(QIcon('App/img/logo.png'))
+            self.setWindowTitle('S-apps')
 
             desktop = QApplication.desktop().availableGeometry()
             w, h = desktop.width(), desktop.height()

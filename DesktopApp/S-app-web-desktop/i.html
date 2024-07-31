@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Styles CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            border: none;
+            text-decoration: none;
+            box-sizing: border-box;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        body {
+            background: white;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        nav {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            height: 100%;
+            left: 0;
+            background: white;
+            width: 70px;
+            overflow: hidden;
+            transition: width 0.3s;
+            box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        nav .down {
+            margin-top: auto;
+        }
+
+        .logo {
+            text-align: center;
+            display: flex;
+            margin: 10px 0 0 10px;
+        }
+
+        .logo img {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+        }
+
+        .logo span {
+            font-weight: bold;
+            padding-left: 0;
+            font-size: 18px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .logo:hover {
+            background: none;
+            cursor: none;
+        }
+
+        a {
+            position: relative;
+            color: rgb(85, 83, 83);
+            display: table;
+            width: 300px;
+            padding: 10px;
+            margin-top: 10px;
+            display: flex;
+            text-align: center;
+        }
+
+        nav ul li a i {
+            position: relative;
+            text-align: center;
+            font-size: 35px;
+            margin-left: 10px;
+            margin-right: 5px;
+        }
+
+        nav ul li a span {
+            text-align: center;
+        }
+
+        .nav-item {
+            position: relative;
+            top: 12px;
+            margin-left: 10px;
+        }
+
+        a:hover {
+            background: rgba(189, 188, 197, 0.541);
+        }
+
+        nav:hover {
+            width: 280px;
+            transition: all 0.5s ease;
+        }
+
+        .last-item {
+            margin-top: auto;
+        }
+
+        section {
+            padding-left: 80px;
+            padding-top: 40px;
+            width: 100%;
+            height: 100%;
+        }
+
+        #translate {
+            position: absolute;
+            height: 100%;
+            right: 0;
+            background: none;
+            width: 0%;
+            overflow: hidden;
+            transition: width 0.3s;
+        }
+
+        .show-section {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul class="top">
+            <li>
+                <a href="#" class="logo">
+                    <img src="App/img/logo.png" alt="">
+                    <span class="nav-item">Free/Fast/Fluid</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" id="translator-a">
+                    <i class='bx bx-planet'></i>
+                    <span class="nav-item">Offline Translator</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i id="dynamic-icon" class='bx bx-wifi-0'></i>
+                    <span class="nav-item">File Server</span>
+                </a>
+            </li>
+        </ul>
+        <ul class="down">
+            <li class="last-item"><a href="#">
+                <i class='bx bx-help-circle'></i>
+                <span class="nav-item">Help</span>
+            </a></li>
+            <li class="last-item"><a href="#">
+                <i class='bx bx-cog'></i>
+                <span class="nav-item">Settings</span>
+            </a></li>
+            <li class="last-item"><a href="#">
+                <i class='bx bx-code-alt'></i>
+                <span class="nav-item">Developer</span>
+            </a></li>
+        </ul>
+    </nav>
+
+    <section id="translate" class="hide-section">
+        <h1 class="title">Offline Translator</h1>
+        <div class="container">
+            <div class="cont-1">
+                <select id="from-options" name="from-options"></select>
+                <textarea name="from-text" id="from-text"></textarea>
+            </div>
+            <div class="cont-2">
+                <select id="to-options" name="to-options"></select>
+                <textarea name="to-text" id="to-text"></textarea>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // JavaScript pour changer la classe lorsque le lien est cliqué
+        document.addEventListener('DOMContentLoaded', () => {
+            const translatorLink = document.querySelector('.Translator-a');
+            const translateSection = document.querySelector('#translate');
+
+            translatorLink.addEventListener('click', (event) => {
+                event.preventDefault(); // Empêche le comportement par défaut du lien
+                translateSection.classList.toggle('show-section');
+            });
+        });
+    </script>
+</body>
+</html>
