@@ -106,7 +106,7 @@ nav ul li a span {
     margin-left: 10px;
 }
 
-a:hover {
+nav ul li a:hover {
     background: rgba(189, 188, 197, 0.541);
 }
 
@@ -294,15 +294,22 @@ SETINGS
 CV Builder 
 */
 
-#cv .container {
+#cv .container{
     display: flex;
+    flex-direction: column;
     padding-top: 3%;
-    height: 60%;
     margin-left: 50px;
+    width: 100%;
+    
 }
 
+#cv .container ul{
+    display: flex;
+    flex-wrap: wrap;
+}
 
-
-
-
-
+#cv .container ul li{ 
+    display: flex;
+    flex-direction:row; 
+    align-items: center;
+}
