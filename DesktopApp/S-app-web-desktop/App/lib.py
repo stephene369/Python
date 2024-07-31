@@ -12,3 +12,4 @@ import os
 from urllib.parse import parse_qs
 from PyQt5.QtWidgets import QFileDialog
 import sys 
+from qframelesswindow.webengine import FramelessWebEngineView , FramelessWindow

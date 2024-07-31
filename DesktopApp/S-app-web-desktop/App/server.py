@@ -40,6 +40,7 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
 
 
     def do_POST(self):
+        self.browser:FramelessWebEngineView
         if self.path == '/api/translate':
             content_length = int(self.headers['Content-Length'])
             post_data = self.rfile.read(content_length).decode('utf-8')
@@ -62,6 +63,9 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
             else :
                 pass
 
+        elif self.path == "/api/cv/model" :
+
+            self.browser.load(QUrl(""))
 
         elif self.path == "/api/packages/install":
             content_length = int(self.headers['Content-Length'])
@@ -113,6 +117,7 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
                 self.end_headers()
                 self.wfile.write(json.dumps({"removed": "false", "error": str(e)}).encode())
                 
+
 
         elif self.path == "/api/translate/pdf":
             content_length = int(self.headers['Content-Length'])
@@ -187,9 +192,10 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
 
 
 class Launcher:
-    def __init__(self , parent=None) -> None:
+    def __init__(self , parent=None , browser:FramelessWebEngineView=None) -> None:
         self.Handler = CustomHandler
         self.Handler.parent = parent
+        self.Handler.browser = browser
 
     # Fonction pour trouver un port libre
     def find_free_port(self):
@@ -200,6 +206,7 @@ class Launcher:
     def launch(self, port):
         # Essayer de démarrer le serveur sur plusieurs ports
         self.httpd = socketserver.TCPServer(("", port), self.Handler) 
+        self.Handler.port = port
         print(f"Serving on http://localhost:{port}")
         self.link = f"http://localhost:{port}"
         self.httpd.serve_forever()

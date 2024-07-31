@@ -17,35 +17,41 @@ class HomeWidget(QWidget):
         
         #self.browser.load(QUrl("https://github.com/stephene369/"))
         self.port=self.find_free_port() 
-        self.launchWorker = LauncherWorker(port=self.port)
+        self.launchWorker = LauncherWorker(port=self.port , browser=self.browser)
         self.launchWorker.finished.connect(self.launchWorkerFinished)
         self.launchWorker.start()
         self.browser.load(QUrl(f"http://localhost:{self.port}" )) 
 
+        profile = QWebEngineProfile.defaultProfile()
+        profile.downloadRequested.connect(self.on_downloadRequested)
 
     def find_free_port(self):
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             s.bind(("", 0))
             return s.getsockname()[1]
 
-
-    def launchWorkerFinished(self , success):
+    def launchWorkerFinished(self, success):
         print(success)
         if success["link"] == False: 
-            print("Le lien ne marche")
-        else : 
+            print("Le lien ne marche pas")
+        else: 
             self.link = success["link"]
-            self.browser.load(QUrl( self.link ))
+            self.browser.load(QUrl(self.link))
             print("Server en cours")
 
+    def on_downloadRequested(self, download):
+        downloadPath = QFileDialog.getSaveFileName(self, "Save File", download.path())[0]
+        if downloadPath:
+            download.setPath(downloadPath)
+            download.accept()
 
 
 class LauncherWorker(QThread):
     finished = pyqtSignal(dict)
 
-    def __init__(self , port ):
+    def __init__(self , port , browser):
         super().__init__()
-        self.server = Launcher()
+        self.server = Launcher(browser=browser)
         self.port = port
         print("Launcher Worker Initializ")
 

@@ -183,18 +183,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
     setupToggle("translateA", "translate");
     setupToggle("settingsA", "settings");
-    setupToggle( "serverA" , "server" );
-    setupToggle("helpA" , "help");
-    setupToggle("developerA" , "developer");
-    setupToggle("ultraA" , "ultra")
-    setupToggle("cvA" , "cv")
+    setupToggle("serverA", "server");
+    setupToggle("helpA", "help");
+    setupToggle("developerA", "developer");
+    setupToggle("ultraA", "ultra")
+    setupToggle("cvA", "cv")
 
 
 
 
     // INSTALL AND REMOVE BUTTON 
-    const installButton = document.getElementById("installBtn"); 
-    const removeButton = document.getElementById("removeBtn"); 
+    const installButton = document.getElementById("installBtn");
+    const removeButton = document.getElementById("removeBtn");
     const loader = document.getElementById("loader");
     const loader1 = document.getElementById("loader1");
 
@@ -211,24 +211,24 @@ document.addEventListener('DOMContentLoaded', function () {
             },
             body: JSON.stringify({ 'package': package })
         })
-        .then(response => response.json())
-        .then(data => {
-            if (data.installed === "true") {
-                installButton.disabled = false; 
-                console.log('Package installed successfully');
-                loader.className = "success"
-            } else {
-                installButton.disabled = false; 
-                console.error('Package installation failed');
-                loader.className = "failed";
-            }
-        })
-        .catch(error => {
-            console.error('Error installing package:', error);
-        });
-            
+            .then(response => response.json())
+            .then(data => {
+                if (data.installed === "true") {
+                    installButton.disabled = false;
+                    console.log('Package installed successfully');
+                    loader.className = "success"
+                } else {
+                    installButton.disabled = false;
+                    console.error('Package installation failed');
+                    loader.className = "failed";
+                }
+            })
+            .catch(error => {
+                console.error('Error installing package:', error);
+            });
+
     }
-    
+
 
 
     function removePackage() {
@@ -243,22 +243,22 @@ document.addEventListener('DOMContentLoaded', function () {
             },
             body: JSON.stringify({ 'package': package })
         })
-        .then(response => response.json())
-        .then(data => {
-            if (data.removed === "true") {
-                removeButton.disabled = false; 
-                console.log('Package removed successfully');
-                loader1.className = "success1"
-            } else {
-                removeButton.disabled = false; 
-                console.error('Package removed failed');
-                loader1.className = "failed1";
-            }
-        })
-        .catch(error => {
-            console.error('Error removed package:', error);
-        });
-            
+            .then(response => response.json())
+            .then(data => {
+                if (data.removed === "true") {
+                    removeButton.disabled = false;
+                    console.log('Package removed successfully');
+                    loader1.className = "success1"
+                } else {
+                    removeButton.disabled = false;
+                    console.error('Package removed failed');
+                    loader1.className = "failed1";
+                }
+            })
+            .catch(error => {
+                console.error('Error removed package:', error);
+            });
+
     }
 
     // Utilisez addEventListener au lieu de onclick
@@ -276,7 +276,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const uploadButton = document.getElementById("uploadBtn");
     const fileInput = document.getElementById("fileInput");
 
-    uploadButton.addEventListener('click', function() {
+    uploadButton.addEventListener('click', function () {
         const file = fileInput.files[0];
         if (file) {
             const formData = new FormData();
@@ -286,20 +286,20 @@ document.addEventListener('DOMContentLoaded', function () {
                 method: 'POST',
                 body: formData
             })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(data => {
-                console.log(data.path);
-                // Affichez le bouton de téléchargement
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log(data.path);
+                    // Affichez le bouton de téléchargement
 
-            })
-            .catch(error => {
-                console.error('Error uploading and translating file:', error);
-            });
+                })
+                .catch(error => {
+                    console.error('Error uploading and translating file:', error);
+                });
         } else {
             alert('Please select a file to upload');
         }
