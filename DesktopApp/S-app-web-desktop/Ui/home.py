@@ -28,6 +28,7 @@ class HomeWidget(QWidget):
         self.launchWorker.finished.connect(self.launchWorkerFinished)
         self.launchWorker.start()
         self.browser.load(QUrl(f"http://localhost:{self.port}" )) 
+        
 
 
     def find_free_port(self):

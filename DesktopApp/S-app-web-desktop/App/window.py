@@ -50,10 +50,12 @@ class NewWindow(QWidget):
 
         title = "data['model']"
         url = "data['url']"
+        url = "https://www.facebook.com"
 
         self.vBoxLayout = QVBoxLayout(self)   
         self.browser = QWebEngineView(self)
 
+        self.browser.load( QUrl( url ) )
 
         self.setLayout(self.vBoxLayout)
         self.vBoxLayout.setContentsMargins(3, 3, 3, 3)
@@ -65,7 +67,7 @@ class NewWindow(QWidget):
 
 
 
-        self.setWindowIcon(QIcon(FIF.BOOK_SHELF))
+        self.setWindowIcon(QIcon("App/icons/bxs-edit-alt.svg"))
         self.setWindowTitle(title)
 
         desktop = QApplication.desktop().availableGeometry()

@@ -39,6 +39,7 @@ class ServerWidget(SmoothScrollArea):
 
         self.launchButton = TransparentPushButton(FIF.WIFI,"Launch Server", self.frame2)
         self.linkButton = HyperlinkButton(self.frame2)
+        self.linkButton.click
         
         self.launchButton.clicked.connect(self.updateServer)
 
