@@ -153,14 +153,12 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
                 "model":int(data['model']) , 
                 "url":f"http://localhost:{self.port}/App/models/m{data['model']}/"
             }
-            QDesktopServices.openUrl( 
-                QUrl(data['url'])
-             )
+
 
             self.send_response(200)
             self.send_header('Content-type', 'application/json')
             self.end_headers()
-            self.wfile.write(json.dumps({f'{5}': "runing"}).encode())
+            self.wfile.write(json.dumps(data).encode())
 
 
         else:
