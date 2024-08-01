@@ -13,17 +13,22 @@ class HomeWidget(QWidget):
         self.vBoxLayout.setContentsMargins(3, 3, 3, 3)
         self.vBoxLayout.addWidget(self.browser)
 
+
+        profile = QWebEngineProfile.defaultProfile()
+        profile.downloadRequested.connect(self.on_downloadRequested)
+
         ## Launch Main brower 
         
         #self.browser.load(QUrl("https://github.com/stephene369/"))
         self.port=self.find_free_port() 
         self.launchWorker = LauncherWorker(port=self.port , browser=self.browser)
+
+        self.launchWorker.server.Handler.parent = parent
+
         self.launchWorker.finished.connect(self.launchWorkerFinished)
         self.launchWorker.start()
         self.browser.load(QUrl(f"http://localhost:{self.port}" )) 
 
-        profile = QWebEngineProfile.defaultProfile()
-        profile.downloadRequested.connect(self.on_downloadRequested)
 
     def find_free_port(self):
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:

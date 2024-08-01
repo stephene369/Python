@@ -1,34 +1,37 @@
-import argostranslate.package
-import argostranslate.translate
+import sys
+from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QVBoxLayout, QLabel
 
-from_code = "en"
-to_code = "fr"
+# Classe pour la nouvelle interface
+class NewWindow(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.setWindowTitle("Nouvelle Interface")
+        self.setGeometry(100, 100, 200, 100)
+        layout = QVBoxLayout()
+        layout.addWidget(QLabel("Ceci est la nouvelle interface"))
+        self.setLayout(layout)
 
-# Download and install Argos Translate package
-argostranslate.package.update_package_index()
-available_packages = argostranslate.package.get_available_packages()
-package_to_install = next(
-    filter(
-        lambda x: x.from_code == from_code and x.to_code == to_code, available_packages
-    )
-)
-argostranslate.package.install_from_path(package_to_install.download())
+# Classe pour l'interface principale
+class MainWindow(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.setWindowTitle("Application Principale")
+        self.setGeometry(100, 100, 300, 200)
+        
+        layout = QVBoxLayout()
+        self.button = QPushButton("Ouvrir Nouvelle Interface")
+        layout.addWidget(self.button)
+        self.setLayout(layout)
+        
+        # Connexion du clic du bouton à la méthode pour ouvrir la nouvelle interface
+        self.button.clicked.connect(self.open_new_window)
+    
+    def open_new_window(self):
+        new_window = NewWindow()
+        new_window.show()
 
-# Translate
-translatedText = argostranslate.translate.translate("Hello World", from_code, to_code)
-print(translatedText)
-# '¡Hola Mundo!'
-
-
-import argostranslate.package
-PORT = 8000
-packages_from = [pkg.from_name for pkg in argostranslate.package.get_installed_packages()]
-packages_to = [pkg.to_name for pkg in argostranslate.package.get_installed_packages()]
-
-packages = [str(pkg) for pkg in argostranslate.package.get_installed_packages()]
-packages_split = [ str(f).split(" → ")  for f in packages ]
-packages_from = list(set([ str(f).split(" → ")[0]  for f in packages ]))
-packages_from_to = {
-    package:[ pack[1] for pack in packages_split if package==pack[0] ] for package in packages_from
-    }
-packages_from_to
+# Initialisation de l'application PyQt5
+app = QApplication(sys.argv)
+main_window = MainWindow()
+main_window.show()
+sys.exit(app.exec_())

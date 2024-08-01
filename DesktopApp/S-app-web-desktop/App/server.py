@@ -1,5 +1,6 @@
 from .lib import *
 from .translator import Translator
+from .window import  NewWindow
 
 UPLOAD_DIR = "download"  
 TRANSLATED_DIR = "download"  
@@ -64,8 +65,21 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
                 pass
 
         elif self.path == "/api/cv/model" :
+            content_length = int(self.headers['Content-Length'])
+            post_data = self.rfile.read(content_length).decode('utf-8')
+            data = json.loads(post_data)
 
-            self.browser.load(QUrl(""))
+            #m = data['model']
+            data = {
+                "model":int(data['model']) , 
+                "url":f"http://localhost:{self.port}/App/models/m{data['model']}/index.html"
+            }
+            self.open_new_window(data=data)
+
+            self.send_response(200)
+            self.send_header('Content-type', 'application/json')
+            self.end_headers()
+            self.wfile.write(json.dumps({f'{5}': "runing"}).encode())
 
         elif self.path == "/api/packages/install":
             content_length = int(self.headers['Content-Length'])
@@ -187,6 +201,10 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
         print("return file name \n")
         return file_name
 
+    def open_new_window(self, data):
+        self.parent.new_window = NewWindow(data=data)
+        self.parent.new_window.show()
+
 
 
 
@@ -210,3 +228,4 @@ class Launcher:
         print(f"Serving on http://localhost:{port}")
         self.link = f"http://localhost:{port}"
         self.httpd.serve_forever()
+
