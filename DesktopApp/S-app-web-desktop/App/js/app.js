@@ -308,8 +308,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-
-
     // MODEL 
     function launchCvBuilder(model) {
         fetch('/api/cv/model', {
@@ -321,25 +319,25 @@ document.addEventListener('DOMContentLoaded', function () {
         })
             .then(response => response.json())
             .then(data => {
-                console.log(data);
             })
             .catch(error => {
-                console.error('Error:', error);
+                console.error('Erreur:', error);
             });
     }
+
 
     const model1 = document.getElementById("model1");
     const model2 = document.getElementById("model2");
 
 
-    if (model1) {
-        model1.addEventListener("click", function () {
-            launchCvBuilder("1");
-        });
-    }
 
-    model2.addEventListener('click', function() {
-        alert("me")
+    model1.addEventListener("click", function () {
+        launchCvBuilder("m1");
+    });
+
+
+    model2.addEventListener('click', function () {
+        launchCvBuilder("m1-0")
     })
 
 

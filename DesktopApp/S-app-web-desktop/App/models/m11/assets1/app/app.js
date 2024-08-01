@@ -128,3 +128,8 @@ function removeScale(){
     document.body.classList.remove('scale-cv')
 }
 
+
+
+function goBack() {
+    window.history.back();
+}

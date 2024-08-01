@@ -6,71 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="assert/style/style.css">
-    <link rel="stylesheet" href="assert/style/style2.css">
     <link rel="stylesheet" href="../../style/boxicons.min.css">
-
 </head>
 
 <body>
 
-
+    <button id="backButton" onclick="goBack()">Back</button>
     <button class="downloadBtn" id="downloadBtn">Download</button>
-
-
-    <div class="container-2">
-        <h1 class="title">Informations</h1>
-
-        <div class="r-group">
-
-            <div class="input-group" style="width: 40%; height: auto;">
-                <button>
-                    <i class='bx bx-camera'></i>
-                </button>
-            </div>
-
-            <dir class="c-group">
-                <div class="input-group">
-                    <div class="lab-div">
-                        <label for="">Family Name</label>
-                    </div>
-                    <div class="input-div">
-                        <input type="text">
-                    </div>
-                </div>
-    
-                <div class="input-group">
-                    <div class="lab-div">
-                        <label for="">First Name </label>
-                    </div>
-                    <div class="input-div">
-                        <input type="text">
-                    </div>
-                </div>
-            </dir>  
-        </div>
-
-        <div class="input-group"><div class="lab-div">
-            <label for="">Profile</label></div>
-            <div class="input-div"><input type="text"></div>
-        </div>
-
-
-        <div class="input-group"><div class="lab-div">
-            <label for="">Telephone </label></div>
-            <div class="input-div"><input type="text"></div>
-        </div>
-
-
-        <div class="m-cont">
-            <button class="add-button"><i class='bx bx-message-square-add' ></i>Mail</button>
-            <button class="add-button"><i class='bx bx-message-square-add' ></i>Instagram</button>
-            <button class="add-button"><i class='bx bx-message-square-add' ></i>Facebook</button>
-            <button class="add-button"><i class='bx bx-message-square-add' ></i>TikTok</button>
-            
-        </div>
-
-    </div>
-
 
     <div class="container bd-container" id="resume">
         <div class="left_side">
@@ -254,11 +196,28 @@
 
 
 
-
     <script src="assert/js/html2pdf.bundle.min.js"></script>
     <script src="assert/js/app.js"></script>
     <script>
+        const resumeButton = document.getElementById('downloadBtn');
 
+        function generateResume() {
+            resumeButton.classList.add('scale-cv')
+
+            // Masquer le bouton
+            setTimeout(() => {
+                
+                window.print(); // Afficher la fenêtre d'impression
+                resumeButton.classList.remove('scale-cv');
+
+                // Réafficher le bouton après l'impression
+            }, 1000); // Attendre 5 secondes
+        }
+
+        resumeButton.addEventListener('click', () => {
+            generateResume();
+            console.log("Clicked");
+        });
         /*
         let areaCv = document.getElementById('resume');
 

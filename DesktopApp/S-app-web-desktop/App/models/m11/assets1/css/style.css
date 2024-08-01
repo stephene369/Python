@@ -1,5 +1,21 @@
 
+/* Styles for the back button */
+#backButton {
+    position: fixed; /* Fixes the button's position */
+    top: 10px; /* Distance from the top */
+    right: 10px; /* Distance from the right */
+    padding: 10px 20px; /* Padding for the button */
+    background-color: #007bff; /* Background color */
+    color: white; /* Text color */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 16px; /* Font size */
+}
 
+#backButton:hover {
+    background-color: #0056b3; /* Darker background color on hover */
+}
 
 /*Variables CSS */
 :root{

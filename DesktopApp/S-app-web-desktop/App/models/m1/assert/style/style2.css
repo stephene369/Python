@@ -1,0 +1,148 @@
+
+
+.input-group{
+    display: flex;
+    padding-bottom: .5rem;
+    padding-top: .5rem;
+    flex-direction: column;
+}
+
+.input-group .lab-div{
+    align-items: center;
+    display: flex;
+    margin-bottom: -.25rem
+}
+.input-group .lab-div label{
+    flex-grow: 1; /* flex-grow */
+    overflow: hidden; /* truncate */
+    text-overflow: ellipsis; /* truncate */
+    white-space: nowrap; /* truncate */
+    display: block; /* block */
+    font-weight: 500; /* font-medium */
+    color: #4b5563; /* text-gray-600 */
+    font-size: 0.875rem; /* text-sm */
+}
+
+
+
+
+
+
+.input-group .input-div {
+    position: relative; /* relative */
+    display: flex; /* flex */
+    flex-direction: row; /* flex-row */
+    border-width: 1px; /* border */
+    border-color: transparent; /* border-transparent */
+    color: #1f2937; /* text-gray-800 */
+    border-radius: 0.25rem; /* rounded */
+    
+}
+
+.input-group .input-div:focus-within {
+    border-color: #0d9488; /* focus-within:border-brand-400 */
+    background-color: #eaf4ff; /* focus-within:bg-brand-50 */
+}
+
+.input-group .input-div input {
+    flex: 1; /* flex-1 */
+    appearance: none; /* appearance-none */
+    outline: none; /* outline-none */
+    border-radius: 0.25rem; /* rounded */
+    margin: 0.5rem; /* py-2 (padding-y) */
+    
+    padding-top: 0.5rem; /* py-2 (padding-y) */
+    padding-bottom: 0.5rem; /* py-2 (padding-y) */
+    padding-left: 0.75rem; /* ps-3 (padding-start) */
+    padding-right: 0.75rem; /* pe-3 (padding-end) */
+    font-size: 1rem; /* text-base */
+    background-color: transparent; /* bg-transparent */
+    background: transparent;
+    border: 0.1rem solid rgb(118, 118, 255);
+}
+
+.input-group button {
+    border: 1px solid transparent; /* border border-transparent */
+    background-color: #f3f4f6; /* bg-gray-100 */
+    border-radius: 0.25rem; /* rounded */
+    padding-top: 0.5rem; /* py-2 (padding-top) */
+    padding-bottom: 0.5rem; /* py-2 (padding-bottom) */
+    padding-left: 0.75rem; /* px-3 (padding-left) */
+    padding-right: 0.75rem; /* px-3 (padding-right) */
+    font-size: 1rem; /* text-base */
+    transition: background-color 150ms, border-color 150ms; /* transition-colors duration-150 */
+    width: 100%; /* w-full */
+    height: 100%; /* h-full */
+    background-size: cover; /* bg-cover */
+    background-position: center; /* bg-center */
+    background-repeat: no-repeat; /* bg-no-repeat */
+    display: flex; /* flex */
+    align-items: center; /* items-center */
+    justify-content: center; /* justify-center */
+}
+
+.input-group  button:hover {
+    border-color: #0d9488; /* can-hover:hover:border-brand-500 */
+    background-color: #7293ff60; /* can-hover:hover:bg-brand-50 */
+}
+
+
+.c-group{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.r-group{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+.m-cont {
+    display: flex; /* flex */
+    flex-wrap: wrap; /* flex-wrap */
+    margin-left: 0.5rem; /* -m-2 (negative margin-left) */
+    margin-right: 0.5rem; /* -m-2 (negative margin-right) */
+    padding-top: 1.25rem; /* pt-5 */
+    padding-bottom: 0.75rem; /* pb-3 */
+    padding: .5rem;
+}
+
+.add-button {
+    display: inline-flex; /* inline-flex */
+    border: 1px solid #d1d5db; /* border border-gray-400 */
+    border-radius: 0.375rem; /* rounded-brand */
+    position: relative; /* relative */
+    box-sizing: border-box; /* box-content */
+    overflow: hidden; /* overflow-hidden */
+    max-width: 100%; /* max-w-full */
+    background-color: transparent; /* bg-transparent */
+    color: #374151; /* text-gray-700 */
+    font-weight: 500; /* font-medium */
+    padding-top: 0.25rem; /* py-1 (padding-top) */
+    padding-bottom: 0.25rem; /* py-1 (padding-bottom) */
+    padding-left: 0.25rem; /* ps-1 (padding-left) */
+    padding-right: 0.75rem; /* pe-3 (padding-right) */
+    font-size: 1rem; /* text-base */
+    display: flex; /* items-center */
+    align-items: center; /* items-center */
+    justify-content: center; /* justify-center */
+    transition: background-color 150ms, border-color 150ms; /* Transition effects */
+    margin: 0.7rem;
+}
+
+.add-button:focus-visible {
+    box-shadow: 0 0 0 4px #0d9488; /* focus-visible:ring-4 ring-brand */
+}
+
+.add-button:active {
+    background-color: #e3f9f0; /* active:bg-brand-100 */
+}
+
+.add-button:hover {
+    background-color: #bfd3ff7a; /* can-hover:hover:bg-brand-50 */
+    border-color: #0d9488; /* can-hover:hover:border-brand-400 */
+}
+.add-button i{
+    position: relative;
+}
+

@@ -61,9 +61,10 @@ nav .down {
     width: 45px;
     height: 45px;
     border-radius: 50%;
+    margin-right: 5px;
 }
 
-.logo span {
+.logo span{
     font-weight: bold;
     padding-left: 0;
     font-size: 18px;
@@ -94,6 +95,7 @@ nav ul li a i {
     font-size: 35px;
     margin-left: 10px;
     margin-right: 5px;
+    color: black;
 }
 
 nav ul li a span {
@@ -194,7 +196,20 @@ OFFLINE TRANSLATOR
     background: whitesmoke;
     height: 100%;
     margin-top: 10px;
-    
+    box-sizing: border-box;
+    resize: none;
+    outline: none;    
+    border-bottom: 2px solid #ffffff; /* Default border color */
+    transition: border-color 0.3s;
+    border-radius: 10px;
+}
+
+#translate textarea:hover {
+    border-color: rgba(15, 15, 29, 0.24); /* Border color on hover */
+}
+
+#translate textarea:focus {
+    border-color: rgba(113, 113, 253, 0.541); /* Border color on focus */
 }
 
 

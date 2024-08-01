@@ -41,7 +41,6 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
 
 
     def do_POST(self):
-        self.browser:FramelessWebEngineView
         if self.path == '/api/translate':
             content_length = int(self.headers['Content-Length'])
             post_data = self.rfile.read(content_length).decode('utf-8')
@@ -150,10 +149,11 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
 
             #m = data['model']
             data = {
-                "model":int(data['model']) , 
-                "url":f"http://localhost:{self.port}/App/models/m{data['model']}/"
+                "model":(data['model']) , 
+                "url":f"http://localhost:{self.port}/App/models/{data['model']}/"
             }
-
+            #print(data)
+            QDesktopServices.openUrl(QUrl(data['url']))
 
             self.send_response(200)
             self.send_header('Content-type', 'application/json')

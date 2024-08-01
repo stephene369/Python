@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cv-Creator</title>
+
+    <!--BOX ICONS-->
+    <link href="../../../App/style/boxicons.min.css" rel="stylesheet" />
+
+    <!--CSS-->
+    <link rel="stylesheet" href="assets1/css/style.css" />
+    <link rel="stylesheet" href="assets1/css/style2.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+</head>
+
+<body>
+    <!--
+
+    -->
+    <header class="l-header" id="header">
+        <button id="backButton" onclick="goBack()">Back</button>
+        <nav class="nav bd-container">
+            <a href="#" class="nav__logo">Smith</a>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="#home" class="nav__link active-link">
+                            <i class="bx bx-home nav__icon"></i>Home
+                        </a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a href="#profile" class="nav__link">
+                            <i class="bx bx-user nav__icon"></i>Profile
+                        </a>
+                    </li>
+
+                
+                    <li class="nav__item">
+                        <a href="#education" class="nav__link">
+                            <i class="bx bx-book nav__icon"></i>Education
+                        </a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a href="#skill" class="nav__link">
+                            <i class="bx bx-receipt nav__icon"></i>Skills
+                        </a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a href="#experience" class="nav__link">
+                            <i class="bx bx-briefcase-alt nav__icon"></i>Experience
+                        </a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a href="#certificate" class="nav__link">
+                            <i class="bx bx-award nav__icon"></i>Certificate
+                        </a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a href="#reference" class="nav__link">
+                            <i class="bx bx-link-external nav__icon"></i>References
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="nav__toggle" id="nav-toggle">
+                <i class="bx bx-grid-alt"></i>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-1 bd-container">
+        <!-- Input variables and insertion -->
+
+        <!--All Element here is generated in PDF-->
+        <div class="resume" id="area-cv">
+            <div class="resume__left">
+                <!--====================Home======================-->
+                <section class="home" id="home">
+                    <div class="home__container section bd-grid">
+                        <div class="home__data bd-grid">
+                            <img src="" alt="" class="home__img" id="profileImg">
+
+                            <h1 class="home__title"></h1>
+                            <h3 class="home__profession"></h3>
+
+                            <!--=====================Button Download=================-->
+                            <div>
+                                <a download="" href="assets/pdf/resume.pdf" class="home__button-movil">
+                                    Download
+                                </a>
+                            </div>
+
+                        </div>
+
+                        <div class="home__address bd-grid">
+                            <span class="home__information">
+                                <i class="bx bx-map home__icon"></i>
+                                <span class="location-address"></span>
+                            </span>
+
+                            <span class="home__information">
+                                <i class="bx bx-envelope home__icon"></i>
+                                <span class="email-address"></span>
+                            </span>
+
+                            <span class="home__information">
+                                <i class="bx bx-phone home__icon"></i>
+                                <span class="phone-address"></span>
+                            </span>
+                        </div>
+                    </div>
+                    <!--THEME Change button-->
+                    <i class="bx bx-moon change-theme" title="theme" id="theme-button"></i>
+
+                    <!-- Button to genenerate the PDF-->
+                    <i class="bx bx-download generate-pdf" title="Generate Pdf" id="resume-button"></i>
+                </section>
+
+                <!-- ===============================
+                                SOCIAL 
+                ===================================-->
+                <section class="social section">
+                    <h2 class="section-title">SOCIAL</h2>
+
+                    <div class="social__container bd-grid" id="social__container">
+
+                    </div>
+                </section>
+
+                <!-- ===============================
+                                PROFILE
+                ===================================-->
+                <section class="profile section" id="profile">
+                    <h2 class="section-title">Profile</h2>
+
+                    <p class="profile__description" id="profile__description">
+
+                    </p>
+                </section>
+
+
+                <!-- ===============================
+                                EDUCATION
+                ===================================-->
+                <section class="education section" id="education">
+                    <h2 class="section-title">Education</h2>
+
+                    <div class="education-container bd-grid" id="education-container">
+
+
+                    </div>
+                </section>
+
+                <!-- ===============================
+                                SKILLS
+                ===================================-->
+                <section class="skills section" id="skills">
+                    <h2 class="section-title">Skills</h2>
+
+                    <div class="skills__content bd-grid" id="skills-container">
+                    </div>
+                </section>
+
+
+
+            </div>
+
+            <div class="resume__right">
+                <!--================== EXPERIENCE ===============-->
+                <section class="experience section" id="experience">
+                    <h2 class="section-title">Experience</h2>
+
+                    <div class="experience__container bd-grid" id="experiences-container">
+
+                    </div>
+                </section>
+
+                <!--================== CERTIFICATE ===============-->
+                <section class="certificate section" id="certificate">
+                    <h2 class="section-title">Certificates</h2>
+
+                    <div class="certificate__countainer bd-grid" id="certificate-container">
+
+                    </div>
+
+                </section>
+
+                <!--================== REFERENCES ===============-->
+                <section class="reference section" id="reference">
+                    <h2 class="section-title">References</h2>
+
+                    <div class="references__container bd-grid" id="references-container">
+                    </div>
+                </section>
+
+                <!--================== LANGUAGES ===============-->
+                <section class="languages section" id="languages">
+                    <h2 class="section-title">languages</h2>
+
+                    <div class="languages__container" id="languages-conainer">
+                        <ul class="languages__content bd-grid" id="languages-content">
+
+                        </ul>
+                    </div>
+                </section>
+
+                <!--================== INTERESTS ===============-->
+                <section class="interests section">
+                    <h2 class="section-title">Interests</h2>
+
+                    <div class="interests__container bd-grid" id="interests-container">
+                        
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+
+    <main class="main-0">
+
+        <div class="insertion-container">
+            <section class="introduction-insertion">
+                <h3>Introduction</h3>
+                <!--FOR INSERT NAME AND PROFESSION-->
+                <div class="insertion-content bd-grid" >
+                    <div class="input-group">
+                        <label for="name">Nom :</label>
+                        <input type="text" id="name" placeholder="@name" />
+                    </div>
+                    <div class="input-group">
+                        <label for="title">Titre :</label>
+                        <input type="text" id="title" placeholder="@title" />
+                    </div>
+
+                    <!--============LOCATION ===========-->
+                    <div class="input-group">
+                        <label for="location">Location :</label>
+                        <input type="text" id="location" placeholder="@location" />
+                    </div>
+
+
+                    <!--============ EMAIL ===========-->
+                    <div class="input-group">
+                        <label for="email">Email :</label>
+                        <input type="text" id="email" placeholder="@email" />
+                    </div>
+
+                    <!--============ TELEPHONE ===========-->
+                    <div class="input-group">
+                        <label for="phone">Phone :</label>
+                        <input type="text" id="phone" placeholder="@phone" />
+                    </div>
+
+                    <!--============ Choose Image ===========-->
+                    <div class="input-group choose-picture" >                        
+                        <input placeholder="Image" type="file" id="fileInput" accept="image/*">
+                    </div>
+                </div>
+
+            </section>
+
+            <section class="social-insertion">
+                <h3>Social</h3>
+                <div class="insertion-content custom-select">
+                    <!--============ OPTIONS ===========-->
+                    <select name="social-media" id="social-media">
+                        <option class="social-option" value="facebook">Facebook</option>
+                        <option class="social-option" value="twitter">Twitter</option>
+                        <option class="social-option" value="instagram">Instagram</option>
+                        <option class="social-option" value="linkedin">LinkedIn</option>
+                        <option class="social-option" value="youtube">YouTube</option>
+                        <option class="social-option" value="blog">Blog</option>
+                        <option class="social-option" value="link">Lien</option>
+
+                    </select>
+
+
+                </div>
+            </section>
+
+            <!-- ===============================
+                                PROFILE
+                ===================================-->
+            <section class="profile-insertion">
+                <h3>Profile</h3>
+                <div class="insertion-content">
+                    <div class="input-group">
+                        <label for="profile-paragraph">Profil : </label>
+                        <textarea id="profile-paragraph" name="profile-paragraph"
+                            placeholder="Descibe yoursef, what you can do..."></textarea>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- ===============================
+                                EDUCATION
+                ===================================-->
+            <section class="education-insertion">
+                <h3>Education</h3>
+                <div class="insertion-content" id="input-education-container">
+
+                    <div class="input-group">
+                        <label for="education">Education : </label>
+                        <button id="button-education-insertion">Add</button>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ===============================
+                                SKILLS
+                ===================================-->
+            <section class="skills-insertion">
+                <h3>Skills</h3>
+                <div class="insertion-content" id="input-skills-container">
+                    <div class="input-group">
+                        <label for="skills">Skill</label>
+                        <input type="text" id="input-skill-title" placeholder="title of skills">
+                        <input type="number" id="input-skills-number" placeholder="number of skill">
+                        <button id="button-skills-insertion">Add</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===============================
+                                EXPERIENCES
+                ===================================-->
+            <section class="experiences-insertion">
+                <h3>Experiences</h3>
+                <div class="insertion-content" id="input-experiences-container">
+                    <div class="input-group">
+                        <label for="experiences">Experience : </label>
+                        <button id="button-experiences-insertion">Add</button>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- ===============================
+                                CERTIFICATION
+                ===================================-->
+            <section class="experiences-insertion" >
+                <h3>Certification</h3>
+                <div class="insertion-content" id="input-certificate-container">
+                    <div class="input-group">
+                        <label for="certificate">Certificate : </label>
+                        <button id="button-add-certificate">Add</button>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- ===============================
+                                REFERENCES
+                ===================================-->
+            <section class="experiences-insertion">
+                <h3>References</h3>
+                <div class="insertion-content" id="input-references-container">
+                    <div class="input-group">
+                        <label for="references">References :</label>
+                        <button id="button-add-references">Add</button>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- ===============================
+                                LANGUAGES
+                ===================================-->
+            <section class="experiences-insertion">
+                <h3>Languages</h3>
+                <div class="insertion-content" id="input-languages-container">
+                    <div class="input-group">
+                        <label for="languages">Languages :</label>
+                        <button id="button-add-languages">Add</button>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- ===============================
+                                INTERESTS
+                ===================================-->
+            <section class="experiences-insertion">
+                <h3>Interests</h3>
+                <div class="insertion-content" id="input-interests-container">
+                    <div class="input-group custom-select">
+                        <select name="interests" id="interests-select" class="interest-option">
+                            
+                            <option value="book">Book</option>
+                            <option value="travel">Travel</option>
+                            <option value="music">Music</option>
+                            <option value="sports">Sports</option>
+                            <option value="gaming">Gaming</option>
+                            <option value="art">Art</option>
+                            <option value="technology">Technology</option>
+                            <option value="cooking">Cooking</option>
+                            <option value="photography">Photography</option>
+                            <option value="movies">Movies</option>
+                            <option value="nature">Nature</option>
+                            <option value="writing">Writing</option>
+                            <option value="science">Science</option>
+                            <option value="history">History</option>
+                            <option value="languages">Languages</option>
+
+                        </select>
+                    </div>
+
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+
+    <!--================== SCROLL TOP ===============-->
+    <a href="#" class="scrolltop" id="scroll-top">
+        <i class="bx bx-up-arrow-alt scrolltop__icon"></i>
+    </a>
+
+
+
+
+
+
+
+    <script src="assets1/app/html2pdf.bundle.min.js"></script>
+    <script src="assets1/app/app.js"></script>
+    <script src="assets1/app/app2.js"></script>
+
+    <script>
+
+// PDF GENERATOR AREA
+let areaCv = document.getElementById('area-cv');
+
+let resumeButton = document.getElementById('resume-button')
+
+// Option to generate pdf
+var opt = {
+    margin:       1,
+    filename:     'Cv.pdf',
+    image:        { type: 'jpeg', quality: 0.95 },
+    html2canvas:  { scale: 6 },
+    jsPDF:        { format: 'A4', orientation: 'portrait' }
+  };
+
+  // Function to call areaCv and html2Pdf options
+function generateResume(){
+    html2pdf().set(opt).from(areaCv).save();
+}
+
+
+
+resumeButton.addEventListener('click', () => {
+    scaleCv(); 
+    generateResume(); 
+    setTimeout(removeScale, 5000)
+})
+
+
+
+
+    </script>
+
+</body>
+
+</html>
