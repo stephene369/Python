@@ -9,6 +9,19 @@ class HomeWidget(QWidget):
         self.vBoxLayout = QVBoxLayout(self)   
         self.browser = QWebEngineView(self)
 
+
+        self.webSettings = self.browser.settings()
+        self.webSettings.setAttribute(QWebEngineSettings.PluginsEnabled, True)
+        self.webSettings.setAttribute(QWebEngineSettings.JavascriptEnabled, True)
+        self.webSettings.setAttribute(QWebEngineSettings.LocalStorageEnabled, True)
+        self.webSettings.setAttribute(QWebEngineSettings.JavascriptCanAccessClipboard, True)
+        self.webSettings.setAttribute(QWebEngineSettings.JavascriptCanPaste, True)
+        self.webSettings.setAttribute(QWebEngineSettings.LocalContentCanAccessFileUrls, True)
+        self.webSettings.setAttribute(QWebEngineSettings.JavascriptCanOpenWindows, True)
+        self.webSettings.setAttribute(QWebEngineSettings.LocalContentCanAccessRemoteUrls, True)
+        self.webSettings.setAttribute(QWebEngineSettings.AllowWindowActivationFromJavaScript, True)
+
+
         self.setLayout(self.vBoxLayout)
         self.vBoxLayout.setContentsMargins(3, 3, 3, 3)
         self.vBoxLayout.addWidget(self.browser)

@@ -102,6 +102,7 @@ body{
     height: var(--width-large); /* 200px */
     border-radius: 50%;
     overflow: hidden;
+    cursor: pointer;
 }
 
 .profileText .img8x img {
@@ -303,6 +304,7 @@ p {
     font-size: 1.125rem; /* 18px */
     width: 1.25rem; /* 20px */
 }
+
 
 /* SCALE ======== */
 .scale-cv .bd-container {

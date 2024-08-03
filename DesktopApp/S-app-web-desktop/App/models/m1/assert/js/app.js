@@ -40,7 +40,7 @@ function autoWritingElement(source, destination) {
 }
 
 function createLi(input, iconName) {
-    iconName = iconName.toLowerCase();
+    
     const li = document.createElement('li');
     const span1 = document.createElement('span');
     const span2 = document.createElement('span');
@@ -62,25 +62,27 @@ function createLi(input, iconName) {
         behance: 'bx bxl-behance',
         mail: 'bx bxs-envelope',
         phone: 'bx bx-phone' ,
-        tiktok: 'bx bxl-tiktok'
+        tiktok: 'bx bxl-tiktok', 
+
     };
 
     // Ajouter la classe correspondante si l'icône est dans le dictionnaire
+    iconName = iconName.toLowerCase();
     if (icons[iconName]) {
         i.className = icons[iconName];
     }
-
     input.addEventListener('input', function() { span2.innerText = input.value; });
+    li.addEventListener('click', function() { li.remove() });
+    
     //autoWritingElement(input, span2);
 
     span1.appendChild(i);
     li.appendChild(span1);
     li.appendChild(span2);
 
+
     return li;
 }
-
-
 
 function createInputDiv(addButton) {
     const div = document.createElement('div');
@@ -624,13 +626,48 @@ function addSkillsElement(parent1Id, parent2Id, buttonId) {
 
 
 
+function createInterest( parentId , buttonId) {
+    const parent = document.getElementById(parentId) ;
+    const button = document.getElementById(buttonId)
 
 
+    const li = document.createElement('li');
+    const i = document.createElement('i');
+    const i2 = document.createElement('i');
+    const iconName = button.textContent ; 
+
+    i2.innerHTML = iconName.toUpperCase()
+    // Dictionnaire des icônes
+    const icons = {
+        gaming:'bx bxs-joystick' , 
+        travel:"bx bxs-plane-alt", 
+        football:"bx bx-football" , 
+        book:"bx bx-book", 
+        sport:"bx bx-run", 
+        bloging:"bx bxl-blogger", 
+        coding:'bx bx-code-alt', 
+        socialmedial:'bx bxl-tiktok'
+
+    };
+
+    // Ajouter la classe correspondante si l'icône est dans le dictionnaire
+
+    if (icons[buttonId]) {
+        i.className = icons[buttonId];
+    }    
 
 
+    li.addEventListener('click', function() {
+        li.remove()
+    })
 
+    button.addEventListener('click', function() {
+        li.appendChild(i)
+        li.appendChild(i2)
+        parent.appendChild(li)
+    } )
 
-
+}
 
 
 
@@ -656,4 +693,12 @@ addExperiencesElement("experiencesGroup" , "experiencesGroup_" , "experiencesGro
 addSkillsElement("skillsGroup" , "skillsGroup_" , "skillsGroupBtn")
 
 
-    
+createInterest("interestGroup_" , "coding")
+createInterest("interestGroup_" , "football")
+createInterest("interestGroup_" , "gaming")
+createInterest("interestGroup_" , "sport")
+createInterest("interestGroup_" , "blog")
+createInterest("interestGroup_" , "social")
+createInterest("interestGroup_" , "travel")
+
+

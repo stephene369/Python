@@ -113,6 +113,11 @@
     flex-direction: row;
     width: 100%;
 }
+
+#interestGroup_{
+    cursor: pointer;
+}
+
 .m-cont {
     display: flex; /* Utiliser Flexbox pour le conteneur */
     flex-wrap: wrap; /* Permet aux éléments de passer à la ligne suivante */

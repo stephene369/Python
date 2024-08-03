@@ -27,6 +27,7 @@
 
 
     <button class="downloadBtn" id="downloadBtn">Download</button>
+    <input type="file" id="fileInput" accept="image/*" style="display: none;">
 
 
     <div class="container-2">
@@ -35,7 +36,7 @@
             <div class="c-group" id="infoGroup1">
                 <div class="r-group">
                     <div class="input-group" style="width: 40%; height: auto;">
-                        <button>
+                        <button id="cameraIp">
                             <i class='bx bx-camera'></i>
                         </button>
                     </div>
@@ -61,7 +62,6 @@
                 </div>
             </div>
 
-
             <div class="m-cont">
                 <button id="phone" class="add-button"><i class='bx bx-message-square-add'></i>Phone</button>
                 <button id="mail" class="add-button"><i class='bx bx-message-square-add'></i>Mail</button>
@@ -71,7 +71,6 @@
                 <button id="instagram" class="add-button"><i class='bx bx-message-square-add'></i>Instagram</button>
                 <button id="facebook" class="add-button"><i class='bx bx-message-square-add'></i>Facebook</button>
                 <button id="tiktok" class="add-button"><i class='bx bx-message-square-add'></i>TikTok</button>
-
             </div>
 
 
@@ -149,8 +148,7 @@
                     <button style="width: 100%;">
                         <h3>PROFESSIONAL SKILLS</h3>
                     </button>
-                    <button id="skillsGroupBtn" style="width: 10%; height: 100%;"><i
-                            class='bx bx-plus'></i></button>
+                    <button id="skillsGroupBtn" style="width: 10%; height: 100%;"><i class='bx bx-plus'></i></button>
                     <i id="skillsHider" class='bx bx-chevron-up hider'></i>
                 </div>
                 <div class="c-group" id="skillsGroup">
@@ -158,19 +156,27 @@
             </div>
 
 
-            <div class="add-section" style="width: 100%;">
+            <div class="add-section" style="width: 100%; padding-bottom: 0;">
                 <div class="r-group">
                     <button style="width: 100%;">
                         <h3>INTEREST</h3>
                     </button>
-                    <button id="experiencesGroupBtn" style="width: 10%; height: 100%;"><i
-                            class='bx bx-plus'></i></button>
-                    <i id="experiencesHider" class='bx bx-chevron-up hider'></i>
-                </div>
-                <div class="c-group" id="experiencesGroup">
+                    <i id="" class='bx bx-chevron-up hider'></i>
                 </div>
             </div>
 
+            <div class="m-cont" style="padding-top: 0;">
+                <button id="coding" class="add-button"><i class='bx bx-message-square-add'></i>Coding</button>
+                <button id="football" class="add-button"><i class='bx bx-message-square-add'></i>Football</button>
+                <button id="gaming" class="add-button"><i class='bx bx-message-square-add'></i>Gaming</button>
+                <button id="sport" class="add-button"><i class='bx bx-message-square-add'></i>Sport</button>
+
+                <button id="book" class="add-button"><i class='bx bx-message-square-add'></i>Book</button>
+                <button id="blog" class="add-button"><i class='bx bx-message-square-add'></i>Bloging</button>
+                <button id="social" class="add-button"><i class='bx bx-message-square-add'></i>SicialMedial</button>
+                <button id="travel" class="add-button"><i class='bx bx-message-square-add'></i>Travel</button>
+                
+            </div>
 
 
         </div>
@@ -181,8 +187,8 @@
     <div class="container bd-container" id="resume">
         <div class="left_side">
             <div class="profileText">
-                <div class="img8x">
-                    <img src="assert/img/me.jpg" alt="">
+                <div class="img8x" id="imageDiv" style="display: none;">
+                    <img id="imageIp" src="" alt="">
                 </div>
                 <h2 id="nameIp_"></h2>
                 <span id="profileIp_"></span>
@@ -191,8 +197,6 @@
             <div class="contactInfo">
                 <h3 class="title">Contact Info</h3>
                 <ul id="infoGroup1_">
-
-
                 </ul>
             </div>
 
@@ -236,12 +240,7 @@
 
             <div class="about interest">
                 <h2 class="title2">Interest</h2>
-                <ul>
-                    <li> <i class='bx bx-joystick'></i> Gaming</li>
-                    <li> <i class='bx bx-book'></i> Reading</li>
-                    <li> <i class='bx bxs-plane-take-off'></i> Travel</li>
-                    <li> <i class='bx bx-code-alt'></i> Programming</li>
-
+                <ul id="interestGroup_">
                 </ul>
             </div>
 
@@ -252,6 +251,7 @@
 
 
     <script src="assert/js/html2pdf.bundle.min.js"></script>
+    <script src="assert/js/camera.js"></script>
     <script src="assert/js/app.js"></script>
     <script>
 

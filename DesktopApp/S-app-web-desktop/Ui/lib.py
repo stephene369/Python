@@ -8,7 +8,7 @@ from PyQt5.QtWidgets import (
 
 )
 from PyQt5.QtPrintSupport import QPrinter, QPrintDialog
-from PyQt5.QtWebEngineWidgets import QWebEngineView , QWebEngineProfile
+from PyQt5.QtWebEngineWidgets import QWebEngineView , QWebEngineProfile ,QWebEngineSettings
 from PyQt5.QtCore import QUrl 
 from qframelesswindow.webengine import FramelessWebEngineView 
 
