@@ -514,20 +514,146 @@ function addExperiencesElement(parent1Id, parent2Id, buttonId) {
 
 
 
+/////////////// SKILLS 
+function createInputDivSkills() {
+    const div = document.createElement('div');
+
+    const div1 = document.createElement('div');
+    const div1_ = document.createElement('div');
+
+
+    const div2 = document.createElement('div');
+    const div2_ = document.createElement('div');
+
+    div.className = 'input-group';
+
+    div1.className = 'lab-div';
+    div1_.className = 'lab-div';
+
+    div2.className = 'input-div';
+    div2_.className = 'input-div';
+
+
+    // Créer un input
+    const lab1 = document.createElement('label'); 
+    const lab2 = document.createElement('label'); 
+
+    lab1.textContent = 'Skill'
+    lab2.textContent = 'Rate'
+
+    const input1 = document.createElement('input');
+    const input2 = document.createElement('input');
+
+    input1.type = 'text'
+    input2.type = 'number'
+
+
+    div1.appendChild(lab1)
+    div1_.appendChild(lab2)
+
+    div2.appendChild(input1)
+    div2_.appendChild(input2)
+
+
+    // Créer un bouton
+    const button = document.createElement('button');
+    button.textContent = 'Remove';
+    
+    
+    const box = document.createElement('div'); 
+    const h4 = document.createElement('h4'); 
+    const div2d = document.createElement('div'); 
+    const div2div = document.createElement('div');
+
+    div2d.appendChild(div2div)
+    box.appendChild(h4)
+    box.appendChild(div2d)
+
+    box.className = 'box'
+    div2d.className = 'percent'
+    
+    input1.addEventListener('input', function() { 
+        h4.innerText = input1.value; 
+    });
+    
+    div2div.style.width = ' 25%'
+    input2.addEventListener('input', function() { 
+        // Vérifier si la valeur dépasse 100 et la limiter
+        let value = parseInt(input2.value, 10);
+        if (value > 100) {
+            value = 100;
+            input2.value = 100;
+        }
+        div2div.style.width = value + '%'; 
+    });
+    
+
+    button.addEventListener('click', function() {
+        div.remove(); box.remove() 
+    });
+
+    div2_.appendChild(button)
+
+    div.appendChild(div1)
+    div.appendChild(div2)
+
+    div.appendChild(div1_)
+    div.appendChild(div2_)
+
+    console.log("return")
+    return [ div , box ] ;
+}
+
+function addSkillsElement(parent1Id, parent2Id, buttonId) {
+    const parent1 = document.getElementById(parent1Id);
+    const parent2 = document.getElementById(parent2Id);
+    const button = document.getElementById(buttonId);
+    const hider = document.getElementById("skillsHider")
+
+    button.addEventListener('click', function() {
+        const  [ newInputDiv , newInputDiv_ ] = createInputDivSkills();
+
+        parent1.appendChild(newInputDiv);
+        parent2.appendChild(newInputDiv_);
+        parent1.classList.add('group')
+        hider.style.display = 'block'
+        // Cacher le bouton d'ajout
+
+    });
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 let isVisibleEducation = true;
 let isVisibleLanguages = true;
 let isVisibleProfile = false;
 let isVisibleExperiences = true;
+let isVisibleSkills = true;
 
 
 hideElement("educationGroup" , "educationHider" , isVisibleEducation)
 hideElement("languagesGroup" , "languagesHider" , isVisibleLanguages)
 hideElement("profileGroup" , "profileHider",isVisibleProfile)
 hideElement("experiencesGroup" , "experiencesHider",isVisibleExperiences)
+hideElement("skillsGroup" , "skillsHider",isVisibleExperiences)
 
 
 addEducationElement("educationGroup" , "educationGroup_" , "educationGroupBtn")
 addLanguageElement("languagesGroup" , "languagesGroup_" , "languagesGroupBtn")
 addExperiencesElement("experiencesGroup" , "experiencesGroup_" , "experiencesGroupBtn")
+addSkillsElement("skillsGroup" , "skillsGroup_" , "skillsGroupBtn")
+
 
     
