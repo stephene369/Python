@@ -36,6 +36,16 @@
     border-color: transparent; /* border-transparent */
     color: #1f2937; /* text-gray-800 */
     border-radius: 0.25rem; /* rounded */
+    align-items: center;
+}
+.input-group .input-div button{
+    width: 25%;
+}
+.input-group .input-div button:hover{
+    background: rgba(255, 0, 0, 0.822);
+    cursor: pointer;
+    border: none;
+    color: white;
     
 }
 
@@ -44,13 +54,13 @@
     background-color: #eaf4ff; /* focus-within:bg-brand-50 */
 }
 
-.input-group .input-div input {
+.input-group .input-div input , 
+.input-group .input-div textarea {
     flex: 1; /* flex-1 */
     appearance: none; /* appearance-none */
     outline: none; /* outline-none */
     border-radius: 0.25rem; /* rounded */
     margin: 0.5rem; /* py-2 (padding-y) */
-    
     padding-top: 0.5rem; /* py-2 (padding-y) */
     padding-bottom: 0.5rem; /* py-2 (padding-y) */
     padding-left: 0.75rem; /* ps-3 (padding-start) */
@@ -60,8 +70,13 @@
     background: transparent;
     border: 0.1rem solid rgb(118, 118, 255);
 }
+.input-group .input-div textarea {
+    height: 10rem;
+    text-align: start;
+}
 
-.input-group button {
+.input-group button, 
+.add-section button {
     border: 1px solid transparent; /* border border-transparent */
     background-color: #f3f4f6; /* bg-gray-100 */
     border-radius: 0.25rem; /* rounded */
@@ -81,7 +96,8 @@
     justify-content: center; /* justify-center */
 }
 
-.input-group  button:hover {
+.input-group  button:hover ,
+.add-button button{
     border-color: #0d9488; /* can-hover:hover:border-brand-500 */
     background-color: #7293ff60; /* can-hover:hover:bg-brand-50 */
 }
@@ -98,13 +114,15 @@
     width: 100%;
 }
 .m-cont {
-    display: flex; /* flex */
-    flex-wrap: wrap; /* flex-wrap */
-    margin-left: 0.5rem; /* -m-2 (negative margin-left) */
-    margin-right: 0.5rem; /* -m-2 (negative margin-right) */
-    padding-top: 1.25rem; /* pt-5 */
-    padding-bottom: 0.75rem; /* pb-3 */
-    padding: .5rem;
+    display: flex; /* Utiliser Flexbox pour le conteneur */
+    flex-wrap: wrap; /* Permet aux éléments de passer à la ligne suivante */
+    margin-left: 0.5rem; /* Espacement à gauche */
+    margin-right: 0.5rem; /* Espacement à droite */
+    padding-top: 1.25rem; /* Espacement en haut */
+    padding-bottom: 0.75rem; /* Espacement en bas */
+    padding-left: 0.5rem; /* Espacement à gauche */
+    padding-right: 0.5rem; /* Espacement à droite */
+    justify-content: flex-start; /* Centrer horizontalement les éléments */
 }
 
 .add-button {
@@ -120,14 +138,15 @@
     font-weight: 500; /* font-medium */
     padding-top: 0.25rem; /* py-1 (padding-top) */
     padding-bottom: 0.25rem; /* py-1 (padding-bottom) */
-    padding-left: 0.25rem; /* ps-1 (padding-left) */
-    padding-right: 0.75rem; /* pe-3 (padding-right) */
+    padding-left: 1rem; /* ps-1 (padding-left) */
+    padding-right: 1rem; /* pe-3 (padding-right) */
     font-size: 1rem; /* text-base */
     display: flex; /* items-center */
     align-items: center; /* items-center */
     justify-content: center; /* justify-center */
     transition: background-color 150ms, border-color 150ms; /* Transition effects */
     margin: 0.7rem;
+    cursor: pointer;
 }
 
 .add-button:focus-visible {
@@ -144,5 +163,108 @@
 }
 .add-button i{
     position: relative;
+}
+
+
+
+
+.add-section {
+    display: flex; /* flex */
+    width: 100%; /* w-full */
+    flex-direction: column;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-top: 0.1rem solid #576cbb6b;
+}
+.add-section .r-group{
+    padding-bottom: .5rem;
+}
+
+
+
+.add-section .r-group button{
+    flex-grow: 1; /* flex-grow */
+    padding-top: 0.75rem; /* py-3 (padding-top) */
+    padding-bottom: 0.75rem; /* py-3 (padding-bottom) */
+    text-align: left; /* text-start */
+    overflow: hidden; /* overflow-hidden */
+    border-radius: 0.25rem; /* rounded */
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background: none;
+}
+.add-section .r-group button:focus-visible {
+    box-shadow: inset 0 0 0 4px #0d9488; /* focus-visible:ring-4 ring-brand ring-inset */
+}
+.add-section .r-group button h3{
+    font-size: 1.25rem; /* text-xl */
+    overflow: hidden; /* truncate */
+    text-overflow: ellipsis; /* truncate */
+    white-space: nowrap; /* truncate */
+    color: #9ca3af; /* text-gray-400 */
+    font-weight: 700; /* font-bold */
+    width: 100%;
+    margin: 0;
+}
+
+.add-section .r-group .hider{
+    display: none;
+    transform: 1s;
+    transform: 1s;
+}
+
+.add-section .r-group button i {
+    font-size: 1.35rem; /* text-xl */
+    overflow: hidden; /* truncate */
+    text-overflow: ellipsis; /* truncate */
+    white-space: nowrap; /* truncate */
+    color: #000000; /* text-gray-400 */
+    align-items: center;
+    align-content: center; 
+    cursor: pointer;   
+}
+
+.add-section .r-group i {
+    font-size: 2rem; /* text-xl */
+    overflow: hidden; /* truncate */
+    text-overflow: ellipsis; /* truncate */
+    white-space: nowrap; /* truncate */
+    color: #000000; /* text-gray-400 */
+    align-items: center;
+    align-content: center; 
+    cursor: pointer;   
+    transform: 1s;
+    transform: 1s;
+    
+}
+
+.add-section .r-group button:nth-child(2){
+    background: rgba(194, 192, 192, 0.377);
+    border-radius: 20%;
+}
+
+.group {
+    padding: 2rem;
+    border-radius: 1.5rem;
+    transition: 1s;
+    transform: 0.5s;
+    border: 0.1rem solid #cacaca8c;
+}
+.group:hover{
+    padding: 2rem;
+    border: 0.1rem solid #3d40e7a9;
+    border-radius: 1.5rem;
+}
+
+
+.hidden {
+    opacity: 0;
+    transition: opacity 1s;
+    display: none; /* display none initially */
+}
+.visible {
+    opacity: 1;
+    transition: opacity 1s;
 }
 

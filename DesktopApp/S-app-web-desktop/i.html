@@ -3,198 +3,146 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Liste avec icône de fermeture</title>
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <style>
-        /* Styles CSS */
-        * {
-            margin: 0;
-            padding: 0;
-            border: none;
-            text-decoration: none;
-            box-sizing: border-box;
-            font-family: 'Courier New', Courier, monospace;
-        }
-
-        body {
-            background: white;
-            height: 100vh;
-            width: 100vw;
-        }
-
-        nav {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            height: 100%;
-            left: 0;
-            background: white;
-            width: 70px;
-            overflow: hidden;
-            transition: width 0.3s;
-            box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
-            display: flex;
-            flex-direction: column;
-        }
-
-        nav .down {
-            margin-top: auto;
-        }
-
-        .logo {
-            text-align: center;
-            display: flex;
-            margin: 10px 0 0 10px;
-        }
-
-        .logo img {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-        }
-
-        .logo span {
-            font-weight: bold;
-            padding-left: 0;
-            font-size: 18px;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-        }
-
-        .logo:hover {
-            background: none;
-            cursor: none;
-        }
-
-        a {
+        .input-group {
             position: relative;
-            color: rgb(85, 83, 83);
-            display: table;
-            width: 300px;
+            margin: 10px 0;
             padding: 10px;
-            margin-top: 10px;
-            display: flex;
-            text-align: center;
+            border: 1px solid #ccc;
+            border-radius: 5px;
         }
-
-        nav ul li a i {
-            position: relative;
-            text-align: center;
-            font-size: 35px;
-            margin-left: 10px;
-            margin-right: 5px;
+        .icon {
+            margin-right: 10px;
         }
-
-        nav ul li a span {
-            text-align: center;
+        .text {
+            flex-grow: 1;
         }
-
-        .nav-item {
-            position: relative;
-            top: 12px;
-            margin-left: 10px;
-        }
-
-        a:hover {
-            background: rgba(189, 188, 197, 0.541);
-        }
-
-        nav:hover {
-            width: 280px;
-            transition: all 0.5s ease;
-        }
-
-        .last-item {
-            margin-top: auto;
-        }
-
-        section {
-            padding-left: 80px;
-            padding-top: 40px;
-            width: 100%;
-            height: 100%;
-        }
-
-        #translate {
+        .close-icon {
             position: absolute;
-            height: 100%;
-            right: 0;
-            background: none;
-            width: 0%;
-            overflow: hidden;
-            transition: width 0.3s;
-        }
-
-        .show-section {
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-            height: 100%;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            font-size: 20px;
+            color: red;
         }
     </style>
 </head>
 <body>
-    <nav>
-        <ul class="top">
-            <li>
-                <a href="#" class="logo">
-                    <img src="App/img/logo.png" alt="">
-                    <span class="nav-item">Free/Fast/Fluid</span>
-                </a>
-            </li>
-            <li>
-                <a href="#" id="translator-a">
-                    <i class='bx bx-planet'></i>
-                    <span class="nav-item">Offline Translator</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i id="dynamic-icon" class='bx bx-wifi-0'></i>
-                    <span class="nav-item">File Server</span>
-                </a>
-            </li>
-        </ul>
-        <ul class="down">
-            <li class="last-item"><a href="#">
-                <i class='bx bx-help-circle'></i>
-                <span class="nav-item">Help</span>
-            </a></li>
-            <li class="last-item"><a href="#">
-                <i class='bx bx-cog'></i>
-                <span class="nav-item">Settings</span>
-            </a></li>
-            <li class="last-item"><a href="#">
-                <i class='bx bx-code-alt'></i>
-                <span class="nav-item">Developer</span>
-            </a></li>
-        </ul>
-    </nav>
-
-    <section id="translate" class="hide-section">
-        <h1 class="title">Offline Translator</h1>
-        <div class="container">
-            <div class="cont-1">
-                <select id="from-options" name="from-options"></select>
-                <textarea name="from-text" id="from-text"></textarea>
-            </div>
-            <div class="cont-2">
-                <select id="to-options" name="to-options"></select>
-                <textarea name="to-text" id="to-text"></textarea>
-            </div>
-        </div>
-    </section>
+    <ul id="infoGroup1"></ul>
+    <ul id="infoGroup1_"></ul>
+    <button id="phone" class="add-button"><i class='bx bx-message-square-add'></i>Téléphone</button>
 
     <script>
-        // JavaScript pour changer la classe lorsque le lien est cliqué
-        document.addEventListener('DOMContentLoaded', () => {
-            const translatorLink = document.querySelector('.Translator-a');
-            const translateSection = document.querySelector('#translate');
+        function createLi(input, iconName) {
+            iconName = iconName.toLowerCase(); // Convertir en minuscules
 
-            translatorLink.addEventListener('click', (event) => {
-                event.preventDefault(); // Empêche le comportement par défaut du lien
-                translateSection.classList.toggle('show-section');
+            const li = document.createElement('li');
+            li.className = 'input-group'; // Classe pour le styling
+
+            const span1 = document.createElement('span');
+            const span2 = document.createElement('span');
+            const i = document.createElement('i');
+            const closeIcon = document.createElement('i');
+
+            span1.className = "icon";
+            span2.className = "text";
+
+            // Dictionnaire des icônes
+            const icons = {
+                linkedin: 'bx bxl-linkedin',
+                github: 'bx bxl-github',
+                medium: 'bx bxl-medium',
+                twitter: 'bx bxl-twitter',
+                facebook: 'bx bxl-facebook',
+                instagram: 'bx bxl-instagram',
+                youtube: 'bx bxl-youtube',
+                dribbble: 'bx bxl-dribbble',
+                behance: 'bx bxl-behance',
+                email: 'bx bx-envelope'
+            };
+
+            // Ajouter la classe correspondante si l'icône est dans le dictionnaire
+            if (icons[iconName]) {
+                i.classList.add(icons[iconName]);
+            }
+
+            // Mettre à jour span2 avec la valeur de l'input en temps réel
+            input.addEventListener('input', function() {
+                span2.innerText = input.value;
             });
-        });
+
+            // Ajouter l'icône de fermeture
+            closeIcon.className = 'bx bx-down-arrow-alt close-icon';
+
+            // Ajouter un écouteur d'événement pour faire disparaître l'élément
+            closeIcon.addEventListener('click', function() {
+                li.remove();
+            });
+
+            span1.appendChild(i);
+            li.appendChild(span1);
+            li.appendChild(span2);
+            li.appendChild(closeIcon);
+
+            return li;
+        }
+
+        function createInputDiv(addButton) {
+            const div = document.createElement('div');
+            const div1 = document.createElement('div');
+            const div2 = document.createElement('div');
+
+            div.className = 'input-group';
+            div1.className = 'lab-div';
+            div2.className = 'input-div';
+
+            // Créer un input
+            const input = document.createElement('input');
+            const lab = document.createElement('label'); 
+
+            lab.innerHTML = addButton.textContent;
+            input.type = 'text';
+
+            // Créer un bouton
+            const button = document.createElement('button');
+            button.textContent = 'Remove';
+            button.addEventListener('click', function() {
+                div.remove();
+                addButton.style.display = 'inline-block'; // Réafficher le bouton d'ajout
+            });
+
+            div1.appendChild(lab);
+            div2.appendChild(input);
+            div2.appendChild(button);
+
+            div.appendChild(div1);
+            div.appendChild(div2);
+
+            return [div , input];
+        }
+
+        function addElement(parent1Id, parent2Id, buttonId) {
+            const parent1 = document.getElementById(parent1Id);
+            const parent2 = document.getElementById(parent2Id);
+            const button = document.getElementById(buttonId);
+
+            const icon = button.querySelector('i');
+
+            button.addEventListener('click', function() {
+                const [newInputDiv, input] = createInputDiv(button);
+                const newListItem = createLi(input, icon.className.split(' ')[1].replace('bxl-', ''));
+                parent1.appendChild(newInputDiv);
+                parent2.appendChild(newListItem);
+
+                // Cacher le bouton d'ajout
+                button.style.display = 'none';
+            });
+        }
+
+        // Exemple d'appel de la fonction
+        addElement('infoGroup1', 'infoGroup1_', 'phone');
     </script>
 </body>
 </html>
