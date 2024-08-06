@@ -1,4 +1,6 @@
-
+.title_{
+    padding: 3rem 0rem 0rem 3rem;
+}
 
 .input-group{
     display: flex;
@@ -130,6 +132,19 @@
     justify-content: flex-start; /* Centrer horizontalement les éléments */
 }
 
+.add-section .m-cont{
+    display: flex; /* Utiliser Flexbox pour le conteneur */
+    flex-wrap: wrap; /* Permet aux éléments de passer à la ligne suivante */
+    margin-left: 0.5rem; /* Espacement à gauche */
+    margin-right: 0.5rem; /* Espacement à droite */
+    padding-top: 1.25rem; /* Espacement en haut */
+    padding-bottom: 0.75rem; /* Espacement en bas */
+    padding-left: 0.5rem; /* Espacement à gauche */
+    padding-right: 0.5rem; /* Espacement à droite */
+    justify-content: flex-start; /* Centrer horizontalement les éléments */
+}
+
+
 .add-button {
     display: inline-flex; /* inline-flex */
     border: 1px solid #d1d5db; /* border border-gray-400 */
@@ -252,8 +267,8 @@
 .group {
     padding: 2rem;
     border-radius: 1.5rem;
-    transition: 1s;
-    transform: 0.5s;
+    transition: 2.4s;
+    transform: 3s ;
     border: 0.1rem solid #cacaca8c;
 }
 .group:hover{

@@ -2,7 +2,7 @@
     --font-size: 1rem; /* Equivalent to 16px */
     --spacing-small: 0.625rem; /* 10px */
     --spacing-medium: 1rem; /* 20px */
-    --spacing-large: 1.8rem; 
+    --spacing-large: 1.5rem; 
     --spacing-xlarge: 3.125rem; /* 50px */
     --radius-small: 0.3125rem; /* 5px */
     --width-small: 1.875rem; /* 30px */
@@ -70,8 +70,6 @@ body{
 
     grid-template-columns: 1fr 2fr;
     display: grid;
-
-
 }
 
 .container .left_side, .container .right_side {
@@ -336,7 +334,9 @@ p {
 
 @media print {
     @page {
+        scale: 20;
         size: A4; /* Format de papier A4 */
+
     }
     #downloadBtn{
         display: none;

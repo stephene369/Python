@@ -144,13 +144,13 @@ function addElement(parent1Id, parent2Id, buttonId) {
 }
 
 // Exemple d'appel de la fonction
-addElement('infoGroup1', 'infoGroup1_', 'phone');
-addElement('infoGroup1', 'infoGroup1_', 'mail');
-addElement('infoGroup1', 'infoGroup1_', 'linkedin');
-addElement('infoGroup1', 'infoGroup1_', 'instagram');
-addElement('infoGroup1', 'infoGroup1_', 'facebook');
-addElement('infoGroup1', 'infoGroup1_', 'tiktok');
-addElement('infoGroup1', 'infoGroup1_', 'github')
+addElement('contactGroup', 'infoGroup1_', 'phone');
+addElement('contactGroup', 'infoGroup1_', 'mail');
+addElement('contactGroup', 'infoGroup1_', 'linkedin');
+addElement('contactGroup', 'infoGroup1_', 'instagram');
+addElement('contactGroup', 'infoGroup1_', 'facebook');
+addElement('contactGroup', 'infoGroup1_', 'tiktok');
+addElement('contactGroup', 'infoGroup1_', 'github')
 
 autoWritingId('nameIp' , "nameIp_")
 autoWritingId("profileIp", "profileIp_")
@@ -166,7 +166,7 @@ function hideElement(elementId, buttonId , isVisible) {
             element.style.display = 'none';
             button.className = "bx bx-chevron-down"
         } else {
-            element.style.display = 'block';
+            element.style.display = 'flex';
             button.className = "bx bx-chevron-up"
 
         }
@@ -646,8 +646,9 @@ function createInterest( parentId , buttonId) {
         sport:"bx bx-run", 
         bloging:"bx bxl-blogger", 
         coding:'bx bx-code-alt', 
-        socialmedial:'bx bxl-tiktok'
-
+        social:'bx bxl-tiktok',
+        blog:'bx bxl-blogger' , 
+        nature:"bx bxs-leaf"
     };
 
     // Ajouter la classe correspondante si l'icône est dans le dictionnaire
@@ -678,6 +679,7 @@ let isVisibleLanguages = true;
 let isVisibleProfile = false;
 let isVisibleExperiences = true;
 let isVisibleSkills = true;
+let isVisibleContact = false;
 
 
 hideElement("educationGroup" , "educationHider" , isVisibleEducation)
@@ -685,6 +687,8 @@ hideElement("languagesGroup" , "languagesHider" , isVisibleLanguages)
 hideElement("profileGroup" , "profileHider",isVisibleProfile)
 hideElement("experiencesGroup" , "experiencesHider",isVisibleExperiences)
 hideElement("skillsGroup" , "skillsHider",isVisibleExperiences)
+hideElement("contactGroup", "contactHider", isVisibleContact);
+hideElement("cButtons", "contactHider", isVisibleContact);
 
 
 addEducationElement("educationGroup" , "educationGroup_" , "educationGroupBtn")
@@ -700,5 +704,8 @@ createInterest("interestGroup_" , "sport")
 createInterest("interestGroup_" , "blog")
 createInterest("interestGroup_" , "social")
 createInterest("interestGroup_" , "travel")
+createInterest("interestGroup_" , "book")
+createInterest("interestGroup_" , "nature")
+
 
 
