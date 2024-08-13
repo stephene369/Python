@@ -64,14 +64,13 @@
 
             <div class="add-section" style="width: 100%;" >
                 <div class="r-group">
-                    <button style="width: 100%;">
+                    <button class="hideSection">
                         <h3>Contact</h3>
                     </button>
                     <i id="contactHider" class='bx bx-chevron-down'></i>
                 </div>
-                 
+                
                 <div class="c-group" id="contactGroup">
-                        
                 </div>
                 
             </div>
@@ -90,12 +89,12 @@
 
 
 
-            <div class="add-section" style="width: 100%;">
+            <div class="add-section viewSection" style="width: 100%;">
                 <div class="r-group">
-                    <button style="width: 100%;">
+                    <button class="" style="width: 100%;" id="educationBtn">
                         <h3>Education</h3>
                     </button>
-                    <button id="educationGroupBtn" style="width: 10%; height: 100%;"><i class='bx bx-plus'></i></button>
+                    <button class="" id="educationGroupBtn" style="width: 10%; height: 100%;"><i class='bx bx-plus'></i></button>
                     <i id="educationHider" class='bx bx-chevron-up hider'></i>
                 </div>
                 <div class="c-group" id="educationGroup">
@@ -103,9 +102,9 @@
             </div>
 
 
-            <div class="add-section" style="width: 100%;">
+            <div class="add-section viewSection" style="width: 100%;">
                 <div class="r-group">
-                    <button style="width: 100%;">
+                    <button style="width: 100%;" id="languageBtn">
                         <h3>LANGUAGES</h3>
                     </button>
                     <button id="languagesGroupBtn" style="width: 10%; height: 100%;"><i class='bx bx-plus'></i></button>
@@ -116,33 +115,45 @@
             </div>
 
 
-            <div class="add-section" style="width: 100%; ">
+            <div class="add-section viewSection" style="width: 100%; ">
                 <div class="r-group">
-                    <button style="width: 100%;">
+                    <button style="width: 100%;" id="profileBtn">
                         <h3>Profile</h3>
                     </button>
                     <i id="profileHider" class='bx bx-chevron-down '></i>
                 </div>
+
 
                 <div class="c-group group" id="profileGroup" style="display: none;">
                     <div class="input-group">
                         <div class="lab-div">
                             <label for="">Profile</label>
                         </div>
-                        <div class="input-div">
-                            <textarea name="" id="descriptionIp">
-
-                            </textarea>
+                        <div class="input-div">    
+                            <textarea name="" id="descriptionIp"></textarea>
                         </div>
                     </div>
                 </div>
             </div>
 
 
-
-            <div class="add-section" style="width: 100%;">
+            <div class="add-section viewSection" style="width: 100%;">
                 <div class="r-group">
-                    <button style="width: 100%;">
+                    <button style="width: 100%;" id="certificateBtn">
+                        <h3>CERTIFICATES</h3>
+                    </button>
+                    <button id="certificatesGroupBtn" style="width: 10%; height: 100%;"><i
+                            class='bx bx-plus'></i></button>
+                    <i id="certificatesHider" class='bx bx-chevron-up hider'></i>
+                </div>
+                <div class="c-group" id="certificatesGroup">
+                </div>
+            </div>
+
+
+            <div class="add-section viewSection" style="width: 100%;">
+                <div class="r-group">
+                    <button style="width: 100%;" id="experienceBtn">
                         <h3>EXPERIENCES</h3>
                     </button>
                     <button id="experiencesGroupBtn" style="width: 10%; height: 100%;"><i
@@ -155,9 +166,9 @@
 
 
 
-            <div class="add-section" style="width: 100%;">
+            <div class="add-section viewSection" style="width: 100%;">
                 <div class="r-group">
-                    <button style="width: 100%;">
+                    <button style="width: 100%;" id="skillsBtn">
                         <h3>PROFESSIONAL SKILLS</h3>
                     </button>
                     <button id="skillsGroupBtn" style="width: 10%; height: 100%;"><i class='bx bx-plus'></i></button>
@@ -168,9 +179,9 @@
             </div>
 
 
-            <div class="add-section" style="width: 100%; padding-bottom: 0;">
+            <div class="add-section viewSection" style="width: 100%; padding-bottom: 0;">
                 <div class="r-group">
-                    <button style="width: 100%;">
+                    <button style="width: 100%;" id="interestsBtn">
                         <h3>INTEREST</h3>
                     </button>
                     <i id="" class='bx bx-chevron-up hider'></i>
@@ -214,14 +225,14 @@
             </div>
 
 
-            <div class="contactInfo education">
+            <div class="contactInfo education" id="educationSection">
                 <h3 class="title">Education</h3>
                 <ul id="educationGroup_">
 
                 </ul>
             </div>
 
-            <div class="contactInfo language">
+            <div class="contactInfo language" id="languageSection">
                 <h3 class="title">Languages</h3>
 
                 <ul id="languagesGroup_">
@@ -234,11 +245,19 @@
 
 
         <div class="right_side">
-            <div class="about">
+            <div class="about" id="profileSection">
                 <h2 class="title2">Profile</h2>
                 <p id="descriptionIp_">
 
                 </p>
+            </div>
+
+            <div class="about"  id="certificateSection">
+                <h2 class="title2">Certificates</h2>
+                <div id="certificatesGroup_">
+                    
+                </div>
+
             </div>
 
             <div class="about" id="experiencesGroup_">
@@ -251,7 +270,7 @@
 
             </div>
 
-            <div class="about interest">
+            <div class="about interest" id="interestsSection">
                 <h2 class="title2">Interest</h2>
                 <ul id="interestGroup_">
                 </ul>
@@ -259,9 +278,6 @@
 
         </div>
     </div>
-
-
-
 
     <script src="assert/js/html2pdf.bundle.min.js"></script>
     <script src="assert/js/camera.js"></script>

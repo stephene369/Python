@@ -288,3 +288,20 @@
     transition: opacity 1s;
 }
 
+.certifImg{
+    height:9rem;
+    cursor: pointer;
+}
+
+.viewSection{
+    transition: 0.7s;
+    background: white;
+}
+
+.viewSection:hover{
+    margin: 1.4rem;
+    border-top: transparent;
+    border-bottom: solid 0.1rem rgba(255, 0, 0, 0.233);
+    border-radius: 0.4rem;
+}
+

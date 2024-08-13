@@ -18,12 +18,13 @@
     --h: 29.7cm;
 }
 
-*
-{
+*{
     margin-top: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Courier New', Courier, monospace;
+    transition: all 1.5s;
+
 }
 
 #downloadBtn {
@@ -290,6 +291,24 @@ p {
     grid-template-columns: repeat(3, 1fr);
 }
 
+#certificatesGroup {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+#certificatesGroup .input-group{
+    width: 30%;
+    height: 6rem;
+}
+
+
+
+#certificatesGroup_ {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+}
+
+
 .interest ul li {
     list-style: none;
     color: #333;
@@ -328,6 +347,16 @@ p {
 #backButton:hover {
     background-color: #d30000; /* Darker background color on hover */
 }
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -371,6 +400,6 @@ p {
 .container-2 .container{
     height: 100%;
     width: 100%;
-    padding: 1rem;
+    padding: 2rem;
     background: transparent;
 }

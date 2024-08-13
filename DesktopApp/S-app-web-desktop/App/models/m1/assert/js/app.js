@@ -2,6 +2,46 @@ function goBack() {
     window.history.back();
 }
 
+
+/// IMAGE INPUT 
+const cameraButton = document.getElementById('cameraIp');
+const fileInput = document.getElementById('fileInput');
+const image = document.getElementById('imageIp');
+const imageDiv = document.getElementById("imageDiv");
+
+cameraButton.addEventListener('click', () => {
+    fileInput.click(); // Simulate a click on the file input
+});
+
+fileInput.addEventListener('change', (event) => {
+    const file = event.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            image.src = e.target.result;
+            imageDiv.style.display = 'block'
+            cameraButton.style.display = 'none' // Update the image source with the chosen file
+        }
+        reader.readAsDataURL(file);
+    }
+});
+
+
+image.addEventListener("click" , () => {
+    imageDiv.style.display = 'none'
+    cameraButton.style.display = 'block'
+})
+
+
+
+function imageInput() {
+
+}
+
+
+
+
+
 const resumeButton = document.getElementById('downloadBtn');
 
 function generateResume() {
@@ -389,8 +429,6 @@ function addLanguageElement(parent1Id, parent2Id, buttonId) {
 
 
 
-
-
 function createInput() {
     const div = document.createElement('div');
     div.className = 'input-div';
@@ -625,6 +663,74 @@ function addSkillsElement(parent1Id, parent2Id, buttonId) {
 }
 
 
+///////////////
+function createInputDivCertificates(){
+    const DIV = document.createElement("div");
+    const button = document.createElement("button");
+    const i = document.createElement("i");
+
+    DIV.className = 'input-group';
+    i.className = 'bx bx-camera';
+
+    button.appendChild(i)
+    DIV.appendChild(button)
+
+
+
+
+    const DIV2 = document.createElement("div");
+    const img = document.createElement("img");
+    const fileInput_ = document.createElement("input");
+    fileInput_.style.display = "none";
+    fileInput_.type = 'file'
+    fileInput_.accept = "image/*"
+    img.className = "certifImg"
+
+    fileInput_.addEventListener('change', (event) => {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                img.src = e.target.result;
+            }
+            reader.readAsDataURL(file);
+        }
+    });
+
+    img.addEventListener( 'click' , () => {
+        DIV.remove();
+        DIV2.remove();
+    } )
+    
+    button.addEventListener( 'click' , () => {
+        fileInput_.click()
+    } )
+    DIV2.appendChild(img);
+
+
+
+    return [DIV , DIV2]
+
+}
+
+function addCertificateElement(parent1Id , parent2Id , buttonId){
+
+    const parent1 = document.getElementById(parent1Id);
+    const parent2 = document.getElementById(parent2Id);
+    const button = document.getElementById(buttonId);
+    const hider = document.getElementById("certificatesHider")
+
+    button.addEventListener( 'click' , function() {
+        const [ newInputDiv , newInputDiv_ ] = createInputDivCertificates();
+        parent1.appendChild(newInputDiv);
+        parent2.appendChild(newInputDiv_);
+        parent1.classList.add('group')
+        hider.style.display = 'block'
+    
+    } )
+
+}
+
 
 function createInterest( parentId , buttonId) {
     const parent = document.getElementById(parentId) ;
@@ -671,6 +777,40 @@ function createInterest( parentId , buttonId) {
 }
 
 
+const IsVisibility = {};
+
+function hideSection(buttonID, sectionID) {
+    const button = document.getElementById(buttonID);
+    const section = document.getElementById(sectionID);
+
+    if (IsVisibility[sectionID] === undefined) {
+        IsVisibility[sectionID] = true; // La section est visible par défaut
+    }
+
+    button.addEventListener('click', function() {
+        if (IsVisibility[sectionID]) {
+            section.style.display = 'none';
+            //button.classList.remove('viewSection') ;
+            //button.classList.add('hideSection');
+        } else {
+            section.style.display = 'block';
+            //button.classList.remove('hideSection');
+            //button.classList.add('viewSection');
+        }
+
+        IsVisibility[sectionID] = !IsVisibility[sectionID];
+    });
+}
+
+// Exemples d'utilisation
+hideSection('educationBtn', 'educationSection');
+hideSection( 'languageBtn' , 'languageSection' );
+hideSection( 'profileBtn', 'profileSection');
+hideSection( 'certificateBtn' , 'certificateSection');
+hideSection( 'experienceBtn' , 'experiencesGroup_' );
+hideSection( 'skillsBtn',  'skillsGroup_');
+hideSection('interestsBtn', 'interestsSection' )
+
 
 
 
@@ -680,6 +820,7 @@ let isVisibleProfile = false;
 let isVisibleExperiences = true;
 let isVisibleSkills = true;
 let isVisibleContact = false;
+let isVisibleCertificate = false;
 
 
 hideElement("educationGroup" , "educationHider" , isVisibleEducation)
@@ -689,12 +830,15 @@ hideElement("experiencesGroup" , "experiencesHider",isVisibleExperiences)
 hideElement("skillsGroup" , "skillsHider",isVisibleExperiences)
 hideElement("contactGroup", "contactHider", isVisibleContact);
 hideElement("cButtons", "contactHider", isVisibleContact);
+hideElement("certificatesGroup","certificatesHider",isVisibleCertificate );
 
 
 addEducationElement("educationGroup" , "educationGroup_" , "educationGroupBtn")
 addLanguageElement("languagesGroup" , "languagesGroup_" , "languagesGroupBtn")
 addExperiencesElement("experiencesGroup" , "experiencesGroup_" , "experiencesGroupBtn")
 addSkillsElement("skillsGroup" , "skillsGroup_" , "skillsGroupBtn")
+addCertificateElement("certificatesGroup", "certificatesGroup_","certificatesGroupBtn")
+
 
 
 createInterest("interestGroup_" , "coding")

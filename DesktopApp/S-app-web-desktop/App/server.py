@@ -1,6 +1,9 @@
 from .lib import *
 from .translator import Translator
 from PyQt5.QtGui import QDesktopServices
+from PyQt5.QtWidgets import QFileDialog 
+from .fileserver import FileServer
+
 
 UPLOAD_DIR = "download"  
 TRANSLATED_DIR = "download"  
@@ -10,6 +13,7 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
 
     def __init__(self, *args, **kwargs):
         self.translator = Translator()  # Initialize the Translator class
+        self.fileDialog = QFileDialog()
         super().__init__(*args, **kwargs)
 
     def do_GET(self):
@@ -35,6 +39,22 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
             data = {"installed":packages , "availables":available}
 
             self.wfile.write(json.dumps(data).encode())
+
+        elif self.path == "/api/server/file/opendir" :
+            self.send_response(200)
+            self.send_header('Content-type', 'application/json')
+            self.end_headers()
+            
+            self.address = None
+            self.worker = Worker(hyperlink=self.address)
+            self.worker.start()
+            
+            data = {
+                'path':str(self.worker.server.mediaDirectory) , 
+                'address':self.worker.server.hyperlink
+            }
+            self.wfile.write( json.dumps(data).encode() )
+
 
         else:
             super().do_GET()
@@ -142,6 +162,7 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
             self.wfile.write(b"Invalid request")
 
 
+
         elif self.path == "/api/cv/model" :
             content_length = int(self.headers['Content-Length'])
             post_data = self.rfile.read(content_length).decode('utf-8')
@@ -160,6 +181,16 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
             self.end_headers()
             self.wfile.write(json.dumps(data).encode())
 
+        elif self.path ==  '/api/server/file/openweb' :
+            content_length = int(self.headers['Content-Length'])
+            post_data = self.rfile.read(content_length).decode('utf-8')
+            data = json.loads(post_data)
+
+            QDesktopServices.openUrl( QUrl( data['address'] ) )
+            self.send_response(200)
+            self.send_header('Content-type', 'application/json')
+            self.end_headers()
+            self.wfile.write(json.dumps(data).encode())
 
         else:
             self.send_response(404)
@@ -223,4 +254,22 @@ class Launcher:
         print(f"Serving on http://localhost:{port}")
         self.link = f"http://localhost:{port}"
         self.httpd.serve_forever()
+
+
+
+
+class Worker(QThread):
+    finished = pyqtSignal(bool)
+
+    def __init__(self , hyperlink ):
+        super().__init__()
+        self.server = FileServer()
+        self.hyperlink  = hyperlink
+
+    def run(self):
+        try:
+            self.server.launch(hyperlink=self.hyperlink)
+            self.finished.emit(True)
+        except Exception as e:
+            self.finished.emit(False)
 

@@ -74,29 +74,34 @@ class CustomHandler(SimpleHTTPRequestHandler):
 
 class FileServer :
     def __init__(self) :
+        self.mediaDirectory = create_media_folder()
+        self.port = self.find_free_port()
+        hostname = socket.gethostname()
+        self.local_ip = socket.gethostbyname(hostname)
+
+        self.hyperlink=(f"http://{self.local_ip}:{self.port}")
         print("File Server init ....")
 
-    def launch(self , hyperlink:HyperlinkButton=None) : 
-        port = 7999
+    def find_free_port(self):
+        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+            s.bind(("", 0))
+            return s.getsockname()[1]
+
+    def launch(self , hyperlink) : 
         
         # Configuration du serveur
-        server_address = ('', 7999)  # Écoute sur le port 8000
+        server_address = ('', self.port)  # Écoute sur le port 8000
         httpd = HTTPServer(server_address, CustomHandler)
         print("Server launch")
 
         # Obtenir l'adresse IP locale
-        hostname = socket.gethostname()
-        local_ip = socket.gethostbyname(hostname)
 
-        if hyperlink:
-            hyperlink.setUrl(f"http://{local_ip}:{port}")
-            hyperlink.setText(f"http://{local_ip}:{port}")
-        print(f"Serving HTTP on http://{local_ip}:{port} from ..")
+
+        
+        print(f"Serving HTTP on http://{self.local_ip}:{self.port} from ..")
 
         # Démarrer le serveur
         httpd.serve_forever()
-
-
 
 
 

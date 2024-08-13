@@ -1,6 +1,6 @@
 
 /* Styles for the back button */
-#backButton {
+#downloadBtn {
     position: fixed; /* Fixes the button's position */
     top: 10px; /* Distance from the top */
     right: 10px; /* Distance from the right */
@@ -13,7 +13,7 @@
     font-size: 16px; /* Font size */
 }
 
-#backButton:hover {
+#downloadBtn:hover {
     background-color: #0056b3; /* Darker background color on hover */
 }
 
@@ -54,8 +54,15 @@
     --z-tooltip: 10;
     --z-fixed: 100
 
+    --w: 21cm;
+    --h: 29.7cm;
 }
 
+#areaCv{
+    min-width: var(--w);
+    min-height: var(--h);
+    max-width: var(--w);
+}
 
 /*Base*/
 *,::before,::after{
@@ -166,7 +173,7 @@ body{
     background-color: var(--body-color);
     color: var(--text-color) ;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     height: 100%;
     margin: 0;
 
@@ -266,29 +273,8 @@ img{
 /*=============================================== 
 =================================================
                         NAV
-==================================================
-==================================================*/
-.nav{
-    height: var(--header-height);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+====================================================================================================*/
 
-@media screen and (max-width: 968px){
-    .nav__menu{
-        position: fixed;
-        bottom: -100%;
-        left: 0;
-        width: 100%;
-        padding: 2rem 1.5rem;
-        background-color: var(--body-color);
-        box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-        border-radius: 1rem 1rem 0 0 ;
-        z-index: var(--z-fixed);
-        transition: 1s;
-    }
-}
 
 .nav__logo, 
 .nav__toggle{
@@ -686,23 +672,13 @@ body.scale-cv{
 
 
 
-/*=============================================== 
-                        MEDIA QUERIES
-==================================================*/
-@media screen and (max-width: 320px){
-    .nav__list{
-        grid-template-columns:repeat(2, 1fr) ; 
-        gap: 1rem .5rem;
-    }
-}
-
 
 
 
 /*=============================================== 
 CLASSES MODIFIED FOR LARGE SCREEN SIZE
 ==================================================*/
-@media screen and (min-width: 968px){
+@media screen and (min-width: 98px){
     body{
         margin: 3rem 0;
     }

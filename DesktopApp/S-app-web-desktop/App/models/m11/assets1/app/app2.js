@@ -35,22 +35,6 @@ for (const object_ of Object.keys(introductionObjects)) {
 }
 
 
-// IMAGE     function previewImage(event) {
-function previewImage(event) {
-    var file = event.target.files[0];
-    var reader = new FileReader();
-    reader.onload = function () {
-        var output = document.getElementById('profileImg');
-        output.src = reader.result;
-    };
-    reader.readAsDataURL(file);
-}
-//document.getElementById("choose-image").addEventListener('click', function () {
-  //  document.getElementById('fileInput').click();
-//});
-document.getElementById('fileInput').addEventListener('change', function (event) {
-    previewImage(event);
-});
 
 
 
@@ -719,3 +703,6 @@ interestSelect.addEventListener("change", function() {
 });
 
 
+function download(){
+    window.print()
+}

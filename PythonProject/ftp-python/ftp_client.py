@@ -16,6 +16,10 @@ import random
 import traceback
 import warnings
 
+enum.auto()
+
+
+
 """ configuration """
 warnings.filterwarnings("ignore")
 ADMIN_ID = 'admin'

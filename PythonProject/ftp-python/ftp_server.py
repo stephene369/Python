@@ -52,7 +52,7 @@ class MsgToSend(enum.Enum):
     GET_DATA = enum.auto()
     GET_SUCCESS = enum.auto()
     GET_FAILURE = enum.auto()
-    PUT_PATHERR =  enum.auto()  # 20 put
+    PUT_PATHERR =  enum.auto()  # 20 putt
     PUT_PROCEED =  enum.auto()
     PUT_SUCCESS =  enum.auto()
     PUT_FAILURE =  enum.auto()

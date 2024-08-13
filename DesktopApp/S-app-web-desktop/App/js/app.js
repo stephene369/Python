@@ -11,8 +11,54 @@ document.addEventListener('DOMContentLoaded', function () {
     let currentIndex = 0;
     let loadingInterval;
     let typingTimer;
+
+
+    let openServerDirButton = document.getElementById("openServerDir");
+    let openServerDirMessage = document.getElementById('openServerDirMsg');
+    let openServerAddressMsg = document.getElementById("openServerDirMsg3");
+    let loaderServer = document.getElementById("loaderServer")
+
     const typingInterval = 1000; // 1 second
 
+    openServerDirButton.addEventListener( 'click' , ()=> { 
+        openServerDirButton.style.display = 'none';
+        console.log("Open server Button clicked")
+
+        fetch('/api/server/file/opendir')
+        .then(response => response.json())
+        .then(data => { 
+            if (data.path) {
+                openServerDirMessage.innerHTML = `Every files here will be set Public : ${data.path} ` 
+                openServerAddressMsg.innerHTML = `${data.address}` ;
+                loaderServer.style.display = 'none'
+
+                openServerAddressMsg.addEventListener( 'click' , ()=>{
+                    fetch('/api/server/file/openweb', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ 'address': data.address })
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                        })
+                        .catch(error => {
+                            console.error('Erreur:', error);
+                        });
+                })
+
+
+            }else{
+                console.log("nothing")
+            }
+        })
+
+
+
+
+
+     })
 
 
     fetch('/api/packages/settings/translator')
