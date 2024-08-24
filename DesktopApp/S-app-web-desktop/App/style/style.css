@@ -1,12 +1,12 @@
+
 * {
     margin: 0;
     padding: 0;
     border: none;
     text-decoration: none;
     box-sizing: border-box;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Roboto', sans-serif;
     transition: all 0.6s;
-
 }
 
 
@@ -189,25 +189,34 @@ OFFLINE TRANSLATOR
 
 #translate select, 
 #translate input {
-    height: 30px;
+    height: 40px;
     font-size: 15px;
     border-radius: 8px;
 }
+feDropShadow{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+}
 
 #translate textarea {
+    padding: 8px;
     background: whitesmoke;
     height: 100%;
     margin-top: 10px;
     box-sizing: border-box;
     resize: none;
-    outline: none;    
-    border-bottom: 2px solid #ffffff; /* Default border color */
-    transition: border-color 0.3s;
+    outline: none;
+    border-bottom: 3px solid #ffffff; /* Default border color */
+    transition: border-color 0.3s, box-shadow 0.3s;
     border-radius: 10px;
+    font-size: 16px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 255, 0.1), 0 2px 4px -1px rgba(0, 0, 255, 0.06);
 }
 
 #translate textarea:hover {
     border-color: rgba(15, 15, 29, 0.24); /* Border color on hover */
+    box-shadow: 0 6px 8px -1px rgba(147, 147, 255, 0.2), 0 4px 6px -1px rgba(115, 115, 255, 0.1);
 }
 
 #translate textarea:focus {
@@ -329,12 +338,15 @@ CV Builder
 }
 
 #cv .container .cont img {
-    width: 60%; /* L'image prendra 50% de la largeur de l'écran */
+    width: 70%; /* L'image prendra 50% de la largeur de l'écran */
     height: auto; /* Maintient le ratio de l'image */
     cursor: pointer;
     border: solid 0.1rem rgba(42, 42, 252, 0.418);
     border-radius: 0.4rem;
+}
 
+#cv .container .cont span{
+    padding-bottom: 10px;
 }
 
 

@@ -76,16 +76,32 @@ class FileServer :
     def __init__(self) :
         self.mediaDirectory = create_media_folder()
         self.port = self.find_free_port()
-        hostname = socket.gethostname()
-        self.local_ip = socket.gethostbyname(hostname)
+        self.local_ip = self.get_local_ip()
 
         self.hyperlink=(f"http://{self.local_ip}:{self.port}")
         print("File Server init ....")
 
+    def get_local_ip(self):
+        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        try:
+            # Doesn't actually connect to 8.8.8.8, but tells the socket which interface to use
+            s.connect(('8.8.8.8', 1))
+            local_ip = s.getsockname()[0]
+        except Exception:
+            local_ip = '127.0.0.1'
+        finally:
+            s.close()
+        return local_ip
+
     def find_free_port(self):
-        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-            s.bind(("", 0))
-            return s.getsockname()[1]
+        port = 8000
+        while True:
+            with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+                try:
+                    s.bind(("", port))
+                    return port
+                except socket.error:
+                    port += 1
 
     def launch(self , hyperlink) : 
         

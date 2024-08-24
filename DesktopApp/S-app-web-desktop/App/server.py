@@ -247,6 +247,7 @@ class Launcher:
             s.bind(("", 0))
             return s.getsockname()[1]
     
+
     def launch(self, port):
         # Essayer de démarrer le serveur sur plusieurs ports
         self.httpd = socketserver.TCPServer(("", port), self.Handler) 
