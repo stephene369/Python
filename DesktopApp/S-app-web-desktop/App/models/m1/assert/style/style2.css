@@ -79,6 +79,7 @@
 
 .input-group button, 
 .add-section button {
+    display: flex;
     border: 1px solid transparent; /* border border-transparent */
     background-color: #f3f4f6; /* bg-gray-100 */
     border-radius: 0.25rem; /* rounded */
@@ -96,6 +97,8 @@
     display: flex; /* flex */
     align-items: center; /* items-center */
     justify-content: center; /* justify-center */
+    max-height: 100%; /* h-full */
+
 }
 
 .input-group  button:hover ,
@@ -201,16 +204,17 @@
 }
 
 
-
+ 
 .add-section .r-group button{
+    display: flex;
     flex-grow: 1; /* flex-grow */
     padding-top: 0.75rem; /* py-3 (padding-top) */
     padding-bottom: 0.75rem; /* py-3 (padding-bottom) */
     text-align: left; /* text-start */
     overflow: hidden; /* overflow-hidden */
     border-radius: 0.25rem; /* rounded */
-    align-items: center;
-    justify-content: center;
+    align-items: start;
+    justify-content: start;
     cursor: pointer;
     background: none;
 }
@@ -243,21 +247,20 @@
     align-items: center;
     align-content: center; 
     cursor: pointer;   
+    width: 5rem;
 }
 
 .add-section .r-group i {
-    font-size: 2rem; /* text-xl */
+    font-size: 2.5rem; /* text-xl */
     overflow: hidden; /* truncate */
     text-overflow: ellipsis; /* truncate */
     white-space: nowrap; /* truncate */
-    color: #000000; /* text-gray-400 */
+    color: #ff0000; /* text-gray-400 */
     align-items: center;
     align-content: center; 
     cursor: pointer;   
-    transform: 1s;
-    transform: 1s;
-    
 }
+
 
 .add-section .r-group button:nth-child(2){
     background: rgba(194, 192, 192, 0.377);
@@ -267,16 +270,15 @@
 .group {
     padding: 2rem;
     border-radius: 1.5rem;
-    transition: 2.4s;
-    transform: 3s ;
+    transform: 0s ;
     border: 0.1rem solid #cacaca8c;
 }
 .group:hover{
-    padding: 2rem;
+    padding: 1.4rem;
     border: 0.1rem solid #3d40e7a9;
-    border-radius: 1.5rem;
+    border-radius: .5rem;
 }
-
+        
 
 .hidden {
     opacity: 0;
@@ -299,9 +301,7 @@
 }
 
 .viewSection:hover{
-    margin: 1.4rem;
-    border-top: transparent;
-    border-bottom: solid 0.1rem rgba(255, 0, 0, 0.233);
-    border-radius: 0.4rem;
+    margin-left: 1.5rem;
+    border-color: red;
 }
 

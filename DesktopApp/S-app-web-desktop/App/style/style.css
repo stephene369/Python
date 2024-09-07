@@ -270,6 +270,15 @@ SETINGS
     flex-wrap: wrap;
 }
 
+#settings .cont-3 {
+    display: flex;
+    flex-direction: row;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 50px;
+    flex-wrap: wrap;
+}
+
 #settings .cont-1 h3,
 #settings .cont-2 h3 {
     width: 100%;
@@ -338,7 +347,7 @@ CV Builder
 }
 
 #cv .container .cont img {
-    width: 70%; /* L'image prendra 50% de la largeur de l'écran */
+    width: 80%; /* L'image prendra 50% de la largeur de l'écran */
     height: auto; /* Maintient le ratio de l'image */
     cursor: pointer;
     border: solid 0.1rem rgba(42, 42, 252, 0.418);

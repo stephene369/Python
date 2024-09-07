@@ -75,7 +75,7 @@
     </nav>
 
 
-    <section id="translate" class="hide-section">
+    <section id="translate" class="show-section">
         <h1 class="title">Offline Translator</h1>
         <div class="container-1">
             <div class="cont-1">
@@ -100,7 +100,7 @@
         <h1 class="title">Files Server </h1>
         <div class="cont1">
             <h2 class="title2">Launch server</h2>
-            <button id="openServerDir">Launch</button >
+            <button id="openServerDir">Launch</button>
         </div>
 
         <div class="cont2">
@@ -108,13 +108,14 @@
         </div>
 
         <div class="cont3">
-            <span id="openServerDirMsg2">Everyone connected to the same wifi as you can open this web address :<span class="loaderServer" id="loaderServer"></span>
+            <span id="openServerDirMsg2">Everyone connected to the same wifi as you can open this web address :<span
+                    class="loaderServer" id="loaderServer"></span>
                 <a id="openServerDirMsg3"></a> </span>
-            
+
         </div>
 
     </section>
-                <section id="settings" class="hide-section">
+    <section id="settings" class="hide-section">
         <h1 class="title">Settings</h1>
         <div class="translator-setting">
 
@@ -130,7 +131,15 @@
                 <select name="" id="installed-options"></select>
                 <button id="removeBtn">Remove</button>
                 <div id="loader1"></div>
+            </div>
 
+            <div class="cont-3">
+                <p>This desktop application, built with Python, leverages the Argos Translate package to provide offline
+                    translation capabilities. It automatically installs the necessary language packages, including
+                    "translate-en_fr-1_9.zip," "en_ja.zip," and "translate-fr_en-1_9.zip." With these resources, the
+                    application can handle translations between English, French, and Japanese. The Argos Translate
+                    models are optimized for performance and accuracy, capable of translating thousands of words in
+                    real-time, making it a reliable tool for various translation needs.</p>
             </div>
 
         </div>
@@ -147,18 +156,17 @@
             <img src="App/img/me.jpg" alt="">
             <div class="cont-1">
                 <h3>Who Am I </h3>
-                
-                <p>
-                    My Name is Stephene WANTCHEKON, I have bachelor degree in statistics
-                    and computer science et master degree in Mathematics Economics and 
-                    Statistics, both at African School of Economics (ASE). <br> <br>
-                    In the same time i was watching online course, and doing personal 
-                    project. This help me to master and build some application. 
-                    I master Python programming, wed development with Django, Flask, html, css,
-                    React. 
-                    I also master Cloud Computing with AWS, GCP ,  cloud computing tools
-                    and DevOps tools as Jenkins, Git, CI/CD, Docker, JFrog, Grafana ... 
 
+                <p>
+                    My name is Stephene WANTCHEKON. I hold a Bachelor’s degree in Statistics and Computer Science, as well as a Master’s degree in Mathematics, Economics, and Statistics from the African School of Economics (ASE).
+<br><br>
+                    Alongside my formal education, I dedicated time to online courses and personal projects, which significantly enhanced my skills and allowed me to develop and deploy several applications.
+<br><br>
+                    I have a strong command of Python programming and am proficient in web development, including frameworks and technologies such as Django, Flask, HTML, CSS, and React. My expertise extends to Cloud Computing, where I am adept with AWS and GCP, and I am familiar with various cloud computing and DevOps tools including Jenkins, Git, CI/CD, Docker, JFrog, and Grafana.
+<br><br>            
+                    My continuous learning and hands-on experience have equipped me with a comprehensive skill set, making me well-prepared to tackle complex development challenges and contribute effectively to dynamic teams.
+                    
+                    
                 </p>
             </div>
         </div>
@@ -166,14 +174,13 @@
         <div class="cont2">
             <h2>Why did I built this ? </h2>
             <p>
-                Was in bachelor degree we need some time to share file between each other, 
-                so must of the time i have the one giving my flash drive to share files.
-                Doing this i have lost my two flash drive. 
-
-                So i decide to build an application to share file from laptop to laptop, 
-                or from laptop to android. 
-
-
+                During my bachelor's degree, I frequently needed to share files with peers, which often involved using flash drives. Unfortunately, I lost two of my flash drives during this process. This inconvenience sparked the idea to develop an application that enables seamless file sharing between laptops and from laptops to Android devices.
+<br>
+<br>
+                In addition to file sharing, I wanted to address another challenge: language barriers. To solve this, I integrated a feature in the application that leverages the Argos Translate model for offline translations. This was motivated by the lack of internet connectivity options available for translation services in some situations.
+<br>
+                
+                Moreover, the application includes two models for creating CVs, allowing users to generate professional resumes efficiently. By combining file sharing, offline translation, and CV creation, the application aims to provide a comprehensive solution for various practical needs.
             </p>
         </div>
 
@@ -188,24 +195,19 @@
         <div class="container">
             <div class="cont">
                 <span>Model 1</span>
-                <img src="App/img/m1" alt="Model 1" id="model1">
+                <img src="App/img/m1.png" alt="Model 1" id="model1">
             </div>
+
             <div class="cont">
-                <span>Model 1</span>
-                <img src="App/img/logo1.png" alt="" id="model2">
+                <span>Model 2</span>
+                <img src="App/img/m2.png" alt="" id="model2">
             </div>
-            <div class="cont">
-                <span>Model 1</span>
-                <img src="App/img/logo1.png" alt="">
-            </div>
-            <div class="cont">
-                <span>Model 1</span>
-                <img src="App/img/logo1.png" alt="">
-            </div>
+
         </div>
     </section>
 
     <script src="App/js/app.js"></script>
+    <script src="App/js/app2.js"></script>
 </body>
 
 </html>

@@ -18,10 +18,18 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     const model1 = document.getElementById("model1");
+    const model2 = document.getElementById("model2");
+
 
     if (model1) {
         model1.addEventListener("click", function () {
             launchCvBuilder('1');
+        });
+    }
+
+    if (model2) {
+        model2.addEventListener("click", function () {
+            launchCvBuilder('2');
         });
     }
 

@@ -15,6 +15,7 @@
     --bd-color:lightblue;
 
     --w: 21cm;
+    --w_:19cm;
     --h: 29.7cm;
 }
 
@@ -23,8 +24,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Courier New', Courier, monospace;
-    transition: all 1.5s;
-
+    transition: all 0.5s ease-in-out;
 }
 
 #downloadBtn {
@@ -47,7 +47,7 @@
 body{
     background-color: var(--bd-color);
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: start;
     min-height: 100vh;
     width: 100vw;
@@ -57,11 +57,21 @@ body{
 .container, 
 .container-2{
     position: relative;
-    width: 40%;
     margin-top: var(--spacing-xlarge); /* 50px */
     margin-bottom: var(--spacing-xlarge); /* 50px */
     background: #fff;
     box-shadow: 0 35px 55px rgba(0,0,0,0.1);
+}
+
+.container-2 .container{
+    margin-top: 0;
+}
+
+.container-2{
+    display: flex;
+    flex-direction: column;
+    min-width: 19cm;
+    max-width: 19cm;
 }
 
 #resume{
@@ -75,7 +85,7 @@ body{
 
 .container .left_side, .container .right_side {
     position: relative;
-    padding: var(--spacing-large); /* 40px */
+    padding: 0px 20px 40px 40px; /* 40px */
 }
 
 .container .left_side {
@@ -354,18 +364,17 @@ p {
 
 
 
-
-
-
-
-
-
-
 @media print {
     @page {
-        scale: 20;
+        scale: 30;
         size: A4; /* Format de papier A4 */
+        margin: none;
 
+    }
+    #resume{
+        min-width: var(--w);
+        min-height: var(--h);
+        max-width: var(--w);
     }
     #downloadBtn{
         display: none;
@@ -380,8 +389,16 @@ p {
 
     :root{
         --bd-color:white;
-        --spacing-xlarge:0;
+        --spacing-xlarge:2rem;
 
+    }
+    .container{
+        padding: 0;
+        margin: 0;
+    }
+    .bd-container{
+        padding: 0;
+        margin: 0 ;
     }
 }
 

@@ -1,0 +1,25 @@
+<div class="deletable">Objet</div>
+<div class="message">Cliquer pour supprimer</div>
+
+<style>
+  .message {
+    display: none;
+    color: red;
+  }
+
+  .deletable:hover + .message {
+    display: inline;
+  }
+</style>
+<script>
+    const deletable = document.getElementById('deletable');
+    const message = document.getElementById('message');
+  
+    deletable.addEventListener('mouseover', () => {
+      message.style.display = 'inline';
+    });
+  
+    deletable.addEventListener('mouseout', () => {
+      message.style.display = 'none';
+    });
+  </script>

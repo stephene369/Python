@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cv-Creator</title>
+
+    <!--BOX ICONS-->
+    <link href="../../../App/style/boxicons.min.css" rel="stylesheet" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!--CSS-->
+    <link rel="stylesheet" href="assets1/css/style.css" />
+    <link rel="stylesheet" href="assets1/css/style2.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+</head>
+
+<body>
+    <!--
+
+    -->
+
+    <button id="downloadBtn" onclick="download()">Download</button>
+
+
+    <div class="container-2">
+        <h1 class="title_">Informations</h1>
+        <div class="container">
+            <div class="c-group">
+                <div class="c-group">
+
+                    <div class="input-group">
+                        <div class="lab-div">
+                            <label for="">Family Name & First Name</label>
+                        </div>
+                        <div class="input-div">
+                            <input type="text" id="nameIp">
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <div class="lab-div">
+                            <label for="">Profile</label>
+                        </div>
+                        <div class="input-div"><input type="text" id="profileIp"></div>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="add-section" style="width: 100%;">
+                <div class="r-group">
+                    <button class="hideSection">
+                        <h3>Contact</h3>
+                    </button>
+                    <i id="contactHider" class='bx bx-chevron-down'></i>
+                </div>
+
+                <div class="c-group" id="contactGroup">
+                </div>
+
+            </div>
+
+
+            <div class="m-cont" id="cButtons" style="display: none;">
+
+                <div class="r-group">
+                    <div class="input-group">
+                        <div class="lab-div">
+                            <label for="">Location</label>
+                        </div>
+                        <div class="input-div"><input type="text" id="LocationIp"></div>
+                    </div>
+                    <div class="input-group">
+                        <div class="lab-div">
+                            <label for="">Email</label>
+                        </div>
+                        <div class="input-div"><input type="text" id="EmailIp"></div>
+                    </div>
+                </div>
+
+                <div class="c-group">
+                    <div class="input-group">
+                        <div class="lab-div">
+                            <label for="">Telephone</label>
+                        </div>
+                        <div class="input-div"><input type="text" id="TelephoneIp"></div>
+                    </div>
+                </div>
+                <button id="linkedin" class="add-button"><i class='bx bx-message-square-add'></i>LinkedIn</button>
+                <button id="github" class="add-button"><i class='bx bx-message-square-add'></i>GitHub</button>
+
+                <button id="instagram" class="add-button"><i class='bx bx-message-square-add'></i>Instagram</button>
+                <button id="facebook" class="add-button"><i class='bx bx-message-square-add'></i>Facebook</button>
+                <button id="tiktok" class="add-button"><i class='bx bx-message-square-add'></i>TikTok</button>
+            </div>
+
+
+            <div class="add-section viewSection" style="width: 100%; ">
+                <div class="r-group">
+                    <button style="width: 100%;" id="profileBtn">
+                        <h3>Profile</h3>
+                    </button>
+                    <i id="profileHider" class='bx bx-chevron-down '></i>
+                </div>
+
+
+                <div class="c-group group" id="profileGroup" style="display: none;">
+                    <div class="input-group">
+                        <div class="lab-div">
+                            <label for="">Profile</label>
+                        </div>
+                        <div class="input-div">
+                            <textarea name="" id="descriptionIp"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="add-section viewSection" style="width: 100%;">
+                <div class="r-group">
+                    <button class="" style="width: 100%;" id="educationBtn">
+                        <h3>Education</h3>
+                    </button>
+                    <button class="" id="educationGroupBtn" style="width: 10%; height: 100%;"><i
+                            class='bx bx-plus'></i></button>
+                    <i id="educationHider" class='bx bx-chevron-up hider'></i>
+                </div>
+                <div class="c-group" id="educationGroup">
+                </div>
+            </div>
+
+
+            <div class="add-section viewSection" style="width: 100%;">
+                <div class="r-group">
+                    <button style="width: 100%;" id="skillsBtn">
+                        <h3>PROFESSIONAL SKILLS</h3>
+                    </button>
+                    <i id="skillsHider" class='bx bx-chevron-down'></i>
+                </div>
+                <div class="c-group" id="skillsGroup" style="display: none;">
+                    <div class="input-group">
+                        <div class="lab-div"> <label for="">Skill : </label> </div>
+                        <div class="input-div"> <input type="text" id="skillName"> </div>
+
+                    </div>
+                    <div class="input-group">
+                        <div class="lab-div"> <label for="">Number of skill </label> </div>
+                        <div class="input-div"> <input type="number" id="skillNumber"> </div>
+                        <button id="addSkills">Add</button>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="add-section viewSection" style="width: 100%;">
+                <div class="r-group">
+                    <button style="width: 100%;" id="experienceBtn">
+                        <h3>EXPERIENCES</h3>
+                    </button>
+                    <button id="experiencesGroupBtn" style="width: 10%; height: 100%;"><i
+                            class='bx bx-plus'></i></button>
+                    <i id="experiencesHider" class='bx bx-chevron-up hider'></i>
+                </div>
+                <div class="c-group" id="experiencesGroup">
+                </div>
+            </div>  
+
+
+            <div class="add-section viewSection" style="width: 100%;">
+                <div class="r-group">
+                    <button style="width: 100%;" id="certificateBtn">
+                        <h3>CERTIFICATE</h3>
+                    </button>
+                    <button id="certificatesGroupBtn" style="width: 10%; height: 100%;"><i
+                            class='bx bx-plus'></i></button>
+                    <i id="certificatesHider" class='bx bx-chevron-up hider'></i>
+                </div>
+                <div class="c-group" id="certificatesGroup">
+                </div>
+            </div>
+
+
+
+            <div class="add-section viewSection" style="width: 100%;">
+                <div class="r-group">
+                    <button style="width: 100%;" id="referencesBtn">
+                        <h3>References</h3>
+                    </button>
+                    <button id="referencesGroupBtn" style="width: 10%; height: 100%;"><i
+                            class='bx bx-plus'></i></button>
+                    <i id="referencesHider" class='bx bx-chevron-up hider'></i>
+                </div>
+                <div class="c-group" id="referencesGroup">
+                </div>
+            </div>            
+
+
+
+            <div class="add-section viewSection" style="width: 100%;">
+                <div class="r-group">
+                    <button style="width: 100%;" id="languageBtn">
+                        <h3>LANGUAGES</h3>
+                    </button>
+                    <button id="languagesGroupBtn" style="width: 10%; height: 100%;"><i class='bx bx-plus'></i></button>
+                    <i id="languagesHider" class='bx bx-chevron-up hider'></i>
+                </div>
+                <div class="c-group" id="languagesGroup">
+                </div>
+            </div>
+
+
+
+            <div class="add-section viewSection" style="width: 100%; padding-bottom: 0;">
+                <div class="r-group">
+                    <button style="width: 100%;" id="interestsBtn">
+                        <h3>INTEREST</h3>
+                    </button>
+                    <i id="" class='bx bx-chevron-up hider'></i>
+                </div>
+            </div>
+
+            <div class="m-cont" style="padding-top: 0;">
+                <button id="coding" class="add-button"><i class='bx bx-message-square-add'></i>Coding</button>
+                <button id="football" class="add-button"><i class='bx bx-message-square-add'></i>Football</button>
+                <button id="gaming" class="add-button"><i class='bx bx-message-square-add'></i>Gaming</button>
+                <button id="sport" class="add-button"><i class='bx bx-message-square-add'></i>Sport</button>
+
+                <button id="book" class="add-button"><i class='bx bx-message-square-add'></i>Book</button>
+                <button id="blog" class="add-button"><i class='bx bx-message-square-add'></i>Bloging</button>
+                <button id="social" class="add-button"><i class='bx bx-message-square-add'></i>SicialMedial</button>
+                <button id="travel" class="add-button"><i class='bx bx-message-square-add'></i>Travel</button>
+                <button id="nature" class="add-button"><i class='bx bx-message-square-add'></i>Nature</button>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <!--All Element here is generated in PDF-->
+    <div class="resume" id="areaCv">
+        <div class="resume__left">
+            <!--====================Home======================-->
+            <section class="home" id="home">
+                <div class="home__container section bd-grid">
+                    <div class="home__data bd-grid">
+
+                        <h1 class="home__title" id="nameIp_"></h1>
+                        <h3 class="home__profession" id="profileIp_"></h3>
+
+                        <!--=====================Button Download=================-->
+                        <div>
+                            <a download="" href="assets/pdf/resume.pdf" class="home__button-movil">
+                                Download
+                            </a>
+                        </div>
+
+                    </div>
+
+                    <div class="home__address bd-grid">
+                        <span class="home__information">
+                            <i class="bx bx-map home__icon"></i>
+                            <span class="location-address" id="LocationIp_"></span>
+                        </span>
+
+                        <span class="home__information">
+                            <i class="bx bx-envelope home__icon"></i>
+                            <span class="email-address" id="EmailIp_"></span>
+                        </span>
+
+                        <span class="home__information">
+                            <i class="bx bx-phone home__icon"></i>
+                            <span class="phone-address" id="TelephoneIp_"></span>
+                        </span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===============================
+                                SOCIAL 
+                ===================================-->
+            <section class="social section">
+                <h2 class="section-title">SOCIAL</h2>
+                <div class="social__container bd-grid" id="social__container">
+
+                </div>
+            </section>
+
+
+            <!-- ===============================
+                                PROFILE
+                ===================================-->
+            <section class="profile section" id="profileSection">
+                <h2 class="section-title">Profile</h2>
+                <p class="profile__description" id="profile__description" >
+                </p>
+            </section>
+
+
+            <!-- ===============================
+                                EDUCATION
+                ===================================-->
+            <section class="education section" id="educationSection">
+                <h2 class="section-title">Education</h2>
+                <div class="education-container bd-grid" id="education-container">
+                </div>
+            </section>
+
+
+            <!-- ===============================
+                                SKILLS
+                ===================================-->
+            <section class="skills section" id="skillsGroup_">
+                <h2 class="section-title">Skills</h2>
+                <div class="skills__content bd-grid" id="skills-container">
+                </div>
+            </section>
+
+
+
+        </div>
+
+        <div class="resume__right">
+            <!--================== EXPERIENCE ===============-->
+            <section class="experience section" id="experiencesGroup_">
+                <h2 class="section-title">Experience</h2>
+
+                <div class="experience__container bd-grid" id="experiences-container">
+
+                </div>
+            </section>
+
+            <!--================== CERTIFICATE ===============-->
+            <section class="certificate section" id="certificateSection">
+                <h2 class="section-title">Certificates</h2>
+
+                <div class="certificate__countainer bd-grid" id="certificate-container">
+                </div>
+
+            </section>
+
+            <!--================== REFERENCES ===============-->
+            <section class="reference section" id="reference">
+                <h2 class="section-title">References</h2>
+
+                <div class="references__container bd-grid" id="references-container">
+                </div>
+            </section>
+
+            <!--================== LANGUAGES ===============-->
+            <section class="languages section" id="languageSection">
+                <h2 class="section-title">languages</h2>
+
+                <div class="languages__container" id="languages-container">
+                    <ul class="languages__content bd-grid" id="languages-content">
+
+                    </ul>
+                </div>
+            </section>
+
+            <!--================== INTERESTS ===============-->
+            <section class="interests section" id="interestsSection">
+                <h2 class="section-title">Interests</h2>
+
+                <div class="interests__container bd-grid" id="interests-container">
+
+                </div>
+            </section>
+        </div>
+    </div>
+
+
+
+
+    <!--================== SCROLL TOP ===============-->
+    <a href="#" class="scrolltop" id="scroll-top">
+        <i class="bx bx-up-arrow-alt scrolltop__icon"></i>
+    </a>
+
+    <script>
+        const resumeButton = document.getElementById('downloadBtn');
+
+        function generateResume() {
+            // Masquer le bouton
+            setTimeout(() => {
+
+                window.print(); // Afficher la fenêtre d'impression
+
+                // Réafficher le bouton après l'impression
+            }, 1000); // Attendre 5 secondes
+        }
+
+        resumeButton.addEventListener('click', () => {
+            generateResume();
+            console.log("Clicked");
+        });
+
+    </script>
+    <script src="assets1/app/app.js"></script>
+
+
+</body>
+
+</html>

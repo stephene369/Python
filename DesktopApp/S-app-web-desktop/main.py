@@ -24,6 +24,12 @@ https://www.linkedin.com/in/stephene-wantchekon-b13322252/
 from Ui.lib import *  
 from Ui.window import Window 
 
+from App import PackageInstaller
+from pathlib import Path
+
+installer = PackageInstaller()
+installer.setup_default_packages()
+
 
 if __name__ == '__main__':
     QApplication.setHighDpiScaleFactorRoundingPolicy(Qt.HighDpiScaleFactorRoundingPolicy.PassThrough)

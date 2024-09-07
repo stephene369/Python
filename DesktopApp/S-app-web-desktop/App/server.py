@@ -168,12 +168,13 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
             post_data = self.rfile.read(content_length).decode('utf-8')
             data = json.loads(post_data)
 
+
             #m = data['model']
             data = {
                 "model":(data['model']) , 
-                "url":f"http://localhost:{self.port}/App/models/{data['model']}/"
+                "url":f"http://localhost:{self.port}/App/models/m{data['model']}/"
             }
-            #print(data)
+            print(data)
             QDesktopServices.openUrl(QUrl(data['url']))
 
             self.send_response(200)

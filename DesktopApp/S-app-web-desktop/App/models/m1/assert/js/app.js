@@ -3,6 +3,7 @@ function goBack() {
 }
 
 
+
 /// IMAGE INPUT 
 const cameraButton = document.getElementById('cameraIp');
 const fileInput = document.getElementById('fileInput');
@@ -197,18 +198,19 @@ autoWritingId("profileIp", "profileIp_")
 autoWritingId("descriptionIp" , "descriptionIp_")
 
 
-function hideElement(elementId, buttonId , isVisible) {
+function hideElement(elementId, buttonId, isVisible) {
     const element = document.getElementById(elementId);
     const button = document.getElementById(buttonId);
 
-    button.addEventListener('click', function() {
+    button.addEventListener('click', function () {
         if (isVisible) {
             element.style.display = 'none';
-            button.className = "bx bx-chevron-down"
+            button.className = "bx bx-chevron-down";
+            button.style.color = 'red'; // Mettre la couleur en rouge quand c'est "down"
         } else {
             element.style.display = 'flex';
-            button.className = "bx bx-chevron-up"
-
+            button.className = "bx bx-chevron-up";
+            button.style.color = 'blue'; // Mettre la couleur en bleu quand c'est "up"
         }
         isVisible = !isVisible; // Toggle visibility state
     });
@@ -316,6 +318,8 @@ function addEducationElement(parent1Id, parent2Id, buttonId) {
 
     });
 }
+
+
 
 function generateRandomId() {
     return 'id-' + Math.random().toString(36).substr(2, 9);
@@ -851,5 +855,38 @@ createInterest("interestGroup_" , "travel")
 createInterest("interestGroup_" , "book")
 createInterest("interestGroup_" , "nature")
 
+
+function addHoverMessage(id) {
+    const element = document.getElementById(id);
+    element.style.position = 'relative'; // Nécessaire pour l'élément parent
+
+    // Crée un élément h6 avec le message
+    const message = document.createElement('h6');
+    message.style.color = 'red';
+    message.textContent = 'Click to make disappear this section on the CV';
+    message.style.display = 'none'; // Le message est caché par défaut
+    message.style.whiteSpace = 'nowrap';
+
+    // Ajoute le message en tant qu'enfant de l'élément
+    element.appendChild(message);
+
+    // Affiche le message lorsque la souris passe sur l'élément
+    element.addEventListener('mouseover', () => {
+        message.style.display = 'block';
+    });
+
+    // Cache le message lorsque la souris quitte l'élément
+    element.addEventListener('mouseout', () => {
+        message.style.display = 'none';
+    });
+}
+
+addHoverMessage("educationBtn"); 
+addHoverMessage("languageBtn");
+addHoverMessage("profileBtn");
+addHoverMessage("certificateBtn");
+addHoverMessage("experienceBtn");
+addHoverMessage("skillsBtn");
+addHoverMessage("interestsBtn");
 
 
