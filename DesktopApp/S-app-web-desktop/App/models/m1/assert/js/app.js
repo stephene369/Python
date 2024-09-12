@@ -1,3 +1,6 @@
+document.body.style.zoom = "90%";
+
+
 function goBack() {
     window.history.back();
 }
@@ -46,19 +49,28 @@ function imageInput() {
 const resumeButton = document.getElementById('downloadBtn');
 
 function generateResume() {
+    // Store the original zoom level
+    const originalZoom = document.body.style.zoom;
+
+    // Set zoom to 100%
+    document.body.style.zoom = "100%";
+
     // Masquer le bouton
     setTimeout(() => {
-        
         window.print(); // Afficher la fenêtre d'impression
         
-        // Réafficher le bouton après l'impression
-    }, 1000); // Attendre 5 secondes
+        // Restore the original zoom level after printing
+        setTimeout(() => {
+            document.body.style.zoom = originalZoom;
+        }, 100);
+    }, 1000);
 }
 
 resumeButton.addEventListener('click', () => {
     generateResume();
     console.log("Clicked");
 });
+
 
 function autoWritingId(sourceId, destinationId) {
     const source = document.getElementById(sourceId);
@@ -889,4 +901,77 @@ addHoverMessage("experienceBtn");
 addHoverMessage("skillsBtn");
 addHoverMessage("interestsBtn");
 
+
+
+function handleCheckbox(size) {
+    const root = document.documentElement;
+    const normalCheckbox = document.getElementById('normalCheckbox');
+    const smallCheckbox = document.getElementById('smallCheckbox');
+
+    if (size === 'small') {
+        normalCheckbox.checked = false;
+        smallCheckbox.checked = true;
+        // Appliquer les styles pour 'small'
+        // ...
+    } else if (size === 'normal') {
+        normalCheckbox.checked = true;
+        smallCheckbox.checked = false;
+        // Appliquer les styles pour 'normal'
+        // ...
+    }
+    const originalValues = {
+        '--spacing-xsmall': '0.3125rem',
+        '--spacing-small': '0.625rem',
+        '--spacing-medium': '1rem',
+        '--spacing-large': '1.5rem',
+        '--spacing-xlarge': '2rem',
+        '--radius-small': '0.3125rem',
+        '--width-small': '1.875rem',
+        '--width-medium': '6.375rem',
+        '--width-large': '12.5rem',
+        '--height-small': '0.375rem',
+        '--height-medium': '0.625rem',
+        '--font-size-h2': '1.5em',
+        '--font-size-h2-span': '1.8em',
+        '--font-size-profileText-span': '1.3em',
+        '--font-size-icon': '1.125rem',
+        '--width-icon': '1.875rem',
+        '--font-size-skills-h4': '1rem',
+        '--width-skills-box': '15.625rem',
+        '--font-size-interest-icon': '1.125rem',
+        '--width-interest-icon': '1.25rem',
+        '--width-scale-cv': '37.1875rem',
+        '--width-profileText-img': '3.5rem',
+        '--height-profileText-img': '3.5rem',
+        '--margin-top-profileText-h2': '1.25rem',
+        '--padding-contactInfo': '2.5rem',
+        '--margin-bottom-contactInfo-title': '1.25rem',
+        '--margin-contactInfo-li': '0.625rem',
+        '--margin-bottom-education-li': '0.625rem',
+        '--margin-top-percent': '0.3125rem',
+        '--margin-top-about': '3.125rem',
+        '--margin-bottom-title2': '0.625rem',
+        '--margin-box': '1.25rem',
+        '--margin-skills-box': '0.3125rem',
+        '--height-skills-percent': '0.625rem',
+        '--margin-interest-li': '0.625rem',
+        '--height-certificates': '6rem',
+        '--padding-backButton': '0.625rem 1.25rem',
+        '--margin-print': '0.1in 0in 0.1in 0in',
+        '--padding-container-2': '2rem'
+    };
+
+    if (size === 'small') {
+        for (let [variable, value] of Object.entries(originalValues)) {
+            const numericValue = parseFloat(value);
+            const unit = value.replace(numericValue, '');
+            const smallValue = (numericValue * 0.85).toFixed(4) + unit;
+            root.style.setProperty(variable, smallValue);
+        }
+    } else if (size === 'normal') {
+        for (let [variable, value] of Object.entries(originalValues)) {
+            root.style.setProperty(variable, value);
+        }
+    }
+}
 

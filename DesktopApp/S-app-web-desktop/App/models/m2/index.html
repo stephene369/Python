@@ -386,22 +386,31 @@
     </a>
 
     <script>
-        const resumeButton = document.getElementById('downloadBtn');
+const resumeButton = document.getElementById('downloadBtn');
 
-        function generateResume() {
-            // Masquer le bouton
-            setTimeout(() => {
+function generateResume() {
+    // Store the original zoom level
+    const originalZoom = document.body.style.zoom;
 
-                window.print(); // Afficher la fenêtre d'impression
+    // Set zoom to 100%
+    document.body.style.zoom = "100%";
 
-                // Réafficher le bouton après l'impression
-            }, 1000); // Attendre 5 secondes
-        }
+    // Masquer le bouton
+    setTimeout(() => {
+        window.print(); // Afficher la fenêtre d'impression
+        
+        // Restore the original zoom level after printing
+        setTimeout(() => {
+            document.body.style.zoom = originalZoom;
+        }, 100);
+    }, 1000);
+}
 
-        resumeButton.addEventListener('click', () => {
-            generateResume();
-            console.log("Clicked");
-        });
+resumeButton.addEventListener('click', () => {
+    generateResume();
+    console.log("Clicked");
+});
+
 
     </script>
     <script src="assets1/app/app.js"></script>

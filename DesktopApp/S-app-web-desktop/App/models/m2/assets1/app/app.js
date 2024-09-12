@@ -1,4 +1,4 @@
-document.body.style.zoom = "85%";
+document.body.style.zoom = "90%";
 
 function mirrorText(idInput, idOutput) {
     const inputElement = document.getElementById(idInput);
