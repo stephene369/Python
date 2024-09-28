@@ -1,5 +1,43 @@
 document.body.style.zoom = "90%";
 
+document.addEventListener('contextmenu', event => event.preventDefault());
+document.addEventListener("keydown", function (e) {
+    // Empêcher Ctrl+S ou Cmd+S
+    if (e.key === 's' && (navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)) {
+        e.preventDefault();
+    }
+
+    // Empêcher F12
+    if (e.key === 'F12' || e.keyCode === 123) {
+        e.preventDefault();
+    }
+
+    // Empêcher Ctrl+Shift+I ou Cmd+Option+I (autre raccourci pour les outils de développement)
+    if ((e.ctrlKey && e.shiftKey && e.key === 'I') || (e.metaKey && e.altKey && e.key === 'i')) {
+        e.preventDefault();
+    }
+
+    // Empêcher Ctrl+U ou Cmd+U (afficher le code source)
+    if ((e.ctrlKey && e.key === 'u') || (e.metaKey && e.key === 'u')) {
+        e.preventDefault();
+    }
+
+    // Empêcher Ctrl+P ou Cmd+P
+    if ((e.ctrlKey && e.key === 'p') || (e.metaKey && e.key === 'p')) {
+        e.preventDefault();
+    }
+}, false);
+
+
+function googleTranslateElementInit() {
+    new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+  }
+
+function goBack() {
+    window.history.back();
+}
+
+
 function mirrorText(idInput, idOutput) {
     const inputElement = document.getElementById(idInput);
     const outputElement = document.getElementById(idOutput);
@@ -8,6 +46,9 @@ function mirrorText(idInput, idOutput) {
         outputElement.textContent = inputElement.value; // Utiliser textContent pour ne pas interpréter le texte comme HTML
     });
 }
+
+
+
 mirrorText("nameIp", "nameIp_");
 mirrorText("profileIp", "profileIp_")
 mirrorText("TelephoneIp", "TelephoneIp_")
@@ -921,23 +962,15 @@ function addHoverMessage(id) {
 
     // Crée un élément h6 avec le message
     const message = document.createElement('h6');
-    message.style.color = 'red';
+    message.style.color = 'rgba(255, 2, 2, 0.65)';
     message.textContent = 'Click to make disappear this section on the CV';
-    message.style.display = 'none'; // Le message est caché par défaut
+    message.style.display = 'block'; // Le message est caché par défaut
     message.style.whiteSpace = 'nowrap';
 
     // Ajoute le message en tant qu'enfant de l'élément
     element.appendChild(message);
 
-    // Affiche le message lorsque la souris passe sur l'élément
-    element.addEventListener('mouseover', () => {
-        message.style.display = 'block';
-    });
 
-    // Cache le message lorsque la souris quitte l'élément
-    element.addEventListener('mouseout', () => {
-        message.style.display = 'none';
-    });
 }
 
 addHoverMessage("educationBtn"); 

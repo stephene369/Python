@@ -1,0 +1,14 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <rect width="200" height="200" fill="#f0f0f0"/>
+  <g transform="translate(20, 20)">
+    <!-- Le C -->
+    <path d="M60,30 A50,50 0 0,0 60,130" stroke="#2c3e50" stroke-width="20" fill="none"/>
+    
+    <!-- Le V -->
+    <path d="M90,30 L120,130 L150,30" stroke="#2c3e50" stroke-width="20" fill="none" stroke-linecap="round"/>
+    
+    <!-- La plume/crayon -->
+    <path d="M30,140 L50,160 L170,40 L150,20 Z" fill="#3498db"/>
+    <path d="M30,140 L50,160 L60,150 L40,130 Z" fill="#2980b9"/>
+  </g>
+</svg>

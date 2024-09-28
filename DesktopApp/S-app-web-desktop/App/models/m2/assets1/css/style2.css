@@ -343,7 +343,9 @@
   #downloadBtn{
       display: none;
   }
-
+  footer{
+    display: none;
+}
 
   body{
     margin: 0;
